@@ -1,2 +1,4 @@
 # tcbench
-Traffic classification benchmarking of Machine Learning and Deep Learning models created from traffic time series or other input representations
+
+`tcbench` is a Machine Learning and Deep Learning framework to
+train model from traffic packet time series or other input representations.
