@@ -1,0 +1,539 @@
+__unfiltered__:
+   row_id:
+      dtype: int
+      description: "Unique flow id"
+   conn_id:
+      dtype: str
+      description: "Flow 5-tuple"
+   packet_data_timestamp:
+      dtype: np.array
+      description: "Time series of packet unixtime"
+   packet_data_src_port:
+      dtype: np.array
+      description: "Time series of the source ports"
+   packet_data_dst_port:
+      dtype: np.array
+      description: "Time series of the destination ports"
+   packet_data_packet_dir:
+      dtype: np.array
+      description: "Time series of pkts direction (0 or 1)"
+   packet_data_ip_packet_bytes:
+      dtype: np.array
+      description: "Time series pkts bytes (as from IP len field)"
+   packet_data_ip_header_bytes:
+      dtype: np.array
+      description: "Time series of IP header bytes"
+   packet_data_l4_payload_bytes:
+      dtype: np.array
+      description: "Time series of payload pkts size"
+   packet_data_l4_header_bytes:
+      dtype: np.array
+      description: "Time series of L4 header bytes"
+   packet_data_iat:
+      dtype: np.array
+      description: "Time series of pkts inter arrival times"
+   packet_data_tcp_win_size:
+      dtype: np.array
+      description: "Time series of TCP window size"
+   packet_data_tcp_flags:
+      dtype: np.array
+      description: "Time series of TCP flags"
+   packet_data_l4_raw_payload:
+      dtype: np.array
+      description: "List of list with each packet payload"
+   packet_data_is_clear:
+      dtype: np.array
+      description: "n.a."
+   packet_data_heuristic:
+      dtype: str
+      description: "n.a."
+   packet_data_annotations:
+      dtype: str
+      description: "n.a."
+   flow_features_packet_length_biflow_min:
+      dtype: float
+      description: "Bidirectional min frame (i.e., pkt with headers) size"
+   flow_features_packet_length_biflow_max:
+      dtype: float
+      description: "Bidirectional max frame size"
+   flow_features_packet_length_biflow_mean:
+      dtype: float
+      description: "Bidirectional mean frame size"
+   flow_features_packet_length_biflow_std:
+      dtype: float
+      description: "Bidirectional std frame size"
+   flow_features_packet_length_biflow_var:
+      dtype: float
+      description: "Bidirectional variance frame size"
+   flow_features_packet_length_biflow_mad:
+      dtype: float
+      description: "Bidirectional median absolute deviation frame size"
+   flow_features_packet_length_biflow_skew:
+      dtype: float
+      description: "Bidirection skew frame size"
+   flow_features_packet_length_biflow_kurtosis:
+      dtype: float
+      description: "Bidirectional kurtosi frame size"
+   flow_features_packet_length_biflow_10_percentile:
+      dtype: float
+      description: "Bidirection 10%-ile of frame size"
+   flow_features_packet_length_biflow_20_percentile:
+      dtype: float
+      description: "Bidirection 20%-ile of frame size"
+   flow_features_packet_length_biflow_30_percentile:
+      dtype: float
+      description: "Bidirection 30%-ile of frame size"
+   flow_features_packet_length_biflow_40_percentile:
+      dtype: float
+      description: "Bidirection 40%-ile of frame size"
+   flow_features_packet_length_biflow_50_percentile:
+      dtype: float
+      description: "Bidirection 50%-ile of frame size"
+   flow_features_packet_length_biflow_60_percentile:
+      dtype: float
+      description: "Bidirection 60%-le of frame size"
+   flow_features_packet_length_biflow_70_percentile:
+      dtype: float
+      description: "Bidirection 70%-ile of frame size"
+   flow_features_packet_length_biflow_80_percentile:
+      dtype: float
+      description: "Bidirection 80%-ile of frame size"
+   flow_features_packet_length_biflow_90_percentile:
+      dtype: float
+      description: "Bidirection 90%-ile of frame size"
+   flow_features_packet_length_upstream_flow_min:
+      dtype: float
+      description: "Upstream min frame (i.e., pkt with headers) size"
+   flow_features_packet_length_upstream_flow_max:
+      dtype: float
+      description: "Upstream max frame size"
+   flow_features_packet_length_upstream_flow_mean:
+      dtype: float
+      description: "Upstream mean frame size"
+   flow_features_packet_length_upstream_flow_std:
+      dtype: float
+      description: "Upstream std frame size"
+   flow_features_packet_length_upstream_flow_var:
+      dtype: float
+      description: "Upstream variance frame size"
+   flow_features_packet_length_upstream_flow_mad:
+      dtype: float
+      description: "Upstream median absolute deviation frame size"
+   flow_features_packet_length_upstream_flow_skew:
+      dtype: float
+      description: "Upstream skew frame size"
+   flow_features_packet_length_upstream_flow_kurtosis:
+      dtype: float
+      description: "Upstream kurtosi frame size"
+   flow_features_packet_length_upstream_flow_10_percentile:
+      dtype: float
+      description: "Upstream 10%-ile frame size"
+   flow_features_packet_length_upstream_flow_20_percentile:
+      dtype: float
+      description: "Upstream 20%-ile frame size"
+   flow_features_packet_length_upstream_flow_30_percentile:
+      dtype: float
+      description: "Upstream 30%-ile frame size"
+   flow_features_packet_length_upstream_flow_40_percentile:
+      dtype: float
+      description: "Upstream 40%-ile frame size"
+   flow_features_packet_length_upstream_flow_50_percentile:
+      dtype: float
+      description: "Upstream 50%-ile frame size"
+   flow_features_packet_length_upstream_flow_60_percentile:
+      dtype: float
+      description: "Upstream 60%-ile frame size"
+   flow_features_packet_length_upstream_flow_70_percentile:
+      dtype: float
+      description: "Upstream 70%-ile frame size"
+   flow_features_packet_length_upstream_flow_80_percentile:
+      dtype: float
+      description: "Upstream 80%-ile frame size"
+   flow_features_packet_length_upstream_flow_90_percentile:
+      dtype: float
+      description: "Upstream 90%-ile frame size"
+   flow_features_packet_length_downstream_flow_min:
+      dtype: float
+      description: "Downstream min frame (i.e., pkt with headers) size"
+   flow_features_packet_length_downstream_flow_max:
+      dtype: float
+      description: "Downstream max frame size"
+   flow_features_packet_length_downstream_flow_mean:
+      dtype: float
+      description: "Downstream mean frame size"
+   flow_features_packet_length_downstream_flow_std:
+      dtype: float
+      description: "Downstream std frame size"
+   flow_features_packet_length_downstream_flow_var:
+      dtype: float
+      description: "Downstream variance frame size"
+   flow_features_packet_length_downstream_flow_mad:
+      dtype: float
+      description: "Downstream max frame size"
+   flow_features_packet_length_downstream_flow_skew:
+      dtype: float
+      description: "Downstream skew frame size"
+   flow_features_packet_length_downstream_flow_kurtosis:
+      dtype: float
+      description: "Downstream kurtosi frame size"
+   flow_features_packet_length_downstream_flow_10_percentile:
+      dtype: float
+      description: "Downstream 10%-ile frame size"
+   flow_features_packet_length_downstream_flow_20_percentile:
+      dtype: float
+      description: "Downstream 20%-ile frame size"
+   flow_features_packet_length_downstream_flow_30_percentile:
+      dtype: float
+      description: "Downstream 30%-ile frame size"
+   flow_features_packet_length_downstream_flow_40_percentile:
+      dtype: float
+      description: "Downstream 40%-ile frame size"
+   flow_features_packet_length_downstream_flow_50_percentile:
+      dtype: float
+      description: "Downstream 50%-ile frame size"
+   flow_features_packet_length_downstream_flow_60_percentile:
+      dtype: float
+      description: "Downstream 60%-ile frame size"
+   flow_features_packet_length_downstream_flow_70_percentile:
+      dtype: float
+      description: "Downstream 70%-ile frame size"
+   flow_features_packet_length_downstream_flow_80_percentile:
+      dtype: float
+      description: "Downstream 80%-ile frame size"
+   flow_features_packet_length_downstream_flow_90_percentile:
+      dtype: float
+      description: "Downstream 90%-ile frame size"
+   flow_features_iat_biflow_min:
+      dtype: float
+      description: "Bidirectional min inter arrival time"
+   flow_features_iat_biflow_max:
+      dtype: float
+      description: "Bidirectional max inter arrival time"
+   flow_features_iat_biflow_mean:
+      dtype: float
+      description: "Bidirectional mean inter arrival time"
+   flow_features_iat_biflow_std:
+      dtype: float
+      description: "Bidirectional std inter arrival time"
+   flow_features_iat_biflow_var:
+      dtype: float
+      description: "Bidirectional variance inter arrival time"
+   flow_features_iat_biflow_mad:
+      dtype: float
+      description: "Bidirectional median absolute deviation inter arrival time"
+   flow_features_iat_biflow_skew:
+      dtype: float
+      description: "Bidirectional skew inter arrival time"
+   flow_features_iat_biflow_kurtosis:
+      dtype: float
+      description: "Bidirectional kurtosi inter arrival time"
+   flow_features_iat_biflow_10_percentile:
+      dtype: float
+      description: "Bidirectional 10%-tile inter arrival time"
+   flow_features_iat_biflow_20_percentile:
+      dtype: float
+      description: "Bidirectional 20%-tile inter arrival time"
+   flow_features_iat_biflow_30_percentile:
+      dtype: float
+      description: "Bidirectional 30%-tile inter arrival time"
+   flow_features_iat_biflow_40_percentile:
+      dtype: float
+      description: "Bidirectional 40%-tile inter arrival time"
+   flow_features_iat_biflow_50_percentile:
+      dtype: float
+      description: "Bidirectional 50%-tile inter arrival time"
+   flow_features_iat_biflow_60_percentile:
+      dtype: float
+      description: "Bidirectional 60%-tile inter arrival time"
+   flow_features_iat_biflow_70_percentile:
+      dtype: float
+      description: "Bidirectional 70%-tile inter arrival time"
+   flow_features_iat_biflow_80_percentile:
+      dtype: float
+      description: "Bidirectional 80%-tile inter arrival time"
+   flow_features_iat_biflow_90_percentile:
+      dtype: float
+      description: "Bidirectional 90%-tile inter arrival time"
+   flow_features_iat_upstream_flow_min:
+      dtype: float
+      description: "Upstream min inter arrival time"
+   flow_features_iat_upstream_flow_max:
+      dtype: float
+      description: "Upstream max inter arrival time"
+   flow_features_iat_upstream_flow_mean:
+      dtype: float
+      description: "Upstream avg inter arrival time"
+   flow_features_iat_upstream_flow_std:
+      dtype: float
+      description: "Upstream std inter arrival time"
+   flow_features_iat_upstream_flow_var:
+      dtype: float
+      description: "Upstream variance inter arrival time"
+   flow_features_iat_upstream_flow_mad:
+      dtype: float
+      description: "Upstream median absolute deviation inter arrival time"
+   flow_features_iat_upstream_flow_skew:
+      dtype: float
+      description: "Upstream skew inter arrival time"
+   flow_features_iat_upstream_flow_kurtosis:
+      dtype: float
+      description: "Upstream kurtosi inter arrival time"
+   flow_features_iat_upstream_flow_10_percentile:
+      dtype: float
+      description: "Upstream 10%-ile inter arrival time"
+   flow_features_iat_upstream_flow_20_percentile:
+      dtype: float
+      description: "Upstream 20%-ile inter arrival time"
+   flow_features_iat_upstream_flow_30_percentile:
+      dtype: float
+      description: "Upstream 30%-ile inter arrival time"
+   flow_features_iat_upstream_flow_40_percentile:
+      dtype: float
+      description: "Upstream 40%-ile inter arrival time"
+   flow_features_iat_upstream_flow_50_percentile:
+      dtype: float
+      description: "Upstream 50%-ile inter arrival time"
+   flow_features_iat_upstream_flow_60_percentile:
+      dtype: float
+      description: "Upstream 60%-ile inter arrival time"
+   flow_features_iat_upstream_flow_70_percentile:
+      dtype: float
+      description: "Upstream 70%-ile inter arrival time"
+   flow_features_iat_upstream_flow_80_percentile:
+      dtype: float
+      description: "Upstream 80%-ile inter arrival time"
+   flow_features_iat_upstream_flow_90_percentile:
+      dtype: float
+      description: "Upstream 90%-ile inter arrival time"
+   flow_features_iat_downstream_flow_min:
+      dtype: float
+      description: "Downstream min inter arrival time"
+   flow_features_iat_downstream_flow_max:
+      dtype: float
+      description: "Downstream max inter arrival time"
+   flow_features_iat_downstream_flow_mean:
+      dtype: float
+      description: "Downstream mean inter arrival time"
+   flow_features_iat_downstream_flow_std:
+      dtype: float
+      description: "Downstream std inter arrival time"
+   flow_features_iat_downstream_flow_var:
+      dtype: float
+      description: "Downstream variance inter arrival time"
+   flow_features_iat_downstream_flow_mad:
+      dtype: float
+      description: "Downstream median absolute deviation inter arrival time"
+   flow_features_iat_downstream_flow_skew:
+      dtype: float
+      description: "Downstream skew inter arrival time"
+   flow_features_iat_downstream_flow_kurtosis:
+      dtype: float
+      description: "Downstream kurtosi inter arrival time"
+   flow_features_iat_downstream_flow_10_percentile:
+      dtype: float
+      description: "Downstream 10%-ile inter arrival time"
+   flow_features_iat_downstream_flow_20_percentile:
+      dtype: float
+      description: "Downstream 20%-ile inter arrival time"
+   flow_features_iat_downstream_flow_30_percentile:
+      dtype: float
+      description: "Downstream 30%-ile inter arrival time"
+   flow_features_iat_downstream_flow_40_percentile:
+      dtype: float
+      description: "Downstream 40%-ile inter arrival time"
+   flow_features_iat_downstream_flow_50_percentile:
+      dtype: float
+      description: "Downstream 50%-ile inter arrival time"
+   flow_features_iat_downstream_flow_60_percentile:
+      dtype: float
+      description: "Downstream 60%-ile inter arrival time"
+   flow_features_iat_downstream_flow_70_percentile:
+      dtype: float
+      description: "Downstream 70%-ile inter arrival time"
+   flow_features_iat_downstream_flow_80_percentile:
+      dtype: float
+      description: "Downstream 80%-ile inter arrival time"
+   flow_features_iat_downstream_flow_90_percentile:
+      dtype: float
+      description: "Downstream 90%-ile inter arrival time"
+   flow_metadata_bf_device:
+      dtype: str
+      description: "Ethernet address"
+   flow_metadata_bf_label_source:
+      dtype: str
+      description: "Constant value 'netstate'"
+   flow_metadata_bf_label:
+      dtype: str
+      description: "original mirage label"
+   flow_metadata_bf_sublabel:
+      dtype: str
+      description: "n.a."
+   flow_metadata_bf_label_version_code:
+      dtype: str
+      description: "n.a."
+   flow_metadata_bf_label_version_name:
+      dtype: str
+      description: "n.a."
+   flow_metadata_bf_labeling_type:
+      dtype: str
+      description: "exact=via netstat; most-common=via experiment"
+   flow_metadata_bf_num_packets:
+      dtype: int
+      description: "Bidirectional number of pkts"
+   flow_metadata_bf_ip_packet_bytes:
+      dtype: int
+      description: "Bidirectional bytes (including headers)"
+   flow_metadata_bf_l4_payload_bytes:
+      dtype: int
+      description: "Bidirectional payload bytes"
+   flow_metadata_bf_duration:
+      dtype: float
+      description: "Bidirectional duration"
+   flow_metadata_uf_num_packets:
+      dtype: int
+      description: "Upload number of pkts"
+   flow_metadata_uf_ip_packet_bytes:
+      dtype: int
+      description: "Upload bytes (including headers)"
+   flow_metadata_uf_l4_payload_bytes:
+      dtype: int
+      description: "Upload payload bytes"
+   flow_metadata_uf_duration:
+      dtype: float
+      description: "Upload duration"
+   flow_metadata_uf_mss:
+      dtype: float
+      description: "Upload maximum segment size"
+   flow_metadata_uf_ws:
+      dtype: float
+      description: "Upload window scaling"
+   flow_metadata_df_num_packets:
+      dtype: int
+      description: "Download number of packets"
+   flow_metadata_df_ip_packet_bytes:
+      dtype: int
+      description: "Download bytes (including headers)"
+   flow_metadata_df_l4_payload_bytes:
+      dtype: int
+      description: "Download payload bytes"
+   flow_metadata_df_duration:
+      dtype: float
+      description: "Download duration"
+   flow_metadata_df_mss:
+      dtype: float
+      description: "Download maximum segment size"
+   flow_metadata_df_ws:
+      dtype: float
+      description: "Download window scaling"
+   flow_metadata_bf_activity:
+      dtype: str
+      description: "Experiment activity"
+   strings:
+      dtype: list
+      description: "ASCII string extracted from payload"
+   android_name:
+      dtype: str
+      description: "app name (based on filename)"
+   device_name:
+      dtype: str
+      description: "device name (based on filename)"
+   app:
+      dtype: category
+      description: "label (background|android app)"
+   src_ip:
+      dtype: str
+      description: "Source IP"
+   src_port:
+      dtype: str
+      description: "Source port"
+   dst_ip:
+      dtype: str
+      description: "Destination IP"
+   dst_port:
+      dtype: str
+      description: "Destination port"
+   proto:
+      dtype: str
+      description: "L4 protocol"
+   packets:
+      dtype: int
+      description: "Number of (bidirectional) packets"
+
+__filtered__:
+   row_id:
+      dtype: int
+      description: "Unique flow id"
+   conn_id:
+      dtype: str
+      description: "Flow 5-tuple"
+   packet_data_l4_raw_payload:
+      dtype: np.array
+      description: "List of list with each packet payload"
+   flow_metadata_bf_label:
+      dtype: str
+      description: "original mirage label"
+   flow_metadata_bf_activity:
+      dtype: str
+      description: "Experiment activity"
+   flow_metadata_bf_labeling_type:
+      dtype: str
+      description: "exact=via netstat; most-common=via experiment"
+   flow_metadata_bf_l4_payload_bytes:
+      dtype: int
+      description: "Bidirectional payload bytes"
+   flow_metadata_bf_duration:
+      dtype: float
+      description: "Bidirectional duration"
+   strings:
+      dtype: list
+      description: "ASCII string extracted from payload"
+   android_name:
+      dtype: str
+      description: "app name (based on filename)"
+   device_name:
+      dtype: str
+      description: "device name (based on filename)"
+   app:
+      dtype: category
+      description: "label (background|android app)"
+   src_ip:
+      dtype: str
+      description: "Source IP"
+   src_port:
+      dtype: str
+      description: "Source port"
+   dst_ip:
+      dtype: str
+      description: "Destination IP"
+   dst_port:
+      dtype: str
+      description: "Destination port"
+   proto:
+      dtype: str
+      description: "L4 protocol"
+   packets:
+      dtype: int
+      description: "Number of (bidirectional) packets"
+   pkts_size:
+      dtype: str
+      description: "Packet size time series"
+   pkts_dir:
+      dtype: str
+      description: "Packet diretion time series"
+   timetofirst:
+      dtype: str
+      description: "Delta between the each packet timestamp the first packet of the flow"
+
+__splits__:
+   train_indexes:
+      dtype: np.array
+      description: "row_id of training samples"
+   val_indexes:
+      dtype: np.array
+      description: "row_id of validation samples"
+   test_indexes:
+      dtype: np.array
+      description: "row_id of test samples"
+   split_index:
+      dtype: int
+      description: "Split id"

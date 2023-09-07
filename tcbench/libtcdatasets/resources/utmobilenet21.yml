@@ -1,0 +1,125 @@
+__unfiltered__:
+   row_id:
+      dtype: int
+      description: "Unique flow id"
+   src_ip:
+      dtype: str
+      description: "Source ip of the flow"
+   src_port:
+      dtype: int
+      description: "Source port of the flow"
+   dst_ip:
+      dtype: str
+      description: "Destination ip of the flow"
+   dst_port:
+      dtype: int
+      description: "Destination port of the flow"
+   ip_proto:
+      dtype: int
+      description: "Protocol of the flow (TCP or UDP)"
+   first:
+      dtype: float
+      description: "Timestamp of the first packet"
+   last:
+      dtype: float
+      description: "Timestamp of the last packet"
+   duration:
+      dtype: float
+      description: "Duration of the flow"
+   packets:
+      dtype: int
+      description: "Number of packets in the flow"
+   bytes:
+      dtype: int
+      description: "Number of bytes in the flow"
+   partition:
+      dtype: str
+      description: "From which folder the flow was originally stored"
+   location:
+      dtype: str
+      description: "Label originally provided by the dataset (see the related paper for details)"
+   fname:
+      dtype: str
+      description: "Original filename where the packets of the flow come from"
+   app:
+      dtype: category
+      description: "Final label of the flow, encoded as pandas category"
+   pkts_size:
+      dtype: np.array
+      description: "Packet size time series"
+   pkts_dir:
+      dtype: np.array
+      description: "Packet diretion time series"
+   timetofirst:
+      dtype: np.array
+      description: "Delta between the each packet timestamp the first packet of the flow"
+
+__filtered__:
+   row_id:
+      dtype: int
+      description: "Unique flow id"
+   src_ip:
+      dtype: str
+      description: "Source ip of the flow"
+   src_port:
+      dtype: int
+      description: "Source port of the flow"
+   dst_ip:
+      dtype: str
+      description: "Destination ip of the flow"
+   dst_port:
+      dtype: int
+      description: "Destination port of the flow"
+   ip_proto:
+      dtype: int
+      description: "Protocol of the flow (TCP or UDP)"
+   first:
+      dtype: float
+      description: "Timestamp of the first packet"
+   last:
+      dtype: float
+      description: "Timestamp of the last packet"
+   duration:
+      dtype: float
+      description: "Duration of the flow"
+   packets:
+      dtype: int
+      description: "Number of packets in the flow"
+   bytes:
+      dtype: int
+      description: "Number of bytes in the flow"
+   partition:
+      dtype: str
+      description: "From which folder the flow was originally stored"
+   location:
+      dtype: str
+      description: "Label originally provided by the dataset (see the related paper for details)"
+   fname:
+      dtype: str
+      description: "Original filename where the packets of the flow come from"
+   app:
+      dtype: category
+      description: "Final label of the flow, encoded as pandas category"
+   pkts_size:
+      dtype: np.array
+      description: "Packet size time series"
+   pkts_dir:
+      dtype: np.array
+      description: "Packet diretion time series"
+   timetofirst:
+      dtype: np.array
+      description: "Delta between the each packet timestamp the first packet of the flow"
+
+__splits__:
+   train_indexes:
+      dtype: np.array
+      description: "row_id of training samples"
+   val_indexes:
+      dtype: np.array
+      description: "row_id of validation samples"
+   test_indexes:
+      dtype: np.array
+      description: "row_id of test samples"
+   split_index:
+      dtype: int
+      description: "Split id"

@@ -1,0 +1,37 @@
+__all__:
+   row_id:
+      dtype: int
+      description: "Unique row id"
+   app:
+      dtype: category
+      description: "Label of the flow"
+   flow_id:
+      dtype: str
+      description: "Original filename"
+   partition:
+      dtype: str
+      description: "Partition related to the flow"
+   num_pkts:
+      dtype: int
+      description: "Number of packets in the flow"
+   duration:
+      dtype: float
+      description: "Duration of the flow"
+   bytes:
+      dtype: int
+      description: "Number of bytes of the flow"
+   unixtime:
+      dtype: str
+      description: "Absolute time of each packet"
+   timetofirst:
+      dtype: np.array
+      description: "Delta between a packet the first packet of the flow"
+   pkts_size:
+      dtype: np.array
+      description: "Packet size time series"
+   pkts_dir:
+      dtype: np.array
+      description: "Packet direction time series"
+   pkts_iat:
+      dtype: np.array
+      description: "Packet inter-arrival time series"

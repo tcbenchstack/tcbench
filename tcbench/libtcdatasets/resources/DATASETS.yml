@@ -1,0 +1,24 @@
+ucdavis-icdm19:
+    num_classes: 5
+    paper: "https://arxiv.org/pdf/1812.09761.pdf"
+    website: "https://github.com/shrezaei/Semi-supervised-Learning-QUIC-"
+    data: "https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE"
+
+mirage19:
+    num_classes: 20
+    paper: "http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf"
+    website: "https://traffic.comics.unina.it/mirage/mirage-2019.html"
+    data: "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz"
+
+mirage22:
+    num_classes: 9
+    paper: "http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf"
+    website: "https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html"
+    data: "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip"
+
+utmobilenet21:
+    num_classes: 17
+    paper: "https://ieeexplore.ieee.org/abstract/document/9490678/"
+    website: "https://github.com/YuqiangHeng/UTMobileNetTraffic2021"
+    data: "https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii"
+
