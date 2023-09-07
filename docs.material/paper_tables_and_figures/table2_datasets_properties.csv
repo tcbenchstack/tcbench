@@ -1,0 +1,11 @@
+dataset,,classes,flows_all,flows_min,flows_max,rho,mean_pkts
+ucdavis-icdm19,pretraining,5,6439,592,1915,3.2,6653.0
+ucdavis-icdm19,human,5,83,15,20,1.3,7666.0
+ucdavis-icdm19,script,5,150,30,30,1.0,7131.0
+mirage19,unfiltered,21,122007,1986,11737,5.9,23.0
+mirage19,min_pkts=10,20,64172,1013,7505,7.4,17.0
+mirage22,unfiltered,10,59071,2252,18882,8.4,3068.0
+mirage22,min_pkts=10,9,26773,970,4437,4.6,6598.0
+mirage22,min_pkts=1000,9,4569,190,2220,11.7,38321.0
+utmobilenet21,unfiltered,17,22429,57,4716,82.7,716.0
+utmobilenet21,minpkts=10,10,5685,104,2153,20.7,2741.0

@@ -1,0 +1,5 @@
+,Change RTT,Change RTT,Packet loss,Packet loss,Packet loss,Packet loss,Change RTT,Change RTT,Change RTT,Change RTT,Color jitter,Color jitter
+,Time shift,Time shift,Color jitter,Color jitter,Rotate,Rotate,Color jitter,Color jitter,Rotate,Rotate,Rotate,Rotate
+,mean,ci95,mean,ci95,mean,ci95,mean,ci95,mean,ci95,mean,ci95
+test-script,92.18,0.31,90.17,0.41,91.94,0.3,91.72,0.36,92.38,0.32,91.79,0.34
+test-human,74.69,1.13,73.67,1.24,71.22,1.2,75.56,1.23,74.33,1.26,71.64,1.23

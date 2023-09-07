@@ -1,0 +1,11 @@
+.md-typeset code,
+.md-typeset kbd,
+.md-typeset pre {
+  font-feature-settings: "kern", "liga";
+  font-variant-ligatures: normal;
+}
+
+:root{
+--md-text-font:"Roboto";
+--md-code-font:""
+}

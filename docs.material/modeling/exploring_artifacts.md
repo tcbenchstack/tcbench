@@ -1,0 +1,920 @@
+The ML artifacts provided with the submission 
+(`ml_artifacts.tgz` on [:simple-figshare: figshare](https://figshare.com/s/cab23f730cfbc5172f78))
+corresponds to data gathered by the [modeling campaigns created for the submission](/modeling/campaigns).
+
+You can explore/investigate ML artifacts in three ways
+
+1. :material-monitor-dashboard: Using [AIM Web UI](#aim-web-ui).
+2. :material-flask: Inspecting [individual run artifacts](#run-artifacts).
+3. :octicons-log-24: Inspecting [AIM repository reports](#aim-repository-reports).
+
+## ML artifacts overview
+
+First of all, make sure to [install `tcbench`](/quick_intro)
+and [unpack the ML artifacts](/paper_tables_and_figures/reference).
+
+You can verify that everything is ok by running two checks.
+
+__Check #1__: When installing `tcbench` you also installed `aim`
+so you can invoke it on the command line. 
+
+For instance
+```
+aim version
+```
+
+!!! info "Output"
+	```
+	Aim v3.17.5
+	```
+	__Note__: You might get a different version as 
+	we explicitly do NOT pin dependency packages version,
+	as `tcbench` does not require strict dependencies.
+
+__Check #2__: You should have all ML artifacts located under 
+`code_artifacts_paper132/notebooks/submission_tables_and_figures/campaigns/`
+with the following structure.
+
+```
+<root>
+└── campaigns
+    ├── mirage19
+    │   └── augmentation-at-loading-no-dropout
+    │       └── minpkts10
+    │           ├── .aim
+    │           ├── artifacts
+    │           └── campaign_summary
+    ├── mirage22
+    │   └── augmentation-at-loading-no-dropout
+    │       ├── minpkts10
+    │       │   ├── .aim
+    │       │   ├── artifacts
+    │       │   └── campaign_summary
+    │       └── minpkts1000
+    │           ├── .aim
+    │           ├── artifacts
+    │           └── campaign_summary
+    ├── ucdavis-icdm19
+    │   ├── augmentation-at-loading-suppress-dropout
+    │   │   ├── .aim
+    │   │   ├── artifacts
+    │   │   └── campaign_summary
+    │   ├── augmentation-at-loading-with-dropout
+    │   │   ├── .aim
+    │   │   ├── artifacts
+    │   │   └── campaign_summary
+    │   ├── larger-trainset
+    │   │   └── augmentation-at-loading
+    │   │       ├── .aim
+    │   │       └── artifacts
+    │   ├── simclr-dropout-and-projection
+    │   │   ├── .aim
+    │   │   ├── artifacts
+    │   │   └── campaign_summary
+    │   ├── simclr-other-augmentation-pairs
+    │   │   ├── colorjitter
+    │   │   |   ├── .aim
+    │   │   │   ├── artifacts
+    │   │   │   └── campaign_summary
+    │   │   ├── colorjitter-packetloss
+    │   │   │   ├── .aim
+    │   │   │   ├── artifacts
+    │   │   │   └── campaign_summary
+    │   │   ├── colorjitter-rotate
+    │   │   │   ├── .aim
+    │   │   │   ├── artifacts
+    │   │   │   └── campaign_summary
+    │   │   ├── rotate-changertt
+    │   │   │   ├── .aim
+    │   │   │   ├── artifacts
+    │   │   │   └── campaign_summary
+    │   │   └── rotate-packetloss
+    │   │       ├── .aim
+    │   │       ├── artifacts
+    │   │       └── campaign_summary
+    │   └── xgboost
+    │       ├── noaugmentation-flowpic
+    │       │   ├── .aim
+    │       │   ├── artifacts
+    │       │   └── campaign_summary
+    │       └── noaugmentation-timeseries
+    │           ├── .aim
+    │           ├── artifacts
+    │           └── campaign_summary
+    ├── ucdavis-icdm19-git-repo-forked
+    │   └── artifacts
+    │       ├── FixedStepSampling_Retraining(human-triggered)_10
+    │       ├── FixedStepSampling_Retraining(script-triggered)_10
+    │       ├── IncrementalSampling_Retraining(human-triggered)_10
+    │       ├── IncrementalSampling_Retraining(human-triggered)_20
+    │       ├── IncrementalSampling_Retraining(script-triggered)_10
+    │       ├── RandomSampling_Retraining(human-triggered)_10
+    │       └── RandomSampling_Retraining(script-triggered)_10
+    └── utmobilenet21
+        └── augmentation-at-loading-no-dropout
+            └── minpkts10
+                ├── .aim
+                ├── artifacts
+                └── campaign_summary
+```
+
+
+Each subfolder relates to a different campaign
+with some semantic encoded in the folder names themselves.
+
+* Subfolders containing an `.aim/` folder are AIM repositories
+and can be explored via the AIM web UI.
+
+* Subfolders named `artifacts/` are ML file artifacts (see [below](#run-artifacts)).
+
+* Subfolders named `campaign_summary/` contains reports summarizing a campaign (see [below](#aim-repository-reports)).
+
+The following reference table details how
+the different campaigns map to the results of the submission.
+
+##### Mapping campaigns folder to submission results
+
+| Subfolder | Submission reference | CLI trigger |
+|:----------|:--------------------:|:-----------------:|
+|`ucdavis-icdm19/xgboost/noaugmentation-flowpic`| Table 2 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-flowpic) |
+|`ucdavis-icdm19/xgboost/noaugmentation-timeseries`| Table 2 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-timeseries) |
+|`ucdavis-icdm19/augmentation-at-loading-with-dropout`| Table 3,9; Figure 1,3,9 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout) |
+|`ucdavis-icdm19/simclr-dropout-and-projection`| Table 4 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-dropout-and-projection)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss) |
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate) |
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss)|
+|`ucdavis-icdm19/larger-trainset/augmentation-at-loading`| Table 6 | [:octicons-terminal-24:](modeling/campaigns/#ucdavis-icdm19larger-trainsetaugmentation-at-loading)|
+|`mirage19/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage19augmentation-at-loading-no-dropoutminpkts10)|
+|`mirage22/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts10)|
+|`mirage22/augmentation-at-loading-no-dropout/minpkts1000`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts1000)|
+|`utmobilenet21/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#utmobilenet21augmentation-at-loading-no-dropoutminpkts10)|
+|`ucdavis-icdm19-git-repo-forked`| Table 8; Figure 8 |  [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19-git-repo-forked) |
+|`ucdavis-icdm19/augmentation-at-loading-suppress-dropout`| Figure 9 | [:octicons-terminal-24:](http://10.206.215.209:10812/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-suppress-dropout)|
+
+## :material-monitor-dashboard: AIM Web UI
+
+AIM web interface is quite intuitive and 
+the official documentation already provides 
+a [general purpose tutorial](https://aimstack.readthedocs.io/en/latest/ui/overview.html).
+
+In this mini guide we limit to showcase a basic set 
+of operations to navigate the ML artifacts using
+the `campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout`
+repository as example. The same operations can be 
+performed on all other campaings too.
+
+First of all, we need to spawn the web UI for the repository.
+
+Assuming we are in the root folder of the jupyter notebooks `notebooks/`
+
+```
+aim up --repo submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/
+```
+
+!!! info "Output"
+	```
+	Running Aim UI on repo `<Repo#-3653246895908991301 path=/home/johndoe/code_artifacts_paper132/notebooks/submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/.aim read_only=None>`
+	Open http://127.0.0.1:43800
+	Press Ctrl+C to exit
+	```
+
+	Run `aim up --help` for more options (e.g., specifying a different port or hostname).
+
+When visiting the URL reported in the output 
+you land on the home page of the AIM repository.
+
+This collects a variety of aggregate metrics 
+and track activity over time. 
+Hence, in our scenario
+the home page of the ML artifacts are mostly empty
+because all campaigns were generated in a specific moment in time.
+
+[![aim-home-page]][aim-home-page]
+
+  [aim-home-page]: ../figs/aim_home-page.png
+
+The left side bar allows switch the view.
+In particular, "Runs" show a tabular
+view of the runs collected in the repository.
+
+[![aim-run1]][aim-run1]
+
+  [aim-run1]: ../figs/aim_run1.png
+
+From the view you can see the hash of each run
+and scrolling horizontally you can glance 
+over the metadata stored for each run.
+
+[![aim-run2]][aim-run2]
+
+  [aim-run2]: ../figs/aim_run2.png
+
+The search bar on the top of the page
+allows to filter runs.
+It accept python expression bounded
+to a `run` entry point.
+
+For instance, in the following example we filter
+one specific run based on hyper parameters.
+
+[![aim-run3]][aim-run3]
+
+  [aim-run3]: ../figs/aim_run3.png
+
+When clicking the hash of a run (e.g., the one we filtered)
+we switch to a per-run view which
+further details the collected metadata of the selected run.
+
+[![aim-log1]][aim-log1]
+
+  [aim-log1]: ../figs/aim_log1.png
+
+For instance, when scrolling at
+the bottom of the per-run page
+we can see that AIM details
+
+* The specific git commit used when executing the run.
+
+* The specific python packages and related versions
+available in the environment when executing the run.
+
+Both are automatically tracked by AIM with
+no extra code required (beside activating the 
+their collection when creating the run).
+
+[![aim-log2]][aim-log2]
+
+  [aim-log2]: ../figs/aim_log2.png
+
+The per-run view offers a variety of information
+organized in multiple tabs.
+
+For instance, the tab "Logs"
+details the console output.
+
+[![aim-log3]][aim-log3]
+
+  [aim-log3]: ../figs/aim_log3.png
+
+## :material-flask: Run artifacts
+
+Unfortunately, AIM has little support for 
+tracking general file artifacts and no
+native support for storing trained models.
+
+For instance
+from the last screenshot above we can see
+that we could bind to a run some images,
+audio files and some text. 
+While the first two are out of the scope for
+network traffic-related datasets, text tracking
+is meant for free form "blob" output.
+
+Hence, `tcbench` associates to a run 
+an "artifacts folder", named as the hash
+of the run, where a variety
+of files are saved.
+
+Specifically, each run is associated to the following files:
+
+* `params.yml` is a YAML file collecting *ALL*
+parameters used when triggering a run, i.e., both
+the arguments explicitly defined on the command line,
+as well the ones with default values.
+
+* `log.txt` collects the console output generated by the run.
+
+* `best_model_weights_split_<split-index>.pt` stores the weights of the best 
+trained pytorch model (for a deep learning model). The filename is bounded to the specific
+split index configured when triggering the run.
+
+* `xgb_model_split_<split-index>.json` stores an XGBoost model (when training 
+via xgboost). The filename is bounded to the specific
+split index configured when triggering the run.
+
+* `<context>_class_rep.csv` contains a [classification report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html). The filename is bounded to the context (i.e., train, val, test)
+used to generate it.
+
+* `<context>_conf_mtx.csv` contains [confusion matrix](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html). The filename is bounded to the context (i.e., train, val, test)
+used to generate it.
+
+!!! info "Why saving extra files?"
+
+    Future version of `tcbench` will likely integrate
+    with solutions such as [DVC](https://dvc.org/doc/use-cases)
+    to further strenghtening file artifacts handling and
+    tracking also the input data version.
+
+## :octicons-log-24: AIM repository reports
+
+To complement AIM web UI and manual inspection of ML 
+artifacts, `tcbench` offers
+a few sub-commands to overview an AIM repository 
+content.
+
+```
+tcbench aimrepo --help
+```
+
+!!! note "Output"
+    ```
+	 Usage: tcbench aimrepo [OPTIONS] COMMAND [ARGS]...
+
+	 Investigate AIM repository content.
+
+	╭─ Options ───────────────────────────────────────────────────────────────────────────────────────╮
+	│ --help      Show this message and exit.                                                         │
+	╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+	╭─ Commands ──────────────────────────────────────────────────────────────────────────────────────╮
+	│ ls                    List a subset of properties of each run.                                  │
+	│ properties            List properties across all runs.                                          │
+	│ report                Summarize runs performance metrics.                                       │
+	╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+    ```
+
+In the following we illustrate each
+sub-command using the 
+[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout)
+repository
+
+
+### `ls` 
+
+The `ls` sub-command simply list 
+the hash, creation time and end time of each run.
+
+```
+ tcbench aimrepo ls \
+	--aim-repo code_artifacts_paper132/notebooks/submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/
+```
+
+!!! note "Output"
+	```
+	 hash                      creation_time      end_time
+	 8ba8f05ec1604574b71139b4  1684486220.186745  1684487165.465486
+	 67503d171467435091714d45  1684485354.995328  1684486219.662343
+	 9a106b1a209b4a47abb5c17f  1684484451.951014  1684485354.490275
+	 bfe6d326e299461cb56cdc5f  1684483871.600086  1684484451.518072
+	 87fa4af7e99d478aaf22f4da  1684483362.006482  1684483871.393643
+	 c13844d1704c45fc95653b1f  1684482566.637334  1684483361.812976
+	 c7bdc0d409c4403bbe5b9cc4  1684482432.924283  1684484618.028195
+	 043419ccd36541fd8a4057cb  1684482146.1981    1684482566.387968
+	 963f7797f19d4976a3efcca3  1684481692.788042  1684482145.885839
+	 4d81379229814f409b7647d3  1684481202.271289  1684481692.537144
+	 fe35f9380c344b8aa9c23f03  1684481101.181884  1684482432.517077
+	 2f6d76f632c64391b7cb4973  1684480123.949839  1684481201.997798
+	 b3df56698ec6416cac21add4  1684479475.427219  1684481101.055126
+	 72ac1602329b415dbf17524f  1684479393.541195  1684480123.490255
+	 68832122ee434d799da3ec6c  1684478564.503901  1684479474.865144
+	 98033a73d4d1433ab3779742  1684478415.758284  1684479393.015683
+	 c6aea7ff760b4ad090d9dd36  1684477658.120382  1684478415.53678
+	 7e0386cdcbaa454e892b5fb9  1684477439.749558  1684478563.989332
+	 d985dfe5a5a6422293ff34eb  1684476688.49235   1684477657.471275
+	 889dc5128693473f9fd79299  1684476501.215957  1684477439.58382
+	 922fef07ff264188a2e370a5  1684475858.118653  1684476688.059573
+	 cfb5812f3ca84c2bb440e6c4  1684475376.248467  1684476501.070375
+	 99fc7d6feea64a07a9f4499d  1684475282.908762  1684475857.977606
+	 728dfe6ff0584b0db57b8f22  1684474888.182631  1684475282.672584
+	 9dde5426e9424f9aa0eda8ef  1684474417.41854   1684474887.912377
+	 d8845f81ebbc4fbdbb7efc6e  1684474280.592608  1684475375.693128
+	 4ca5aff6b9c442808f39d2c3  1684473415.875285  1684474417.168511
+	 f24dfd8ef3e44cd6ae37c4d7  1684473045.421477  1684474280.137564
+	 9d530cacbbfc4300846c412a  1684472369.171916  1684473415.375791
+	 b222cda5054744ee923cc1a5  1684471606.606575  1684473045.147482
+	 5c9c03c663ea493480ff176c  1684471433.960361  1684472736.412599
+	 1e13e4b8c60a4dd084ca607b  1684471290.69116   1684472368.905358
+	 4c42b65f85e444579adabd51  1684470601.838798  1684471289.976878
+	 4f759432db0743c7b3d95f6b  1684470452.527724  1684471433.756871
+	 1a71035742a940c7a74c6a9b  1684470331.022178  1684471606.113162
+	 1f2bc263b9ed450abcf1c1d3  1684469705.56874   1684470601.122689
+	 9951ad2c1f894efcb04d39bb  1684469472.837658  1684470451.971661
+	 dd4ec191cd0945a184c9aef8  1684469140.912997  1684469472.087474
+	 60b55181ebaa4ccebc214875  1684468906.545817  1684470330.375135
+	 d74b79343de8419b874f5210  1684468808.347594  1684469705.18729
+	 0a30bf4e578445239c3e91cb  1684468778.110371  1684469140.702514
+	 1d0327a026444eee800dc9a1  1684468500.060794  1684468777.756142
+	 e40d612c892644f59370cd68  1684468394.226275  1684468808.078585
+	 67c4857856d445d4809e1fd2  1684467913.759307  1684468394.08247
+	 cad4cd97d854419e91869d85  1684467543.981347  1684468905.978667
+	 a7018c0846304408bc75e8c8  1684467526.249917  1684467913.503346
+	 39c042def7b94710bc211b0e  1684466951.957943  1684468499.463829
+	 e61e21d87ccd4aa8b8a2ed35  1684466335.110533  1684467526.054343
+	 b1869271d50644c696fb5246  1684466131.933304  1684467543.395299
+	 e0dac9c82bf04bafb4aade4c  1684465619.566809  1684466951.462375
+	 ed199b3b6a71488893e1abfb  1684465434.028724  1684466333.918455
+	 7dc2a753e3f74ed69f069ea8  1684464725.062243  1684466131.24298
+	 03a5cdeb32354bfdba1de136  1684464569.689175  1684465433.542933
+	 37c00f6c1ebe44fda8a9618d  1684464407.673333  1684465618.991646
+	 f620bcb6afe24d2a87a778c0  1684464064.526061  1684464406.941772
+	 9cdde43cddd640e2b440b1c4  1684463741.103362  1684464064.054385
+	 ffb1a45a1fb249c0bf3f463c  1684463607.054282  1684464569.411643
+	 395fc5799efc4f34823b3655  1684463449.453486  1684463740.94038
+	 5a0a0a5c3bb244d497538de4  1684463312.066392  1684464724.410855
+	 0638ad838f4a429b91131a5b  1684462917.872626  1684463606.433408
+	 51aa03f39a3e42e2b99db486  1684462233.665966  1684463311.043898
+	 57eb602e1dad4933b5eca155  1684462207.043093  1684463448.792002
+	 01fea90ec67544d3a39ef997  1684461943.457484  1684462917.499634
+	 d792e20d40604c78956ab5a2  1684461464.25762   1684461943.313054
+	 637badf3dfec4b93a78d9919  1684461042.264266  1684461464.126894
+	 f87edacfdacf4b5faee625b4  1684460961.382713  1684462233.005103
+	 444c2e1ebfaa43a78c6b4c96  1684460467.126398  1684461042.125671
+	 9e5135774a89458b8dae96ef  1684459980.097812  1684462206.830038
+	 ca77db360e8f45d5a8d2f3b7  1684459693.93209   1684460466.346116
+	 adf0905c3c8349d590574c38  1684459300.071951  1684460960.695716
+	 916583de1a524ed092408d72  1684459069.160377  1684459693.416057
+	 7c25e7eca05e49ffa82e1dda  1684458823.182091  1684459979.576512
+	 e77cf8e464b2496a94229ca8  1684458538.286254  1684458823.017745
+	 70fef369b9e741e59a9cb092  1684458437.369592  1684459067.97458
+	 73c779ffb561448281772cca  1684458244.2756    1684458537.96287
+	 c21d1b9a093c42cbb1421b99  1684458241.060798  1684459299.580839
+	 e0c07fd0f3664789a68a97fd  1684457885.407864  1684458243.499636
+	 7b52359ef3ef42219b6297ef  1684457777.173311  1684458436.747236
+	 aecb143222764ac2badda996  1684457079.7536    1684457776.789753
+	 83850279a1fd43e1892771ea  1684457024.45417   1684458240.375002
+	 c80ccdfec89b4ac68013dc57  1684456500.647965  1684457079.174438
+	 bd8b6929f7bb41eeb00e8451  1684456429.302551  1684457884.834434
+	 cca820ec5ae24ee793b45ef3  1684456007.859746  1684456500.321697
+	 ad89e8df0be34133bb61e589  1684455782.341968  1684457023.582
+	 d9613c247ffc49ae83b1864d  1684455514.437144  1684456007.704841
+	 f4f28ffbd85041d78d032bf7  1684455198.659235  1684456428.772103
+	 17aa80f35ba240d6a3c27681  1684454983.894229  1684455514.144682
+	 376d83d39ee34bf6a5f14553  1684454900.637969  1684454978.036799
+	 d66de4d4c0f043289d0f9671  1684454828.019291  1684454900.501477
+	 53e969d8626c41df92814c61  1684454756.332229  1684454827.858425
+	 988b1457caba480b817ba385  1684454684.082903  1684454756.197079
+	 f60fc0f56310461ebd15ccb1  1684454602.697385  1684454683.934212
+	 4231173e05fe4466bb3592e5  1684454519.796744  1684454602.561087
+	 b7bcc2cb30054c9d89b81e71  1684454436.86775   1684454519.639057
+	 0eb416e6597f4205a4eb30e5  1684454350.202147  1684454436.706402
+	 01d4bb96f3d547b0b67f3219  1684454275.221716  1684454350.058379
+	 2863d94709a241549ea43d1e  1684454180.176362  1684454275.095384
+	 608b4ff892424b909c37195b  1684454131.059445  1684455781.74821
+	 2f4819882cab4dbc8bb4e599  1684454101.90471   1684454180.044018
+	 dc3e8dfccc964658b1094227  1684454031.000489  1684454101.748034
+	 95e5b09ba7d44fabbb055f93  1684453973.055474  1684454030.873004
+	 3ab8c90f935845bc85d9e7c0  1684453916.309955  1684453972.93122
+	 8ed7f1729fd5456cbf9bf9f0  1684453858.633202  1684453916.18064
+	 2838f1c9925a4276b596f29a  1684453857.763272  1684453999.474313
+	 fb37ebad53be4b8bb0922c43  1684453854.938354  1684455198.416701
+	 dbc9c91611dd40d18da3a563  1684453800.945448  1684453857.692718
+	 0922df9981cb4dada7cb8e70  1684453783.490234  1684453858.502442
+	 577b94c1058543fbbbac556c  1684453740.054494  1684453800.871211
+	 1e8636dca105456d96c9d911  1684453708.58691   1684453783.36737
+	 2927b88ec0064c1b96f2420d  1684453669.588055  1684453739.989276
+	 1f79705713004475b0f4b423  1684453641.653473  1684453708.452254
+	 816d410679ce4d3d93c9fb13  1684453609.559607  1684453669.528333
+	 f20a0864a0154d14bc62bef9  1684453603.103946  1684453641.526248
+	 7ab9bc7b21f84284a8c06e2c  1684453562.770793  1684453602.990837
+	 b7dbd5917875476a9f331342  1684453554.43456   1684453609.487829
+	 e711aaf96ecc418cb1629a36  1684453522.761069  1684453562.665403
+	 c4d648e857fa404dbec12d64  1684453500.782744  1684453554.364838
+	 810da0118ed7417db7c4771e  1684453469.291014  1684453854.683895
+	 5d8a70cabc464fcbbd0a904d  1684453444.704697  1684453500.709896
+	 5634546f547945849b466cf5  1684453420.998128  1684453522.623544
+	 c4ed1533ddbf43b5ba8f83ab  1684453389.201033  1684453444.618217
+	 cc13b218cbfd4cf08e5d20a4  1684453337.641638  1684453389.137557
+	 610b507713cb47f4963ef671  1684453316.818646  1684453420.841483
+	 36f2e4b6045b4f01b70e4680  1684453287.041721  1684453337.567413
+	 37f99c3ed79a45f3b7d40a5f  1684453246.21599   1684453316.660344
+	 5fe2730f842e416c8af9c9b3  1684453237.076659  1684453286.959855
+	 e25a532da42c4327bc11528a  1684453190.214313  1684453237.018725
+	 7aea23e113cc4a289d7bfa79  1684453161.004546  1684453246.06685
+	 45429199088f4c0c8b705537  1684453142.490356  1684453190.154943
+	 ab079de736834eef899c21bb  1684453101.882433  1684454130.262774
+	 fa468f7b03e3475daf215746  1684453095.863897  1684453142.425248
+	 add75d33ef8b4d638e770aaf  1684453075.861901  1684453468.361486
+	 2aeb5a16085f42e9ab4094df  1684453065.579356  1684453160.874607
+	 8e87b04207e54931b865d237  1684453016.800851  1684453095.802078
+	 76f30367c8ab44b0bbe67d03  1684452977.614285  1684453065.424347
+	 deaffa25f04b4aae856c632f  1684452942.818858  1684453016.74139
+	 5cae649ac7bb46d5a60c72ac  1684452877.834861  1684452942.748545
+	 4a0efe2a9ecb499983245191  1684452870.028023  1684452977.473543
+	 2e0474d626b94b5e957a3774  1684452847.893095  1684452877.790754
+	 50f15777a7174531bbf50a1c  1684452818.958093  1684452847.832531
+	 b924f0f921e04b64828975ba  1684452789.569578  1684452818.902016
+	 b418ebaa6576432290bfe7ae  1684452774.458869  1684452869.895356
+	 b9f6b0815edf4ddfb34dc177  1684452728.81128   1684452789.506862
+	 01b5d3ec52da4424a37125df  1684452700.006671  1684452774.319969
+	 f93d353566c24408bb3fc997  1684452663.618535  1684452728.740588
+	 dca1cc1dc9cc45f69bf45471  1684452629.495522  1684453074.989142
+	 61a54b25733740b586ae3788  1684452604.757812  1684452663.541514
+	 762d10ed26ae46ab8752cbfb  1684452601.345309  1684452699.879312
+	 6cbe5bb9f82141b8abb5d2c8  1684452537.019976  1684452604.693619
+	 f2d476a93fef4c7abc727453  1684452508.867201  1684452601.21922
+	 3d69205834a84112b65fcaef  1684452472.610688  1684452536.957576
+	 f2c44a9bc9f14ad4b3b827b8  1684452419.986378  1684452508.722681
+	 4d2f061684c842d793d53458  1684452405.098763  1684452472.542425
+	 f05cbbb211a545d8b726a301  1684452365.427215  1684452419.85173
+	 5f451dce01f04ee9b0169828  1684452346.577028  1684452405.012775
+	 234669be443d4f08ac6dd900  1684452308.986717  1684452365.299411
+	 e8d6da0defd049028aaea9d5  1684452290.203461  1684452346.517978
+	 bd57bec0663e479ea2934678  1684452252.92531   1684452308.85739
+	 352f015ecc004b7f922e9675  1684452225.314651  1684452290.121976
+	 47a4a0891c024ff9ad3e10a5  1684452168.422513  1684452252.796179
+	 06da93cc03a44040b0c74178  1684452157.739649  1684452225.250497
+	 e3d645b0dc16421ca3209896  1684452137.461206  1684453101.39133
+	 7bdb5341a2614a888c577a09  1684452097.493495  1684452157.677333
+	 4bbd8caafebe4379b130c6b0  1684452090.542063  1684452168.28824
+	 7b25cd869f00439fafbed535  1684452029.411407  1684452097.43651
+	 92c9588486534986a7a5eacf  1684451984.658156  1684452029.353263
+	 61d85dcf712b434fac9a5b1f  1684451983.953664  1684452090.41075
+	 a12b3724c60d4958996de377  1684451944.910572  1684451983.848708
+	 66dda78e98484ac695ac28c2  1684451937.460639  1684451984.606509
+	 6693f2a4a645455cada34389  1684451908.020474  1684451944.789062
+	 e1169972d26140e18d897023  1684451886.957104  1684451937.392489
+	 822c84da50f74667920f03bf  1684451871.324137  1684451907.890575
+	 77bb1cec15af4c23b8be0f2f  1684451821.675738  1684451886.891239
+	 cf3545083d794dee8e0d2e9a  1684451812.399059  1684451871.18422
+	 38171ed6da8f44e1a555b9d8  1684451748.611645  1684451821.617548
+	 a94ec554111b4a1a89cca0f6  1684451744.945461  1684451812.24693
+	 f20aca505c37459abb281e08  1684451656.412687  1684451744.789916
+	 5c4aa95035c841d4a5e96b0c  1684451556.350265  1684451656.276747
+	 6aa44846db614702867c9623  1684451546.981732  1684451748.381051
+	 c727a871d64b4b84ab39ce7b  1684451472.885078  1684451556.217995
+	 f1444a30a0b64ddebb0ee893  1684451451.528096  1684451546.751202
+	 83ecc5c955ec4023bc82b30d  1684451382.832542  1684451472.73465
+	 6c7b1cbe72004a0898b331e1  1684451373.367619  1684451451.294249
+	 55a0901ebd8c4a14a006bda0  1684451332.395285  1684452629.058694
+	 9c0d10c9e8f04194b6cf322c  1684451332.169061  1684451373.247294
+	 1fe3f3cff5364183b91b0161  1684451311.409357  1684451382.69011
+	 e64349682cac4e96bdb3a195  1684451305.523624  1684452136.669685
+	 b6f5f861bfd045b79910163f  1684451268.06238   1684451332.097281
+	 24db445e86664a5688d5b058  1684451244.011303  1684451311.247374
+	 707b1d8f242c4c569397818f  1684451201.961014  1684451267.986849
+	 b5870e5dd6ac4433a59e949e  1684451151.07773   1684451243.875269
+	 972de7c3956d4d96b27fa2e7  1684451147.277512  1684451201.870307
+	 007ff3eb7d3644c9bfa97590  1684451089.133811  1684451147.206315
+	 be295d1045b64e5da2dad253  1684451086.977876  1684451150.932065
+	 008ab3a058424242b2c74721  1684451024.406991  1684451089.065439
+	 8587efea57d444b0a37a4d87  1684451012.747797  1684451086.845493
+	 46cfa3ec77604b18b5cbb952  1684450970.955052  1684451024.350877
+	 473c10c9d83b4a2f9f7aaacd  1684450935.840727  1684451012.61568
+	 9749d96f77754ee3a1dd82dc  1684450910.230388  1684450970.876716
+	 bd622c8c454a43b2a526e255  1684450878.062955  1684450935.71623
+	 1b69360731f64dbabd3e6b4a  1684450856.297448  1684450910.156479
+	 f1c8afdee5f843dea2cd6326  1684450820.288095  1684450877.926006
+	 8719913ab19c470090e2cbba  1684450789.546818  1684450856.227493
+	 64cc636a24de4af085a90012  1684450764.779803  1684450820.161206
+	 38f7ad203bd3441cb27e8477  1684450726.736646  1684450789.489278
+	 2006e773a42a45169c8af288  1684450700.498349  1684450764.63308
+	 f48a8088282a4f22a3060aad  1684450628.084315  1684450726.679969
+	 07741993d3ff4d4c85cd2378  1684450625.213713  1684450700.367589
+	 78897d14594d4d8ab0511b09  1684450532.651023  1684450625.066728
+	 c058300f4d55480183fe7d0a  1684450500.728736  1684450627.9136
+	 70457b6d2ca34c9ca54faa9c  1684450494.905926  1684450532.530795
+	 fae0d0098235451582379e49  1684450457.158045  1684450494.787555
+	 eb0656be43d64f4abc07d913  1684450420.256119  1684450457.035452
+	 3f6b15bdbb4c4f7990139390  1684450373.169881  1684450500.508234
+	 37fb6128cf0940b0a8e02a6d  1684450346.729378  1684450420.123028
+	 59850e2e072c4315bcfd44f9  1684450317.249483  1684451331.988945
+	 eb23366973d54adcb7ae41dc  1684450309.69558   1684450372.983297
+	 4c51c9d6344741a3b4167ace  1684450270.958624  1684450346.587809
+	 0adf8ec7b2d44e83b9d1ecd6  1684450264.164186  1684450309.641298
+	 7663b098261c42b6ae806446  1684450255.519111  1684451304.891808
+	 8d87effdeaf045bd8e1793be  1684450191.755371  1684450270.815829
+	 4afff20583a7446a87f532bb  1684450174.269007  1684450264.10297
+	 a12f8c41aa7645fb8dce11db  1684450113.72971   1684450191.620866
+	 278b560f285e4b3e968d2500  1684450112.787798  1684450174.213632
+	 8232054671804f4a9f049ac8  1684450038.59175   1684450113.590469
+	 8a2aaa0359c14bee82d7a01b  1684450038.553256  1684450112.718496
+	 cc14c289c387497299647aff  1684450009.504617  1684450038.503996
+	 c1d541e31bf04c34a8361277  1684449981.075677  1684450009.447578
+	 f6ae1ffbf09b4b829845768a  1684449960.174022  1684450038.453731
+	 e55525d57f8f4c0fbe62925c  1684449951.684003  1684449981.027956
+	 3b3c950211ec4ac1861d2ef2  1684449896.906696  1684449951.618761
+	 a6156d0fedfb4da58d7ed157  1684449886.685146  1684449960.026201
+	 34fb83c203bb4950bd629d93  1684449847.082951  1684449896.838466
+	 32315d3421a643f8a60e3cc6  1684449808.13473   1684449886.545201
+	 6db2eb1e1dd347acba48e369  1684449790.974563  1684449847.000392
+	 63c5de9bc5ae4bca84a04a12  1684449737.9346    1684449807.970432
+	 ec202059cb874f4f9ca4205e  1684449725.824672  1684449790.911293
+	 ae692ba4c260457d9a3e442a  1684449668.959527  1684449725.763858
+	 a96434d27b8e45d3ad8b81ea  1684449659.840383  1684449737.633578
+	 5c28fb0c4cae4a5eb3e2bf37  1684449609.2497    1684449668.911
+	 401d87dc0f9d4f7fb3aa52df  1684449583.918668  1684449659.708532
+	 c9c4b346ff394c8488e9790d  1684449545.541382  1684449609.186583
+	 74ba1657c61644e2a5e7da30  1684449520.169214  1684449583.771104
+	 ae7a6eb3e85a48228d3371b4  1684449492.929299  1684449545.465121
+	 52615c37cb4c403a8bf7a025  1684449464.493325  1684449520.040155
+	 4969fb8c374141028594d962  1684449437.814941  1684449492.858044
+	 1e96377382f443ccbe7e85f0  1684449405.594734  1684449464.356868
+	 776699b253614175b7f827ff  1684449387.696488  1684449437.748665
+	 5687406675c34ef8bead5633  1684449346.890198  1684449405.47788
+	 387e01ef08454e2eb2cff697  1684449333.183408  1684449387.6353
+	 685af93f85ac4b67bb99144e  1684449302.386924  1684450255.027677
+	 4ea944b1be754ab48bcb7d45  1684449276.832263  1684449346.737273
+	 db1c87ebb5494363a2fb2d3b  1684449237.813694  1684449333.12579
+	 3e1533ac0f164dc092b7b681  1684449204.473322  1684449276.677444
+	 61882760258d44d793c721dd  1684449151.709934  1684449237.749622
+	 385286c19cb14a0c9571e0e9  1684449129.216098  1684449204.342291
+	 63a50b8c64884ec5aa61cfa1  1684449091.168293  1684449129.090858
+	 a9b40ede978e4fb4bfc120b7  1684449055.11729   1684449091.054672
+	 cb78f86b48284696aa938fcc  1684449029.36249   1684449151.468267
+	 47595fc5c64146e9805b51e6  1684449017.959478  1684449054.990691
+	 bf2c9394ea3742e683452a22  1684448936.264374  1684449029.147291
+	 c8f67a99057c49a2944bf39a  1684448932.684268  1684449017.804864
+	 a4cf32694e6e411ea84aa47a  1684448931.706416  1684450316.541687
+	 4b3570a3a50c41c78f0000f4  1684448858.610413  1684448936.197166
+	 b21d99a3202e4da3b484ae4a  1684448837.720911  1684448932.548398
+	 f099eb327fd7494db384bb14  1684448765.679447  1684448858.545372
+	 47eccc984daf4834aec19f67  1684448756.36372   1684448837.570065
+	 7aaac8ecd2e644eda14968cf  1684448674.903293  1684448765.625554
+	 43a503bf40aa4f518a97cf4e  1684448667.212994  1684448756.204382
+	 230c734960ea4c849e3af2e1  1684448645.431733  1684448674.860142
+	 a6a20facc3f34662aa660fee  1684448615.158763  1684448645.376438
+	 cd65b0169cf441bfb6e3dcd8  1684448585.157683  1684448615.106011
+	 a0bc2e31538249aab969fc0d  1684448580.386622  1684448667.054529
+	 3ee8b28573704e4ba79cf698  1684448527.514667  1684448585.087628
+	 0712bcf076c44d239f8def39  1684448505.486607  1684448580.237805
+	 45cf18b3d09a40098e621079  1684448465.274798  1684448527.439574
+	 40cde1e6fa674cc3bfd82bb6  1684448423.393276  1684448931.366076
+	 d59fb822d0c346e496361cc6  1684448421.81773   1684448505.32149
+	 13d14051be32424d92613289  1684448410.573326  1684448465.203814
+	 f05bc193e27d4178986a5662  1684448379.497623  1684449301.840416
+	 3e378ebe488442e59997f8d2  1684448349.959204  1684448421.651724
+	 e5fc7761ea6a4e04bbb16b74  1684448346.800847  1684448410.504434
+	 7538f4623894469ea5db1024  1684448284.44457   1684448346.71941
+	 c81913cba557469a90999dfa  1684448266.979889  1684448349.801789
+	 6a742ccb640e4594a353c49a  1684448229.388576  1684448284.376865
+	 75d1aa21751a4d0085f7c78c  1684448190.969628  1684448266.848555
+	 321f7acb616040cda1232be3  1684448178.230579  1684448229.301771
+	 f325127637554978a28c7c4c  1684448123.997501  1684448178.150143
+	 ba4003ab5d674388913ad196  1684448122.292348  1684448190.811933
+	 ecf0408ff75948cdad056c2a  1684448069.866839  1684448123.924316
+	 a96a951613e947c596cd48fa  1684448051.908431  1684448122.161052
+	 274ed9aae2324ebdb6b0e59a  1684448023.663688  1684448423.171355
+	 81e993bee47043319ff1ab6e  1684448007.683417  1684448069.801989
+	 a8bdcf0e5d6f4645a7a76382  1684447991.732175  1684448051.786494
+	 a1f84df603a3455b8bc91007  1684447955.241488  1684448007.621067
+	 df5e5a6eed6542739b67f833  1684447937.451409  1684447991.609256
+	 f1e61e62d6fb484c9122547e  1684447898.394327  1684447955.175681
+	 c59bc63eb8f041049543f1d2  1684447880.325154  1684447937.315866
+	 1e5a6ac24e9540f89c0c54cf  1684447853.491841  1684447898.333804
+	 c21a103dfa35473390e9d1fe  1684447807.994382  1684447853.423596
+	 e5f3fc273b114ace8bcb8478  1684447807.815813  1684447880.187383
+	 0d92ca4591404ba889239d2f  1684447760.682189  1684447807.938637
+	 53046971da764da1b343c6c5  1684447727.930714  1684447807.672719
+	 f65eae9d11414922a5cc531e  1684447662.420696  1684447760.621397
+	 5e9105ff533e4b44a0dfc577  1684447636.207182  1684447727.776517
+	 7e7fd7824169464b9602d7cc  1684447598.500283  1684447636.086839
+	 a669d0df5eaa4e47a20f5d94  1684447572.937839  1684448379.216737
+	 426257bb89474ca8a339523b  1684447565.763093  1684447662.363762
+	 8cc32087458448c7bd165ea0  1684447561.149784  1684447598.372651
+	 caaffcdf9919419cb3616619  1684447520.023255  1684447561.032779
+	 3ace3b501ffc4d3d9f006a4c  1684447477.174045  1684447565.696864
+	 2ec24496c7b44bc1abb9d07d  1684447446.502455  1684447477.122609
+	 d74763a98ac54a899facc16e  1684447417.775803  1684447446.44637
+	 7e702018ebfe4d96b96b84c5  1684447395.8736    1684448023.427643
+	 18dd6fca9c6944fb9ac0b77f  1684447384.730554  1684447417.721719
+	```
+
+### `properties`
+
+The `properties` sub-command shows
+aggregate information and the list of
+unique values of the properties of an AIM repo
+(i.e., run hyper params and other meta data).
+
+
+```
+tcbench aimrepo properties \
+	--aim-repo notebooks/submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/
+```
+
+!!! note "Output"
+	```
+	╭────────────────────────┬────────────┬───────────────────────────────────────────────────────────╮
+	│ Name                   │ No. unique │ Value                                                     │
+	├────────────────────────┼────────────┼───────────────────────────────────────────────────────────┤
+	│ runs                   │          - │ 315                                                       │
+	│ duration (mean ± std)  │          - │ 5m44s ± 7m40s                                             │
+	│ metrics                │          4 │ ['acc', 'best_epoch', 'best_loss', 'loss']                │
+	│ contexts               │          5 │ ['test-human', 'test-script', 'test-train-val-leftover',  │
+	│                        │            │ 'train', 'val']                                           │
+	├────────────────────────┼────────────┼───────────────────────────────────────────────────────────┤
+	│ experiment             │          1 │ ['augmentation-at-loading']                               │
+	│ aug_name               │          7 │ ['changertt', 'colorjitter', 'horizontalflip', 'noaug',   │
+	│                        │            │ 'packetloss', 'rotate', 'timeshift']                      │
+	│ campaign_exp_idx       │        105 │ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,   │
+	│                        │            │ 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,   │
+	│                        │            │ 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44,   │
+	│                        │            │ 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58,   │
+	│                        │            │ 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,   │
+	│                        │            │ 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86,   │
+	│                        │            │ 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100,  │
+	│                        │            │ 101, 102, 103, 104, 105]                                  │
+	│ campaign_id            │          1 │ ['1684447037']                                            │
+	│ dataset                │          1 │ ['ucdavis-icdm19']                                        │
+	│ flowpic_block_duration │          1 │ [15]                                                      │
+	│ flowpic_dim            │          3 │ [32, 64, 1500]                                            │
+	│ patience_steps         │          1 │ [5]                                                       │
+	│ seed                   │          3 │ [42, 666, 12345]                                          │
+	│ split_index            │          5 │ [0, 1, 2, 3, 4]                                           │
+	╰────────────────────────┴────────────┴───────────────────────────────────────────────────────────╯
+	```
+
+The table is split into two parts to separate general properties (top)
+from hyper parameters (bottom). General properties are common across repositories
+while hyper parameters vary depending of the campaign.
+
+
+!!! note "What is a *context*?"
+
+	The term is borrored from AIM terminology and refers to ability to group
+	metadata into categories. 
+
+	For instance, in the example above,
+	the 4 listed metrics are separately stored for each listed context.
+
+
+### `report`
+
+The `report` sub-command provides an aggregated summary
+across metrics grouped by properties
+
+```
+tcbench aimrepo report \
+    --aim-repo notebooks/submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/
+```
+
+
+!!! note "Output"
+    ```
+    campaign_id: 1684447037
+    runs: 315
+
+                                        hparams                           acc                  duration
+                       split        aug_name   flowpic_dim  runs   mean    std   ci95     mean      std     ci95
+     ───────────────────────  ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                  test-human       changertt            32    15  70.04   4.41   2.44    83.93      7.8     4.32
+                                                        64    15  72.05    2.1   1.16    61.57      5.2     2.88
+                                                      1500    15  72.69   2.68   1.48  1303.72   336.55   186.37
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                 colorjitter            32    15  68.84   4.69   2.59    78.01     10.9     6.03
+                                                        64    15  71.33   3.35   1.86    67.15    22.49    12.45
+                                                      1500    15  68.59   3.17   1.76   765.43   152.53    84.47
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                              horizontalflip            32    15   69.8   2.51   1.39     56.9     1.64     0.91
+                                                        64    15  70.92   3.31   1.83    63.86    28.97    16.04
+                                                      1500    15  73.82   1.47   0.82    471.8     58.6    32.45
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                       noaug            32    15  69.48   2.12   1.17    37.97     1.46     0.81
+                                                        64    15  69.88   2.28   1.26    38.06    20.21    11.19
+                                                      1500    15  68.67   1.93   1.07   374.88    94.41    52.28
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                  packetloss            32    15   71.0   1.85   1.02    80.83    11.11     6.15
+                                                        64    15  73.17   1.61   0.89    57.08     4.75     2.63
+                                                      1500    15  72.13   1.87   1.04  1164.89   245.69   136.06
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                      rotate            32    15  71.57   3.52   1.95    78.52     11.1     6.15
+                                                        64    15   71.0   2.43   1.35    88.49    33.41     18.5
+                                                      1500    15  67.87   1.56   0.86  1313.58    301.7   167.08
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                   timeshift            32    15  70.36   2.98   1.65    80.08    12.72     7.04
+                                                        64    15  72.53   1.83   1.02    64.23    21.91    12.13
+                                                      1500    15  70.84   2.42   1.34   907.03   165.48    91.64
+     ───────────────────────  ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                 test-script       changertt            32    15  97.33   0.71   0.39    83.93      7.8     4.32
+                                                        64    15  97.29   0.64   0.35    61.57      5.2     2.88
+                                                      1500    15   96.8   0.63   0.35  1303.72   336.55   186.37
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                 colorjitter            32    15  97.87    0.8   0.45    78.01     10.9     6.03
+                                                        64    15  97.42    1.2   0.67    67.15    22.49    12.45
+                                                      1500    15  94.89    1.5   0.83   765.43   152.53    84.47
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                              horizontalflip            32    15  95.11   0.74   0.41     56.9     1.64     0.91
+                                                        64    15  95.96   0.89   0.49    63.86    28.97    16.04
+                                                      1500    15  95.11   1.23   0.68    471.8     58.6    32.45
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                       noaug            32    15  95.73   0.49   0.27    37.97     1.46     0.81
+                                                        64    15  95.96   0.53   0.29    38.06    20.21    11.19
+                                                      1500    15  94.44   1.63    0.9   374.88    94.41    52.28
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                  packetloss            32    15  96.98   0.87   0.48    80.83    11.11     6.15
+                                                        64    15  96.89   0.96   0.53    57.08     4.75     2.63
+                                                      1500    15  95.96   1.27    0.7  1164.89   245.69   136.06
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                      rotate            32    15  96.36   0.71   0.39    78.52     11.1     6.15
+                                                        64    15  96.89    0.7   0.39    88.49    33.41     18.5
+                                                      1500    15  95.47   0.84   0.47  1313.58    301.7   167.08
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                   timeshift            32    15  96.71   0.92   0.51    80.08    12.72     7.04
+                                                        64    15  97.11   0.65   0.36    64.23    21.91    12.13
+                                                      1500    15   96.8   0.57   0.32   907.03   165.48    91.64
+     ───────────────────────  ────────────────────────────  ────  ───────────────────  ─────────────────────────
+     test-train-val-leftover       changertt            32    15  98.24   0.56   0.31    83.93      7.8     4.32
+                                                        64    15  98.29   0.71   0.39    61.57      5.2     2.88
+                                                      1500    15  98.43   0.22   0.12  1303.72   336.55   186.37
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                 colorjitter            32    15  97.46    0.6   0.33    78.01     10.9     6.03
+                                                        64    15  96.82   0.74   0.41    67.15    22.49    12.45
+                                                      1500    15  95.79   0.91    0.5   765.43   152.53    84.47
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                              horizontalflip            32    15  95.88   0.46   0.25     56.9     1.64     0.91
+                                                        64    15  96.38   0.91    0.5    63.86    28.97    16.04
+                                                      1500    15  96.47   1.02   0.57    471.8     58.6    32.45
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                       noaug            32    15  96.05   0.35   0.19    37.97     1.46     0.81
+                                                        64    15  96.22   0.57   0.31    38.06    20.21    11.19
+                                                      1500    15  95.62   0.91   0.51   374.88    94.41    52.28
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                  packetloss            32    15  97.47   0.64   0.35    80.83    11.11     6.15
+                                                        64    15  97.48    0.5   0.28    57.08     4.75     2.63
+                                                      1500    15  97.29   0.49   0.27  1164.89   245.69   136.06
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                      rotate            32    15  97.01   0.43   0.24    78.52     11.1     6.15
+                                                        64    15  97.28   0.62   0.34    88.49    33.41     18.5
+                                                      1500    15  95.93   0.74   0.41  1313.58    301.7   167.08
+                              ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                                   timeshift            32    15  97.44   0.75   0.42    80.08    12.72     7.04
+                                                        64    15  97.78   0.68   0.38    64.23    21.91    12.13
+                                                      1500    15  97.94   0.34   0.19   907.03   165.48    91.64
+
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_1500.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_1500.csv
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_32.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_32.csv
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_64.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_64.csv
+    ```
+
+The console output is informing about the `campaign_id` 
+found in the repository and the total number of runs.
+If the repository was containing more than one campaign,
+a different report table would have been created for each
+campaign.
+
+The report is always grouped by `test-<XYZ>` contexts.
+By default all hyper parameters with more than one value
+are also added (see the previous description about properties).
+
+In the example, the `acc` metric is measured with mean, standard
+deviation and 95 %tile confidence intervals.
+Next to the metric is reported also `duration` which 
+corresponds to the overall time for train/validation/test 
+in the run execution.
+
+One can rearrange the table composition using
+the `--groupby` and `--contexts` options
+For instance, in the following we swap the order of the `hparams` used
+and report only on one context.
+
+```
+tcbench aimrepo report \
+    --aim-repo notebooks/submission_tables_and_figures/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/ \
+    --groupby flowpic_dim,aug_name \
+    --contexts test-human
+```
+
+!!! note "Output"
+    ```
+    campaign_id: 1684447037
+    runs: 315
+
+                           hparams                           acc                  duration
+          split  flowpic_dim         aug_name  runs   mean    std   ci95     mean      std     ci95
+     ──────────  ────────────────────────────  ────  ───────────────────  ─────────────────────────
+     test-human           32        changertt    15  70.04   4.41   2.44    83.93      7.8     4.32
+                                  colorjitter    15  68.84   4.69   2.59    78.01     10.9     6.03
+                               horizontalflip    15   69.8   2.51   1.39     56.9     1.64     0.91
+                                        noaug    15  69.48   2.12   1.17    37.97     1.46     0.81
+                                   packetloss    15   71.0   1.85   1.02    80.83    11.11     6.15
+                                       rotate    15  71.57   3.52   1.95    78.52     11.1     6.15
+                                    timeshift    15  70.36   2.98   1.65    80.08    12.72     7.04
+                 ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                          64        changertt    15  72.05    2.1   1.16    61.57      5.2     2.88
+                                  colorjitter    15  71.33   3.35   1.86    67.15    22.49    12.45
+                               horizontalflip    15  70.92   3.31   1.83    63.86    28.97    16.04
+                                        noaug    15  69.88   2.28   1.26    38.06    20.21    11.19
+                                   packetloss    15  73.17   1.61   0.89    57.08     4.75     2.63
+                                       rotate    15   71.0   2.43   1.35    88.49    33.41     18.5
+                                    timeshift    15  72.53   1.83   1.02    64.23    21.91    12.13
+                 ────────────────────────────  ────  ───────────────────  ─────────────────────────
+                        1500        changertt    15  72.69   2.68   1.48  1303.72   336.55   186.37
+                                  colorjitter    15  68.59   3.17   1.76   765.43   152.53    84.47
+                               horizontalflip    15  73.82   1.47   0.82    471.8     58.6    32.45
+                                        noaug    15  68.67   1.93   1.07   374.88    94.41    52.28
+                                   packetloss    15  72.13   1.87   1.04  1164.89   245.69   136.06
+                                       rotate    15  67.87   1.56   0.86  1313.58    301.7   167.08
+                                    timeshift    15  70.84   2.42   1.34   907.03   165.48    91.64
+
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_1500.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_1500.csv
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_32.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_32.csv
+    saving: campaing_summary/1684447037/runsinfo_flowpic_dim_64.parquet
+    saving: campaing_summary/1684447037/summary_flowpic_dim_64.csv
+    ```
+
+The `report` sub-command also creates output artifacts.
+
+* An output folder is created based on the `campaign_id` value.
+
+* A set of `runinfo_<XYZ>.parquet` files collect runs
+    hyper param and metrics. 
+
+* A set of `summary_<XYZ>.csv` files collect the
+    aggregate table reported on the console.
+

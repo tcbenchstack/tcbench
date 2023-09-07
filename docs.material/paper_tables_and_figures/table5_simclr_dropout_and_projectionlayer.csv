@@ -1,0 +1,5 @@
+test_split_name,test-script,test-script,test-script,test-script,test-human,test-human,test-human,test-human
+with_dropout,True,True,False,False,True,True,False,False
+projection_layer_dim,30,84,30,84,30,84,30,84
+mean,91.81,92.02,92.18,92.54,72.12,73.31,74.69,74.35
+ci95,0.38,0.36,0.31,0.33,1.37,1.04,1.13,1.38
