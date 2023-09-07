@@ -1,0 +1,16 @@
+.jp-RenderedHTMLCommon p {
+    margin: 0pt;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-inputWrapper .jp-InputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-outputWrapper .jp-OutputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-OutputArea-output pre {
+    border-left: solid 5px #e0e0e0;
+    padding-left: 5pt;
+}

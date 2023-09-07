@@ -1,0 +1,1558 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Datasets - paper#132</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+      <link rel="stylesheet" href="../../css/material.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/fonts.css">
+    
+      <link rel="stylesheet" href="../../css/tables_style.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-notebook.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datasets-references" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="paper#132" class="md-header__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            paper#132
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Datasets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="paper#132" class="md-nav__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    paper#132
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Submission
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Submission
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper_tables_and_figures/reference/" class="md-nav__link">
+        Tables and figures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_tour/" class="md-nav__link">
+        Quick tour
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Datasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Datasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        Meta-data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import/" class="md-nav__link">
+        Import/Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_load_parquet/" class="md-nav__link">
+        Tutorial - Load parquet files
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/exploring_artifacts/" class="md-nav__link">
+        Exploring ML artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/campaigns/" class="md-nav__link">
+        Campaigns
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          tcbench
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          tcbench
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+          cli
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          cli
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_clickutils/" class="md-nav__link">
+        clickutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_aimrepo/" class="md-nav__link">
+        command_aimrepo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_campaign/" class="md-nav__link">
+        command_campaign
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_datasets/" class="md-nav__link">
+        command_datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_singlerun/" class="md-nav__link">
+        command_singlerun
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_richutils/" class="md-nav__link">
+        richutils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+          libtcdatasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          libtcdatasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_datasets_utils/" class="md-nav__link">
+        datasets_utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet/" class="md-nav__link">
+        ucdavis_icdm19_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits/" class="md-nav__link">
+        ucdavis_icdm19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_json_to_parquet/" class="md-nav__link">
+        mirage19_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_generate_splits.md" class="md-nav__link">
+        mirage19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage22_json_to_parquet/" class="md-nav__link">
+        mirage22_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_mirage22_generate_splits/" class="md-nav__link">
+        mirage22_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_utmobilenet21_csv_to_parquet/" class="md-nav__link">
+        utmobilenet21_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits/" class="md-nav__link">
+        utmobilenet21_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+          modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_augmentation/" class="md-nav__link">
+        augmentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_aimutils/" class="md-nav__link">
+        aimutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_backbone/" class="md-nav__link">
+        backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_dataprep/" class="md-nav__link">
+        dataprep
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_losses/" class="md-nav__link">
+        losses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_utils/" class="md-nav__link">
+        utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading/" class="md-nav__link">
+        run_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading/" class="md-nav__link">
+        run_campaign_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_campaign_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_campaign_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-references" class="md-nav__link">
+    Datasets references
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-and-how-to-preprocess-the-raw-data-from-each-dataset" class="md-nav__link">
+    Why and how to preprocess the raw data from each dataset
+  </a>
+  
+    <nav class="md-nav" aria-label="Why and how to preprocess the raw data from each dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage19" class="md-nav__link">
+    mirage19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22" class="md-nav__link">
+    mirage22
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utmobilenet21" class="md-nav__link">
+    utmobilenet21
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+
+                  
+
+
+  <h1>Datasets</h1>
+
+<h2 id="datasets-references">Datasets references</h2>
+<p>We refer to the following datasets</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="right">Classes</th>
+<th align="left">PDF</th>
+<th align="left">Data</th>
+<th align="left">Code</th>
+<th align="left">Auto-download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ucdavis-icdm19</td>
+<td align="right">5</td>
+<td align="left"><a href="https://arxiv.org/pdf/1812.09761.pdf">pdf</a></td>
+<td align="left"><a href="https://github.com/shrezaei/Semi-supervised-Learning-QUIC-">data</a></td>
+<td align="left"><a href="https://github.com/shrezaei/Semi-supervised-Learning-QUIC-">code</a></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939 8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6 9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061 3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6 2.22 3.28a.749.749 0 0 1 0-1.06Z"/></svg></span></td>
+</tr>
+<tr>
+<td align="left">mirage19</td>
+<td align="right">20</td>
+<td align="left"><a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf">pdf</a></td>
+<td align="left"><a href="https://traffic.comics.unina.it/mirage/mirage-2019.html">data</a></td>
+<td align="left">-</td>
+<td align="left"><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+<tr>
+<td align="left">mirage22</td>
+<td align="right">9</td>
+<td align="left"><a href="http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf">pdf</a></td>
+<td align="left"><a href="https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html">data</a></td>
+<td align="left">-</td>
+<td align="left"><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+<tr>
+<td align="left">utmobilenet21</td>
+<td align="right">17</td>
+<td align="left"><a href="https://ieeexplore.ieee.org/abstract/document/9490678/">pdf</a></td>
+<td align="left"><a href="https://github.com/YuqiangHeng/UTMobileNetTraffic2021">data</a></td>
+<td align="left"><a href="https://github.com/YuqiangHeng/UTMobileNetTraffic2021">code</a></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939 8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6 9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061 3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6 2.22 3.28a.749.749 0 0 1 0-1.06Z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Run the following commands from the root folder
+of the code repository (one of the scripts, namely
+mirage22_json_to_parquet.py has an harded dependency
+from mirage19_json_to_parquet.py).</p>
+</div>
+<h2 id="why-and-how-to-preprocess-the-raw-data-from-each-dataset">Why and how to preprocess the raw data from each dataset</h2>
+<p>Each dataset comes as either CSV or JSON files, with a mixed
+preference between per-packet and per-flow formating. Moreover,
+files can be organized in subfolders---namely <em>partitions</em>---
+to reflect some aspect of the measuring campaign.</p>
+<p>We preprocess all dataset to create monolitich per-flow
+parquet files, associating to each flow numpy arrays
+for the packets time series used for modeling.</p>
+<p>The scripts for the conversion are collected in the <code>/datasets</code> 
+subfolder of the repository.
+The same folder is expected to gather the output parquet files
+and (later) the splits used for modeling.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Our modeling framework provides some flexibility to bypass this
+limitation but, as of now, this is not fully supported yet.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code for generating the charts is in <code>/notebooks/datasets_properties.ipynb</code></p>
+</div>
+<h3 id="ucdavis-icdm19">ucdavis-icdm19</h3>
+<p>The dataset comprises 3 partitions with the following structure</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;root folder&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── pretraining
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── Google Doc
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── Google Drive
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── Google Music
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── Google Search
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── Youtube
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── Retraining(human-triggered)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── Google Doc
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── Google Drive
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   ├── Google Music
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── Google Search
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   └── Youtube
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└── Retraining(script-triggered)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    ├── Google Doc
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    ├── Google Drive
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    ├── Google Music
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    ├── Google Search
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    └── Youtube
+</code></pre></div>
+<p>Inside each nested folder there is a collection CSV files.
+Each file corresponds to a different flow, 
+where each row represent individual packet information.</p>
+<p>The aim of the pre-processing is to load all CSV into a
+single parquet file <code>ucdavis-icdm19.parquet</code>, and "transpose" the representation---
+rather than having indivial packet for each row, we
+create one row per flow (the flow_id is the filename itself)
+encoding the packet time series into numpy arrays.</p>
+<p>The final dataset has the following columns</p>
+<ul>
+<li><code>row_id</code>: a unique row id</li>
+<li><code>app</code>: the label of the flow, encoded as pandas <code>category</code></li>
+<li><code>flow_id</code>: the original filename</li>
+<li><code>partition</code>: the partition related to the flow</li>
+<li><code>num_pkts</code>: number of packets in the flow</li>
+<li><code>duration</code>: the duration of the flow</li>
+<li><code>bytes</code>: the number of bytes of the flow</li>
+<li><code>unixtime</code>: numpy array with the absolute time of each packet</li>
+<li><code>timetofirst</code>: numpy array with the delta between a packet the first packet of the flow</li>
+<li><code>pkts_size</code>: numpy array for the packet size time series</li>
+<li><code>pkts_dir</code>: numpy array for the packet direction time series</li>
+<li><code>pkts_iat</code>: numpy array for the packet inter-arrival time series</li>
+</ul>
+<hr />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python datasets/ucdavis-icdm19_csv-to-parquet.py \
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    --input-folder &lt;where-you-unpacked-the-csvs&gt; \
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    --output-folder datasets/ucdavis-icdm19
+</code></pre></div>
+<details class="note" open="open">
+<summary>output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>found 6672 files to load
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>loading complete
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>saving datasets/ucdavis-icdm19/ucdavis-icdm19.parquet
+</code></pre></div>
+</details>
+<p>Here some aggregate stats about traffic volumes per-class (click to magnify the charts)</p>
+<p><a href="figs/dataset_properties_ucdavis-icdm19.png"><img alt="dataset_properties_ucdavis-icdm19" src="figs/dataset_properties_ucdavis-icdm19.png" /></a></p>
+<h3 id="mirage19">mirage19</h3>
+<p>The dataset is a collection of JSON files for 20 applications</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Despite the website and the related paper mention that
+the dataset contains 40 application, the public version
+has only 20. With separate communication with the authors
+of the dataset, we understood that the remaining 20
+are available only upon request (altough not explicitly
+specified). As result, we considered only the 20 publicly
+available.</p>
+</div>
+<p>The files collection is organized as follows
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/mnt/storage/nfs/TLS/mirage-unina/mirage-19
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└─ MIRAGE-2019_traffic_dataset_downloadable
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   ├── Mi5_38_a4_ed_18_cc_bf
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   └── Nexus7_bc_ee_7b_a4_09_47
+</code></pre></div></p>
+<p>Inside each nested folder there is a collection of JSON files
+with some semantical information embedded in the names themselves.</p>
+<p>Each JSON has fairly complicated nested structure
+which makes it very difficult to work with.</p>
+<p>The purpose of the preprocessing is to</p>
+<ol>
+<li>Combine all JSON into a monolithic parquet file <code>mirage19.parquet</code></li>
+<li>Flatten the nested structure. For instance, a dictionary
+    such as {"a":{"b":1, "c":2}} is transformed into two separate
+    columns "a_b" and "a_c" with the respective values</li>
+<li>Add a <code>"background"</code> class by processing the original
+    label compared the JSON filenames. More specifically,
+    each JSON file detail the name of the app used during
+    a measurement campaign. But the traffic in an experiment
+    can be related to a different app/service running in parallel.
+    The decoupling of the two is facilitated by the column
+    <code>flow_metadata_bf_label</code> which is collected using <code>netstat</code>
+    from the mobile phone: if <code>flow_metadata_bf_label</code> != 
+    the expected app name, we mark the flow as <code>background</code></li>
+<li>The dataset contains raw packet bytes across multiple packets
+    of a flow. We process these series to search for ASCII strings.
+    This can be usefull for extract (in a lazy way) TLS
+    handshake information (e.g., SNI or certificate info)</li>
+</ol>
+<p>The final parquet files has 127 columns, and most of
+them comes from the original dataset itself.
+They are not documented but fairly easy to understand
+based on the name.</p>
+<p>The most important one are</p>
+<ul>
+<li><code>packet_data_packet_dir</code>: the time series of the packet direction</li>
+<li><code>packet_data_l4_payload_bytes</code>: the time series of the packet size</li>
+<li><code>packet_data_iat</code>: the time series of the packet inter-arrival time</li>
+<li><code>flow_metadata_bf_label</code>: the label gathered via netstat</li>
+<li><code>strings</code>: the ASCII string recovered from the payload analysis</li>
+<li><code>android_name</code>: the app used for an experiment</li>
+<li><code>app</code>: the final label encoded as a pandas <code>category</code></li>
+</ul>
+<hr />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python datasets/mirage19_json_to_parquet.py \
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    --input-folder &lt;where-you-unpacked-the-json&gt;/MIRAGE-2019_traffic_dataset_downloadable \
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    --output-f0lder datasets/mirage19 \
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    --workers 30
+</code></pre></div>
+<details class="note" open="open">
+<summary>output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>found 1642 files
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>saving: mirage19/mirage19.parquet
+</code></pre></div>
+</details>
+<p>Here some aggregate stats about traffic volumes per-class (click to magnify the charts)</p>
+<p><a href="figs/dataset_properties_mirage19.png"><img alt="dataset_properties_mirage19" src="figs/dataset_properties_mirage19.png" /></a></p>
+<h3 id="mirage22">mirage22</h3>
+<p>The data has the same format as mirage-19, i.e., a collection of JSON files.</p>
+<p>The dataset contains the following structure</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/mnt/storage/nfs/TLS/mirage-unina/mirage-22
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>└── MIRAGE-COVID-CCMA-2022
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   ├── Preprocessed_pickle
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   └── Raw_JSON
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>       ├── Discord
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>       ├── GotoMeeting
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>       ├── Meet
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>       ├── Messenger
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>       ├── Skype
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>       ├── Slack
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>       ├── Teams
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>       ├── Webex
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>       └── Zoom
+</code></pre></div>
+<p>!!! warning:
+    We disegarded the pickle preprocessed version because (from what we reverse engineered) 
+    encodes a series of object in the same pickle, but we found it cumbersome to work with.</p>
+<p>Please refer to mirage-19 for details about pre-processing</p>
+<hr />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python datasets/mirage22_json_to_parquet.py \
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    --input-folder &lt;where-you-unpacked-the-json&gt;/MIRAGE-COVID-CCMA-2022/Raw_JSON/ \
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    --output-f0lder datasets/mirage22
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    --workers 30
+</code></pre></div>
+<details class="note" open="open">
+<summary>output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>found 998 files
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>saving: datasets/mirage22/mirage22.parquet
+</code></pre></div>
+</details>
+<p>Here some aggregate stats about traffic volumes per-class (click to magnify the charts)</p>
+<p><a href="figs/dataset_properties_mirage22.png"><img alt="dataset_properties_mirage22" src="figs/dataset_properties_mirage22.png" /></a></p>
+<h3 id="utmobilenet21">utmobilenet21</h3>
+<p>The dataset is a collection of per-packet CSV files divided into 4 partitions
+representing 4 different measurement campaigns.</p>
+<p>The files are organized as follows
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&lt;root&gt;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>└── csvs
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    ├── Action-Specific Wild Test Data
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ├── Deterministic Automated Data
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    ├── Randomized Automated Data
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    └── Wild Test Data
+</code></pre></div></p>
+<p>Broadly speaking, the dataset has the same preprocessing needs
+of ucdavid-icmd19, i.e., being formatted per-packet, we
+pre-process it into per-flow and create numpy time series.</p>
+<p>The final <code>utmobilenet21.parquet</code> files contains the following columns</p>
+<ul>
+<li><code>row_id</code>: a unique flow id</li>
+<li><code>src_ip</code>: the source ip of the flow</li>
+<li><code>src_port</code>: the source port of the flow</li>
+<li><code>dst_ip</code>: the destination ip of the flow</li>
+<li><code>dst_port</code>: the destination port of the flow</li>
+<li><code>ip_proto</code>: the protocol of the flow (TCP or UDP)</li>
+<li><code>first</code>: timestamp of the first packet</li>
+<li><code>last</code>: timestamp of the last packet</li>
+<li><code>duration</code>: duration of the flow</li>
+<li><code>packets</code>: number of packets in the flow</li>
+<li><code>bytes</code>: number of bytes in the flow</li>
+<li><code>partition</code>: from which folder the flow was originally stored</li>
+<li><code>location</code>: a label originally provided by the dataset (see the related paper for details)</li>
+<li><code>fname</code>: the original filename where the packets of the flow come from </li>
+<li><code>app</code>: the final label of the flow, encoded as pandas <code>category</code></li>
+<li><code>pkts_size</code>: the numpy array for the packet size time series</li>
+<li><code>pkts_dir</code>: the numpy array for the packet diretion time series</li>
+<li><code>timetofirst</code>: the numpy array for the delta between the each packet timestamp the first packet of the flow</li>
+</ul>
+<hr />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python datasets/utmobilenet21_csv_to_parquet.py \
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    --input-folder &lt;where-you-unpacked-the-dataset&gt;/csvs \
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    --output-folder ./datasets/utmobilenet21 \
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    --tmp-staging-folder /tmp/processing-utmobilenet21 \
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    --num-workers 10
+</code></pre></div>
+<details class="note" open="open">
+<summary>output</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>processing: /mnt/storage/nfs/TLS/utmobilenet-21/csvs/Wild Test Data
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>found 14 files
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>..............
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>stage1 completed
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>stage2 completed
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>stage3 completed
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>stage4 completed
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>saving: /tmp/processing-utmobilenet21/wild_test_data.parquet
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>processing: /mnt/storage/nfs/TLS/utmobilenet-21/csvs/Deterministic Automated Data
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>found 3438 files
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>stage1 completed
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>stage2 completed
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>stage3 completed
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>stage4 completed
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>saving: /tmp/processing-utmobilenet21/deterministic_automated_data.parquet
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>processing: /mnt/storage/nfs/TLS/utmobilenet-21/csvs/Action-Specific Wild Test Data
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>found 43 files
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>...........................................
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>stage1 completed
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>stage2 completed
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>stage3 completed
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>stage4 completed
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>saving: /tmp/processing-utmobilenet21/action-specific_wild_test_data.parquet
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>processing: /mnt/storage/nfs/TLS/utmobilenet-21/csvs/Randomized Automated Data
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>found 288 files
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>................................................................................................................................................................................................................................................................................................
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>stage1 completed
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>stage2 completed
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>stage3 completed
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>stage4 completed
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>saving: /tmp/processing-utmobilenet21/randomized_automated_data.parquet
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>merging all partitions
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>saving: datasets/utmobilenet21/utmobilenet21.parquet
+</code></pre></div>
+</details>
+<p>Here some aggregate stats about traffic volumes per-class (click to magnify the charts)</p>
+<p><a href="figs/dataset_properties_utmobilenet21.png"><img alt="dataset_properties_utmobilenet21" src="figs/dataset_properties_utmobilenet21.png" /></a></p>
+
+
+
+
+
+                
+
+<style>
+// Do whatever changes you need here
+
+.jp-RenderedHTMLCommon p {
+    margin: 0pt;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-inputWrapper .jp-InputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-outputWrapper .jp-OutputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-OutputArea-output pre {
+    border-left: solid 5px #e0e0e0;
+    padding-left: 5pt;
+}
+
+</style>
+
+<script>
+tags = document.getElementsByClassName("md-nav__link");
+for (var idx=0; idx < tags.length; idx++) {
+    //if (item.hasAttribute("href") && item.attributes["href"].textContent.endsWith("ipynb")) {
+    if (tags[idx].innerText.includes("HIDETHIS")) {
+        tags[idx].style.display = "none";
+    }
+}
+</script>
+
+
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.tabs.sticky", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2186 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../runs/">
+      
+      
+        <link rel="next" href="../../tcbench/overview/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Campaigns - paper#132</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+      <link rel="stylesheet" href="../../css/material.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/fonts.css">
+    
+      <link rel="stylesheet" href="../../css/tables_style.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-notebook.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#campaign-composition-and-progress" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="paper#132" class="md-header__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            paper#132
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Campaigns
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="paper#132" class="md-nav__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    paper#132
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Submission
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Submission
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper_tables_and_figures/reference/" class="md-nav__link">
+        Tables and figures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_tour/" class="md-nav__link">
+        Quick tour
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Datasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Datasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/metadata/" class="md-nav__link">
+        Meta-data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/import/" class="md-nav__link">
+        Import/Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/tutorial_load_parquet/" class="md-nav__link">
+        Tutorial - Load parquet files
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploring_artifacts/" class="md-nav__link">
+        Exploring ML artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Campaigns
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Campaigns
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#campaign-composition-and-progress" class="md-nav__link">
+    Campaign composition and progress
+  </a>
+  
+    <nav class="md-nav" aria-label="Campaign composition and progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-dry-run" class="md-nav__link">
+    Using --dry-run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimated-completion" class="md-nav__link">
+    Estimated completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-campaigns-across-serversrepositories" class="md-nav__link">
+    Split campaigns across servers/repositories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-campaigns-commands" class="md-nav__link">
+    Submission campaigns commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Submission campaigns commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19xgboostnoaugmentation-flowpic" class="md-nav__link">
+    ucdavis-icdm19/xgboost/noaugmentation-flowpic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19xgboostnoaugmentation-timeseries" class="md-nav__link">
+    ucdavis-icdm19/xgboost/noaugmentation-timeseries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19augmentation-at-loading-with-dropout" class="md-nav__link">
+    ucdavis-icdm19/augmentation-at-loading-with-dropout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage19augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    mirage19/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    mirage22/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22augmentation-at-loading-no-dropoutminpkts1000" class="md-nav__link">
+    mirage22/augmentation-at-loading-no-dropout/minpkts1000
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utmobilenet21augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    utmobilenet21/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-dropout-and-projection" class="md-nav__link">
+    ucdavis-icdm19/simclr-dropout-and-projection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19augmentation-at-loading-suppress-dropout" class="md-nav__link">
+    ucdavis-icdm19/augmentation-at-loading-suppress-dropout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19larger-trainsetaugmentation-at-loading" class="md-nav__link">
+    ucdavis-icdm19/larger-trainset/augmentation-at-loading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19-git-repo-forked" class="md-nav__link">
+    ucdavis-icdm19-git-repo-forked
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          tcbench
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          tcbench
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+          cli
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          cli
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_clickutils/" class="md-nav__link">
+        clickutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_aimrepo/" class="md-nav__link">
+        command_aimrepo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_campaign/" class="md-nav__link">
+        command_campaign
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_datasets/" class="md-nav__link">
+        command_datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_singlerun/" class="md-nav__link">
+        command_singlerun
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_richutils/" class="md-nav__link">
+        richutils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+          libtcdatasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          libtcdatasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_datasets_utils/" class="md-nav__link">
+        datasets_utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet/" class="md-nav__link">
+        ucdavis_icdm19_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits/" class="md-nav__link">
+        ucdavis_icdm19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_json_to_parquet/" class="md-nav__link">
+        mirage19_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_generate_splits.md" class="md-nav__link">
+        mirage19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage22_json_to_parquet/" class="md-nav__link">
+        mirage22_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_mirage22_generate_splits/" class="md-nav__link">
+        mirage22_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_utmobilenet21_csv_to_parquet/" class="md-nav__link">
+        utmobilenet21_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits/" class="md-nav__link">
+        utmobilenet21_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+          modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_augmentation/" class="md-nav__link">
+        augmentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_aimutils/" class="md-nav__link">
+        aimutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_backbone/" class="md-nav__link">
+        backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_dataprep/" class="md-nav__link">
+        dataprep
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_losses/" class="md-nav__link">
+        losses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_utils/" class="md-nav__link">
+        utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading/" class="md-nav__link">
+        run_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading/" class="md-nav__link">
+        run_campaign_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_campaign_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_campaign_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#campaign-composition-and-progress" class="md-nav__link">
+    Campaign composition and progress
+  </a>
+  
+    <nav class="md-nav" aria-label="Campaign composition and progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-dry-run" class="md-nav__link">
+    Using --dry-run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimated-completion" class="md-nav__link">
+    Estimated completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-campaigns-across-serversrepositories" class="md-nav__link">
+    Split campaigns across servers/repositories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-campaigns-commands" class="md-nav__link">
+    Submission campaigns commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Submission campaigns commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19xgboostnoaugmentation-flowpic" class="md-nav__link">
+    ucdavis-icdm19/xgboost/noaugmentation-flowpic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19xgboostnoaugmentation-timeseries" class="md-nav__link">
+    ucdavis-icdm19/xgboost/noaugmentation-timeseries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19augmentation-at-loading-with-dropout" class="md-nav__link">
+    ucdavis-icdm19/augmentation-at-loading-with-dropout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage19augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    mirage19/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    mirage22/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22augmentation-at-loading-no-dropoutminpkts1000" class="md-nav__link">
+    mirage22/augmentation-at-loading-no-dropout/minpkts1000
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utmobilenet21augmentation-at-loading-no-dropoutminpkts10" class="md-nav__link">
+    utmobilenet21/augmentation-at-loading-no-dropout/minpkts10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss" class="md-nav__link">
+    ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19simclr-dropout-and-projection" class="md-nav__link">
+    ucdavis-icdm19/simclr-dropout-and-projection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19augmentation-at-loading-suppress-dropout" class="md-nav__link">
+    ucdavis-icdm19/augmentation-at-loading-suppress-dropout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19larger-trainsetaugmentation-at-loading" class="md-nav__link">
+    ucdavis-icdm19/larger-trainset/augmentation-at-loading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19-git-repo-forked" class="md-nav__link">
+    ucdavis-icdm19-git-repo-forked
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+
+                  
+
+
+  <h1>Campaigns</h1>
+
+<p>Individual modeling campaings can be triggered
+from the subcommand <code>campaign</code> sub-command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tcbench campaign --help
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a> Usage: tcbench campaign [OPTIONS] COMMAND [ARGS]...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> Triggers a modeling campaign.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ --help      Show this message and exit.                                                          │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>╭─ Commands ───────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│ augment-at-loading        Modeling by applying data augmentation when loading the training set.  │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│ contralearn-and-finetune  Modeling by pre-training via constrative learning and then finetune    │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│                           the final classifier from the pre-trained model.                       │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+</code></pre></div>
+</div>
+<p>The <code>campaign</code> sub-command is an <strong>"opinionated version"</strong> of <code>run</code> sub-command.
+Meaning, is currently targetting only the needs for the campaigns which
+are part of the submission. So, the options exposed by the <code>campaign</code> sub-commands
+are a selected subset of the one options available for the related <code>run</code> sub-commands.</p>
+<p>For <code>augment-at-loading</code> campaign supports the following options
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tcbench campaign augment-at-loading --help
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a> Usage: tcbench campaign augment-at-loading [OPTIONS]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> Modeling by applying data augmentation when loading the training set.
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>╭─ General options ───────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│ --aim-experiment-name    TEXT     The name of the experiment for AIM tracking.                  │
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│                                   [default: augmentations-at-loading]                           │
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│ --aim-repo               PATH     AIM repository location (local folder or URL).                │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│                                   [default: aim-repo]                                           │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│ --artifacts-folder       PATH     Artifacts folder. [default: aim-repo/artifacts]               │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│ --campaign-id            TEXT     A campaign id to mark all experiments.                        │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│ --dry-run                         Show the number of experiments and then quit.                 │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│ --gpu-index              TEXT     The id of the GPU to use (if training with deep learning).    │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│                                   [default: 0]                                                  │
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│ --workers                INTEGER  Number of parallel worker for loading the data. [default: 20] │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│ --seeds                  TEXT     Coma separated list of seed for experiments.                  │
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│                                   [default: 12345,42,666]                                       │
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│ --help                            Show this message and exit.                                   │
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>╭─ Data ──────────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>│ --augmentations       TEXT                                 Coma separated list of augmentations │
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>│                                                            for experiments. Choices:            │
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>│                                                            [noaug|rotate|horizontalflip|colorj… │
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>│                                                            [default:                            │
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>│                                                            noaug,rotate,horizontalflip,colorji… │
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>│ --dataset             [ucdavis-icdm19|utmobilenet21|mirag  Dataset to use for modeling.         │
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>│                       e19|mirage22]                        [default: ucdavis-icdm19]            │
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>│ --dataset-minpkts     [-1|10|100|1000]                     In combination with --dataset,       │
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>│                                                            refines preprocessed and split       │
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>│                                                            dataset to use.                      │
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>│                                                            [default: -1]                        │
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>│ --flowpic-dims        TEXT                                 Coma separated list of flowpic       │
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>│                                                            dimensions for experiments.          │
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>│                                                            [default: 32,64,1500]                │
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>│ --max-train-splits    INTEGER                              The maximum number of training       │
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>│                                                            splits to experiment with. If -1,    │
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>│                                                            use all available.                   │
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>│                                                            [default: -1]                        │
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>│ --split-indexes       TEXT                                 Coma separted list of split indexes  │
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>│                                                            (by default all splits are used).    │
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>│ --no-test-leftover                                         Skip test on leftover split          │
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>│                                                            (specific for ucdavis-icdm19, and    │
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>│                                                            default enabled for all other        │
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>│                                                            datasets).                           │
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>╭─ Modeling ──────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>│ --method    [monolithic|xgboost]  Method to use for training. [default: monolithic]             │
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>╭─ DL hyper params ───────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>│ --batch-size        INTEGER  Training batch size. [default: 32]                                 │
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>│ --epochs            INTEGER  Number of epochs for training. [default: 50]                       │
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>│ --learning-rate     FLOAT    Training learning rate. [default: 0.001]                           │
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>│ --patience-steps    INTEGER  Max. number of epochs without improvement before stopping          │
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>│                              training.                                                          │
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>│                              [default: 5]                                                       │
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>│ --no-dropout                 Mask dropout layers with Identity layers.                          │
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>╭─ XGBoost hyper params ──────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>│ --input-repr       TEXT     Input representation. [default: pktseries]                          │
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>│ --pktseries-len    INTEGER  Number of packets (when using time series as input).                │
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>│                             [default: 10,30]                                                    │
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>╭─ Options ───────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>│ --max-samples-per-class    INTEGER  Activated when --split-indexes is -1 to define how many     │
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>│                                     samples to select for train+val (with a 80/20 split between │
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>│                                     train and val).                                             │
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+</code></pre></div>
+</div>
+<p>For <code>contralearn-and-finetune</code> campaign supports the following options
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tcbench campaign contralearn-and-finetune --help
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>tcbench campaign contralearn-and-finetune --help
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a> Usage: tcbench campaign contralearn-and-finetune [OPTIONS]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> Modeling by pre-training via constrative learning and then finetune the final classifier from the
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> pre-trained model.
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>╭─ General options ───────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│ --aim-experiment-name    TEXT     The name of the experiment for AIM tracking.                  │
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>│                                   [default: contrastive-learning-and-finetune]                  │
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>│ --aim-repo               PATH     AIM repository location (local folder or URL).                │
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│                                   [default: aim-repo]                                           │
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│ --artifacts-folder       PATH     Artifacts folder. [default: aim-repo/artifacts]               │
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>│ --campaign-id            TEXT     A campaign id to mark all experiments.                        │
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>│ --dry-run                         Show the number of experiments and then quit.                 │
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>│ --gpu-index              TEXT     The id of the GPU to use (if training with deep learning).    │
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>│                                   [default: 0]                                                  │
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>│ --workers                INTEGER  Number of parallel worker for loading the data. [default: 50] │
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>│ --help                            Show this message and exit.                                   │
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>╭─ Data ──────────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>│ --augmentations       TEXT     Coma separated list of augmentations. Choices:                   │
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>│                                [noaug|rotate|horizontalflip|colorjitter|packetloss|changertt|t… │
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>│                                [default: changertt,timeshift]                                   │
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>│ --flowpic-dims        TEXT     Coma separated list of flowpic dimensions for experiments.       │
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>│                                [default: 32]                                                    │
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>│ --max-train-splits    INTEGER  The maximum number of training splits to experiment with. If -1, │
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>│                                use all available.                                               │
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>│                                [default: -1]                                                    │
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>│ --split-indexes       TEXT     Coma separted list of split indexes (by default all splits are   │
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>│                                used).                                                           │
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>╭─ Training hyperparams ──────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>│ --batch-size                  INTEGER  Training batch size. [default: 32]                       │
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>│ --cl-projection-layer-dims    TEXT     Coma separate list of contrastive learning projection    │
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>│                                        layer dimensions.                                        │
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>│                                        [default: 30]                                            │
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>│ --cl-seeds                    TEXT     Coma separated list of seeds to use for contrastive      │
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>│                                        learning pretraining.                                    │
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>│                                        [default: 12345,1,2,3,4]                                 │
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>│ --ft-seeds                    TEXT     Coma separated list of seeds to use for finetune         │
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>│                                        training.                                                │
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>│                                        [default: 12345,1,2,3,4]                                 │
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>│ --dropout                     TEXT     Coma separated list. Choices:[enable|disable].           │
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>│                                        [default: disable]                                       │
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>╰─────────────────────────────────────────────────────────────────────────────────────────────────╯
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Going beyond the scope of the submission</p>
+<p>Considering the <code>tcbench</code> projection it self, it is clearly
+in the road map to extend the current functionalities with
+a full-fledged variety of options/controls beside adding
+more datasets and training methodologies.</p>
+</div>
+<h2 id="campaign-composition-and-progress">Campaign composition and progress</h2>
+<p>As mentioned, campaigns are essentially just an array of runs.</p>
+<h3 id="using-dry-run">Using <code>--dry-run</code></h3>
+<p>The <code>--dry-run</code> option allows to
+verify the composition of a campaign.</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a> tcbench campaign augment-at-loading --dry-run --method monolithic
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>##########
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a># campaign_id: 1688582575 | experiment 1/315 - time to completion 0:00:00
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>##########
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>experiment grid with 315 experiments
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>---
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>augmentations (7): [&#39;noaug&#39;, &#39;rotate&#39;, &#39;horizontalflip&#39;, &#39;colorjitter&#39;, &#39;packetloss&#39;, &#39;changertt&#39;, &#39;timeshift&#39;]
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>flowpic_dims  (3): [32, 64, 1500]
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div>
+</div>
+<p>From the output we can see that the 
+default configuration for an <code>augment-at-loading</code> campaign
+corresponds to 315 runs = 5 splits x 7 augmentations x 3 flowpic dimensions x 3 seeds.</p>
+<p>This can be adapted based on the campaign sub-commands options.</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    --dry-run \
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    --method monolithic \
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    --split-indexes 0,3 \
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    --seeds 12345 \
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    --flowpic-dims 32 \
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    --augmentations noaug,rotate
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>##########
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># campaign_id: 1688582864 | experiment 1/4 - time to completion 0:00:00
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>##########
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>split_indexes (2): [0, 3]
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>augmentations (2): [&#39;noaug&#39;, &#39;rotate&#39;]
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>seeds         (1): [12345]
+</code></pre></div>
+</div>
+<h3 id="estimated-completion">Estimated completion</h3>
+<p>Notice also the <code>campaign_id</code> and <code>time to completion</code>.</p>
+<ul>
+<li>
+<p><code>campaign_id</code> by default corresponds to the unixtime
+of when the campaign is triggered. This can be
+changed using the <code>--campaign-id</code> option.</p>
+</li>
+<li>
+<p><code>time to completion</code> is an estimate of the remaning
+time to complete the campaign based on the average
+duration of the runs already completed. As such, it
+is simply a rough estimate rather than a precise
+estimate.</p>
+</li>
+</ul>
+<h3 id="split-campaigns-across-serversrepositories">Split campaigns across servers/repositories</h3>
+<p>For simplicity, the <strong>runs are executed in sequence on a single-server environment</strong>.
+This is clearly not the best option in a multi-server environment,
+neither using a sequence can likely take advantange of available GPUs/CPUs on a single-server.</p>
+<p>It is however possible to use <code>run</code> and <code>campaign</code> commands to
+manually split the workload and merge ML artifact folders and AIM repositories a posteriori.</p>
+<div class="admonition info">
+<p class="admonition-title">How to merge AIM repositories</p>
+<p>The <code>aim</code> command line utility allows to copy run between
+repositories provided the hash of the runs to copy are known.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Usage: aim runs cp [OPTIONS] [HASHES]...
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  Copy Run data for given run hashes to destination Repo.
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  Options:
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    --destination TEXT  [required]
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    --help              Show this message and exit.
+</code></pre></div>
+<p>For instance, this is a minimal bash script to copy runs 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">SRC</span><span class="o">=</span>/path/to/source/aim/repo
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nv">DST</span><span class="o">=</span>/path/to/destionation/aim/repo
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SRC</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">for</span><span class="w"> </span>run_hash<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>aim<span class="w"> </span>runs<span class="w"> </span>--repo<span class="w"> </span><span class="nv">$SRC</span><span class="w"> </span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>Total<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\t&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="sb">`</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span>aim<span class="w"> </span>runs<span class="w"> </span>cp<span class="w"> </span>--destination<span class="w"> </span><span class="nv">$DST</span><span class="w"> </span><span class="nv">$run_hash</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">done</span>
+</code></pre></div></p>
+</div>
+<h2 id="submission-campaigns-commands">Submission campaigns commands</h2>
+<p>We report below the command used to trigger the campaigns
+collected in the <a href="/modeling/exploring_artifacts/">ML artifacts</a></p>
+<h4 id="ucdavis-icdm19xgboostnoaugmentation-flowpic"><code>ucdavis-icdm19/xgboost/noaugmentation-flowpic</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    --method xgboost \
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    --augmentations noaug \
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    --input-repr flowpic \
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    --flowpic-dims 32,64,1500 \
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    --dataset ucdavis-icdm19 \
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    --aim-repo ucdavis-icdm19/xgboost/noaugmentation-flowpic
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    --artifacts-folder ucdavis-icdm19/xgboost/noaugmentation-flowpic/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaigns has 45 runs</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>seeds         (3): [12345, 42, 666]
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>flowpic_dims  (3): [32, 64, 1500]
+</code></pre></div>
+<p>In the submission we just reported results for flowpic with 32x32 resolution.</p>
+</div>
+<h4 id="ucdavis-icdm19xgboostnoaugmentation-timeseries"><code>ucdavis-icdm19/xgboost/noaugmentation-timeseries</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    --method xgboost \
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    --augmentations noaug \
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    --input-repr pktseries \
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    --pktseries-len 10,30 \
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    --dataset ucdavis-icdm19 \
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    --aim-repo ucdavis-icdm19/xgboost/noaugmentation-timeseries \
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    --artifacts-folder ucdavis-icdm19/xgboost/noaugmentation-timeseries/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 30 runs</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>seeds         (3): [12345, 42, 666]
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>max_n_pkts    (2): [10, 30]
+</code></pre></div>
+<p>In the submission we just reported results for time series with 10 packets</p>
+</div>
+<h4 id="ucdavis-icdm19augmentation-at-loading-with-dropout"><code>ucdavis-icdm19/augmentation-at-loading-with-dropout</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    --method monolithic \
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    --dataset ucdavis-icdm19 \
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    --aim-repo ucdavis-icdm19/augmentation-at-loading-with-dropout \
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    --artifacts-folder ucdavis-icdm19/augmentation-at-loading-with-dropout/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 315 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>augmentations (7): [&#39;noaug&#39;, &#39;rotate&#39;, &#39;horizontalflip&#39;, &#39;colorjitter&#39;, &#39;packetloss&#39;, &#39;changertt&#39;, &#39;timeshift&#39;]
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>flowpic_dims  (3): [32, 64, 1500]
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="mirage19augmentation-at-loading-no-dropoutminpkts10"><code>mirage19/augmentation-at-loading-no-dropout/minpkts10</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    --method monolithic \
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    --dataset mirage19 \
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    --dataset-minpkts 10 \
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    --augmentations noaug \
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    --no-dropout \
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    --flowpic-dims 32 \
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    --aim-repo mirage19/augmentation-at-loading-no-dropout/minpkts10 \
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    --artifacts-folder mirage19/augmentation-at-loading-no-dropout/minpkts10/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 15 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="mirage22augmentation-at-loading-no-dropoutminpkts10"><code>mirage22/augmentation-at-loading-no-dropout/minpkts10</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    --method monolithic \
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    --dataset mirage22 \
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    --dataset-minpkts 10 \
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    --augmentations noaug \
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    --no-dropout \
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    --flowpic-dims 32 \
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>    --aim-repo mirage22/augmentation-at-loading-no-dropout/minpkts10 \
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    --artifacts-folder mirage22/augmentation-at-loading-no-dropout/minpkts10/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 15 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="mirage22augmentation-at-loading-no-dropoutminpkts1000"><code>mirage22/augmentation-at-loading-no-dropout/minpkts1000</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    --method monolithic \
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    --dataset mirage22 \
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    --dataset-minpkts 10 \
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    --augmentations noaug \
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    --no-dropout \
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    --flowpic-dims 32 \
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    --aim-repo mirage22/augmentation-at-loading-no-dropout/minpkts10 \
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>    --artifacts-folder mirage22/augmentation-at-loading-no-dropout/minpkts10
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 15 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="utmobilenet21augmentation-at-loading-no-dropoutminpkts10"><code>utmobilenet21/augmentation-at-loading-no-dropout/minpkts10</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    --method monolithic \
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    --dataset utmobilenet21 \
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    --dataset-minpkts 10 \
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    --augmentations noaug \
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    --no-dropout \
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    --flowpic-dims 32 \
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    --aim-repo utmobilenet21/augmentation-at-loading-no-dropout/minpkts10 \
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    --artifacts-folder utmobilenet21/augmentation-at-loading-no-dropout/minpkts10/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 15 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>augmentations (1): [&#39;noaug&#39;]
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt"><code>ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    --augmentations colorjitter,changertt \
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    --cl-projection-layer-dims 30 \
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>    --dropout disable \
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>    --aim-repo ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt \
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 125 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>projection layer dims      (1): [30]
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>dropout                    (1): [&#39;disable&#39;]
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss"><code>ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    --augmentations colorjitter,packetloss \
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    --cl-projection-layer-dims 30 \
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    --dropout disable \
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>    --aim-repo ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss \
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 125 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>projection layer dims      (1): [30]
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>dropout                    (1): [&#39;disable&#39;]
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate"><code>ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    --augmentations colorjitter,rotate \
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>    --cl-projection-layer-dims 30 \
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>    --dropout disable \
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>    --aim-repo ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate \
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 125 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>projection layer dims      (1): [30]
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>dropout                    (1): [&#39;disable&#39;]
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt"><code>ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>    --augmentations rotate,changertt \
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>    --cl-projection-layer-dims 30 \
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>    --dropout disable \
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>    --aim-repo ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt \
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 125 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>projection layer dims      (1): [30]
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>dropout                    (1): [&#39;disable&#39;]
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss"><code>ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    --augmentations rotate,packetloss \
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>    --cl-projection-layer-dims 30 \
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    --dropout disable \
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    --aim-repo ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss \
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Runs grid</p>
+<p>The campaign has 215 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>projection layer dims      (1): [30]
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>dropout                    (1): [&#39;disable&#39;]
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19simclr-dropout-and-projection"><code>ucdavis-icdm19/simclr-dropout-and-projection</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>tcbench campaign contralearn-and-finetune \
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    --augmentations changertt,timeshift \
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>    --flowpic-dims 32 \
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    --cl-projection-layer-dims 30,84 \
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>    --cl-seeds 12345,1,2,3,4 \
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>    --ft-seeds 12345,1,2,3,4 \
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    --dropout disable,enable \
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>    --aim-repo ucdavis-icdm19/simclr-dropout-and-projection \
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>    --artifacts-folder ucdavis-icdm19/simclr-dropout-and-projection/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Run grid</p>
+<p>The campaign has 500 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>split_indexes              (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>contrastive learning seeds (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>finetune seeds             (5): [12345, 1, 2, 3, 4]
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>projection layer dims      (2): [30, 84]
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>dropout                    (2): [&#39;disable&#39;, &#39;enable&#39;]
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>flowpic dims               (1): [32]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19augmentation-at-loading-suppress-dropout"><code>ucdavis-icdm19/augmentation-at-loading-suppress-dropout</code></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>    --flowpic-dims 32,1500 \
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>    --seeds 12345,42,666 \
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>    --no-dropout \
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>    --aim-repo ucdavis-icdm19/simclr-dropout-and-projection \
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>    --artifacts-folder ucdavis-icdm19/simclr-dropout-and-projection/artifacts
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Run grid</p>
+<p>The campaign has 210 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>split_indexes (5): [0, 1, 2, 3, 4]
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>augmentations (7): [&#39;noaug&#39;, &#39;rotate&#39;, &#39;horizontalflip&#39;, &#39;colorjitter&#39;, &#39;packetloss&#39;, &#39;changertt&#39;, &#39;timeshift&#39;]
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>flowpic_dims  (2): [32, 1500]
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>seeds         (3): [12345, 42, 666]
+</code></pre></div></p>
+</div>
+<h4 id="ucdavis-icdm19larger-trainsetaugmentation-at-loading"><code>ucdavis-icdm19/larger-trainset/augmentation-at-loading</code></h4>
+<p>This campaign is a composition of two sub-campaigns 
+stored in the same AIM repository.</p>
+<p>The first is for augmentation at loading
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>tcbench campaign augment-at-loading \
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>    --seeds 6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25 \
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>    --split-indexes -1 \
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>    --method monolithic \
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>    --no-dropout \
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>    --flowpic-dims 32 \
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>    --aim-repo ucdavis-icdm19/larger-trainset/augmentation-at-loading \
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>    --artifacts-folder ucdavis-icdm19/larger-trainset/augmentation-at-loading/artifacts
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Run grid</p>
+<p>The campaign has 140 runs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>split_indexes (1): [-1]
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>augmentations (7): [&#39;noaug&#39;, &#39;rotate&#39;, &#39;horizontalflip&#39;, &#39;colorjitter&#39;, &#39;packetloss&#39;, &#39;changertt&#39;, &#39;timeshift&#39;]
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>flowpic_dims  (1): [32]
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>seeds         (20): [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+</code></pre></div></p>
+</div>
+<p>The second is for contrastive learning created with the following script to
+manually compose 20 runs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="nv">CONTRALEARN_SEEDS</span><span class="o">=(</span><span class="m">32</span><span class="w"> </span><span class="m">33</span><span class="w"> </span><span class="m">34</span><span class="w"> </span><span class="m">35</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">43</span><span class="w"> </span><span class="m">64</span><span class="o">)</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="nv">FINETUNE_SEEDS</span><span class="o">=(</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">43</span><span class="w"> </span><span class="m">64</span><span class="o">)</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="k">for</span><span class="w"> </span>idx<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..19<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span>tcbench<span class="w"> </span>run<span class="w"> </span>contralearn-and-finetune<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">        </span>--dataset<span class="w"> </span>ucdavis-icdm19<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">        </span>--batch-size<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="w">        </span>--flowpic-dim<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="w">        </span>--no-dropout<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="w">        </span>--split-index<span class="w"> </span>-1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a><span class="w">        </span>--cl-projection-layer-dim<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a><span class="w">        </span>--cl-seed<span class="w"> </span><span class="si">${</span><span class="nv">CONTRALEARN_SEEDS</span><span class="p">[</span><span class="nv">$idx</span><span class="p">]</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a><span class="w">        </span>--ft-seed<span class="w"> </span><span class="si">${</span><span class="nv">FINETUNE_SEEDS</span><span class="p">[</span><span class="nv">$idx</span><span class="p">]</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a><span class="w">        </span>--aim-repo<span class="w"> </span>ucdavis-icdm19/larger-trainset/augmentation-at-loading<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a><span class="w">        </span>--artifacts-folder<span class="w"> </span>ucdavis-icdm19/larger-trainset/augmentation-at-loading/artifacts
+<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a><span class="k">done</span>
+</code></pre></div>
+<h4 id="ucdavis-icdm19-git-repo-forked"><code>ucdavis-icdm19-git-repo-forked</code></h4>
+<p>This campaign is different from all the others
+because is just <a href="">repeating</a> the experiments
+of the following paper ICDM19.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>@misc{rezaei2020achieve,
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>title={How to Achieve High Classification Accuracy with Just a Few Labels: A Semi-supervised Approach Using Sampled Packets}, 
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>author={Shahbaz Rezaei and Xin Liu},
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>year={2020},
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>eprint={1812.09761},
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>archivePrefix={arXiv},
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>primaryClass={cs.NI}
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>}
+</code></pre></div>
+<p>The related code is available at this 
+<a href="https://github.com/shrezaei/Semi-supervised-Learning-QUIC-"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> repository</a></p>
+<p>We just did minor modifications (mostly
+for changing output folders) without
+affecting how to execute the code.</p>
+<p>In other words, to generate the result run
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>python dataProcessInMemoryQUIC.py 
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>python pre-training.py
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>python re-training.py
+</code></pre></div></p>
+<p>All results are collected in an output <code>/artifacts</code> folder
+(but now AIM repository is generated).</p>
+
+
+
+
+
+                
+
+<style>
+// Do whatever changes you need here
+
+.jp-RenderedHTMLCommon p {
+    margin: 0pt;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-inputWrapper .jp-InputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-outputWrapper .jp-OutputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-OutputArea-output pre {
+    border-left: solid 5px #e0e0e0;
+    padding-left: 5pt;
+}
+
+</style>
+
+<script>
+tags = document.getElementsByClassName("md-nav__link");
+for (var idx=0; idx < tags.length; idx++) {
+    //if (item.hasAttribute("href") && item.attributes["href"].textContent.endsWith("ipynb")) {
+    if (tags[idx].innerText.includes("HIDETHIS")) {
+        tags[idx].style.display = "none";
+    }
+}
+</script>
+
+
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../runs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Runs" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Runs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../tcbench/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.tabs.sticky", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

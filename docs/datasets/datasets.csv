@@ -1,0 +1,5 @@
+Name,Classes, PDF, Data, Code, Auto-download
+ucdavis-icdm19,5,[pdf](https://arxiv.org/pdf/1812.09761.pdf), [data](https://github.com/shrezaei/Semi-supervised-Learning-QUIC-), [code](https://github.com/shrezaei/Semi-supervised-Learning-QUIC-), :octicons-x-12:
+mirage19, 20, [pdf](http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf), [data](https://traffic.comics.unina.it/mirage/mirage-2019.html), -, :heavy_check_mark:
+mirage22, 9, [pdf](http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf), [data](https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html), -, :heavy_check_mark:
+utmobilenet21, 17, [pdf](https://ieeexplore.ieee.org/abstract/document/9490678/), [data](https://github.com/YuqiangHeng/UTMobileNetTraffic2021), [code](https://github.com/YuqiangHeng/UTMobileNetTraffic2021), :octicons-x-12:

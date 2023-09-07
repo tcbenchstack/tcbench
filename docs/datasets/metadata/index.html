@@ -1,0 +1,2318 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../import/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Meta-data - paper#132</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+      <link rel="stylesheet" href="../../css/material.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/fonts.css">
+    
+      <link rel="stylesheet" href="../../css/tables_style.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-notebook.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#static-information" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="paper#132" class="md-header__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            paper#132
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Meta-data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="paper#132" class="md-nav__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    paper#132
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Submission
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Submission
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper_tables_and_figures/reference/" class="md-nav__link">
+        Tables and figures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_tour/" class="md-nav__link">
+        Quick tour
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Datasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Datasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Meta-data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Meta-data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#static-information" class="md-nav__link">
+     Static information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-curated-files" class="md-nav__link">
+     List of curated files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schemas" class="md-nav__link">
+     Schemas
+  </a>
+  
+    <nav class="md-nav" aria-label="Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage19" class="md-nav__link">
+    mirage19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22" class="md-nav__link">
+    mirage22
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utmobilenet21" class="md-nav__link">
+    utmobilenet21
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samples-count-report" class="md-nav__link">
+     Samples count report
+  </a>
+  
+    <nav class="md-nav" aria-label="Samples count report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19_1" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-for-other-datasets" class="md-nav__link">
+    Examples for other datasets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import/" class="md-nav__link">
+        Import/Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_load_parquet/" class="md-nav__link">
+        Tutorial - Load parquet files
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/exploring_artifacts/" class="md-nav__link">
+        Exploring ML artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/campaigns/" class="md-nav__link">
+        Campaigns
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          tcbench
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          tcbench
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+          cli
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          cli
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_clickutils/" class="md-nav__link">
+        clickutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_aimrepo/" class="md-nav__link">
+        command_aimrepo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_campaign/" class="md-nav__link">
+        command_campaign
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_datasets/" class="md-nav__link">
+        command_datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_singlerun/" class="md-nav__link">
+        command_singlerun
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_richutils/" class="md-nav__link">
+        richutils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+          libtcdatasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          libtcdatasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_datasets_utils/" class="md-nav__link">
+        datasets_utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet/" class="md-nav__link">
+        ucdavis_icdm19_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits/" class="md-nav__link">
+        ucdavis_icdm19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_json_to_parquet/" class="md-nav__link">
+        mirage19_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_generate_splits.md" class="md-nav__link">
+        mirage19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage22_json_to_parquet/" class="md-nav__link">
+        mirage22_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_mirage22_generate_splits/" class="md-nav__link">
+        mirage22_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_utmobilenet21_csv_to_parquet/" class="md-nav__link">
+        utmobilenet21_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits/" class="md-nav__link">
+        utmobilenet21_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+          modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_augmentation/" class="md-nav__link">
+        augmentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_aimutils/" class="md-nav__link">
+        aimutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_backbone/" class="md-nav__link">
+        backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_dataprep/" class="md-nav__link">
+        dataprep
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_losses/" class="md-nav__link">
+        losses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_utils/" class="md-nav__link">
+        utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading/" class="md-nav__link">
+        run_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading/" class="md-nav__link">
+        run_campaign_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_campaign_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_campaign_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#static-information" class="md-nav__link">
+     Static information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-curated-files" class="md-nav__link">
+     List of curated files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schemas" class="md-nav__link">
+     Schemas
+  </a>
+  
+    <nav class="md-nav" aria-label="Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage19" class="md-nav__link">
+    mirage19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirage22" class="md-nav__link">
+    mirage22
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utmobilenet21" class="md-nav__link">
+    utmobilenet21
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samples-count-report" class="md-nav__link">
+     Samples count report
+  </a>
+  
+    <nav class="md-nav" aria-label="Samples count report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucdavis-icdm19_1" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-for-other-datasets" class="md-nav__link">
+    Examples for other datasets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+
+                  
+
+
+  <h1>Meta-data</h1>
+
+<p>The <code>tcbench</code> CLI can show 4 types of meta-data:</p>
+<ul>
+<li>
+<p><a href="#static-information"><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14c0 .53-.21 1.04-.59 1.41-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-1.11.89-2 2-2m8 6V7h-2v2h2m0 8v-6h-2v6h2Z"/></svg></span> Static information</strong></a>: A collection of 
+URL links with datasets documentation
+and folders path related the installation.</p>
+</li>
+<li>
+<p><a href="#list-of-curated-files"><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13H7v5h5v2H5V10h2v1h5v2M8 4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2 9v2h-4v-2h4m2-2h-8v6h8v-6Z"/></svg></span> List of curated files</strong></a>: An organized
+view of the files generated during installation.</p>
+</li>
+<li>
+<p><a href="#schemas"><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8H5m8 0v4h6V8h-6m-8 6v4h6v-4H5m8 0v4h6v-4h-6Z"/></svg></span> Schemas</strong></a>: A formatted view of
+the schemas of installed files.</p>
+</li>
+<li>
+<p><a href="#samples-count-report"><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483.905.477 1.504 1.284 1.504 2.418 0 .966-.471 1.75-1.172 2.27-.687.511-1.587.77-2.521.77-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553.673 0 1.243-.188 1.627-.473.37-.275.566-.635.566-1.067 0-.5-.219-.836-.703-1.091-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75ZM7.88 15.215a1.4 1.4 0 0 0-1.446.83.75.75 0 0 1-1.37-.61 2.899 2.899 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743.434.446.685 1.058.685 1.778 0 1.641-1.254 2.437-2.12 2.986-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21 1.032-.659 1.55-1.031 1.55-1.8 0-.355-.116-.584-.26-.732a1.071 1.071 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.749.749 0 0 1 .762-.02Z"/></svg></span> Samples count report</strong></a>: A per-app breakdown
+of the number of samples.</p>
+</li>
+</ul>
+<h3 id="static-information"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14c0 .53-.21 1.04-.59 1.41-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-1.11.89-2 2-2m8 6V7h-2v2h2m0 8v-6h-2v6h2Z"/></svg></span> Static information</h3>
+<p>The static information corresponds
+to the information displayed in the 
+<a href="/datasets/install/#table-datasets-properties">datasets properties</a>
+shown in the installation page.</p>
+<p>To show it in the console run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tcbench datasets info
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Datasets
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── ucdavis-icdm19
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └──  🚩 classes:       5
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│        🔗 paper_url:     https://arxiv.org/pdf/1812.09761.pdf
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│        🔗 website:       https://github.com/shrezaei/Semi-supervised-Learning-QUIC-
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│        🔗 data:          https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│        📁 installed:     None
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│        📁 data splits:   None
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>├── mirage19
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   └──  🚩 classes:       20
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-2019.html
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│        📁 installed:     None
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│        📁 data splits:   None
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── mirage22
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   └──  🚩 classes:       9
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│        📁 installed:     None
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│        📁 data splits:   None
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>└── utmobilenet21
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    └──  🚩 classes:       17
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>         🔗 paper_url:     https://ieeexplore.ieee.org/abstract/document/9490678/
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>         🔗 website:       https://github.com/YuqiangHeng/UTMobileNetTraffic2021
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>         🔗 data:          https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>         📁 installed:     None
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>         📁 preprocessed:  None
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>         📁 data splits:   None
+</code></pre></div>
+</div>
+<p>The example above corresponds to the case when
+no dataset is installed.</p>
+<p>After a dataset is installed, the remaining
+properties are filled. Specifically,
+as suggested by the icon, the last
+3 properties of each dataset 
+correspond to folders generated
+via the curation:</p>
+<ul>
+<li>
+<p><code>"installed"</code> is the path
+where the raw data of the dataset is
+unpacked.</p>
+</li>
+<li>
+<p><code>"preprocessed"</code> is the
+path where the preprocessed data
+is stored, i.e., the monolithic
+per-flow parquet files (with no
+filtering applied).</p>
+</li>
+<li>
+<p><code>"data splits"</code> is the folder
+where filtered data and data splits
+are stored, i.e., the data used
+for modeling.</p>
+</li>
+</ul>
+<p>The <code>datasets info</code> sub-command supports
+the option <code>--name</code> to filter out
+information for just one dataset.</p>
+<p>For instance, after installing
+<code>ucdavis-icdm19</code>, its
+information are:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tcbench datasets info --name ucdavis-icdm19
+</code></pre></div>
+<div class="admonition into">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Datasets
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└── ucdavis-icdm19
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    └──  🚩 classes:       5
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>         🔗 paper_url:     https://arxiv.org/pdf/1812.09761.pdf
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>         🔗 website:       https://github.com/shrezaei/Semi-supervised-Learning-QUIC-
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>         🔗 data:          https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>         📁 installed:     /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/raw
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>         📁 preprocessed:  /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>         📁 data splits:   /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23
+</code></pre></div>
+</div>
+<h3 id="list-of-curated-files"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13H7v5h5v2H5V10h2v1h5v2M8 4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2 9v2h-4v-2h4m2-2h-8v6h8v-6Z"/></svg></span> List of curated files</h3>
+<p>As reported by <code>datasets info</code>, 
+both datasets raw data and curated parquet files 
+are stored into a subfolder of the python environment.</p>
+<p>Specifically, the folder is structure is as follows:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/datasets
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  └── &lt;dataset-name&gt; 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        └── /raw
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        └── /preprocessed
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>             └── /imc23
+</code></pre></div></p>
+<p>where</p>
+<ul>
+<li><code>/raw</code> contains the raw data of the datasets.</li>
+<li><code>/preprocessed</code> contains the monolithic parquet files.</li>
+<li><code>/imc23</code> contains the filtererd monolithic parquet files
+and the splits generated for the submission.</li>
+</ul>
+<p>One can better inspect this structure via the <code>datasets lsparquet</code> sub-command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>tcbench datasets lsparquet
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Datasets
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── ucdavis-icdm19
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│   └── 📁 preprocessed/
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│       ├── ucdavis-icdm19.parquet
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│       └── 📁 imc23/
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>│           ├── test_split_human.parquet
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│           ├── test_split_script.parquet
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>│           ├── train_split_0.parquet
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>│           ├── train_split_1.parquet
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│           ├── train_split_2.parquet
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│           ├── train_split_3.parquet
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>│           └── train_split_4.parquet
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>├── mirage19
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>│   └── 📁 preprocessed/
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>│       ├── mirage19.parquet
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>│       └── 📁 imc23/
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>│           ├── mirage19_filtered_minpkts10.parquet
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>│           └── mirage19_filtered_minpkts10_splits.parquet
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>├── mirage22
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>│   └── 📁 preprocessed/
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>│       ├── mirage22.parquet
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>│       └── 📁 imc23/
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>│           ├── mirage22_filtered_minpkts10.parquet
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>│           ├── mirage22_filtered_minpkts1000.parquet
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>│           ├── mirage22_filtered_minpkts1000_splits.parquet
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>│           └── mirage22_filtered_minpkts10_splits.parquet
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>└── utmobilenet21
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    └── 📁 preprocessed/
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>        ├── utmobilenet21.parquet
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>        └── 📁 imc23/
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>            ├── utmobilenet21_filtered_minpkts10.parquet
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>            └── utmobilenet21_filtered_minpkts10_splits.parquet
+</code></pre></div>
+</div>
+<p>While all datasets have a file <code>&lt;dataset-name&gt;.parquet</code> 
+which corresponds to the monolithic version of the
+raw data, the content of the <code>/imc23</code> folder
+is slightly different between datasets</p>
+<ul>
+<li>
+<p>For <code>ucdavis-icdm19</code> split are "materialized".
+This means that the files <code>train_split_[0-4].parquet</code>
+contains the data to use for training (the actual
+train/val split is operated at runtime) while
+<code>test_split_human.parquet</code> and <code>text_split_script.parquet</code>
+are predefined test split already available
+in the raw dataset.</p>
+</li>
+<li>
+<p>For all other datasets, the files <code>xyz_minpkts&lt;N&gt;.parquet</code>
+contains a filtered version of the monolithic data
+(see <a href="/datasets/install">install page</a> for more details on the filtering)
+and the related <code>xyz_minpkts&lt;N&gt;_split.parquet</code> contains
+the index of the rows to use for train/val/test splits.</p>
+</li>
+</ul>
+<p>The <a href="">tutorial about load and explore data</a> offers more
+details about how to handle those differences.</p>
+<h3 id="schemas"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8H5m8 0v4h6V8h-6m-8 6v4h6v-4H5m8 0v4h6v-4h-6Z"/></svg></span> Schemas</h3>
+<p>Via the <code>datasets schema</code> sub-command is possible
+to visualize the schema of the curated parquet files.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tcbench datasets schema --help
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> Usage: tcbench datasets schema [OPTIONS]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a> Show datasets schemas
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│ --name  -n  [ucdavis-icdm19|utmobilenet21|mirage19|mirage22]  Dataset to install                                         │
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│ --type  -t  [unfiltered|filtered|splits]                      Schema type (unfiltered: original raw data; filtered:      │
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│                                                               curated data; splits: train/val/test splits)               │
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│ --help                                                        Show this message and exit.                                │
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+</code></pre></div>
+<p>Beside the dataset name <code>--name</code>, the selection
+of the schema is simplified via a single parameter <code>--type</code>
+which matches the parquet files as follows</p>
+<ul>
+<li>
+<p><code>"unfiltered"</code> corresponds to the monolithic 
+before any filtering (i.e., the files under <code>/preprocessed</code>)</p>
+</li>
+<li>
+<p><code>"filtered"</code> corresponds to the filtered 
+version of the monolithic files (i.e., the files
+having <code>minpkts&lt;N&gt;</code> in the filename).</p>
+</li>
+<li>
+<p><code>"splits"</code> corresponds to the split files
+(i.e., the files having <code>xyz_split.parquet</code>
+in the filename).</p>
+</li>
+</ul>
+<p>While for <code>ucdavis-icdm19</code> the three schema types
+are the same, for the other datasets there are differences.</p>
+<p>Below we report all schemas for all datasets.
+The section expanded suggest the datasets to be used,
+while <mark>highlighted rows</mark> suggest which fields
+are more useful for modeling.</p>
+<h5 id="ucdavis-icdm19">ucdavis-icdm19</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>tcbench datasets schema --name ucdavis-icdm19 --type unfiltered
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>┃ Field       ┃ Dtype    ┃ Description                                         ┃
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│ row_id      │ int      │ Unique row id                                       │
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="hll">│ app         │ category │ Label of the flow                                   │
+</span><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>│ flow_id     │ str      │ Original filename                                   │
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>│ partition   │ str      │ Partition related to the flow                       │
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>│ num_pkts    │ int      │ Number of packets in the flow                       │
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>│ duration    │ float    │ Duration of the flow                                │
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>│ bytes       │ int      │ Number of bytes of the flow                         │
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>│ unixtime    │ str      │ Absolute time of each packet                        │
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="hll">│ timetofirst │ np.array │ Delta between a packet the first packet of the flow │
+</span><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="hll">│ pkts_size   │ np.array │ Packet size time series                             │
+</span><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="hll">│ pkts_dir    │ np.array │ Packet direction time series                        │
+</span><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>│ pkts_iat    │ np.array │ Packet inter-arrival time series                    │
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>└─────────────┴──────────┴─────────────────────────────────────────────────────┘
+</code></pre></div>
+</div>
+<details class="note">
+<summary>tcbench datasets schema --name ucdavis-icdm19 --type filtered</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>┃ Field       ┃ Dtype    ┃ Description                                         ┃
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│ row_id      │ int      │ Unique row id                                       │
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="hll">│ app         │ category │ Label of the flow                                   │
+</span><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│ flow_id     │ str      │ Original filename                                   │
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│ partition   │ str      │ Partition related to the flow                       │
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│ num_pkts    │ int      │ Number of packets in the flow                       │
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│ duration    │ float    │ Duration of the flow                                │
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>│ bytes       │ int      │ Number of bytes of the flow                         │
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│ unixtime    │ str      │ Absolute time of each packet                        │
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="hll">│ timetofirst │ np.array │ Delta between a packet the first packet of the flow │
+</span><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="hll">│ pkts_size   │ np.array │ Packet size time series                             │
+</span><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="hll">│ pkts_dir    │ np.array │ Packet direction time series                        │
+</span><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>│ pkts_iat    │ np.array │ Packet inter-arrival time series                    │
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>└─────────────┴──────────┴─────────────────────────────────────────────────────┘
+</code></pre></div>
+</details>
+<details class="note">
+<summary>tcbench datasets schema --name ucdavis-icdm19 --type splits</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>┃ Field       ┃ Dtype    ┃ Description                                         ┃
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│ row_id      │ int      │ Unique row id                                       │
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="hll">│ app         │ category │ Label of the flow                                   │
+</span><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│ flow_id     │ str      │ Original filename                                   │
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│ partition   │ str      │ Partition related to the flow                       │
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│ num_pkts    │ int      │ Number of packets in the flow                       │
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│ duration    │ float    │ Duration of the flow                                │
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>│ bytes       │ int      │ Number of bytes of the flow                         │
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│ unixtime    │ str      │ Absolute time of each packet                        │
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="hll">│ timetofirst │ np.array │ Delta between a packet the first packet of the flow │
+</span><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="hll">│ pkts_size   │ np.array │ Packet size time series                             │
+</span><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="hll">│ pkts_dir    │ np.array │ Packet direction time series                        │
+</span><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│ pkts_iat    │ np.array │ Packet inter-arrival time series                    │
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>└─────────────┴──────────┴─────────────────────────────────────────────────────┘
+</code></pre></div>
+</details>
+<h5 id="mirage19"><code>mirage19</code></h5>
+<details class="note">
+<summary>tcbench datasets schema --name mirage19</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>┃ Field                                                     ┃ Dtype    ┃ Description                                                ┃
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>│ row_id                                                    │ int      │ Unique flow id                                             │
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>│ conn_id                                                   │ str      │ Flow 5-tuple                                               │
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>│ packet_data_src_port                                      │ np.array │ Time series of the source ports                            │
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>│ packet_data_dst_port                                      │ np.array │ Time series of the destination ports                       │
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>│ packet_data_packet_dir                                    │ np.array │ Time series of pkts direction (0 or 1)                     │
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>│ packet_data_l4_payload_bytes                              │ np.array │ Time series of payload pkts size                           │
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>│ packet_data_iat                                           │ np.array │ Time series of pkts inter arrival times                    │
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>│ packet_data_tcp_win_size                                  │ np.array │ Time series of TCP window size                             │
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>│ packet_data_l4_raw_payload                                │ np.array │ List of list with each packet payload                      │
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>│ flow_features_packet_length_biflow_min                    │ float    │ Bidirectional min frame (i.e., pkt with headers) size      │
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>│ flow_features_packet_length_biflow_max                    │ float    │ Bidirectional max frame size                               │
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>│ flow_features_packet_length_biflow_mean                   │ float    │ Bidirectional mean frame size                              │
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>│ flow_features_packet_length_biflow_std                    │ float    │ Bidirectional std frame size                               │
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>│ flow_features_packet_length_biflow_var                    │ float    │ Bidirectional variance frame size                          │
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>│ flow_features_packet_length_biflow_mad                    │ float    │ Bidirectional median absolute deviation frame size         │
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>│ flow_features_packet_length_biflow_skew                   │ float    │ Bidirection skew frame size                                │
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>│ flow_features_packet_length_biflow_kurtosis               │ float    │ Bidirectional kurtosi frame size                           │
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>│ flow_features_packet_length_biflow_10_percentile          │ float    │ Bidirection 10%-ile of frame size                          │
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>│ flow_features_packet_length_biflow_20_percentile          │ float    │ Bidirection 20%-ile of frame size                          │
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>│ flow_features_packet_length_biflow_30_percentile          │ float    │ Bidirection 30%-ile of frame size                          │
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>│ flow_features_packet_length_biflow_40_percentile          │ float    │ Bidirection 40%-ile of frame size                          │
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>│ flow_features_packet_length_biflow_50_percentile          │ float    │ Bidirection 50%-ile of frame size                          │
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>│ flow_features_packet_length_biflow_60_percentile          │ float    │ Bidirection 60%-le of frame size                           │
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>│ flow_features_packet_length_biflow_70_percentile          │ float    │ Bidirection 70%-ile of frame size                          │
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>│ flow_features_packet_length_biflow_80_percentile          │ float    │ Bidirection 80%-ile of frame size                          │
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>│ flow_features_packet_length_biflow_90_percentile          │ float    │ Bidirection 90%-ile of frame size                          │
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>│ flow_features_packet_length_upstream_flow_min             │ float    │ Upstream min frame (i.e., pkt with headers) size           │
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>│ flow_features_packet_length_upstream_flow_max             │ float    │ Upstream max frame size                                    │
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>│ flow_features_packet_length_upstream_flow_mean            │ float    │ Upstream mean frame size                                   │
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>│ flow_features_packet_length_upstream_flow_std             │ float    │ Upstream std frame size                                    │
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>│ flow_features_packet_length_upstream_flow_var             │ float    │ Upstream variance frame size                               │
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>│ flow_features_packet_length_upstream_flow_mad             │ float    │ Upstream median absolute deviation frame size              │
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>│ flow_features_packet_length_upstream_flow_skew            │ float    │ Upstream skew frame size                                   │
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>│ flow_features_packet_length_upstream_flow_kurtosis        │ float    │ Upstream kurtosi frame size                                │
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>│ flow_features_packet_length_upstream_flow_10_percentile   │ float    │ Upstream 10%-ile frame size                                │
+<a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>│ flow_features_packet_length_upstream_flow_20_percentile   │ float    │ Upstream 20%-ile frame size                                │
+<a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>│ flow_features_packet_length_upstream_flow_30_percentile   │ float    │ Upstream 30%-ile frame size                                │
+<a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>│ flow_features_packet_length_upstream_flow_40_percentile   │ float    │ Upstream 40%-ile frame size                                │
+<a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>│ flow_features_packet_length_upstream_flow_50_percentile   │ float    │ Upstream 50%-ile frame size                                │
+<a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>│ flow_features_packet_length_upstream_flow_60_percentile   │ float    │ Upstream 60%-ile frame size                                │
+<a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>│ flow_features_packet_length_upstream_flow_70_percentile   │ float    │ Upstream 70%-ile frame size                                │
+<a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>│ flow_features_packet_length_upstream_flow_80_percentile   │ float    │ Upstream 80%-ile frame size                                │
+<a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>│ flow_features_packet_length_upstream_flow_90_percentile   │ float    │ Upstream 90%-ile frame size                                │
+<a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>│ flow_features_packet_length_downstream_flow_min           │ float    │ Downstream min frame (i.e., pkt with headers) size         │
+<a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>│ flow_features_packet_length_downstream_flow_max           │ float    │ Downstream max frame size                                  │
+<a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>│ flow_features_packet_length_downstream_flow_mean          │ float    │ Downstream mean frame size                                 │
+<a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a>│ flow_features_packet_length_downstream_flow_std           │ float    │ Downstream std frame size                                  │
+<a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a>│ flow_features_packet_length_downstream_flow_var           │ float    │ Downstream variance frame size                             │
+<a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a>│ flow_features_packet_length_downstream_flow_mad           │ float    │ Downstream max frame size                                  │
+<a id="__codelineno-12-53" name="__codelineno-12-53" href="#__codelineno-12-53"></a>│ flow_features_packet_length_downstream_flow_skew          │ float    │ Downstream skew frame size                                 │
+<a id="__codelineno-12-54" name="__codelineno-12-54" href="#__codelineno-12-54"></a>│ flow_features_packet_length_downstream_flow_kurtosis      │ float    │ Downstream kurtosi frame size                              │
+<a id="__codelineno-12-55" name="__codelineno-12-55" href="#__codelineno-12-55"></a>│ flow_features_packet_length_downstream_flow_10_percentile │ float    │ Downstream 10%-ile frame size                              │
+<a id="__codelineno-12-56" name="__codelineno-12-56" href="#__codelineno-12-56"></a>│ flow_features_packet_length_downstream_flow_20_percentile │ float    │ Downstream 20%-ile frame size                              │
+<a id="__codelineno-12-57" name="__codelineno-12-57" href="#__codelineno-12-57"></a>│ flow_features_packet_length_downstream_flow_30_percentile │ float    │ Downstream 30%-ile frame size                              │
+<a id="__codelineno-12-58" name="__codelineno-12-58" href="#__codelineno-12-58"></a>│ flow_features_packet_length_downstream_flow_40_percentile │ float    │ Downstream 40%-ile frame size                              │
+<a id="__codelineno-12-59" name="__codelineno-12-59" href="#__codelineno-12-59"></a>│ flow_features_packet_length_downstream_flow_50_percentile │ float    │ Downstream 50%-ile frame size                              │
+<a id="__codelineno-12-60" name="__codelineno-12-60" href="#__codelineno-12-60"></a>│ flow_features_packet_length_downstream_flow_60_percentile │ float    │ Downstream 60%-ile frame size                              │
+<a id="__codelineno-12-61" name="__codelineno-12-61" href="#__codelineno-12-61"></a>│ flow_features_packet_length_downstream_flow_70_percentile │ float    │ Downstream 70%-ile frame size                              │
+<a id="__codelineno-12-62" name="__codelineno-12-62" href="#__codelineno-12-62"></a>│ flow_features_packet_length_downstream_flow_80_percentile │ float    │ Downstream 80%-ile frame size                              │
+<a id="__codelineno-12-63" name="__codelineno-12-63" href="#__codelineno-12-63"></a>│ flow_features_packet_length_downstream_flow_90_percentile │ float    │ Downstream 90%-ile frame size                              │
+<a id="__codelineno-12-64" name="__codelineno-12-64" href="#__codelineno-12-64"></a>│ flow_features_iat_biflow_min                              │ float    │ Bidirectional min inter arrival time                       │
+<a id="__codelineno-12-65" name="__codelineno-12-65" href="#__codelineno-12-65"></a>│ flow_features_iat_biflow_max                              │ float    │ Bidirectional max inter arrival time                       │
+<a id="__codelineno-12-66" name="__codelineno-12-66" href="#__codelineno-12-66"></a>│ flow_features_iat_biflow_mean                             │ float    │ Bidirectional mean inter arrival time                      │
+<a id="__codelineno-12-67" name="__codelineno-12-67" href="#__codelineno-12-67"></a>│ flow_features_iat_biflow_std                              │ float    │ Bidirectional std inter arrival time                       │
+<a id="__codelineno-12-68" name="__codelineno-12-68" href="#__codelineno-12-68"></a>│ flow_features_iat_biflow_var                              │ float    │ Bidirectional variance inter arrival time                  │
+<a id="__codelineno-12-69" name="__codelineno-12-69" href="#__codelineno-12-69"></a>│ flow_features_iat_biflow_mad                              │ float    │ Bidirectional median absolute deviation inter arrival time │
+<a id="__codelineno-12-70" name="__codelineno-12-70" href="#__codelineno-12-70"></a>│ flow_features_iat_biflow_skew                             │ float    │ Bidirectional skew inter arrival time                      │
+<a id="__codelineno-12-71" name="__codelineno-12-71" href="#__codelineno-12-71"></a>│ flow_features_iat_biflow_kurtosis                         │ float    │ Bidirectional kurtosi inter arrival time                   │
+<a id="__codelineno-12-72" name="__codelineno-12-72" href="#__codelineno-12-72"></a>│ flow_features_iat_biflow_10_percentile                    │ float    │ Bidirectional 10%-tile inter arrival time                  │
+<a id="__codelineno-12-73" name="__codelineno-12-73" href="#__codelineno-12-73"></a>│ flow_features_iat_biflow_20_percentile                    │ float    │ Bidirectional 20%-tile inter arrival time                  │
+<a id="__codelineno-12-74" name="__codelineno-12-74" href="#__codelineno-12-74"></a>│ flow_features_iat_biflow_30_percentile                    │ float    │ Bidirectional 30%-tile inter arrival time                  │
+<a id="__codelineno-12-75" name="__codelineno-12-75" href="#__codelineno-12-75"></a>│ flow_features_iat_biflow_40_percentile                    │ float    │ Bidirectional 40%-tile inter arrival time                  │
+<a id="__codelineno-12-76" name="__codelineno-12-76" href="#__codelineno-12-76"></a>│ flow_features_iat_biflow_50_percentile                    │ float    │ Bidirectional 50%-tile inter arrival time                  │
+<a id="__codelineno-12-77" name="__codelineno-12-77" href="#__codelineno-12-77"></a>│ flow_features_iat_biflow_60_percentile                    │ float    │ Bidirectional 60%-tile inter arrival time                  │
+<a id="__codelineno-12-78" name="__codelineno-12-78" href="#__codelineno-12-78"></a>│ flow_features_iat_biflow_70_percentile                    │ float    │ Bidirectional 70%-tile inter arrival time                  │
+<a id="__codelineno-12-79" name="__codelineno-12-79" href="#__codelineno-12-79"></a>│ flow_features_iat_biflow_80_percentile                    │ float    │ Bidirectional 80%-tile inter arrival time                  │
+<a id="__codelineno-12-80" name="__codelineno-12-80" href="#__codelineno-12-80"></a>│ flow_features_iat_biflow_90_percentile                    │ float    │ Bidirectional 90%-tile inter arrival time                  │
+<a id="__codelineno-12-81" name="__codelineno-12-81" href="#__codelineno-12-81"></a>│ flow_features_iat_upstream_flow_min                       │ float    │ Upstream min inter arrival time                            │
+<a id="__codelineno-12-82" name="__codelineno-12-82" href="#__codelineno-12-82"></a>│ flow_features_iat_upstream_flow_max                       │ float    │ Upstream max inter arrival time                            │
+<a id="__codelineno-12-83" name="__codelineno-12-83" href="#__codelineno-12-83"></a>│ flow_features_iat_upstream_flow_mean                      │ float    │ Upstream avg inter arrival time                            │
+<a id="__codelineno-12-84" name="__codelineno-12-84" href="#__codelineno-12-84"></a>│ flow_features_iat_upstream_flow_std                       │ float    │ Upstream std inter arrival time                            │
+<a id="__codelineno-12-85" name="__codelineno-12-85" href="#__codelineno-12-85"></a>│ flow_features_iat_upstream_flow_var                       │ float    │ Upstream variance inter arrival time                       │
+<a id="__codelineno-12-86" name="__codelineno-12-86" href="#__codelineno-12-86"></a>│ flow_features_iat_upstream_flow_mad                       │ float    │ Upstream median absolute deviation inter arrival time      │
+<a id="__codelineno-12-87" name="__codelineno-12-87" href="#__codelineno-12-87"></a>│ flow_features_iat_upstream_flow_skew                      │ float    │ Upstream skew inter arrival time                           │
+<a id="__codelineno-12-88" name="__codelineno-12-88" href="#__codelineno-12-88"></a>│ flow_features_iat_upstream_flow_kurtosis                  │ float    │ Upstream kurtosi inter arrival time                        │
+<a id="__codelineno-12-89" name="__codelineno-12-89" href="#__codelineno-12-89"></a>│ flow_features_iat_upstream_flow_10_percentile             │ float    │ Upstream 10%-ile inter arrival time                        │
+<a id="__codelineno-12-90" name="__codelineno-12-90" href="#__codelineno-12-90"></a>│ flow_features_iat_upstream_flow_20_percentile             │ float    │ Upstream 20%-ile inter arrival time                        │
+<a id="__codelineno-12-91" name="__codelineno-12-91" href="#__codelineno-12-91"></a>│ flow_features_iat_upstream_flow_30_percentile             │ float    │ Upstream 30%-ile inter arrival time                        │
+<a id="__codelineno-12-92" name="__codelineno-12-92" href="#__codelineno-12-92"></a>│ flow_features_iat_upstream_flow_40_percentile             │ float    │ Upstream 40%-ile inter arrival time                        │
+<a id="__codelineno-12-93" name="__codelineno-12-93" href="#__codelineno-12-93"></a>│ flow_features_iat_upstream_flow_50_percentile             │ float    │ Upstream 50%-ile inter arrival time                        │
+<a id="__codelineno-12-94" name="__codelineno-12-94" href="#__codelineno-12-94"></a>│ flow_features_iat_upstream_flow_60_percentile             │ float    │ Upstream 60%-ile inter arrival time                        │
+<a id="__codelineno-12-95" name="__codelineno-12-95" href="#__codelineno-12-95"></a>│ flow_features_iat_upstream_flow_70_percentile             │ float    │ Upstream 70%-ile inter arrival time                        │
+<a id="__codelineno-12-96" name="__codelineno-12-96" href="#__codelineno-12-96"></a>│ flow_features_iat_upstream_flow_80_percentile             │ float    │ Upstream 80%-ile inter arrival time                        │
+<a id="__codelineno-12-97" name="__codelineno-12-97" href="#__codelineno-12-97"></a>│ flow_features_iat_upstream_flow_90_percentile             │ float    │ Upstream 90%-ile inter arrival time                        │
+<a id="__codelineno-12-98" name="__codelineno-12-98" href="#__codelineno-12-98"></a>│ flow_features_iat_downstream_flow_min                     │ float    │ Downstream min inter arrival time                          │
+<a id="__codelineno-12-99" name="__codelineno-12-99" href="#__codelineno-12-99"></a>│ flow_features_iat_downstream_flow_max                     │ float    │ Downstream max inter arrival time                          │
+<a id="__codelineno-12-100" name="__codelineno-12-100" href="#__codelineno-12-100"></a>│ flow_features_iat_downstream_flow_mean                    │ float    │ Downstream mean inter arrival time                         │
+<a id="__codelineno-12-101" name="__codelineno-12-101" href="#__codelineno-12-101"></a>│ flow_features_iat_downstream_flow_std                     │ float    │ Downstream std inter arrival time                          │
+<a id="__codelineno-12-102" name="__codelineno-12-102" href="#__codelineno-12-102"></a>│ flow_features_iat_downstream_flow_var                     │ float    │ Downstream variance inter arrival time                     │
+<a id="__codelineno-12-103" name="__codelineno-12-103" href="#__codelineno-12-103"></a>│ flow_features_iat_downstream_flow_mad                     │ float    │ Downstream median absolute deviation inter arrival time    │
+<a id="__codelineno-12-104" name="__codelineno-12-104" href="#__codelineno-12-104"></a>│ flow_features_iat_downstream_flow_skew                    │ float    │ Downstream skew inter arrival time                         │
+<a id="__codelineno-12-105" name="__codelineno-12-105" href="#__codelineno-12-105"></a>│ flow_features_iat_downstream_flow_kurtosis                │ float    │ Downstream kurtosi inter arrival time                      │
+<a id="__codelineno-12-106" name="__codelineno-12-106" href="#__codelineno-12-106"></a>│ flow_features_iat_downstream_flow_10_percentile           │ float    │ Downstream 10%-ile inter arrival time                      │
+<a id="__codelineno-12-107" name="__codelineno-12-107" href="#__codelineno-12-107"></a>│ flow_features_iat_downstream_flow_20_percentile           │ float    │ Downstream 20%-ile inter arrival time                      │
+<a id="__codelineno-12-108" name="__codelineno-12-108" href="#__codelineno-12-108"></a>│ flow_features_iat_downstream_flow_30_percentile           │ float    │ Downstream 30%-ile inter arrival time                      │
+<a id="__codelineno-12-109" name="__codelineno-12-109" href="#__codelineno-12-109"></a>│ flow_features_iat_downstream_flow_40_percentile           │ float    │ Downstream 40%-ile inter arrival time                      │
+<a id="__codelineno-12-110" name="__codelineno-12-110" href="#__codelineno-12-110"></a>│ flow_features_iat_downstream_flow_50_percentile           │ float    │ Downstream 50%-ile inter arrival time                      │
+<a id="__codelineno-12-111" name="__codelineno-12-111" href="#__codelineno-12-111"></a>│ flow_features_iat_downstream_flow_60_percentile           │ float    │ Downstream 60%-ile inter arrival time                      │
+<a id="__codelineno-12-112" name="__codelineno-12-112" href="#__codelineno-12-112"></a>│ flow_features_iat_downstream_flow_70_percentile           │ float    │ Downstream 70%-ile inter arrival time                      │
+<a id="__codelineno-12-113" name="__codelineno-12-113" href="#__codelineno-12-113"></a>│ flow_features_iat_downstream_flow_80_percentile           │ float    │ Downstream 80%-ile inter arrival time                      │
+<a id="__codelineno-12-114" name="__codelineno-12-114" href="#__codelineno-12-114"></a>│ flow_features_iat_downstream_flow_90_percentile           │ float    │ Downstream 90%-ile inter arrival time                      │
+<a id="__codelineno-12-115" name="__codelineno-12-115" href="#__codelineno-12-115"></a>│ flow_metadata_bf_label                                    │ str      │ original mirage label                                      │
+<a id="__codelineno-12-116" name="__codelineno-12-116" href="#__codelineno-12-116"></a>│ flow_metadata_bf_labeling_type                            │ str      │ exact=via netstat; most-common=via experiment              │
+<a id="__codelineno-12-117" name="__codelineno-12-117" href="#__codelineno-12-117"></a>│ flow_metadata_bf_num_packets                              │ float    │ Bidirectional number of pkts                               │
+<a id="__codelineno-12-118" name="__codelineno-12-118" href="#__codelineno-12-118"></a>│ flow_metadata_bf_ip_packet_bytes                          │ float    │ Bidirectional bytes (including headers)                    │
+<a id="__codelineno-12-119" name="__codelineno-12-119" href="#__codelineno-12-119"></a>│ flow_metadata_bf_l4_payload_bytes                         │ float    │ Bidirectional payload bytes                                │
+<a id="__codelineno-12-120" name="__codelineno-12-120" href="#__codelineno-12-120"></a>│ flow_metadata_bf_duration                                 │ float    │ Bidirectional duration                                     │
+<a id="__codelineno-12-121" name="__codelineno-12-121" href="#__codelineno-12-121"></a>│ flow_metadata_uf_num_packets                              │ float    │ Upload number of pkts                                      │
+<a id="__codelineno-12-122" name="__codelineno-12-122" href="#__codelineno-12-122"></a>│ flow_metadata_uf_ip_packet_bytes                          │ float    │ Upload bytes (including headers)                           │
+<a id="__codelineno-12-123" name="__codelineno-12-123" href="#__codelineno-12-123"></a>│ flow_metadata_uf_l4_payload_bytes                         │ float    │ Upload payload bytes                                       │
+<a id="__codelineno-12-124" name="__codelineno-12-124" href="#__codelineno-12-124"></a>│ flow_metadata_uf_duration                                 │ float    │ Upload duration                                            │
+<a id="__codelineno-12-125" name="__codelineno-12-125" href="#__codelineno-12-125"></a>│ flow_metadata_df_num_packets                              │ float    │ Download number of packets                                 │
+<a id="__codelineno-12-126" name="__codelineno-12-126" href="#__codelineno-12-126"></a>│ flow_metadata_df_ip_packet_bytes                          │ float    │ Download bytes (including headers)                         │
+<a id="__codelineno-12-127" name="__codelineno-12-127" href="#__codelineno-12-127"></a>│ flow_metadata_df_l4_payload_bytes                         │ float    │ Download payload bytes                                     │
+<a id="__codelineno-12-128" name="__codelineno-12-128" href="#__codelineno-12-128"></a>│ flow_metadata_df_duration                                 │ float    │ Download duration                                          │
+<a id="__codelineno-12-129" name="__codelineno-12-129" href="#__codelineno-12-129"></a>│ strings                                                   │ list     │ ASCII string extracted from payload                        │
+<a id="__codelineno-12-130" name="__codelineno-12-130" href="#__codelineno-12-130"></a>│ android_name                                              │ str      │ app name (based on filename)                               │
+<a id="__codelineno-12-131" name="__codelineno-12-131" href="#__codelineno-12-131"></a>│ device_name                                               │ str      │ device name (based on filename)                            │
+<a id="__codelineno-12-132" name="__codelineno-12-132" href="#__codelineno-12-132"></a>│ app                                                       │ category │ label (background|android app)                             │
+<a id="__codelineno-12-133" name="__codelineno-12-133" href="#__codelineno-12-133"></a>│ src_ip                                                    │ str      │ Source IP                                                  │
+<a id="__codelineno-12-134" name="__codelineno-12-134" href="#__codelineno-12-134"></a>│ src_port                                                  │ str      │ Source port                                                │
+<a id="__codelineno-12-135" name="__codelineno-12-135" href="#__codelineno-12-135"></a>│ dst_ip                                                    │ str      │ Destination IP                                             │
+<a id="__codelineno-12-136" name="__codelineno-12-136" href="#__codelineno-12-136"></a>│ dst_port                                                  │ str      │ Destination port                                           │
+<a id="__codelineno-12-137" name="__codelineno-12-137" href="#__codelineno-12-137"></a>│ proto                                                     │ str      │ L4 protocol                                                │
+<a id="__codelineno-12-138" name="__codelineno-12-138" href="#__codelineno-12-138"></a>│ packets                                                   │ int      │ Number of (bidirectional) packets                          │
+<a id="__codelineno-12-139" name="__codelineno-12-139" href="#__codelineno-12-139"></a>└───────────────────────────────────────────────────────────┴──────────┴────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name mirage19 --type filtered</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>┃ Field                             ┃ Dtype    ┃ Description                                                          ┃
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>│ row_id                            │ int      │ Unique flow id                                                       │
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>│ conn_id                           │ str      │ Flow 5-tuple                                                         │
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>│ packet_data_l4_raw_payload        │ np.array │ List of list with each packet payload                                │
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>│ flow_metadata_bf_label            │ str      │ original mirage label                                                │
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>│ flow_metadata_bf_labeling_type    │ str      │ exact=via netstat; most-common=via experiment                        │
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>│ flow_metadata_bf_l4_payload_bytes │ float    │ Bidirectional payload bytes                                          │
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>│ flow_metadata_bf_duration         │ float    │ Bidirectional duration                                               │
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>│ strings                           │ list     │ ASCII string extracted from payload                                  │
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>│ android_name                      │ str      │ app name (based on filename)                                         │
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>│ device_name                       │ str      │ device name (based on filename)                                      │
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="hll">│ app                               │ category │ label (background|android app)                                       │
+</span><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>│ src_ip                            │ str      │ Source IP                                                            │
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>│ src_port                          │ str      │ Source port                                                          │
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>│ dst_ip                            │ str      │ Destination IP                                                       │
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>│ dst_port                          │ str      │ Destination port                                                     │
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>│ proto                             │ str      │ L4 protocol                                                          │
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>│ packets                           │ int      │ Number of (bidirectional) packets                                    │
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="hll">│ pkts_size                         │ str      │ Packet size time series                                              │
+</span><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="hll">│ pkts_dir                          │ str      │ Packet diretion time series                                          │
+</span><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="hll">│ timetofirst                       │ str      │ Delta between the each packet timestamp the first packet of the flow │
+</span><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>└───────────────────────────────────┴──────────┴──────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name mirage19 --type splits</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>┃ Field         ┃ Dtype    ┃ Description                  ┃
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>│ train_indexes │ np.array │ row_id of training samples   │
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│ val_indexes   │ np.array │ row_id of validation samples │
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│ test_indexes  │ np.array │ row_id of test samples       │
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│ split_index   │ int      │ Split id                     │
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>└───────────────┴──────────┴──────────────────────────────┘
+</code></pre></div>
+</div>
+<h5 id="mirage22"><code>mirage22</code></h5>
+<details class="note">
+<summary>tcbench datasets schema --name mirage22 --type unfiltered</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>┃ Field                                                     ┃ Dtype    ┃ Description                                                ┃
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>│ row_id                                                    │ int      │ Unique flow id                                             │
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>│ conn_id                                                   │ str      │ Flow 5-tuple                                               │
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>│ packet_data_timestamp                                     │ np.array │ Time series of packet unixtime                             │
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>│ packet_data_src_port                                      │ np.array │ Time series of the source ports                            │
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>│ packet_data_dst_port                                      │ np.array │ Time series of the destination ports                       │
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>│ packet_data_packet_dir                                    │ np.array │ Time series of pkts direction (0 or 1)                     │
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>│ packet_data_ip_packet_bytes                               │ np.array │ Time series pkts bytes (as from IP len field)              │
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>│ packet_data_ip_header_bytes                               │ np.array │ Time series of IP header bytes                             │
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>│ packet_data_l4_payload_bytes                              │ np.array │ Time series of payload pkts size                           │
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>│ packet_data_l4_header_bytes                               │ np.array │ Time series of L4 header bytes                             │
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>│ packet_data_iat                                           │ np.array │ Time series of pkts inter arrival times                    │
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>│ packet_data_tcp_win_size                                  │ np.array │ Time series of TCP window size                             │
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>│ packet_data_tcp_flags                                     │ np.array │ Time series of TCP flags                                   │
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>│ packet_data_l4_raw_payload                                │ np.array │ List of list with each packet payload                      │
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>│ packet_data_is_clear                                      │ np.array │ n.a.                                                       │
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>│ packet_data_heuristic                                     │ str      │ n.a.                                                       │
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>│ packet_data_annotations                                   │ str      │ n.a.                                                       │
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>│ flow_features_packet_length_biflow_min                    │ float    │ Bidirectional min frame (i.e., pkt with headers) size      │
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>│ flow_features_packet_length_biflow_max                    │ float    │ Bidirectional max frame size                               │
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>│ flow_features_packet_length_biflow_mean                   │ float    │ Bidirectional mean frame size                              │
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>│ flow_features_packet_length_biflow_std                    │ float    │ Bidirectional std frame size                               │
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>│ flow_features_packet_length_biflow_var                    │ float    │ Bidirectional variance frame size                          │
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>│ flow_features_packet_length_biflow_mad                    │ float    │ Bidirectional median absolute deviation frame size         │
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>│ flow_features_packet_length_biflow_skew                   │ float    │ Bidirection skew frame size                                │
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>│ flow_features_packet_length_biflow_kurtosis               │ float    │ Bidirectional kurtosi frame size                           │
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>│ flow_features_packet_length_biflow_10_percentile          │ float    │ Bidirection 10%-ile of frame size                          │
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>│ flow_features_packet_length_biflow_20_percentile          │ float    │ Bidirection 20%-ile of frame size                          │
+<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>│ flow_features_packet_length_biflow_30_percentile          │ float    │ Bidirection 30%-ile of frame size                          │
+<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>│ flow_features_packet_length_biflow_40_percentile          │ float    │ Bidirection 40%-ile of frame size                          │
+<a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>│ flow_features_packet_length_biflow_50_percentile          │ float    │ Bidirection 50%-ile of frame size                          │
+<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>│ flow_features_packet_length_biflow_60_percentile          │ float    │ Bidirection 60%-le of frame size                           │
+<a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>│ flow_features_packet_length_biflow_70_percentile          │ float    │ Bidirection 70%-ile of frame size                          │
+<a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>│ flow_features_packet_length_biflow_80_percentile          │ float    │ Bidirection 80%-ile of frame size                          │
+<a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>│ flow_features_packet_length_biflow_90_percentile          │ float    │ Bidirection 90%-ile of frame size                          │
+<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>│ flow_features_packet_length_upstream_flow_min             │ float    │ Upstream min frame (i.e., pkt with headers) size           │
+<a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>│ flow_features_packet_length_upstream_flow_max             │ float    │ Upstream max frame size                                    │
+<a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>│ flow_features_packet_length_upstream_flow_mean            │ float    │ Upstream mean frame size                                   │
+<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a>│ flow_features_packet_length_upstream_flow_std             │ float    │ Upstream std frame size                                    │
+<a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>│ flow_features_packet_length_upstream_flow_var             │ float    │ Upstream variance frame size                               │
+<a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a>│ flow_features_packet_length_upstream_flow_mad             │ float    │ Upstream median absolute deviation frame size              │
+<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a>│ flow_features_packet_length_upstream_flow_skew            │ float    │ Upstream skew frame size                                   │
+<a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a>│ flow_features_packet_length_upstream_flow_kurtosis        │ float    │ Upstream kurtosi frame size                                │
+<a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>│ flow_features_packet_length_upstream_flow_10_percentile   │ float    │ Upstream 10%-ile frame size                                │
+<a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a>│ flow_features_packet_length_upstream_flow_20_percentile   │ float    │ Upstream 20%-ile frame size                                │
+<a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>│ flow_features_packet_length_upstream_flow_30_percentile   │ float    │ Upstream 30%-ile frame size                                │
+<a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a>│ flow_features_packet_length_upstream_flow_40_percentile   │ float    │ Upstream 40%-ile frame size                                │
+<a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a>│ flow_features_packet_length_upstream_flow_50_percentile   │ float    │ Upstream 50%-ile frame size                                │
+<a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a>│ flow_features_packet_length_upstream_flow_60_percentile   │ float    │ Upstream 60%-ile frame size                                │
+<a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a>│ flow_features_packet_length_upstream_flow_70_percentile   │ float    │ Upstream 70%-ile frame size                                │
+<a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a>│ flow_features_packet_length_upstream_flow_80_percentile   │ float    │ Upstream 80%-ile frame size                                │
+<a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a>│ flow_features_packet_length_upstream_flow_90_percentile   │ float    │ Upstream 90%-ile frame size                                │
+<a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a>│ flow_features_packet_length_downstream_flow_min           │ float    │ Downstream min frame (i.e., pkt with headers) size         │
+<a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a>│ flow_features_packet_length_downstream_flow_max           │ float    │ Downstream max frame size                                  │
+<a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a>│ flow_features_packet_length_downstream_flow_mean          │ float    │ Downstream mean frame size                                 │
+<a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>│ flow_features_packet_length_downstream_flow_std           │ float    │ Downstream std frame size                                  │
+<a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a>│ flow_features_packet_length_downstream_flow_var           │ float    │ Downstream variance frame size                             │
+<a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a>│ flow_features_packet_length_downstream_flow_mad           │ float    │ Downstream max frame size                                  │
+<a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a>│ flow_features_packet_length_downstream_flow_skew          │ float    │ Downstream skew frame size                                 │
+<a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a>│ flow_features_packet_length_downstream_flow_kurtosis      │ float    │ Downstream kurtosi frame size                              │
+<a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a>│ flow_features_packet_length_downstream_flow_10_percentile │ float    │ Downstream 10%-ile frame size                              │
+<a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a>│ flow_features_packet_length_downstream_flow_20_percentile │ float    │ Downstream 20%-ile frame size                              │
+<a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a>│ flow_features_packet_length_downstream_flow_30_percentile │ float    │ Downstream 30%-ile frame size                              │
+<a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a>│ flow_features_packet_length_downstream_flow_40_percentile │ float    │ Downstream 40%-ile frame size                              │
+<a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a>│ flow_features_packet_length_downstream_flow_50_percentile │ float    │ Downstream 50%-ile frame size                              │
+<a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a>│ flow_features_packet_length_downstream_flow_60_percentile │ float    │ Downstream 60%-ile frame size                              │
+<a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a>│ flow_features_packet_length_downstream_flow_70_percentile │ float    │ Downstream 70%-ile frame size                              │
+<a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a>│ flow_features_packet_length_downstream_flow_80_percentile │ float    │ Downstream 80%-ile frame size                              │
+<a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>│ flow_features_packet_length_downstream_flow_90_percentile │ float    │ Downstream 90%-ile frame size                              │
+<a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a>│ flow_features_iat_biflow_min                              │ float    │ Bidirectional min inter arrival time                       │
+<a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a>│ flow_features_iat_biflow_max                              │ float    │ Bidirectional max inter arrival time                       │
+<a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a>│ flow_features_iat_biflow_mean                             │ float    │ Bidirectional mean inter arrival time                      │
+<a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a>│ flow_features_iat_biflow_std                              │ float    │ Bidirectional std inter arrival time                       │
+<a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a>│ flow_features_iat_biflow_var                              │ float    │ Bidirectional variance inter arrival time                  │
+<a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a>│ flow_features_iat_biflow_mad                              │ float    │ Bidirectional median absolute deviation inter arrival time │
+<a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a>│ flow_features_iat_biflow_skew                             │ float    │ Bidirectional skew inter arrival time                      │
+<a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a>│ flow_features_iat_biflow_kurtosis                         │ float    │ Bidirectional kurtosi inter arrival time                   │
+<a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a>│ flow_features_iat_biflow_10_percentile                    │ float    │ Bidirectional 10%-tile inter arrival time                  │
+<a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a>│ flow_features_iat_biflow_20_percentile                    │ float    │ Bidirectional 20%-tile inter arrival time                  │
+<a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a>│ flow_features_iat_biflow_30_percentile                    │ float    │ Bidirectional 30%-tile inter arrival time                  │
+<a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a>│ flow_features_iat_biflow_40_percentile                    │ float    │ Bidirectional 40%-tile inter arrival time                  │
+<a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a>│ flow_features_iat_biflow_50_percentile                    │ float    │ Bidirectional 50%-tile inter arrival time                  │
+<a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a>│ flow_features_iat_biflow_60_percentile                    │ float    │ Bidirectional 60%-tile inter arrival time                  │
+<a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a>│ flow_features_iat_biflow_70_percentile                    │ float    │ Bidirectional 70%-tile inter arrival time                  │
+<a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a>│ flow_features_iat_biflow_80_percentile                    │ float    │ Bidirectional 80%-tile inter arrival time                  │
+<a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a>│ flow_features_iat_biflow_90_percentile                    │ float    │ Bidirectional 90%-tile inter arrival time                  │
+<a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a>│ flow_features_iat_upstream_flow_min                       │ float    │ Upstream min inter arrival time                            │
+<a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a>│ flow_features_iat_upstream_flow_max                       │ float    │ Upstream max inter arrival time                            │
+<a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a>│ flow_features_iat_upstream_flow_mean                      │ float    │ Upstream avg inter arrival time                            │
+<a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a>│ flow_features_iat_upstream_flow_std                       │ float    │ Upstream std inter arrival time                            │
+<a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a>│ flow_features_iat_upstream_flow_var                       │ float    │ Upstream variance inter arrival time                       │
+<a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a>│ flow_features_iat_upstream_flow_mad                       │ float    │ Upstream median absolute deviation inter arrival time      │
+<a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a>│ flow_features_iat_upstream_flow_skew                      │ float    │ Upstream skew inter arrival time                           │
+<a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a>│ flow_features_iat_upstream_flow_kurtosis                  │ float    │ Upstream kurtosi inter arrival time                        │
+<a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a>│ flow_features_iat_upstream_flow_10_percentile             │ float    │ Upstream 10%-ile inter arrival time                        │
+<a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a>│ flow_features_iat_upstream_flow_20_percentile             │ float    │ Upstream 20%-ile inter arrival time                        │
+<a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a>│ flow_features_iat_upstream_flow_30_percentile             │ float    │ Upstream 30%-ile inter arrival time                        │
+<a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a>│ flow_features_iat_upstream_flow_40_percentile             │ float    │ Upstream 40%-ile inter arrival time                        │
+<a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a>│ flow_features_iat_upstream_flow_50_percentile             │ float    │ Upstream 50%-ile inter arrival time                        │
+<a id="__codelineno-15-102" name="__codelineno-15-102" href="#__codelineno-15-102"></a>│ flow_features_iat_upstream_flow_60_percentile             │ float    │ Upstream 60%-ile inter arrival time                        │
+<a id="__codelineno-15-103" name="__codelineno-15-103" href="#__codelineno-15-103"></a>│ flow_features_iat_upstream_flow_70_percentile             │ float    │ Upstream 70%-ile inter arrival time                        │
+<a id="__codelineno-15-104" name="__codelineno-15-104" href="#__codelineno-15-104"></a>│ flow_features_iat_upstream_flow_80_percentile             │ float    │ Upstream 80%-ile inter arrival time                        │
+<a id="__codelineno-15-105" name="__codelineno-15-105" href="#__codelineno-15-105"></a>│ flow_features_iat_upstream_flow_90_percentile             │ float    │ Upstream 90%-ile inter arrival time                        │
+<a id="__codelineno-15-106" name="__codelineno-15-106" href="#__codelineno-15-106"></a>│ flow_features_iat_downstream_flow_min                     │ float    │ Downstream min inter arrival time                          │
+<a id="__codelineno-15-107" name="__codelineno-15-107" href="#__codelineno-15-107"></a>│ flow_features_iat_downstream_flow_max                     │ float    │ Downstream max inter arrival time                          │
+<a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a>│ flow_features_iat_downstream_flow_mean                    │ float    │ Downstream mean inter arrival time                         │
+<a id="__codelineno-15-109" name="__codelineno-15-109" href="#__codelineno-15-109"></a>│ flow_features_iat_downstream_flow_std                     │ float    │ Downstream std inter arrival time                          │
+<a id="__codelineno-15-110" name="__codelineno-15-110" href="#__codelineno-15-110"></a>│ flow_features_iat_downstream_flow_var                     │ float    │ Downstream variance inter arrival time                     │
+<a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a>│ flow_features_iat_downstream_flow_mad                     │ float    │ Downstream median absolute deviation inter arrival time    │
+<a id="__codelineno-15-112" name="__codelineno-15-112" href="#__codelineno-15-112"></a>│ flow_features_iat_downstream_flow_skew                    │ float    │ Downstream skew inter arrival time                         │
+<a id="__codelineno-15-113" name="__codelineno-15-113" href="#__codelineno-15-113"></a>│ flow_features_iat_downstream_flow_kurtosis                │ float    │ Downstream kurtosi inter arrival time                      │
+<a id="__codelineno-15-114" name="__codelineno-15-114" href="#__codelineno-15-114"></a>│ flow_features_iat_downstream_flow_10_percentile           │ float    │ Downstream 10%-ile inter arrival time                      │
+<a id="__codelineno-15-115" name="__codelineno-15-115" href="#__codelineno-15-115"></a>│ flow_features_iat_downstream_flow_20_percentile           │ float    │ Downstream 20%-ile inter arrival time                      │
+<a id="__codelineno-15-116" name="__codelineno-15-116" href="#__codelineno-15-116"></a>│ flow_features_iat_downstream_flow_30_percentile           │ float    │ Downstream 30%-ile inter arrival time                      │
+<a id="__codelineno-15-117" name="__codelineno-15-117" href="#__codelineno-15-117"></a>│ flow_features_iat_downstream_flow_40_percentile           │ float    │ Downstream 40%-ile inter arrival time                      │
+<a id="__codelineno-15-118" name="__codelineno-15-118" href="#__codelineno-15-118"></a>│ flow_features_iat_downstream_flow_50_percentile           │ float    │ Downstream 50%-ile inter arrival time                      │
+<a id="__codelineno-15-119" name="__codelineno-15-119" href="#__codelineno-15-119"></a>│ flow_features_iat_downstream_flow_60_percentile           │ float    │ Downstream 60%-ile inter arrival time                      │
+<a id="__codelineno-15-120" name="__codelineno-15-120" href="#__codelineno-15-120"></a>│ flow_features_iat_downstream_flow_70_percentile           │ float    │ Downstream 70%-ile inter arrival time                      │
+<a id="__codelineno-15-121" name="__codelineno-15-121" href="#__codelineno-15-121"></a>│ flow_features_iat_downstream_flow_80_percentile           │ float    │ Downstream 80%-ile inter arrival time                      │
+<a id="__codelineno-15-122" name="__codelineno-15-122" href="#__codelineno-15-122"></a>│ flow_features_iat_downstream_flow_90_percentile           │ float    │ Downstream 90%-ile inter arrival time                      │
+<a id="__codelineno-15-123" name="__codelineno-15-123" href="#__codelineno-15-123"></a>│ flow_metadata_bf_device                                   │ str      │ Ethernet address                                           │
+<a id="__codelineno-15-124" name="__codelineno-15-124" href="#__codelineno-15-124"></a>│ flow_metadata_bf_label_source                             │ str      │ Constant value &#39;netstate&#39;                                  │
+<a id="__codelineno-15-125" name="__codelineno-15-125" href="#__codelineno-15-125"></a>│ flow_metadata_bf_label                                    │ str      │ original mirage label                                      │
+<a id="__codelineno-15-126" name="__codelineno-15-126" href="#__codelineno-15-126"></a>│ flow_metadata_bf_sublabel                                 │ str      │ n.a.                                                       │
+<a id="__codelineno-15-127" name="__codelineno-15-127" href="#__codelineno-15-127"></a>│ flow_metadata_bf_label_version_code                       │ str      │ n.a.                                                       │
+<a id="__codelineno-15-128" name="__codelineno-15-128" href="#__codelineno-15-128"></a>│ flow_metadata_bf_label_version_name                       │ str      │ n.a.                                                       │
+<a id="__codelineno-15-129" name="__codelineno-15-129" href="#__codelineno-15-129"></a>│ flow_metadata_bf_labeling_type                            │ str      │ exact=via netstat; most-common=via experiment              │
+<a id="__codelineno-15-130" name="__codelineno-15-130" href="#__codelineno-15-130"></a>│ flow_metadata_bf_num_packets                              │ int      │ Bidirectional number of pkts                               │
+<a id="__codelineno-15-131" name="__codelineno-15-131" href="#__codelineno-15-131"></a>│ flow_metadata_bf_ip_packet_bytes                          │ int      │ Bidirectional bytes (including headers)                    │
+<a id="__codelineno-15-132" name="__codelineno-15-132" href="#__codelineno-15-132"></a>│ flow_metadata_bf_l4_payload_bytes                         │ int      │ Bidirectional payload bytes                                │
+<a id="__codelineno-15-133" name="__codelineno-15-133" href="#__codelineno-15-133"></a>│ flow_metadata_bf_duration                                 │ float    │ Bidirectional duration                                     │
+<a id="__codelineno-15-134" name="__codelineno-15-134" href="#__codelineno-15-134"></a>│ flow_metadata_uf_num_packets                              │ int      │ Upload number of pkts                                      │
+<a id="__codelineno-15-135" name="__codelineno-15-135" href="#__codelineno-15-135"></a>│ flow_metadata_uf_ip_packet_bytes                          │ int      │ Upload bytes (including headers)                           │
+<a id="__codelineno-15-136" name="__codelineno-15-136" href="#__codelineno-15-136"></a>│ flow_metadata_uf_l4_payload_bytes                         │ int      │ Upload payload bytes                                       │
+<a id="__codelineno-15-137" name="__codelineno-15-137" href="#__codelineno-15-137"></a>│ flow_metadata_uf_duration                                 │ float    │ Upload duration                                            │
+<a id="__codelineno-15-138" name="__codelineno-15-138" href="#__codelineno-15-138"></a>│ flow_metadata_uf_mss                                      │ float    │ Upload maximum segment size                                │
+<a id="__codelineno-15-139" name="__codelineno-15-139" href="#__codelineno-15-139"></a>│ flow_metadata_uf_ws                                       │ float    │ Upload window scaling                                      │
+<a id="__codelineno-15-140" name="__codelineno-15-140" href="#__codelineno-15-140"></a>│ flow_metadata_df_num_packets                              │ int      │ Download number of packets                                 │
+<a id="__codelineno-15-141" name="__codelineno-15-141" href="#__codelineno-15-141"></a>│ flow_metadata_df_ip_packet_bytes                          │ int      │ Download bytes (including headers)                         │
+<a id="__codelineno-15-142" name="__codelineno-15-142" href="#__codelineno-15-142"></a>│ flow_metadata_df_l4_payload_bytes                         │ int      │ Download payload bytes                                     │
+<a id="__codelineno-15-143" name="__codelineno-15-143" href="#__codelineno-15-143"></a>│ flow_metadata_df_duration                                 │ float    │ Download duration                                          │
+<a id="__codelineno-15-144" name="__codelineno-15-144" href="#__codelineno-15-144"></a>│ flow_metadata_df_mss                                      │ float    │ Download maximum segment size                              │
+<a id="__codelineno-15-145" name="__codelineno-15-145" href="#__codelineno-15-145"></a>│ flow_metadata_df_ws                                       │ float    │ Download window scaling                                    │
+<a id="__codelineno-15-146" name="__codelineno-15-146" href="#__codelineno-15-146"></a>│ flow_metadata_bf_activity                                 │ str      │ Experiment activity                                        │
+<a id="__codelineno-15-147" name="__codelineno-15-147" href="#__codelineno-15-147"></a>│ strings                                                   │ list     │ ASCII string extracted from payload                        │
+<a id="__codelineno-15-148" name="__codelineno-15-148" href="#__codelineno-15-148"></a>│ android_name                                              │ str      │ app name (based on filename)                               │
+<a id="__codelineno-15-149" name="__codelineno-15-149" href="#__codelineno-15-149"></a>│ device_name                                               │ str      │ device name (based on filename)                            │
+<a id="__codelineno-15-150" name="__codelineno-15-150" href="#__codelineno-15-150"></a>│ app                                                       │ category │ label (background|android app)                             │
+<a id="__codelineno-15-151" name="__codelineno-15-151" href="#__codelineno-15-151"></a>│ src_ip                                                    │ str      │ Source IP                                                  │
+<a id="__codelineno-15-152" name="__codelineno-15-152" href="#__codelineno-15-152"></a>│ src_port                                                  │ str      │ Source port                                                │
+<a id="__codelineno-15-153" name="__codelineno-15-153" href="#__codelineno-15-153"></a>│ dst_ip                                                    │ str      │ Destination IP                                             │
+<a id="__codelineno-15-154" name="__codelineno-15-154" href="#__codelineno-15-154"></a>│ dst_port                                                  │ str      │ Destination port                                           │
+<a id="__codelineno-15-155" name="__codelineno-15-155" href="#__codelineno-15-155"></a>│ proto                                                     │ str      │ L4 protol                                                  │
+<a id="__codelineno-15-156" name="__codelineno-15-156" href="#__codelineno-15-156"></a>│ packets                                                   │ int      │ Number of (bidirectional) packets                          │
+<a id="__codelineno-15-157" name="__codelineno-15-157" href="#__codelineno-15-157"></a>└───────────────────────────────────────────────────────────┴──────────┴────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name mirage22 --type filtered</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>┃ Field                             ┃ Dtype    ┃ Description                                                          ┃
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="hll">│ row_id                            │ int      │ Unique flow id                                                       │
+</span><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>│ conn_id                           │ str      │ Flow 5-tuple                                                         │
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>│ packet_data_l4_raw_payload        │ np.array │ List of list with each packet payload                                │
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>│ flow_metadata_bf_label            │ str      │ original mirage label                                                │
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>│ flow_metadata_bf_activity         │ str      │ Experiment activity                                                  │
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>│ flow_metadata_bf_labeling_type    │ str      │ exact=via netstat; most-common=via experiment                        │
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>│ flow_metadata_bf_l4_payload_bytes │ int      │ Bidirectional payload bytes                                          │
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>│ flow_metadata_bf_duration         │ float    │ Bidirectional duration                                               │
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>│ strings                           │ list     │ ASCII string extracted from payload                                  │
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>│ android_name                      │ str      │ app name (based on filename)                                         │
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>│ device_name                       │ str      │ device name (based on filename)                                      │
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="hll">│ app                               │ category │ label (background|android app)                                       │
+</span><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>│ src_ip                            │ str      │ Source IP                                                            │
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>│ src_port                          │ str      │ Source port                                                          │
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>│ dst_ip                            │ str      │ Destination IP                                                       │
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>│ dst_port                          │ str      │ Destination port                                                     │
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>│ proto                             │ str      │ L4 protocol                                                          │
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>│ packets                           │ int      │ Number of (bidirectional) packets                                    │
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="hll">│ pkts_size                         │ str      │ Packet size time series                                              │
+</span><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="hll">│ pkts_dir                          │ str      │ Packet diretion time series                                          │
+</span><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="hll">│ timetofirst                       │ str      │ Delta between the each packet timestamp the first packet of the flow │
+</span><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>└───────────────────────────────────┴──────────┴──────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name mirage22 --type splits</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>┃ Field         ┃ Dtype    ┃ Description                  ┃
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>│ train_indexes │ np.array │ row_id of training samples   │
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>│ val_indexes   │ np.array │ row_id of validation samples │
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│ test_indexes  │ np.array │ row_id of test samples       │
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>│ split_index   │ int      │ Split id                     │
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>└───────────────┴──────────┴──────────────────────────────┘
+</code></pre></div>
+</div>
+<h5 id="utmobilenet21"><code>utmobilenet21</code></h5>
+<details class="note">
+<summary>tcbench datasets schema --name utmobilenet21 --type unfiltered</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>┃ Field       ┃ Dtype    ┃ Description                                                                  ┃
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>│ row_id      │ int      │ Unique flow id                                                               │
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>│ src_ip      │ str      │ Source ip of the flow                                                        │
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>│ src_port    │ int      │ Source port of the flow                                                      │
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>│ dst_ip      │ str      │ Destination ip of the flow                                                   │
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>│ dst_port    │ int      │ Destination port of the flow                                                 │
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>│ ip_proto    │ int      │ Protocol of the flow (TCP or UDP)                                            │
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>│ first       │ float    │ Timestamp of the first packet                                                │
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>│ last        │ float    │ Timestamp of the last packet                                                 │
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>│ duration    │ float    │ Duration of the flow                                                         │
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>│ packets     │ int      │ Number of packets in the flow                                                │
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>│ bytes       │ int      │ Number of bytes in the flow                                                  │
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>│ partition   │ str      │ From which folder the flow was originally stored                             │
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>│ location    │ str      │ Label originally provided by the dataset (see the related paper for details) │
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>│ fname       │ str      │ Original filename where the packets of the flow come from                    │
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>│ app         │ category │ Final label of the flow, encoded as pandas category                          │
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>│ pkts_size   │ np.array │ Packet size time series                                                      │
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>│ pkts_dir    │ np.array │ Packet diretion time series                                                  │
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>│ timetofirst │ np.array │ Delta between the each packet timestamp the first packet of the flow         │
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>└─────────────┴──────────┴──────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name utmobilenet21 --type filtered</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>┃ Field       ┃ Dtype    ┃ Description                                                                  ┃
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="hll">│ row_id      │ int      │ Unique flow id                                                               │
+</span><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>│ src_ip      │ str      │ Source ip of the flow                                                        │
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>│ src_port    │ int      │ Source port of the flow                                                      │
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>│ dst_ip      │ str      │ Destination ip of the flow                                                   │
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>│ dst_port    │ int      │ Destination port of the flow                                                 │
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>│ ip_proto    │ int      │ Protocol of the flow (TCP or UDP)                                            │
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>│ first       │ float    │ Timestamp of the first packet                                                │
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>│ last        │ float    │ Timestamp of the last packet                                                 │
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>│ duration    │ float    │ Duration of the flow                                                         │
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>│ packets     │ int      │ Number of packets in the flow                                                │
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>│ bytes       │ int      │ Number of bytes in the flow                                                  │
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>│ partition   │ str      │ From which folder the flow was originally stored                             │
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>│ location    │ str      │ Label originally provided by the dataset (see the related paper for details) │
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>│ fname       │ str      │ Original filename where the packets of the flow come from                    │
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="hll">│ app         │ category │ Final label of the flow, encoded as pandas category                          │
+</span><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="hll">│ pkts_size   │ np.array │ Packet size time series                                                      │
+</span><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="hll">│ pkts_dir    │ np.array │ Packet diretion time series                                                  │
+</span><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="hll">│ timetofirst │ np.array │ Delta between the each packet timestamp the first packet of the flow         │
+</span><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>└─────────────┴──────────┴──────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">tcbench datasets schema --name utmobilenet21 --type splits</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>┃ Field         ┃ Dtype    ┃ Description                  ┃
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>│ train_indexes │ np.array │ row_id of training samples   │
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>│ val_indexes   │ np.array │ row_id of validation samples │
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>│ test_indexes  │ np.array │ row_id of test samples       │
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>│ split_index   │ int      │ Split id                     │
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>└───────────────┴──────────┴──────────────────────────────┘
+</code></pre></div>
+</div>
+<h3 id="samples-count-report"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483.905.477 1.504 1.284 1.504 2.418 0 .966-.471 1.75-1.172 2.27-.687.511-1.587.77-2.521.77-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553.673 0 1.243-.188 1.627-.473.37-.275.566-.635.566-1.067 0-.5-.219-.836-.703-1.091-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75ZM7.88 15.215a1.4 1.4 0 0 0-1.446.83.75.75 0 0 1-1.37-.61 2.899 2.899 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743.434.446.685 1.058.685 1.778 0 1.641-1.254 2.437-2.12 2.986-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21 1.032-.659 1.55-1.031 1.55-1.8 0-.355-.116-.584-.26-.732a1.071 1.071 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.749.749 0 0 1 .762-.02Z"/></svg></span> Samples count report</h3>
+<p>As the name suggests, a <em>samples count report</em> details
+how many samples (i.e., flows) are available for each app.
+These reports are shown during installation, but can 
+be retrieved at any time using the subcommand <code>datasets samples-count</code>.</p>
+<p>They can be generated for unfiltered, filtered or based on splits,
+but the command requires familiarity with the parametrization
+semantic.</p>
+<h4 id="ucdavis-icdm19_1">ucdavis-icdm19</h4>
+<p>For instance, the following provides the unfitered view
+for the <code>ucdavis-icdm19</code> dataset</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>tcbench datasets samples-count --name ucdavis-icdm19
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>unfiltered
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>┃ partition                   ┃ app           ┃ samples ┃
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>│ pretraining                 │ google-doc    │    1221 │
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>│                             │ google-drive  │    1634 │
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>│                             │ google-music  │     592 │
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>│                             │ google-search │    1915 │
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>│                             │ youtube       │    1077 │
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>│                             │ __total__     │    6439 │
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>├─────────────────────────────┼───────────────┼─────────┤
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>│ retraining-human-triggered  │ google-doc    │      15 │
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>│                             │ google-drive  │      18 │
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>│                             │ google-music  │      15 │
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>│                             │ google-search │      15 │
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>│                             │ youtube       │      20 │
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>│                             │ __total__     │      83 │
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>├─────────────────────────────┼───────────────┼─────────┤
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>│ retraining-script-triggered │ google-doc    │      30 │
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>│                             │ google-drive  │      30 │
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>│                             │ google-music  │      30 │
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>│                             │ google-search │      30 │
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>│                             │ youtube       │      30 │
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>│                             │ __total__     │     150 │
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>└─────────────────────────────┴───────────────┴─────────┘
+</code></pre></div>
+</div>
+<p>While to obtain the breakdown of the first train split</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>tcbench datasets samples-count --name ucdavis-icdm19 --split 0
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>filtered, split: 0
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>┃ app           ┃ samples ┃
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>│ google-doc    │     100 │
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>│ google-drive  │     100 │
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>│ google-music  │     100 │
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>│ google-search │     100 │
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>│ youtube       │     100 │
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>├───────────────┼─────────┤
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>│ __total__     │     500 │
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>└───────────────┴─────────┘
+</code></pre></div>
+</div>
+<p>...or the <code>human</code> test split</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>tcbench datasets samples-count --name ucdavis-icdm19 --split human
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>filtered, split: human
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>┃ app           ┃ samples ┃
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>│ youtube       │      20 │
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>│ google-drive  │      18 │
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>│ google-doc    │      15 │
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>│ google-music  │      15 │
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>│ google-search │      15 │
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>├───────────────┼─────────┤
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>│ __total__     │      83 │
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>└───────────────┴─────────┘
+</code></pre></div>
+</div>
+<h4 id="examples-for-other-datasets">Examples for other datasets</h4>
+<p>Other datasets can be filtered based on the <code>--min_pkts</code> options.</p>
+<p>For instance, the following is the overall
+view for <code>mirage22</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>tcbench datasets samples-count --name mirage22
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>unfiltered
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>┃ app                              ┃ samples ┃
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>│ background                       │   18882 │
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>│ com.microsoft.teams              │    6541 │
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>│ com.skype.raider                 │    6203 │
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>│ us.zoom.videomeetings            │    5066 │
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>│ com.cisco.webex.meetings         │    4789 │
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>│ com.discord                      │    4337 │
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>│ com.facebook.orca                │    4321 │
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>│ com.gotomeeting                  │    3695 │
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>│ com.Slack                        │    2985 │
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>│ com.google.android.apps.meetings │    2252 │
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>├──────────────────────────────────┼─────────┤
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>│ __total__                        │   59071 │
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>└──────────────────────────────────┴─────────┘
+</code></pre></div>
+</div>
+<p>This counts reduce when filtering by <code>--min-pkts 1000</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>tcbench datasets samples-count --name mirage22 --min-pkts 1000
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>min_pkts: 1000
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>┃ app                              ┃ samples ┃
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>│ com.discord                      │    2220 │
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>│ us.zoom.videomeetings            │     425 │
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>│ com.google.android.apps.meetings │     379 │
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>│ com.microsoft.teams              │     321 │
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>│ com.gotomeeting                  │     297 │
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>│ com.facebook.orca                │     280 │
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>│ com.cisco.webex.meetings         │     259 │
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>│ com.Slack                        │     198 │
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>│ com.skype.raider                 │     190 │
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>├──────────────────────────────────┼─────────┤
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>│ __total__                        │    4569 │
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>└──────────────────────────────────┴─────────┘
+</code></pre></div>
+</div>
+<p>...and you can also obtain the breakdown from a specific split
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>tcbench datasets samples-count --name mirage22 --min-pkts 1000 --split 0
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>min_pkts: 1000, split: 0
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>┃ app                              ┃ train_samples ┃ val_samples ┃ test_samples ┃ all_samples ┃
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>│ com.discord                      │          1798 │         200 │          222 │        2220 │
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>│ us.zoom.videomeetings            │           344 │          39 │           42 │         425 │
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>│ com.google.android.apps.meetings │           307 │          34 │           38 │         379 │
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>│ com.microsoft.teams              │           260 │          29 │           32 │         321 │
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>│ com.gotomeeting                  │           240 │          27 │           30 │         297 │
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>│ com.facebook.orca                │           227 │          25 │           28 │         280 │
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>│ com.cisco.webex.meetings         │           210 │          23 │           26 │         259 │
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>│ com.Slack                        │           160 │          18 │           20 │         198 │
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>│ com.skype.raider                 │           154 │          17 │           19 │         190 │
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>├──────────────────────────────────┼───────────────┼─────────────┼──────────────┼─────────────┤
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>│ __total__                        │          3700 │         412 │          457 │        4569 │
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>└──────────────────────────────────┴───────────────┴─────────────┴──────────────┴─────────────┘
+</code></pre></div>
+</div>
+
+
+
+
+
+                
+
+<style>
+// Do whatever changes you need here
+
+.jp-RenderedHTMLCommon p {
+    margin: 0pt;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-inputWrapper .jp-InputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-outputWrapper .jp-OutputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-OutputArea-output pre {
+    border-left: solid 5px #e0e0e0;
+    padding-left: 5pt;
+}
+
+</style>
+
+<script>
+tags = document.getElementsByClassName("md-nav__link");
+for (var idx=0; idx < tags.length; idx++) {
+    //if (item.hasAttribute("href") && item.attributes["href"].textContent.endsWith("ipynb")) {
+    if (tags[idx].innerText.includes("HIDETHIS")) {
+        tags[idx].style.display = "none";
+    }
+}
+</script>
+
+
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Install
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../import/" class="md-footer__link md-footer__link--next" aria-label="Next: Import/Delete" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Import/Delete
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.tabs.sticky", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

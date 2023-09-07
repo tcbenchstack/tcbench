@@ -1,0 +1,2969 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../quick_tour/">
+      
+      
+        <link rel="next" href="../metadata/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Install - paper#132</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+      <link rel="stylesheet" href="../../css/material.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/fonts.css">
+    
+      <link rel="stylesheet" href="../../css/tables_style.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-notebook.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#supported-datasets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="paper#132" class="md-header__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            paper#132
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Install
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="paper#132" class="md-nav__button md-logo" aria-label="paper#132" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    paper#132
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Submission
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Submission
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paper_tables_and_figures/reference/" class="md-nav__link">
+        Tables and figures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_tour/" class="md-nav__link">
+        Quick tour
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Datasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Datasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Install
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Install
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-datasets" class="md-nav__link">
+    Supported datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-datasets-properties" class="md-nav__link">
+    Table : Datasets properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-curation-at-glance" class="md-nav__link">
+    Datasets curation at-glance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-meta-data" class="md-nav__link">
+    Datasets meta-data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ucdavis-icdm19" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+    <nav class="md-nav" aria-label="ucdavis-icdm19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mirage19" class="md-nav__link">
+    mirage19
+  </a>
+  
+    <nav class="md-nav" aria-label="mirage19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_1" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_1" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_1" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_1" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mirage22" class="md-nav__link">
+    Install mirage22
+  </a>
+  
+    <nav class="md-nav" aria-label="Install mirage22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_2" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_2" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_2" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_2" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utmobilenet21" class="md-nav__link">
+    utmobilenet21
+  </a>
+  
+    <nav class="md-nav" aria-label="utmobilenet21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_3" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_3" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_3" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_3" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        Meta-data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import/" class="md-nav__link">
+        Import/Delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_load_parquet/" class="md-nav__link">
+        Tutorial - Load parquet files
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/exploring_artifacts/" class="md-nav__link">
+        Exploring ML artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modeling/campaigns/" class="md-nav__link">
+        Campaigns
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          tcbench
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          tcbench
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+          cli
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          cli
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_clickutils/" class="md-nav__link">
+        clickutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_aimrepo/" class="md-nav__link">
+        command_aimrepo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_campaign/" class="md-nav__link">
+        command_campaign
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_datasets/" class="md-nav__link">
+        command_datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_command_singlerun/" class="md-nav__link">
+        command_singlerun
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_cli_richutils/" class="md-nav__link">
+        richutils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+          libtcdatasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          libtcdatasets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_datasets_utils/" class="md-nav__link">
+        datasets_utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet/" class="md-nav__link">
+        ucdavis_icdm19_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits/" class="md-nav__link">
+        ucdavis_icdm19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_json_to_parquet/" class="md-nav__link">
+        mirage19_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage19_generate_splits.md" class="md-nav__link">
+        mirage19_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_mirage22_json_to_parquet/" class="md-nav__link">
+        mirage22_json_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_mirage22_generate_splits/" class="md-nav__link">
+        mirage22_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_utmobilenet21_csv_to_parquet/" class="md-nav__link">
+        utmobilenet21_csv_to_parquet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits/" class="md-nav__link">
+        utmobilenet21_generate_splits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+          modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_augmentation/" class="md-nav__link">
+        augmentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_aimutils/" class="md-nav__link">
+        aimutils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_backbone/" class="md-nav__link">
+        backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_dataprep/" class="md-nav__link">
+        dataprep
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_losses/" class="md-nav__link">
+        losses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_utils/" class="md-nav__link">
+        utils
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading/" class="md-nav__link">
+        run_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading/" class="md-nav__link">
+        run_campaign_augmentations_at_loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading_xgboost/" class="md-nav__link">
+        run_campaign_augmentations_at_loading_xgboost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tcbench/api/tcbench_modeling_run_campaign_contrastive_learning_and_finetune/" class="md-nav__link">
+        run_campaign_contrastive_learning_and_finetune
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-datasets" class="md-nav__link">
+    Supported datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-datasets-properties" class="md-nav__link">
+    Table : Datasets properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-curation-at-glance" class="md-nav__link">
+    Datasets curation at-glance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-meta-data" class="md-nav__link">
+    Datasets meta-data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ucdavis-icdm19" class="md-nav__link">
+    ucdavis-icdm19
+  </a>
+  
+    <nav class="md-nav" aria-label="ucdavis-icdm19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mirage19" class="md-nav__link">
+    mirage19
+  </a>
+  
+    <nav class="md-nav" aria-label="mirage19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_1" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_1" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_1" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_1" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mirage22" class="md-nav__link">
+    Install mirage22
+  </a>
+  
+    <nav class="md-nav" aria-label="Install mirage22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_2" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_2" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_2" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_2" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utmobilenet21" class="md-nav__link">
+    utmobilenet21
+  </a>
+  
+    <nav class="md-nav" aria-label="utmobilenet21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#original-structure_3" class="md-nav__link">
+    Original structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curation_3" class="md-nav__link">
+    Curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splits_3" class="md-nav__link">
+    Splits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_3" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+
+                  
+
+
+  <h1>Install</h1>
+
+<h2 id="supported-datasets">Supported datasets</h2>
+<p>TCBench integrates and <em>curates</em> the following traffic classification datasets</p>
+<h5 id="table-datasets-properties">Table : Datasets properties</h5>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">No. Classes</th>
+<th align="center">Links</th>
+<th align="center">Auto-download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>ucdavis-icdm19</code></td>
+<td align="center">5</td>
+<td align="center"><a href="https://arxiv.org/pdf/1812.09761.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a><a href="https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.12 5 .81-1h12l.94 1M12 17.5 6.5 12H10v-2h4v2h3.5L12 17.5m8.54-12.27-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6 3 6.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.5c0-.5-.17-.93-.46-1.27Z"/></svg></span></a><a href="https://github.com/shrezaei/Semi-supervised-Learning-QUIC-"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg></span></a></td>
+<td align="center"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939 8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6 9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061 3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6 2.22 3.28a.749.749 0 0 1 0-1.06Z"/></svg></span></td>
+</tr>
+<tr>
+<td align="center"><code>mirage19</code></td>
+<td align="center">20</td>
+<td align="center"><a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a><a href="https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.12 5 .81-1h12l.94 1M12 17.5 6.5 12H10v-2h4v2h3.5L12 17.5m8.54-12.27-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6 3 6.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.5c0-.5-.17-.93-.46-1.27Z"/></svg></span></a><a href="https://traffic.comics.unina.it/mirage/mirage-2019.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.923 7.923 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8.008 8.008 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg></span></a></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+<tr>
+<td align="center"><code>mirage22</code></td>
+<td align="center">9</td>
+<td align="center"><a href="http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a><a href="https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.12 5 .81-1h12l.94 1M12 17.5 6.5 12H10v-2h4v2h3.5L12 17.5m8.54-12.27-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6 3 6.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.5c0-.5-.17-.93-.46-1.27Z"/></svg></span></a><a href="https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.923 7.923 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8.008 8.008 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg></span></a></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+<tr>
+<td align="center"><code>utmobilenet21</code></td>
+<td align="center">17</td>
+<td align="center"><a href="https://ieeexplore.ieee.org/abstract/document/9490678/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a><a href="https://github.com/YuqiangHeng/UTMobileNetTraffic2021"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.12 5 .81-1h12l.94 1M12 17.5 6.5 12H10v-2h4v2h3.5L12 17.5m8.54-12.27-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6 3 6.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.5c0-.5-.17-.93-.46-1.27Z"/></svg></span></a><a href="https://github.com/YuqiangHeng/UTMobileNetTraffic2021"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg></span></a></td>
+<td align="center"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939 8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6 9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061 3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6 2.22 3.28a.749.749 0 0 1 0-1.06Z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, there is no single format used when preparing datasets for public release.</p>
+<ul>
+<li>
+<p>Datasets come as <strong>either CSV or JSON files collections</strong> with either
+per-packet or per-flow records. </p>
+</li>
+<li>
+<p><strong>Files can be organized in subfolders</strong>, namely <strong>partitions</strong>,
+named to reflect the related measurement campaign
+(see <code>ucdavis-icdm19</code>, <code>utmobilenet21</code>).</p>
+</li>
+<li>
+<p><strong>File names can carry semantic</strong> and/or the classification 
+require preprocessing to be obtained by separating
+it from background (see <code>mirage19</code> and <code>mirage22</code>).</p>
+</li>
+<li>
+<p>Datasets typically <strong>do not have native splits</strong>
+(i.e., train/validation/test splits) nor are ready to use
+for app modeling (e.g., ICMP packets, short flows, etc., are not filtered).</p>
+</li>
+</ul>
+<h2 id="datasets-curation-at-glance">Datasets curation at-glance</h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 2v2.07A8.002 8.002 0 0 0 4.07 11H2v2h2.07A8.002 8.002 0 0 0 11 19.93V22h2v-2.07A8.002 8.002 0 0 0 19.93 13H22v-2h-2.07A8.002 8.002 0 0 0 13 4.07V2m-2 4.08V8h2V6.09c2.5.41 4.5 2.41 4.92 4.91H16v2h1.91c-.41 2.5-2.41 4.5-4.91 4.92V16h-2v1.91C8.5 17.5 6.5 15.5 6.08 13H8v-2H6.09C6.5 8.5 8.5 6.5 11 6.08M12 11a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1Z"/></svg></span>
+<mark><em>We target per-flow classification where each flow is
+associated to packet time series input.</em></mark>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 2v2.07A8.002 8.002 0 0 0 4.07 11H2v2h2.07A8.002 8.002 0 0 0 11 19.93V22h2v-2.07A8.002 8.002 0 0 0 19.93 13H22v-2h-2.07A8.002 8.002 0 0 0 13 4.07V2m-2 4.08V8h2V6.09c2.5.41 4.5 2.41 4.92 4.91H16v2h1.91c-.41 2.5-2.41 4.5-4.91 4.92V16h-2v1.91C8.5 17.5 6.5 15.5 6.08 13H8v-2H6.09C6.5 8.5 8.5 6.5 11 6.08M12 11a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1Z"/></svg></span></p>
+<p>To do so, we take an opinionated view on how
+datasets should be formatted and handled.</p>
+<p>Specifically, when installing a dataset, the dataset raw
+data goes through the following steps:</p>
+<ol>
+<li>
+<p><strong>Download and unpack</strong>: <code>tcbench</code> enables you
+to directly fetch the raw data from the Internet or install it
+from a folder where data was pre-downloaded, and
+unpack it into a predefined destination folder which, 
+for simplicity, corresponds to a
+subfolder of the python environment where 
+<a href="/modeling_framework/install"><code>tcbench</code> is installed</a>.
+This folder is mantained and can accessed for futher
+ad-hoc processing outside the functionalities of <code>tcbench</code>.</p>
+</li>
+<li>
+<p><strong>Preprocess</strong>: Once unpacked, the dataset
+raw data is converted into <strong>monolithic packet files</strong>.
+Such files are left <em>untouched</em>, i.e., they simply
+serve as a re-organization of the original data
+(with a per-flow view where needed) with an
+homogeneous format across datasets.</p>
+</li>
+<li>
+<p><strong>Filter and split</strong>: The monolithic parquet files
+are first filtered (e.g., removing very short
+flows or flow related to invalid IP addresses) and
+then used to train/validation/test splits.
+Both steps are necessary to enable traffic modeling
+and replicability; yet they reflect our opinionated view
+on how to handle dataset for traffic classification.</p>
+</li>
+</ol>
+<h2 id="datasets-meta-data">Datasets meta-data</h2>
+<p>As part of the curation process, 
+<code>tcbench</code> enables you to show meta-data
+related to the datasets.</p>
+<p>For instance, the refences collected
+in the <a href="#table-datasets-properties">summary table</a> reported
+at the top of this page
+can be visualized issuing</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tcbench datasets info
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Datasets
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── ucdavis-icdm19
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └──  🚩 classes:       5
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│        🔗 paper_url:     https://arxiv.org/pdf/1812.09761.pdf
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│        🔗 website:       https://github.com/shrezaei/Semi-supervised-Learning-QUIC-
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│        🔗 data:          https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│        📁 installed:     None
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│        📁 data splits:   None
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>├── mirage19
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   └──  🚩 classes:       20
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-2019.html
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│        📁 installed:     None
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│        📁 data splits:   None
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── mirage22
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   └──  🚩 classes:       9
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│        📁 installed:     None
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│        📁 preprocessed:  None
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│        📁 data splits:   None
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>└── utmobilenet21
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    └──  🚩 classes:       17
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>         🔗 paper_url:     https://ieeexplore.ieee.org/abstract/document/9490678/
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>         🔗 website:       https://github.com/YuqiangHeng/UTMobileNetTraffic2021
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>         🔗 data:          https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>         📁 installed:     None
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>         📁 preprocessed:  None
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>         📁 data splits:   None
+</code></pre></div>
+</div>
+<p>Beside showing the a set of static properties (e.g., URL links), 
+the 3 properties <code>installed</code>, <code>preprocessed</code> nd <code>data_splits</code> 
+reports the absolute path where the related data is stored.
+The example refers to the initial setup where no dataset is yet
+installed.</p>
+<p>However, when <a href="/artifacts/#unpack-artifacts">unpacking artifacts with the 
+provided scripts</a>, 
+the curated datasets are automatically installed</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tcbench datasets info
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Datasets
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── ucdavis-icdm19
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│   └──  🚩 classes:       5
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│        🔗 paper_url:     https://arxiv.org/pdf/1812.09761.pdf
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│        🔗 website:       https://github.com/shrezaei/Semi-supervised-Learning-QUIC-
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│        🔗 data:          https://drive.google.com/drive/folders/1Pvev0hJ82usPh6dWDlz7Lv8L6h3JpWhE
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│        📁 installed:     None
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│        📁 preprocessed:  /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│        📁 data splits:   /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>├── mirage19
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│   └──  🚩 classes:       20
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-2019.html
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│        📁 installed:     None
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│        📁 preprocessed:  /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│        📁 data splits:   /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed/imc23
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>├── mirage22
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>│   └──  🚩 classes:       9
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>│        🔗 paper_url:     http://wpage.unina.it/antonio.montieri/pubs/_C__IEEE_CAMAD_2021___Traffic_Classification_Covid_app.pdf
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>│        🔗 website:       https://traffic.comics.unina.it/mirage/mirage-covid-ccma-2022.html
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>│        🔗 data:          https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>│        📁 installed:     None
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>│        📁 preprocessed:  /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>│        📁 data splits:   /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/imc23
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>└── utmobilenet21
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    └──  🚩 classes:       17
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>         🔗 paper_url:     https://ieeexplore.ieee.org/abstract/document/9490678/
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>         🔗 website:       https://github.com/YuqiangHeng/UTMobileNetTraffic2021
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>         🔗 data:          https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>         📁 installed:     None
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>         📁 preprocessed:  /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/utmobilenet21/preprocessed
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>         📁 data splits:   /home/johndoe/.conda/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/utmobilenet21/preprocessed/imc23
+</code></pre></div>
+<p>Notice that
+* <strong>installed</strong> is <code>None</code> because this refers to the
+    original raw data of the datasets (which is not
+    provided with the curated artifacts).</p>
+<ul>
+<li><strong>preprocessed</strong> and <strong>data splits</strong> are two specific types
+    of curation of the datasets.</li>
+</ul>
+<p>In fact, the artifacts unpacking uses a <a href="/datasets/import">dataset import</a> process.</p>
+</div>
+<p>When installing a dataset, <code>tcbench</code> also
+shows two types of reports as formatted tables.</p>
+<ul>
+<li>
+<p><strong>Samples count</strong>: This tables collect
+the number of samples (i.e., flows)
+available.</p>
+</li>
+<li>
+<p><strong>Stats</strong>: The curation process
+can filter out flows (e.g., based
+on a minum number of packets
+or remove classes without a minimum
+number of flows). As such, when 
+installing, <code>tcbench</code> is showing
+general stats (mean, std, percentiles)
+about number of packets
+for each flow across classes.</p>
+</li>
+</ul>
+<p>Please check out the <a href="/datasets/metadata">datasets meta-data</a> page for more details.</p>
+<h2 id="ucdavis-icdm19"><code>ucdavis-icdm19</code></h2>
+<p>This dataset cannot be downloaded directly
+(as it is stored on Google Drive). So,
+it needs to be manually downloaded.</p>
+<p>More specifically, the dataset is composed
+of 3 zip files that need to be kept in
+a single folder.</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>downloads/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── pretraining.zip
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── Retraining(human-triggered).zip
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>└── Retraining(script-triggered).zip
+</code></pre></div></p>
+<h4 id="original-structure">Original structure</h4>
+<p>The 3 files correspond to 3 <em>partitions</em>
+with different scopes: <code>pretraining</code> is 
+meant for training while the other two
+for testing.</p>
+<p>When all zips are unpacked, the folder structure becomes
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>downloads/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── pretraining
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│   ├── Google Doc
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│   ├── Google Drive
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│   ├── Google Music
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>│   ├── Google Search
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│   └── Youtube
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>├── Retraining(human-triggered)
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>│   ├── Google Doc
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>│   ├── Google Drive
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>│   ├── Google Music
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>│   ├── Google Search
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>│   └── Youtube
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>└── Retraining(script-triggered)
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    ├── Google Doc
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    ├── Google Drive
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    ├── Google Music
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    ├── Google Search
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    └── Youtube
+</code></pre></div></p>
+<p>Inside each nested folder there is a collection of CSV files.
+Each file corresponds to a different flow, 
+where each row represents individual packet information.</p>
+<h4 id="curation">Curation</h4>
+<ul>
+<li>
+<p><strong>No filtering</strong> is applied to the original data.</p>
+</li>
+<li>
+<p>The only processing applied is to "transpose" 
+the data with respect to the original representation.
+Specifically, original CSV are per-packet while we
+create pandas DataFrames where one row 
+represents one flow and we gather
+all packets of the flow into numpy arrays.</p>
+</li>
+<li>
+<p>During the conversion the original folder
+structure is preserved via extra columns
+(<code>partition</code> and <code>flow_id</code>).</p>
+</li>
+</ul>
+<h4 id="splits">Splits</h4>
+<p>This dataset was used in <a href="/index.md"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6m0 2h7v5h5v11H6V4m2 8v2h8v-2H8m0 4v2h5v-2H8Z"/></svg></span><code>imc22-paper</code></a>, hence we follow the splits described in the paper</p>
+<ul>
+<li>From <code>pretraining</code> we generate 5 random splits, each with 100 samples per class.</li>
+<li>The other two partitions are left as is and are used for testing.</li>
+</ul>
+<p>Both training and testing splits are "materialized", i.e.,
+differently from <code>mirage19</code>, <code>mirage22</code>, and <code>utmobilenet21</code>,
+the splits are NOT collection or row indexes but
+rather already filtered views of the monolithic 
+parquet files.</p>
+<p>Hence, all splits have the same columns.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>row_id</code></td>
+<td align="left">A unique row id</td>
+</tr>
+<tr>
+<td align="left"><code>app</code></td>
+<td align="left">The label of the flow, encoded as pandas <code>category</code></td>
+</tr>
+<tr>
+<td align="left"><code>flow_id</code></td>
+<td align="left">The original filename</td>
+</tr>
+<tr>
+<td align="left"><code>partition</code></td>
+<td align="left">The partition related to the flow</td>
+</tr>
+<tr>
+<td align="left"><code>num_pkts</code></td>
+<td align="left">Number of packets in the flow</td>
+</tr>
+<tr>
+<td align="left"><code>duration</code></td>
+<td align="left">The duration of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>bytes</code></td>
+<td align="left">The number of bytes of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>unixtime</code></td>
+<td align="left">Numpy array with the absolute time of each packet</td>
+</tr>
+<tr>
+<td align="left"><code>timetofirst</code></td>
+<td align="left">Numpy array with the delta between a packet the first packet of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>pkts_size</code></td>
+<td align="left">Numpy array for the packet size time series</td>
+</tr>
+<tr>
+<td align="left"><code>pkts_dir</code></td>
+<td align="left">Numpy array for the packet direction time series</td>
+</tr>
+<tr>
+<td align="left"><code>pkts_iat</code></td>
+<td align="left">Numpy array for the packet inter-arrival time series</td>
+</tr>
+</tbody>
+</table>
+<h4 id="install">Install</h4>
+<p>To install the dataset run (assuming data was pre-downloaded under <code>/downloads</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>tcbench datasets install \
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    --name ucdavis-icdm19 \
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    --input-folder ./downloads/
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>╭──────╮
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>│unpack│
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>╰──────╯
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>opening: downloads/pretraining.zip
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>opening: downloads/Retraining(human-triggered).zip
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>opening: downloads/Retraining(script-triggered).zip
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>╭──────────╮
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│preprocess│
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>╰──────────╯
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>found 6672 CSV files to load
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Converting CSVs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>concatenating files
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/ucdavis-icdm19.parquet
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>samples count : unfiltered
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>┃ partition                   ┃ app           ┃ samples ┃
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>│ pretraining                 │ google-doc    │    1221 │
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>│                             │ google-drive  │    1634 │
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>│                             │ google-music  │     592 │
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>│                             │ google-search │    1915 │
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>│                             │ youtube       │    1077 │
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>│                             │ __total__     │    6439 │
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>├─────────────────────────────┼───────────────┼─────────┤
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>│ retraining-human-triggered  │ google-doc    │      15 │
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>│                             │ google-drive  │      18 │
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>│                             │ google-music  │      15 │
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>│                             │ google-search │      15 │
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>│                             │ youtube       │      20 │
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>│                             │ __total__     │      83 │
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>├─────────────────────────────┼───────────────┼─────────┤
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>│ retraining-script-triggered │ google-doc    │      30 │
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>│                             │ google-drive  │      30 │
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>│                             │ google-music  │      30 │
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>│                             │ google-search │      30 │
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>│                             │ youtube       │      30 │
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>│                             │ __total__     │     150 │
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>└─────────────────────────────┴───────────────┴─────────┘
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>╭───────────────╮
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>│generate splits│
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>╰───────────────╯
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_0.parquet
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_1.parquet
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_2.parquet
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_3.parquet
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_4.parquet
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>samples count : train_split = 0 to 4
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>┃ app           ┃ samples ┃
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>│ google-doc    │     100 │
+<a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>│ google-drive  │     100 │
+<a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>│ google-music  │     100 │
+<a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>│ google-search │     100 │
+<a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>│ youtube       │     100 │
+<a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>├───────────────┼─────────┤
+<a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>│ __total__     │     500 │
+<a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>└───────────────┴─────────┘
+<a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>
+<a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/test_split_human.parquet
+<a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>samples count : test_split_human
+<a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>┃ app           ┃ samples ┃
+<a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>│ youtube       │      20 │
+<a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>│ google-drive  │      18 │
+<a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>│ google-doc    │      15 │
+<a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>│ google-music  │      15 │
+<a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>│ google-search │      15 │
+<a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>├───────────────┼─────────┤
+<a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>│ __total__     │      83 │
+<a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>└───────────────┴─────────┘
+<a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>
+<a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/test_split_script.parquet
+<a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>samples count : test_split_script
+<a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>┃ app           ┃ samples ┃
+<a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>┡━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>│ google-doc    │      30 │
+<a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>│ google-drive  │      30 │
+<a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>│ google-music  │      30 │
+<a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>│ google-search │      30 │
+<a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>│ youtube       │      30 │
+<a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>├───────────────┼─────────┤
+<a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>│ __total__     │     150 │
+<a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>└───────────────┴─────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Focusing on the reports...</p>
+<p>Notice the following:</p>
+<ul>
+<li>There is a monolithic parquet file containing the original partitions. For readability, the samples count report is groupped by partition</li>
+<li>There are 5 train splits (with 100 samples per class)</li>
+<li>There are 2 test splits (i.e., <code>human</code> and <code>script</code>) matching the related partitions from the raw dataset.</li>
+</ul>
+</div>
+<h2 id="mirage19"><code>mirage19</code></h2>
+<p>The dataset is a collection of JSON files gathering per-flow
+data from 20 Android apps.</p>
+<div class="admonition warning">
+<p class="admonition-title">...but why not 40 apps?</p>
+<p>Despite the <a href="https://traffic.comics.unina.it/mirage/mirage-2019.html"><code>mirage19</code> website</a> and the <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf">related paper</a> mention
+the availability of 40 applications, the public version
+has only 20. With separate communication with the authors
+of the dataset, we understood that the remaining 20
+are available only upon request (altough not explicitly
+specified). As result, we considered only the 20 publicly
+available.</p>
+</div>
+<p>The dataset can be downloaded directly by <code>tcbench</code>
+or can be pre-downloaded and placed into a folder.</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>downloads/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>└── MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz 
+</code></pre></div></p>
+<h4 id="original-structure_1">Original structure</h4>
+<p>Once unpacked the dataset has
+the following structure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>downloads/
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>└─ MIRAGE-2019_traffic_dataset_downloadable
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>   ├── Mi5_38_a4_ed_18_cc_bf
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>   └── Nexus7_bc_ee_7b_a4_09_47
+</code></pre></div></p>
+<p>The subfolders contain collections of JSON files,
+each representing a different experiment.
+The application is encoded both in the filenames
+as well as extra metadata in the JSON structure
+(<code>flow</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span> <code>metadata</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span> <code>bf</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span> <code>label</code>).</p>
+<p>Each JSON file is already per-flow, but they have
+a fairly complicated nested structure.
+For example, aggregate flow metrics are
+hierarchially separated from packet time series,
+which are further separated from other metadata.</p>
+<h4 id="curation_1">Curation</h4>
+<ol>
+<li>
+<p>Combine all JSON into a monolithic parquet file.</p>
+</li>
+<li>
+<p><strong>Flatten the JSON nested structure</strong>. 
+    For instance, the nested input dictionary
+    <code>{"layer1":{"col1":1, "col2":2}}</code> 
+    would be flattened into a table
+    with columns "layer1_col1" and "layer1_col2" 
+    with the respective values "1" and "2".</p>
+</li>
+<li>
+<p>Add a <strong><code>"background"</code> class</strong>. More specifically,
+    each JSON file details the Android 
+    app name in the file name. But the traffic in an experiment
+    can be related to a different app/service running in parallel.
+    However, the dataset offers the column
+    <code>flow_metadata_bf_label</code> which contains the
+    Android app name that <code>netstat</code> linked to each
+    network socket during an experiment.
+    This implies that, by knowing the expected app
+    of an experiment, one can define as "background" 
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span> <code>flow_metadata_bf_label</code> != 
+    expected Android app name.</p>
+</li>
+<li>
+<p>The dataset contains raw packet bytes across multiple packets
+    of a flow. We process these series to search for 
+    <strong>ASCII strings</strong>.
+    This can be usefull for extract (in a lazy way) TLS
+    handshake information (e.g., SNI or certificate info).</p>
+</li>
+</ol>
+<p>The final parquet files has 127 columns, and most of
+them comes from the original dataset itself.
+They are not documented but fairly easy to understand
+based on the name. Thus, <strong>we prune some
+columns in the final filtered files</strong>.</p>
+<p>The most important ones are</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>packet_data_packet_dir</code></td>
+<td align="left">The time series of the packet direction</td>
+</tr>
+<tr>
+<td align="left"><code>packet_data_l4_payload_bytes</code></td>
+<td align="left">The time series of the packet size</td>
+</tr>
+<tr>
+<td align="left"><code>packet_data_iat</code></td>
+<td align="left">The time series of the packet inter-arrival time</td>
+</tr>
+<tr>
+<td align="left"><code>flow_metadata_bf_label</code></td>
+<td align="left">The label gathered via netstat</td>
+</tr>
+<tr>
+<td align="left"><code>strings</code></td>
+<td align="left">The ASCII string recovered from the payload analysis</td>
+</tr>
+<tr>
+<td align="left"><code>android_name</code></td>
+<td align="left">The app used for an experiment</td>
+</tr>
+<tr>
+<td align="left"><code>app</code></td>
+<td align="left">The final label encoded as a pandas <code>category</code></td>
+</tr>
+<tr>
+<td align="left"><code>row_id</code></td>
+<td align="left">A unique row identifier</td>
+</tr>
+</tbody>
+</table>
+<p>Please refer to the <a href="/datasets/metadata/#schemas">datasets schema</a> page for more details.</p>
+<h4 id="splits_1">Splits</h4>
+<p>Once preprocessed, the monolithic dataset is further processed to:</p>
+<ul>
+<li>Remove ACK packets from time series.</li>
+<li>Remove flows with &lt; 10 samples.</li>
+<li>Remove apps with &lt; 100 samples.</li>
+</ul>
+<p>From the remaining traffic we define 5 train/val/test splits with the following logic</p>
+<ol>
+<li>Shuffle the rows.</li>
+<li>Perform a 90/10 split where the 10-part is used for testing.</li>
+<li>From the 90-part, do a second 90/10 to define train and validation.</li>
+</ol>
+<p>The splits are NOT materialized, i.e., 
+splits are a collection of row indexes
+that needs to be applied on the filtered monolithic
+parquet in order to obtain the data for modeling</p>
+<p>The structure of the splits table is as follows</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>train_indexes</code></td>
+<td align="left">A numpy array with the <code>row_id</code> related to the train split</td>
+</tr>
+<tr>
+<td align="left"><code>val_indexes</code></td>
+<td align="left">... validation split</td>
+</tr>
+<tr>
+<td align="left"><code>test_indexes</code></td>
+<td align="left">... test split</td>
+</tr>
+<tr>
+<td align="left"><code>split_index</code></td>
+<td align="left">The index of the split (0..4)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="install_1">Install</h4>
+<p>To install the dataset run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>tcbench datasets install --name mirage19
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>╭─────────────────╮
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>│download &amp; unpack│
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>╰─────────────────╯
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Downloading... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5 GB / 1.5 GB eta 0:00:00
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>opening: /tmp/tmpxcdzy8tw/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>╭──────────╮
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│preprocess│
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>╰──────────╯
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>found 1642 JSON files to load
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>Converting JSONs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1642/1642 0:00:11
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>merging files...
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed/mirage19.parquet
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>╭────────────────────────╮
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│filter &amp; generate splits│
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>╰────────────────────────╯
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>loading: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed/mirage19.parquet
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>samples count : unfiltered
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>┃ app                         ┃ samples ┃
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>│ com.waze                    │   11737 │
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>│ de.motain.iliga             │   10810 │
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>│ com.accuweather.android     │   10631 │
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>│ com.duolingo                │    8319 │
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>│ it.subito                   │    8167 │
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>│ com.contextlogic.wish       │    6507 │
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>│ com.spotify.music           │    6431 │
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>│ com.joelapenna.foursquared  │    6399 │
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>│ com.google.android.youtube  │    6346 │
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>│ com.iconology.comics        │    5516 │
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>│ com.facebook.katana         │    5368 │
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>│ com.dropbox.android         │    4815 │
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>│ com.twitter.android         │    4734 │
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>│ background                  │    4439 │
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>│ com.pinterest               │    4078 │
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>│ com.facebook.orca           │    4018 │
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>│ com.tripadvisor.tripadvisor │    3572 │
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>│ air.com.hypah.io.slither    │    3088 │
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>│ com.viber.voip              │    2740 │
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>│ com.trello                  │    2306 │
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>│ com.groupon                 │    1986 │
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>├─────────────────────────────┼─────────┤
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>│ __total__                   │  122007 │
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>└─────────────────────────────┴─────────┘
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a>stats : number packets per-flow (unfiltered)
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a>┏━━━━━━━┳━━━━━━━━━━┓
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>┃ stat  ┃    value ┃
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>┡━━━━━━━╇━━━━━━━━━━┩
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>│ count │ 122007.0 │
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>│ mean  │    23.11 │
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>│ std   │     9.73 │
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a>│ min   │      1.0 │
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a>│ 25%   │     17.0 │
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>│ 50%   │     26.0 │
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a>│ 75%   │     32.0 │
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a>│ max   │     32.0 │
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>└───────┴──────────┘
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a>
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>filtering min_pkts=10...
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed/imc23/mirage19_filtered_minpkts10.parquet
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a>samples count : filtered (min_pkts=10)
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a>┃ app                         ┃ samples ┃
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a>│ de.motain.iliga             │    7505 │
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a>│ com.waze                    │    7214 │
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a>│ com.duolingo                │    4583 │
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a>│ it.subito                   │    4299 │
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a>│ com.contextlogic.wish       │    3927 │
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a>│ com.accuweather.android     │    3737 │
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a>│ com.joelapenna.foursquared  │    3627 │
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a>│ com.spotify.music           │    3300 │
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a>│ com.dropbox.android         │    3189 │
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a>│ com.facebook.katana         │    2878 │
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a>│ com.iconology.comics        │    2812 │
+<a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a>│ com.twitter.android         │    2805 │
+<a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a>│ com.google.android.youtube  │    2728 │
+<a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a>│ com.pinterest               │    2450 │
+<a id="__codelineno-11-81" name="__codelineno-11-81" href="#__codelineno-11-81"></a>│ com.tripadvisor.tripadvisor │    2052 │
+<a id="__codelineno-11-82" name="__codelineno-11-82" href="#__codelineno-11-82"></a>│ com.facebook.orca           │    1783 │
+<a id="__codelineno-11-83" name="__codelineno-11-83" href="#__codelineno-11-83"></a>│ com.viber.voip              │    1618 │
+<a id="__codelineno-11-84" name="__codelineno-11-84" href="#__codelineno-11-84"></a>│ com.trello                  │    1478 │
+<a id="__codelineno-11-85" name="__codelineno-11-85" href="#__codelineno-11-85"></a>│ com.groupon                 │    1174 │
+<a id="__codelineno-11-86" name="__codelineno-11-86" href="#__codelineno-11-86"></a>│ air.com.hypah.io.slither    │    1013 │
+<a id="__codelineno-11-87" name="__codelineno-11-87" href="#__codelineno-11-87"></a>├─────────────────────────────┼─────────┤
+<a id="__codelineno-11-88" name="__codelineno-11-88" href="#__codelineno-11-88"></a>│ __total__                   │   64172 │
+<a id="__codelineno-11-89" name="__codelineno-11-89" href="#__codelineno-11-89"></a>└─────────────────────────────┴─────────┘
+<a id="__codelineno-11-90" name="__codelineno-11-90" href="#__codelineno-11-90"></a>stats : number packets per-flow (min_pkts=10)
+<a id="__codelineno-11-91" name="__codelineno-11-91" href="#__codelineno-11-91"></a>┏━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-11-92" name="__codelineno-11-92" href="#__codelineno-11-92"></a>┃ stat  ┃   value ┃
+<a id="__codelineno-11-93" name="__codelineno-11-93" href="#__codelineno-11-93"></a>┡━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-11-94" name="__codelineno-11-94" href="#__codelineno-11-94"></a>│ count │ 64172.0 │
+<a id="__codelineno-11-95" name="__codelineno-11-95" href="#__codelineno-11-95"></a>│ mean  │   17.01 │
+<a id="__codelineno-11-96" name="__codelineno-11-96" href="#__codelineno-11-96"></a>│ std   │    4.43 │
+<a id="__codelineno-11-97" name="__codelineno-11-97" href="#__codelineno-11-97"></a>│ min   │    11.0 │
+<a id="__codelineno-11-98" name="__codelineno-11-98" href="#__codelineno-11-98"></a>│ 25%   │    14.0 │
+<a id="__codelineno-11-99" name="__codelineno-11-99" href="#__codelineno-11-99"></a>│ 50%   │    17.0 │
+<a id="__codelineno-11-100" name="__codelineno-11-100" href="#__codelineno-11-100"></a>│ 75%   │    19.0 │
+<a id="__codelineno-11-101" name="__codelineno-11-101" href="#__codelineno-11-101"></a>│ max   │    32.0 │
+<a id="__codelineno-11-102" name="__codelineno-11-102" href="#__codelineno-11-102"></a>└───────┴─────────┘
+<a id="__codelineno-11-103" name="__codelineno-11-103" href="#__codelineno-11-103"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage19/preprocessed/imc23/mirage19_filtered_minpkts10_splits.parquet
+<a id="__codelineno-11-104" name="__codelineno-11-104" href="#__codelineno-11-104"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+<a id="__codelineno-11-105" name="__codelineno-11-105" href="#__codelineno-11-105"></a>┃ app                         ┃ train_samples ┃ val_samples ┃ test_samples ┃ all_samples ┃
+<a id="__codelineno-11-106" name="__codelineno-11-106" href="#__codelineno-11-106"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+<a id="__codelineno-11-107" name="__codelineno-11-107" href="#__codelineno-11-107"></a>│ de.motain.iliga             │          6079 │         675 │          751 │        7505 │
+<a id="__codelineno-11-108" name="__codelineno-11-108" href="#__codelineno-11-108"></a>│ com.waze                    │          5844 │         649 │          721 │        7214 │
+<a id="__codelineno-11-109" name="__codelineno-11-109" href="#__codelineno-11-109"></a>│ com.duolingo                │          3712 │         413 │          458 │        4583 │
+<a id="__codelineno-11-110" name="__codelineno-11-110" href="#__codelineno-11-110"></a>│ it.subito                   │          3482 │         387 │          430 │        4299 │
+<a id="__codelineno-11-111" name="__codelineno-11-111" href="#__codelineno-11-111"></a>│ com.contextlogic.wish       │          3181 │         353 │          393 │        3927 │
+<a id="__codelineno-11-112" name="__codelineno-11-112" href="#__codelineno-11-112"></a>│ com.accuweather.android     │          3027 │         336 │          374 │        3737 │
+<a id="__codelineno-11-113" name="__codelineno-11-113" href="#__codelineno-11-113"></a>│ com.joelapenna.foursquared  │          2938 │         326 │          363 │        3627 │
+<a id="__codelineno-11-114" name="__codelineno-11-114" href="#__codelineno-11-114"></a>│ com.spotify.music           │          2673 │         297 │          330 │        3300 │
+<a id="__codelineno-11-115" name="__codelineno-11-115" href="#__codelineno-11-115"></a>│ com.dropbox.android         │          2583 │         287 │          319 │        3189 │
+<a id="__codelineno-11-116" name="__codelineno-11-116" href="#__codelineno-11-116"></a>│ com.facebook.katana         │          2331 │         259 │          288 │        2878 │
+<a id="__codelineno-11-117" name="__codelineno-11-117" href="#__codelineno-11-117"></a>│ com.iconology.comics        │          2278 │         253 │          281 │        2812 │
+<a id="__codelineno-11-118" name="__codelineno-11-118" href="#__codelineno-11-118"></a>│ com.twitter.android         │          2272 │         252 │          281 │        2805 │
+<a id="__codelineno-11-119" name="__codelineno-11-119" href="#__codelineno-11-119"></a>│ com.google.android.youtube  │          2209 │         246 │          273 │        2728 │
+<a id="__codelineno-11-120" name="__codelineno-11-120" href="#__codelineno-11-120"></a>│ com.pinterest               │          1984 │         221 │          245 │        2450 │
+<a id="__codelineno-11-121" name="__codelineno-11-121" href="#__codelineno-11-121"></a>│ com.tripadvisor.tripadvisor │          1662 │         185 │          205 │        2052 │
+<a id="__codelineno-11-122" name="__codelineno-11-122" href="#__codelineno-11-122"></a>│ com.facebook.orca           │          1444 │         161 │          178 │        1783 │
+<a id="__codelineno-11-123" name="__codelineno-11-123" href="#__codelineno-11-123"></a>│ com.viber.voip              │          1310 │         146 │          162 │        1618 │
+<a id="__codelineno-11-124" name="__codelineno-11-124" href="#__codelineno-11-124"></a>│ com.trello                  │          1197 │         133 │          148 │        1478 │
+<a id="__codelineno-11-125" name="__codelineno-11-125" href="#__codelineno-11-125"></a>│ com.groupon                 │           951 │         106 │          117 │        1174 │
+<a id="__codelineno-11-126" name="__codelineno-11-126" href="#__codelineno-11-126"></a>│ air.com.hypah.io.slither    │           821 │          91 │          101 │        1013 │
+<a id="__codelineno-11-127" name="__codelineno-11-127" href="#__codelineno-11-127"></a>├─────────────────────────────┼───────────────┼─────────────┼──────────────┼─────────────┤
+<a id="__codelineno-11-128" name="__codelineno-11-128" href="#__codelineno-11-128"></a>│ __total__                   │         51978 │        5776 │         6418 │       64172 │
+<a id="__codelineno-11-129" name="__codelineno-11-129" href="#__codelineno-11-129"></a>└─────────────────────────────┴───────────────┴─────────────┴──────────────┴─────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Focusing on the reports...</p>
+<p>Notice the following:</p>
+<ul>
+<li>The unfiltered dataset has many flows but observe (see packets stats) that those are mostly short.</li>
+<li>The splits are formed so to have roughly 100 samples for validation/test.</li>
+</ul>
+</div>
+<h2 id="install-mirage22">Install <code>mirage22</code></h2>
+<p>The dataset is from the same authors of <code>mirage19</code> so 
+the two datasets have many commonalities.</p>
+<p>The major difference is the dataset aim: It focuses
+on video meeting Android apps with experiments
+annotated with respect to different interactions
+the the apps (voice, chat, etc.)</p>
+<h4 id="original-structure_2">Original structure</h4>
+<p>The dataset can be downloaded automatically 
+(or can be pre-downloaded into a folder).</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>downloads/
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>└── MIRAGE-COVID-CCMA-2022.zip
+</code></pre></div></p>
+<p>Once unpacked it has the following structure
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>downloads/
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>└── MIRAGE-COVID-CCMA-2022
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>   ├── Preprocessed_pickle
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>   └── Raw_JSON
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>       ├── Discord
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>       ├── GotoMeeting
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>       ├── Meet
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>       ├── Messenger
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>       ├── Skype
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>       ├── Slack
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>       ├── Teams
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>       ├── Webex
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>       └── Zoom
+</code></pre></div></p>
+<p>Notice the two subfolders:</p>
+<ul>
+<li>
+<p><code>Raw_JSON</code> gathers the nested JSON files for each experiment.</p>
+</li>
+<li>
+<p><code>Preprocessed_pickle</code> is a pickle serialization of the 
+data (undocumented by the authors).</p>
+</li>
+</ul>
+<h4 id="curation_2">Curation</h4>
+<p>Same as for <a href="datasets/install/#curation_2"><code>mirage19</code> curation</a></p>
+<h4 id="splits_2">Splits</h4>
+<p>Again, similar to <a href="datasets/install/#splits_2"><code>mirage19</code> splits</a>.</p>
+<p>The only difference is that we apply two
+filtering on flow length (at least 10 packets and at least 1000 packets).</p>
+<h4 id="install_2">Install</h4>
+<p>To install the dataset run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>tcbench datasets install --name mirage22
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>╭─────────────────╮
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>│download &amp; unpack│
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>╰─────────────────╯
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Downloading... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1 GB / 3.1 GB eta 0:00:00
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>opening: /tmp/tmp3marsp7l/MIRAGE-COVID-CCMA-2022.zip
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Discord.zip
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/GotoMeeting.zip
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Meet.zip
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Messenger.zip
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Skype.zip
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Slack.zip
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Teams.zip
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Webex.zip
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>opening: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/raw/MIRAGE-COVID-CCMA-2022/Raw_JSON/Zoom.zip
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>╭──────────╮
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>│preprocess│
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>╰──────────╯
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>found 998 JSON files to load
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>Converting JSONs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 998/998 0:00:28
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>merging files...
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/mirage22/preprocessed/mirage22.parquet
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>╭────────────────────────╮
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>│filter &amp; generate splits│
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>╰────────────────────────╯
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>loading: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/mirage22.parquet
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>samples count : unfiltered
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>┃ app                              ┃ samples ┃
+<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>│ background                       │   18882 │
+<a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>│ com.microsoft.teams              │    6541 │
+<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>│ com.skype.raider                 │    6203 │
+<a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>│ us.zoom.videomeetings            │    5066 │
+<a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>│ com.cisco.webex.meetings         │    4789 │
+<a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>│ com.discord                      │    4337 │
+<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>│ com.facebook.orca                │    4321 │
+<a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>│ com.gotomeeting                  │    3695 │
+<a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>│ com.Slack                        │    2985 │
+<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a>│ com.google.android.apps.meetings │    2252 │
+<a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>├──────────────────────────────────┼─────────┤
+<a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a>│ __total__                        │   59071 │
+<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a>└──────────────────────────────────┴─────────┘
+<a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a>stats : number packets per-flow (unfiltered)
+<a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>┏━━━━━━━┳━━━━━━━━━━━┓
+<a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a>┃ stat  ┃     value ┃
+<a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>┡━━━━━━━╇━━━━━━━━━━━┩
+<a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a>│ count │   59071.0 │
+<a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a>│ mean  │   3068.32 │
+<a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a>│ std   │  25416.43 │
+<a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a>│ min   │       1.0 │
+<a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a>│ 25%   │      20.0 │
+<a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a>│ 50%   │      27.0 │
+<a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a>│ 75%   │      42.0 │
+<a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a>│ max   │ 1665842.0 │
+<a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a>└───────┴───────────┘
+<a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>
+<a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a>filtering min_pkts=10...
+<a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/imc23/mirage22_filtered_minpkts10.parquet
+<a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a>samples count : filtered (min_pkts=10)
+<a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a>┃ app                              ┃ samples ┃
+<a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a>│ com.cisco.webex.meetings         │    4437 │
+<a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a>│ com.skype.raider                 │    4117 │
+<a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a>│ com.microsoft.teams              │    3857 │
+<a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a>│ us.zoom.videomeetings            │    3587 │
+<a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a>│ com.discord                      │    3387 │
+<a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a>│ com.facebook.orca                │    2623 │
+<a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>│ com.gotomeeting                  │    2557 │
+<a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a>│ com.google.android.apps.meetings │    1238 │
+<a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a>│ com.Slack                        │     970 │
+<a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a>├──────────────────────────────────┼─────────┤
+<a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a>│ __total__                        │   26773 │
+<a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a>└──────────────────────────────────┴─────────┘
+<a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a>stats : number packets per-flow (min_pkts=10)
+<a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a>┏━━━━━━━┳━━━━━━━━━━━┓
+<a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a>┃ stat  ┃     value ┃
+<a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a>┡━━━━━━━╇━━━━━━━━━━━┩
+<a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a>│ count │   26773.0 │
+<a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a>│ mean  │   6598.23 │
+<a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a>│ std   │  37290.08 │
+<a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a>│ min   │      11.0 │
+<a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a>│ 25%   │      15.0 │
+<a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a>│ 50%   │      21.0 │
+<a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a>│ 75%   │     186.0 │
+<a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a>│ max   │ 1665842.0 │
+<a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a>└───────┴───────────┘
+<a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/imc23/mirage22_filtered_minpkts10_splits.parquet
+<a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+<a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a>┃ app                              ┃ train_samples ┃ val_samples ┃ test_samples ┃ all_samples ┃
+<a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+<a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a>│ com.cisco.webex.meetings         │          3594 │         399 │          444 │        4437 │
+<a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a>│ com.skype.raider                 │          3334 │         371 │          412 │        4117 │
+<a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a>│ com.microsoft.teams              │          3124 │         347 │          386 │        3857 │
+<a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a>│ us.zoom.videomeetings            │          2905 │         323 │          359 │        3587 │
+<a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a>│ com.discord                      │          2743 │         305 │          339 │        3387 │
+<a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a>│ com.facebook.orca                │          2125 │         236 │          262 │        2623 │
+<a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a>│ com.gotomeeting                  │          2072 │         230 │          255 │        2557 │
+<a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a>│ com.google.android.apps.meetings │          1002 │         112 │          124 │        1238 │
+<a id="__codelineno-15-102" name="__codelineno-15-102" href="#__codelineno-15-102"></a>│ com.Slack                        │           786 │          87 │           97 │         970 │
+<a id="__codelineno-15-103" name="__codelineno-15-103" href="#__codelineno-15-103"></a>├──────────────────────────────────┼───────────────┼─────────────┼──────────────┼─────────────┤
+<a id="__codelineno-15-104" name="__codelineno-15-104" href="#__codelineno-15-104"></a>│ __total__                        │         21685 │        2410 │         2678 │       26773 │
+<a id="__codelineno-15-105" name="__codelineno-15-105" href="#__codelineno-15-105"></a>└──────────────────────────────────┴───────────────┴─────────────┴──────────────┴─────────────┘
+<a id="__codelineno-15-106" name="__codelineno-15-106" href="#__codelineno-15-106"></a>
+<a id="__codelineno-15-107" name="__codelineno-15-107" href="#__codelineno-15-107"></a>filtering min_pkts=1000...
+<a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/imc23/mirage22_filtered_minpkts1000.parquet
+<a id="__codelineno-15-109" name="__codelineno-15-109" href="#__codelineno-15-109"></a>samples count : filtered (min_pkts=1000)
+<a id="__codelineno-15-110" name="__codelineno-15-110" href="#__codelineno-15-110"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a>┃ app                              ┃ samples ┃
+<a id="__codelineno-15-112" name="__codelineno-15-112" href="#__codelineno-15-112"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-15-113" name="__codelineno-15-113" href="#__codelineno-15-113"></a>│ com.discord                      │    2220 │
+<a id="__codelineno-15-114" name="__codelineno-15-114" href="#__codelineno-15-114"></a>│ us.zoom.videomeetings            │     425 │
+<a id="__codelineno-15-115" name="__codelineno-15-115" href="#__codelineno-15-115"></a>│ com.google.android.apps.meetings │     379 │
+<a id="__codelineno-15-116" name="__codelineno-15-116" href="#__codelineno-15-116"></a>│ com.microsoft.teams              │     321 │
+<a id="__codelineno-15-117" name="__codelineno-15-117" href="#__codelineno-15-117"></a>│ com.gotomeeting                  │     297 │
+<a id="__codelineno-15-118" name="__codelineno-15-118" href="#__codelineno-15-118"></a>│ com.facebook.orca                │     280 │
+<a id="__codelineno-15-119" name="__codelineno-15-119" href="#__codelineno-15-119"></a>│ com.cisco.webex.meetings         │     259 │
+<a id="__codelineno-15-120" name="__codelineno-15-120" href="#__codelineno-15-120"></a>│ com.Slack                        │     198 │
+<a id="__codelineno-15-121" name="__codelineno-15-121" href="#__codelineno-15-121"></a>│ com.skype.raider                 │     190 │
+<a id="__codelineno-15-122" name="__codelineno-15-122" href="#__codelineno-15-122"></a>├──────────────────────────────────┼─────────┤
+<a id="__codelineno-15-123" name="__codelineno-15-123" href="#__codelineno-15-123"></a>│ __total__                        │    4569 │
+<a id="__codelineno-15-124" name="__codelineno-15-124" href="#__codelineno-15-124"></a>└──────────────────────────────────┴─────────┘
+<a id="__codelineno-15-125" name="__codelineno-15-125" href="#__codelineno-15-125"></a>stats : number packets per-flow (min_pkts=1000)
+<a id="__codelineno-15-126" name="__codelineno-15-126" href="#__codelineno-15-126"></a>┏━━━━━━━┳━━━━━━━━━━━┓
+<a id="__codelineno-15-127" name="__codelineno-15-127" href="#__codelineno-15-127"></a>┃ stat  ┃     value ┃
+<a id="__codelineno-15-128" name="__codelineno-15-128" href="#__codelineno-15-128"></a>┡━━━━━━━╇━━━━━━━━━━━┩
+<a id="__codelineno-15-129" name="__codelineno-15-129" href="#__codelineno-15-129"></a>│ count │    4569.0 │
+<a id="__codelineno-15-130" name="__codelineno-15-130" href="#__codelineno-15-130"></a>│ mean  │  38321.32 │
+<a id="__codelineno-15-131" name="__codelineno-15-131" href="#__codelineno-15-131"></a>│ std   │   83282.0 │
+<a id="__codelineno-15-132" name="__codelineno-15-132" href="#__codelineno-15-132"></a>│ min   │    1001.0 │
+<a id="__codelineno-15-133" name="__codelineno-15-133" href="#__codelineno-15-133"></a>│ 25%   │    2863.0 │
+<a id="__codelineno-15-134" name="__codelineno-15-134" href="#__codelineno-15-134"></a>│ 50%   │    6303.0 │
+<a id="__codelineno-15-135" name="__codelineno-15-135" href="#__codelineno-15-135"></a>│ 75%   │   35392.0 │
+<a id="__codelineno-15-136" name="__codelineno-15-136" href="#__codelineno-15-136"></a>│ max   │ 1665842.0 │
+<a id="__codelineno-15-137" name="__codelineno-15-137" href="#__codelineno-15-137"></a>└───────┴───────────┘
+<a id="__codelineno-15-138" name="__codelineno-15-138" href="#__codelineno-15-138"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/mirage22/preprocessed/imc23/mirage22_filtered_minpkts1000_splits.parquet
+<a id="__codelineno-15-139" name="__codelineno-15-139" href="#__codelineno-15-139"></a>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+<a id="__codelineno-15-140" name="__codelineno-15-140" href="#__codelineno-15-140"></a>┃ app                              ┃ train_samples ┃ val_samples ┃ test_samples ┃ all_samples ┃
+<a id="__codelineno-15-141" name="__codelineno-15-141" href="#__codelineno-15-141"></a>┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+<a id="__codelineno-15-142" name="__codelineno-15-142" href="#__codelineno-15-142"></a>│ com.discord                      │          1798 │         200 │          222 │        2220 │
+<a id="__codelineno-15-143" name="__codelineno-15-143" href="#__codelineno-15-143"></a>│ us.zoom.videomeetings            │           344 │          39 │           42 │         425 │
+<a id="__codelineno-15-144" name="__codelineno-15-144" href="#__codelineno-15-144"></a>│ com.google.android.apps.meetings │           307 │          34 │           38 │         379 │
+<a id="__codelineno-15-145" name="__codelineno-15-145" href="#__codelineno-15-145"></a>│ com.microsoft.teams              │           260 │          29 │           32 │         321 │
+<a id="__codelineno-15-146" name="__codelineno-15-146" href="#__codelineno-15-146"></a>│ com.gotomeeting                  │           240 │          27 │           30 │         297 │
+<a id="__codelineno-15-147" name="__codelineno-15-147" href="#__codelineno-15-147"></a>│ com.facebook.orca                │           227 │          25 │           28 │         280 │
+<a id="__codelineno-15-148" name="__codelineno-15-148" href="#__codelineno-15-148"></a>│ com.cisco.webex.meetings         │           210 │          23 │           26 │         259 │
+<a id="__codelineno-15-149" name="__codelineno-15-149" href="#__codelineno-15-149"></a>│ com.Slack                        │           160 │          18 │           20 │         198 │
+<a id="__codelineno-15-150" name="__codelineno-15-150" href="#__codelineno-15-150"></a>│ com.skype.raider                 │           154 │          17 │           19 │         190 │
+<a id="__codelineno-15-151" name="__codelineno-15-151" href="#__codelineno-15-151"></a>├──────────────────────────────────┼───────────────┼─────────────┼──────────────┼─────────────┤
+<a id="__codelineno-15-152" name="__codelineno-15-152" href="#__codelineno-15-152"></a>│ __total__                        │          3700 │         412 │          457 │        4569 │
+<a id="__codelineno-15-153" name="__codelineno-15-153" href="#__codelineno-15-153"></a>└──────────────────────────────────┴───────────────┴─────────────┴──────────────┴─────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Focusing on the reports...</p>
+<p>Notice the following:</p>
+<ul>
+<li>The unfiltered dataset shows a lot of small flows, but
+this bias reduces when applying the filtering.</li>
+</ul>
+</div>
+<h2 id="utmobilenet21"><code>utmobilenet21</code></h2>
+<p>The dataset is a collection of per-packet CSV files 
+related to 17 Android apps across 
+4 different <em>partitions</em> each corresponding
+to a different interaction with each app.</p>
+<p>The dataset cannot be downloaded directly
+(because it is stored into a Box cloud
+storage) so you need to pre-download it
+and save it into a folder.</p>
+<p>For instance
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>downloads/
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>└── UTMobileNet2021.zip
+</code></pre></div></p>
+<h4 id="original-structure_3">Original structure</h4>
+<p>Once unpacked, the datasets is organized as follows
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>downloads/
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>└── csvs
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    ├── Action-Specific Wild Test Data
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    ├── Deterministic Automated Data
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    ├── Randomized Automated Data
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    └── Wild Test Data
+</code></pre></div></p>
+<p>Each subfolders of <code>csvs/</code> corresponds to a different
+partition (the folder name is informing you
+about the semantic of the original measurement campaign).</p>
+<p>Within each subfolder there is a collection of CSVs
+generated running <code>tshark</code>, i.e., they are per-packet logs.</p>
+<p>Differently from <code>mirage19</code> and <code>mirage22</code>, the only label available
+is provided by CSV file names.</p>
+<h4 id="curation_3">Curation</h4>
+<ul>
+<li>
+<p>Some of the original CSVs files have rows which
+break the parsing via common utilities such as <code>pandas.read_csv()</code>.
+Moreover, some columns have missing values, while others
+have missing types between files (e.g., ports can be
+either int of floats). So extra care is taken to properly
+ingest the CSVs.</p>
+</li>
+<li>
+<p>We <strong>Filter out packets</strong> which are not TCP or UDP.</p>
+</li>
+<li>
+<p>Then, packets are organized into flows using the traditional
+network 5-tuple.</p>
+</li>
+</ul>
+<p>The final monolithic parquet files has the following columns</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>row_id</code></td>
+<td align="left">A unique flow id</td>
+</tr>
+<tr>
+<td align="left"><code>src_ip</code></td>
+<td align="left">The source ip of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>src_port</code></td>
+<td align="left">The source port of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>dst_ip</code></td>
+<td align="left">The destination ip of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>dst_port</code></td>
+<td align="left">The destination port of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>ip_proto</code></td>
+<td align="left">The protocol of the flow (TCP or UDP)</td>
+</tr>
+<tr>
+<td align="left"><code>first</code></td>
+<td align="left">Timestamp of the first packet</td>
+</tr>
+<tr>
+<td align="left"><code>last</code></td>
+<td align="left">Timestamp of the last packet</td>
+</tr>
+<tr>
+<td align="left"><code>duration</code></td>
+<td align="left">Duration of the flow</td>
+</tr>
+<tr>
+<td align="left"><code>packets</code></td>
+<td align="left">Number of packets in the flow</td>
+</tr>
+<tr>
+<td align="left"><code>bytes</code></td>
+<td align="left">Number of bytes in the flow</td>
+</tr>
+<tr>
+<td align="left"><code>partition</code></td>
+<td align="left">From which folder the flow was originally stored</td>
+</tr>
+<tr>
+<td align="left"><code>location</code></td>
+<td align="left">A label originally provided by the dataset (see the related paper for details)</td>
+</tr>
+<tr>
+<td align="left"><code>fname</code></td>
+<td align="left">The original filename where the packets of the flow come from</td>
+</tr>
+<tr>
+<td align="left"><code>app</code></td>
+<td align="left">The final label of the flow, encoded as pandas <code>category</code></td>
+</tr>
+<tr>
+<td align="left"><code>pkts_size</code></td>
+<td align="left">The numpy array for the packet size time series</td>
+</tr>
+<tr>
+<td align="left"><code>pkts_dir</code></td>
+<td align="left">The numpy array for the packet diretion time series</td>
+</tr>
+<tr>
+<td align="left"><code>timetofirst</code></td>
+<td align="left">The numpy array for the delta between the each packet timestamp the first packet of the flow</td>
+</tr>
+</tbody>
+</table>
+<h4 id="splits_3">Splits</h4>
+<p>Once preprocessed, the monolithic dataset is further processed to:</p>
+<ul>
+<li>Remove flows with &lt; 10 samples</li>
+<li>Remove apps with &lt; 100 samples</li>
+</ul>
+<p>From the remaining traffic we define 5 train/val/test splits with the following logic</p>
+<ol>
+<li>Shuffle the rows</li>
+<li>Perform a 90/10 split where the 10-part is used for testing</li>
+<li>From the 90-part, do a second 90/10 to define train and validation</li>
+</ol>
+<p>The splits are NOT materialized, i.e., 
+splits are a collection of row indexes
+that needs to be applied on the filtered monolithic
+parquet in order to obtain the data for modeling</p>
+<p>The structure of the split table is</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>train_indexes</code></td>
+<td align="left">A numpy array with the <code>row_id</code> related to the train split</td>
+</tr>
+<tr>
+<td align="left"><code>val_indexes</code></td>
+<td align="left">... validation split</td>
+</tr>
+<tr>
+<td align="left"><code>test_indexes</code></td>
+<td align="left">... test split</td>
+</tr>
+<tr>
+<td align="left"><code>split_index</code></td>
+<td align="left">The index of the split (0..4)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="install_3">Install</h4>
+<p>To install the dataset run
+(assuming data was pre-downloaded under <code>/downloads</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tcbench datasets install \
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    --name utmobilenet21 \
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    --input-folder downloads/
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>╭──────╮
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>│unpack│
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>╰──────╯
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>opening: downloads/UTMobileNet2021.zip
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>╭──────────╮
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>│preprocess│
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>╰──────────╯
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>processing: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/utmobilenet21/raw/Action-Specific Wild Test Data
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>found 43 files
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Converting CSVs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43/43 0:01:15
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>stage1 completed
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>stage2 completed
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>stage3 completed
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>stage4 completed
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>saving: /tmp/processing-utmobilenet21/action-specific_wild_test_data.parquet
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>processing: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/utmobilenet21/raw/Wild Test Data
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>found 14 files
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>Converting CSVs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14/14 0:03:12
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>stage1 completed
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>stage2 completed
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>stage3 completed
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>stage4 completed
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>saving: /tmp/processing-utmobilenet21/wild_test_data.parquet
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>processing: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/utmobilenet21/raw/Randomized Automated Data
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>found 288 files
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>Converting CSVs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288/288 0:01:35
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>stage1 completed
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>stage2 completed
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>stage3 completed
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>stage4 completed
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>saving: /tmp/processing-utmobilenet21/randomized_automated_data.parquet
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>processing: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/utmobilenet21/raw/Deterministic Automated Data
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>found 3438 files
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>Converting CSVs... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3438/3438 0:08:26
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>stage1 completed
+<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>stage2 completed
+<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>stage3 completed
+<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>stage4 completed
+<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>saving: /tmp/processing-utmobilenet21/deterministic_automated_data.parquet
+<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>merging all partitions
+<a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/libtcdatasets/datasets/utmobilenet21/preprocessed/utmobilenet21.parquet
+<a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>
+<a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>╭────────────────────────╮
+<a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>│filter &amp; generate splits│
+<a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>╰────────────────────────╯
+<a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>loading: /opt/anaconda/anaconda3/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/utmobilenet21/preprocessed/utmobilenet21.parquet
+<a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>samples count : unfiltered
+<a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>┏━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>┃ app          ┃ samples ┃
+<a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>┡━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>│ youtube      │    4716 │
+<a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>│ reddit       │    3622 │
+<a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>│ google-maps  │    3475 │
+<a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>│ netflix      │    1804 │
+<a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>│ pinterest    │    1702 │
+<a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>│ dropbox      │    1609 │
+<a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>│ instagram    │    1426 │
+<a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>│ gmail        │     848 │
+<a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>│ google-drive │     709 │
+<a id="__codelineno-19-64" name="__codelineno-19-64" href="#__codelineno-19-64"></a>│ messenger    │     690 │
+<a id="__codelineno-19-65" name="__codelineno-19-65" href="#__codelineno-19-65"></a>│ hangout      │     483 │
+<a id="__codelineno-19-66" name="__codelineno-19-66" href="#__codelineno-19-66"></a>│ facebook     │     364 │
+<a id="__codelineno-19-67" name="__codelineno-19-67" href="#__codelineno-19-67"></a>│ twitter      │     308 │
+<a id="__codelineno-19-68" name="__codelineno-19-68" href="#__codelineno-19-68"></a>│ hulu         │     294 │
+<a id="__codelineno-19-69" name="__codelineno-19-69" href="#__codelineno-19-69"></a>│ spotify      │     252 │
+<a id="__codelineno-19-70" name="__codelineno-19-70" href="#__codelineno-19-70"></a>│ pandora      │      70 │
+<a id="__codelineno-19-71" name="__codelineno-19-71" href="#__codelineno-19-71"></a>│ skype        │      57 │
+<a id="__codelineno-19-72" name="__codelineno-19-72" href="#__codelineno-19-72"></a>├──────────────┼─────────┤
+<a id="__codelineno-19-73" name="__codelineno-19-73" href="#__codelineno-19-73"></a>│ __total__    │   22429 │
+<a id="__codelineno-19-74" name="__codelineno-19-74" href="#__codelineno-19-74"></a>└──────────────┴─────────┘
+<a id="__codelineno-19-75" name="__codelineno-19-75" href="#__codelineno-19-75"></a>stats : number packets per-flow (unfiltered)
+<a id="__codelineno-19-76" name="__codelineno-19-76" href="#__codelineno-19-76"></a>┏━━━━━━━┳━━━━━━━━━━━┓
+<a id="__codelineno-19-77" name="__codelineno-19-77" href="#__codelineno-19-77"></a>┃ stat  ┃     value ┃
+<a id="__codelineno-19-78" name="__codelineno-19-78" href="#__codelineno-19-78"></a>┡━━━━━━━╇━━━━━━━━━━━┩
+<a id="__codelineno-19-79" name="__codelineno-19-79" href="#__codelineno-19-79"></a>│ count │   22429.0 │
+<a id="__codelineno-19-80" name="__codelineno-19-80" href="#__codelineno-19-80"></a>│ mean  │    716.33 │
+<a id="__codelineno-19-81" name="__codelineno-19-81" href="#__codelineno-19-81"></a>│ std   │  22271.93 │
+<a id="__codelineno-19-82" name="__codelineno-19-82" href="#__codelineno-19-82"></a>│ min   │       1.0 │
+<a id="__codelineno-19-83" name="__codelineno-19-83" href="#__codelineno-19-83"></a>│ 25%   │       2.0 │
+<a id="__codelineno-19-84" name="__codelineno-19-84" href="#__codelineno-19-84"></a>│ 50%   │       2.0 │
+<a id="__codelineno-19-85" name="__codelineno-19-85" href="#__codelineno-19-85"></a>│ 75%   │      15.0 │
+<a id="__codelineno-19-86" name="__codelineno-19-86" href="#__codelineno-19-86"></a>│ max   │ 1973657.0 │
+<a id="__codelineno-19-87" name="__codelineno-19-87" href="#__codelineno-19-87"></a>└───────┴───────────┘
+<a id="__codelineno-19-88" name="__codelineno-19-88" href="#__codelineno-19-88"></a>
+<a id="__codelineno-19-89" name="__codelineno-19-89" href="#__codelineno-19-89"></a>saving: /opt/anaconda/anaconda3/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/utmobilenet21/preprocessed/imc23/utmobilenet21_filtered_minpkts10.parquet
+<a id="__codelineno-19-90" name="__codelineno-19-90" href="#__codelineno-19-90"></a>samples count : filtered (min_pkts=10)
+<a id="__codelineno-19-91" name="__codelineno-19-91" href="#__codelineno-19-91"></a>┏━━━━━━━━━━━━━━┳━━━━━━━━━┓
+<a id="__codelineno-19-92" name="__codelineno-19-92" href="#__codelineno-19-92"></a>┃ app          ┃ samples ┃
+<a id="__codelineno-19-93" name="__codelineno-19-93" href="#__codelineno-19-93"></a>┡━━━━━━━━━━━━━━╇━━━━━━━━━┩
+<a id="__codelineno-19-94" name="__codelineno-19-94" href="#__codelineno-19-94"></a>│ youtube      │    2153 │
+<a id="__codelineno-19-95" name="__codelineno-19-95" href="#__codelineno-19-95"></a>│ google-maps  │    1391 │
+<a id="__codelineno-19-96" name="__codelineno-19-96" href="#__codelineno-19-96"></a>│ reddit       │     654 │
+<a id="__codelineno-19-97" name="__codelineno-19-97" href="#__codelineno-19-97"></a>│ netflix      │     317 │
+<a id="__codelineno-19-98" name="__codelineno-19-98" href="#__codelineno-19-98"></a>│ pinterest    │     312 │
+<a id="__codelineno-19-99" name="__codelineno-19-99" href="#__codelineno-19-99"></a>│ dropbox      │     211 │
+<a id="__codelineno-19-100" name="__codelineno-19-100" href="#__codelineno-19-100"></a>│ instagram    │     205 │
+<a id="__codelineno-19-101" name="__codelineno-19-101" href="#__codelineno-19-101"></a>│ hangout      │     176 │
+<a id="__codelineno-19-102" name="__codelineno-19-102" href="#__codelineno-19-102"></a>│ hulu         │     162 │
+<a id="__codelineno-19-103" name="__codelineno-19-103" href="#__codelineno-19-103"></a>│ google-drive │     104 │
+<a id="__codelineno-19-104" name="__codelineno-19-104" href="#__codelineno-19-104"></a>├──────────────┼─────────┤
+<a id="__codelineno-19-105" name="__codelineno-19-105" href="#__codelineno-19-105"></a>│ __total__    │    5685 │
+<a id="__codelineno-19-106" name="__codelineno-19-106" href="#__codelineno-19-106"></a>└──────────────┴─────────┘
+<a id="__codelineno-19-107" name="__codelineno-19-107" href="#__codelineno-19-107"></a>stats : number packets per-flow (min_pkts=10)
+<a id="__codelineno-19-108" name="__codelineno-19-108" href="#__codelineno-19-108"></a>┏━━━━━━━┳━━━━━━━━━━━┓
+<a id="__codelineno-19-109" name="__codelineno-19-109" href="#__codelineno-19-109"></a>┃ stat  ┃     value ┃
+<a id="__codelineno-19-110" name="__codelineno-19-110" href="#__codelineno-19-110"></a>┡━━━━━━━╇━━━━━━━━━━━┩
+<a id="__codelineno-19-111" name="__codelineno-19-111" href="#__codelineno-19-111"></a>│ count │    5685.0 │
+<a id="__codelineno-19-112" name="__codelineno-19-112" href="#__codelineno-19-112"></a>│ mean  │   2740.55 │
+<a id="__codelineno-19-113" name="__codelineno-19-113" href="#__codelineno-19-113"></a>│ std   │  44152.43 │
+<a id="__codelineno-19-114" name="__codelineno-19-114" href="#__codelineno-19-114"></a>│ min   │      11.0 │
+<a id="__codelineno-19-115" name="__codelineno-19-115" href="#__codelineno-19-115"></a>│ 25%   │      25.0 │
+<a id="__codelineno-19-116" name="__codelineno-19-116" href="#__codelineno-19-116"></a>│ 50%   │      44.0 │
+<a id="__codelineno-19-117" name="__codelineno-19-117" href="#__codelineno-19-117"></a>│ 75%   │     156.0 │
+<a id="__codelineno-19-118" name="__codelineno-19-118" href="#__codelineno-19-118"></a>│ max   │ 1973657.0 │
+<a id="__codelineno-19-119" name="__codelineno-19-119" href="#__codelineno-19-119"></a>└───────┴───────────┘
+<a id="__codelineno-19-120" name="__codelineno-19-120" href="#__codelineno-19-120"></a>saving: /opt/anaconda/anaconda3/envs/tcbench-johndoe/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/utmobilenet21/preprocessed/imc23/utmobilenet21_filtered_minpkts10_splits.parquet
+<a id="__codelineno-19-121" name="__codelineno-19-121" href="#__codelineno-19-121"></a>┏━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+<a id="__codelineno-19-122" name="__codelineno-19-122" href="#__codelineno-19-122"></a>┃ app          ┃ train_samples ┃ val_samples ┃ test_samples ┃ all_samples ┃
+<a id="__codelineno-19-123" name="__codelineno-19-123" href="#__codelineno-19-123"></a>┡━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+<a id="__codelineno-19-124" name="__codelineno-19-124" href="#__codelineno-19-124"></a>│ youtube      │          1743 │         194 │          216 │        2153 │
+<a id="__codelineno-19-125" name="__codelineno-19-125" href="#__codelineno-19-125"></a>│ google-maps  │          1127 │         125 │          139 │        1391 │
+<a id="__codelineno-19-126" name="__codelineno-19-126" href="#__codelineno-19-126"></a>│ reddit       │           530 │          59 │           65 │         654 │
+<a id="__codelineno-19-127" name="__codelineno-19-127" href="#__codelineno-19-127"></a>│ netflix      │           256 │          29 │           32 │         317 │
+<a id="__codelineno-19-128" name="__codelineno-19-128" href="#__codelineno-19-128"></a>│ pinterest    │           253 │          28 │           31 │         312 │
+<a id="__codelineno-19-129" name="__codelineno-19-129" href="#__codelineno-19-129"></a>│ dropbox      │           171 │          19 │           21 │         211 │
+<a id="__codelineno-19-130" name="__codelineno-19-130" href="#__codelineno-19-130"></a>│ instagram    │           166 │          18 │           21 │         205 │
+<a id="__codelineno-19-131" name="__codelineno-19-131" href="#__codelineno-19-131"></a>│ hangout      │           142 │          16 │           18 │         176 │
+<a id="__codelineno-19-132" name="__codelineno-19-132" href="#__codelineno-19-132"></a>│ hulu         │           131 │          15 │           16 │         162 │
+<a id="__codelineno-19-133" name="__codelineno-19-133" href="#__codelineno-19-133"></a>│ google-drive │            85 │           9 │           10 │         104 │
+<a id="__codelineno-19-134" name="__codelineno-19-134" href="#__codelineno-19-134"></a>├──────────────┼───────────────┼─────────────┼──────────────┼─────────────┤
+<a id="__codelineno-19-135" name="__codelineno-19-135" href="#__codelineno-19-135"></a>│ __total__    │          4604 │         512 │          569 │        5685 │
+<a id="__codelineno-19-136" name="__codelineno-19-136" href="#__codelineno-19-136"></a>└──────────────┴───────────────┴─────────────┴──────────────┴─────────────┘
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Focusing on the reports...</p>
+<p>Notice the following:</p>
+<ul>
+<li>
+<p>From the packet stats of the original (unfiltered)
+dataset we can see there are a lot of small flows.
+Those are removed when considering a minimum
+flow length of 10.</p>
+</li>
+<li>
+<p>On top of this filtering we also remove
+apps with less than 100 flows, i.e., <strong>only
+10 of the original 17 apps can be used for modeling</strong>.</p>
+</li>
+</ul>
+</div>
+
+
+
+
+
+                
+
+<style>
+// Do whatever changes you need here
+
+.jp-RenderedHTMLCommon p {
+    margin: 0pt;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-inputWrapper .jp-InputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-CodeCell .jp-Cell-outputWrapper .jp-OutputPrompt {
+    display: none;
+}
+
+.jupyter-wrapper .jp-OutputArea-output pre {
+    border-left: solid 5px #e0e0e0;
+    padding-left: 5pt;
+}
+
+</style>
+
+<script>
+tags = document.getElementsByClassName("md-nav__link");
+for (var idx=0; idx < tags.length; idx++) {
+    //if (item.hasAttribute("href") && item.attributes["href"].textContent.endsWith("ipynb")) {
+    if (tags[idx].innerText.includes("HIDETHIS")) {
+        tags[idx].style.display = "none";
+    }
+}
+</script>
+
+
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../quick_tour/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick tour" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Quick tour
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../metadata/" class="md-footer__link md-footer__link--next" aria-label="Next: Meta-data" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Meta-data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.tabs.sticky", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
