@@ -1,0 +1,83 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tcbench"
+version = "0.0.16"
+description = "A ML/DL framework for Traffic Classification"
+readme = "README.md"
+authors = [{ name = "Alessandro Finamore", email = "alessandro.finamore@huawei.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["machine learning", "deep learning", "traffic classification", "time series"]
+dependencies = [
+    "aim",
+    "autorank",
+    "click",
+    "dask",
+    "distributed",
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "pyyaml",
+    "requests",
+    "rich",
+    "rich-click",
+    "scikit-learn",
+    "statsmodels",
+    "torch",
+    "torchsummary",
+    "torchvision",
+    "xgboost"
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "black", 
+    "bumpver", 
+    "isort", 
+    "jupyterlab",
+    "matplotlib",
+    "mkdocs",
+    "mkdocs-autorefs",
+    "mkdocs-jupyter",
+    "mkdocs-material",
+    "mkdocs-material-extensions",
+    "mkdocs-table-reader-plugin",
+    "mkdocstrings",
+    "mkdocstrings-python",
+    "pip-tools", 
+    "pytest",
+    "pytest-helpers-namespace",
+    "seaborn"
+]
+
+[project.urls]
+Homepage = "https://tcbenchstack.github.io/tcbench/"
+
+[project.scripts]
+tcbench = "tcbench.cli.main:main"
+
+[tool.bumpver]
+current_version = "0.0.16"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+pre_commit_hook = ""
+post_commit_hook = ""
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/tcbench/__init__.py" = ["{version}"]

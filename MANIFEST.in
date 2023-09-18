@@ -1,0 +1,4 @@
+include src/tcbench/libtcdatasets/resources/*yml
+include src/tcbench/cli/rich.theme
+recursive-exclude .*swp
+recursive-exclude *.bck
