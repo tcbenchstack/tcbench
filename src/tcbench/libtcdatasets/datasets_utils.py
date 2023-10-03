@@ -15,6 +15,7 @@ import tempfile
 import requests
 import tarfile
 import enum
+import hashlib
 
 from tcbench.cli import get_rich_console
 from tcbench.cli.richutils import rich_label, rich_samples_count_report
@@ -66,6 +67,11 @@ def load_config(fname: pathlib.Path) -> Dict:
     """
     return load_yaml(fname)
 
+def get_md5(path: pathlib.Path) -> str:
+    h = hashlib.new('md5')
+    with open(str(path), "rb") as fin:
+        h.update(fin.read())
+    return h.hexdigest()
 
 def _get_module_folder():
     curr_module = sys.modules[__name__]
@@ -109,6 +115,9 @@ def get_rich_tree_datasets_properties(dataset_name=None):
         table.add_row(":link: paper_url:", attributes["paper"])
         table.add_row(":link: website:", attributes["website"])
         table.add_row(":link: data:", attributes["data"])
+        if "data_curated" in attributes:
+            table.add_row(":link: curated data:", attributes["data_curated"])
+            table.add_row(":heavy_plus_sign: curated data MD5:", attributes["data_curated_md5"])
 
         if is_installed:
             path = curr_dataset_folder / "raw"
@@ -152,6 +161,10 @@ def get_rich_tree_parquet_files(dataset_name=None):
 
         preprocessed = Tree(":file_folder: preprocessed/")
         preprocessed.add(f"{curr_dataset_name}.parquet")
+        
+        path = folder_datasets / curr_dataset_name / "preprocessed" / "LICENSE"
+        if path.exists():
+            preprocessed.add("LICENSE")
 
         imc23 = Tree(":file_folder: imc23/")
         folder = folder_datasets / curr_dataset_name / "preprocessed" / "imc23"
@@ -181,7 +194,7 @@ def get_rich_dataset_schema(dataset_name, schema_type):
     return table
 
 
-def download_url(url: str, save_to: pathlib.Path) -> pathlib.Path:
+def download_url(url: str, save_to: pathlib.Path, verify:bool =True) -> pathlib.Path:
     """Download a dataset tarball.
 
     Args:
@@ -199,7 +212,7 @@ def download_url(url: str, save_to: pathlib.Path) -> pathlib.Path:
     fname = pathlib.Path(url).name
     save_as = save_to / fname
 
-    resp = requests.get(url, stream=True)
+    resp = requests.get(url, stream=True, verify=verify)
     totalbytes = int(resp.headers.get("content-length", 0))
 
     if not save_as.parent.exists():
@@ -582,3 +595,27 @@ def get_split_indexes(dataset_name, min_pkts=-1):
     #    split_indexes = split_indexes[:min(len(split_indexes), args.max_train_splits)]
 
     return split_indexes
+
+def import_dataset(dataset_name, path_archive):
+    data = load_datasets_yaml()
+    folder_datasets = _get_module_folder() #/ FOLDER_DATASETS
+
+    if dataset_name is None or str(dataset_name) not in data:
+        raise RuntimeError(f"Invalid dataset name {dataset_name}")
+
+    with tempfile.TemporaryDirectory() as tmpfolder:
+        if path_archive is None:
+            dataset_name = str(dataset_name)
+            if "data_curated" not in data[dataset_name]:
+                raise RuntimeError(f"The curated dataset cannot be downloaded (likely for licencing problems). Regenerate it using `tcbench datasets install --name {dataset_name}`")
+            url = data[dataset_name]["data_curated"]
+            expected_md5 = data[dataset_name]["data_curated_md5"]
+
+            try:
+                path_archive = download_url(url, tmpfolder)
+            except requests.exceptions.SSLError:
+                path_archive = download_url(url, tmpfolder, verify=False)
+
+            md5 = get_md5(path_archive)
+            assert md5 == expected_md5, f"MD5 check error: found {md5} while should be {expected_md5}"
+        untar(path_archive, folder_datasets)

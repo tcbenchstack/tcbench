@@ -1,0 +1,150 @@
+site_name: ""
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    #- navigation.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+    - navigation.indexes
+  custom_dir: docs/overrides
+  logo: overrides/tcbench_logo.svg
+
+
+nav:
+    - tcbench: 
+        - tcbench/index.md
+        - tcbench/install.md
+        - tcbench/cli_intro.md
+        - tcbench/internals.md
+#        - API: 
+#            - cli:
+#                - tcbench/api/tcbench_cli_clickutils.md
+#                - tcbench/api/tcbench_cli_command_aimrepo.md
+#                - tcbench/api/tcbench_cli_command_campaign.md
+#                - tcbench/api/tcbench_cli_command_datasets.md
+#                - tcbench/api/tcbench_cli_command_singlerun.md
+#                - tcbench/api/tcbench_cli_richutils.md
+#            - libtcdatasets: 
+#                - tcbench/api/tcbench_libtcdatasets_datasets_utils.md
+#                - tcbench/api/tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet.md
+#                - tcbench/api/tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits.md
+#                - tcbench/api/tcbench_libtcdatasets_mirage19_json_to_parquet.md
+#                - tcbench/api/tcbench_libtcdatasets_mirage19_generate_splits.md
+#                - tcbench/api/tcbench_libtcdatasets_mirage22_json_to_parquet.md
+#                - tcbench/api/tcbench_libtcdatasets_tcbench_mirage22_generate_splits.md
+#                - tcbench/api/tcbench_libtcdatasets_utmobilenet21_csv_to_parquet.md
+#                - tcbench/api/tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits.md
+#            - modeling:
+#                - tcbench/api/tcbench_modeling_augmentation.md
+#                - tcbench/api/tcbench_modeling_aimutils.md
+#                - tcbench/api/tcbench_modeling_backbone.md
+#                - tcbench/api/tcbench_modeling_dataprep.md
+#                - tcbench/api/tcbench_modeling_losses.md
+#                - tcbench/api/tcbench_modeling_methods.md
+#                - tcbench/api/tcbench_modeling_utils.md
+#                - tcbench/api/tcbench_modeling_run_augmentations_at_loading.md
+#                - tcbench/api/tcbench_modeling_run_augmentations_at_loading_xgboost.md
+#                - tcbench/api/tcbench_modeling_run_contrastive_learning_and_finetune.md
+#                - tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading.md
+#                - tcbench/api/tcbench_modeling_run_campaign_augmentations_at_loading_xgboost.md
+#                - tcbench/api/tcbench_modeling_run_campaign_contrastive_learning_and_finetune.md
+    - Datasets: 
+        - datasets/index.md
+        - datasets/curation_and_metadata.md
+        - Install:
+            - datasets/install/index.md
+            - datasets/install/ucdavis-icdm19.md
+            - datasets/install/mirage19.md
+            - datasets/install/mirage22.md
+            - datasets/install/utmobilenet21.md
+        - datasets/import.md
+        - Schemas:
+            - datasets/schemas/index.md
+            - datasets/schemas/ucdavis-icdm19.md
+            - datasets/schemas/mirage19.md
+            - datasets/schemas/mirage22.md
+            - datasets/schemas/utmobilenet21.md
+        - Samples count:
+            - datasets/samples_count/index.md
+            - datasets/samples_count/ucdavis-icdm19.md
+            - datasets/samples_count/mirage19.md
+            - datasets/samples_count/mirage22.md
+            - datasets/samples_count/utmobilenet21.md
+        - Guides:
+            - datasets/guides/index.md
+            - datasets/guides/tutorial_load_datasets.md
+    - Modeling:
+        - modeling/index.md
+        - modeling/runs.md
+        - modeling/campaigns.md
+        - Repos:
+            - modeling/aim_repos/index.md
+            - modeling/aim_repos/aimrepo_subcmd.md
+            - modeling/aim_repos/aim_webui.md
+    - Papers: 
+        - papers/index.md
+        - IMC23: 
+            - papers/imc23/index.md
+            - papers/imc23/artifacts.md
+            - papers/imc23/notebooks.md
+            - papers/imc23/ml_artifacts.md
+            - papers/imc23/pytest.md
+
+
+#copyright: material under double blind submission
+
+extra_css:
+- css/style.css
+- css/material.css
+- css/mkdocstrings.css
+- css/fonts.css
+- css/tables_style.css
+- css/jupyter-notebook.css
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.append("docs")
+          options:
+            filters: []
+            new_path_syntax: yes
+            show_source: true
+            show_signature_annotations: false
+            members_order: source
+            show_root_heading: false
+            heading_level: 3
+  - table-reader
+  - glightbox
+#  - mkdocs-jupyter:
+#      execute: false
+#      include_source: True
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - tables
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+        alternate_style: true
+  - toc:
+      permalink: true
+

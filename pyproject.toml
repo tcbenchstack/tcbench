@@ -18,14 +18,14 @@ classifiers = [
 ]
 keywords = ["machine learning", "deep learning", "traffic classification", "time series"]
 dependencies = [
-    "aim",
+    "aim == 3.17.4",
     "autorank",
     "click",
-    "dask",
+    "dask <= 2023.5.1",
     "distributed",
     "numpy",
-    "pandas",
-    "pyarrow",
+    "pandas==2.0.2",
+    "pyarrow==12.0.0",
     "pyyaml",
     "requests",
     "rich",
@@ -43,11 +43,13 @@ requires-python = ">=3.9"
 dev = [
     "black", 
     "bumpver", 
+    "click-plugins",
     "isort", 
     "jupyterlab",
     "matplotlib",
     "mkdocs",
     "mkdocs-autorefs",
+    "mkdocs-glightbox",
     "mkdocs-jupyter",
     "mkdocs-material",
     "mkdocs-material-extensions",

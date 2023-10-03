@@ -22,7 +22,7 @@ from tcbench.libtcdatasets import datasets_utils
 
 def main(args):
     """Entry point"""
-    torch.multiprocessing.set_start_method("spawn")
+    torch.multiprocessing.set_start_method("spawn", force=True)
 
     args.seeds = list(map(int, args.seeds.split(",")))
     args.flowpic_dims = list(map(int, args.flowpic_dims.split(",")))

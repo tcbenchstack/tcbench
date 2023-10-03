@@ -163,3 +163,4 @@ cython_debug/
 ######
 # EXTRAS
 __ATTIC__
+__TMP__

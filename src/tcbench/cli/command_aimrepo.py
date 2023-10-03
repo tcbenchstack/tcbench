@@ -171,10 +171,10 @@ def properties(ctx, aim_repo_folder):
     table.add_column('Value', overflow='fold')
 
     table.add_row('runs', '-', str(len(prop['df_run']))) 
-    duration_mean, duration_std = prop['duration']
+    duration_mean, duration_std = prop['run_duration']
     duration_mean = format_duration(duration_mean)
     duration_std = format_duration(duration_std)
-    table.add_row(f'duration (mean {PLUSMINUS} std)', '-', f'{duration_mean} {PLUSMINUS} {duration_std}')
+    table.add_row(f'run duration (mean {PLUSMINUS} std)', '-', f'{duration_mean} {PLUSMINUS} {duration_std}')
     table.add_row('metrics', str(len(prop['metrics'])), str(prop['metrics']))
     table.add_row('contexts', str(len(prop['contexts'])), str(prop['contexts']))
 
@@ -299,8 +299,8 @@ def report(ctx, **kwargs):
         raise RuntimeError(f'Split {context_name} not available: possible values are {prop["contexts"]}')
 
     metrics2 = metrics[:]
-    if "duration" not in metrics2:
-        metrics2.append("duration")
+    #if "duration" not in metrics2:
+    #    metrics2.append("duration")
     df = aimutils.metrics_to_pandas(repo, prop['df_run'], metrics2, contexts)
     df = df.assign(run_duration=df["end_time"] - df["creation_time"])
 
@@ -315,8 +315,8 @@ def report(ctx, **kwargs):
         console.print(f'runs: {df_campaign["hash"].nunique()}')
 
         columns = groupby_params + metrics + ['run_duration', 'hash']
-        if "duration" not in columns:
-            columns.append("duration")
+        #if "duration" not in columns:
+        #    columns.append("duration")
 
         df_tmp = df_campaign[columns]
         df_tmp = df_tmp.astype({mtr:float for mtr in metrics})

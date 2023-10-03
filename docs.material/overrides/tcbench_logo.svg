@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="76.09446mm"
+   height="17.804399mm"
+   viewBox="0 0 76.09446 17.804399"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="tcbench_logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.6819304"
+     inkscape:cx="95.128787"
+     inkscape:cy="27.349526"
+     inkscape:window-width="1440"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#3375fa;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#a806f9;stop-opacity:1"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="66.638161"
+       y1="108.00893"
+       x2="74.047905"
+       y2="113.35622"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-61.383332,-101.86458)">
+    <path
+       id="path180"
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.9;fill:#fcfcfc;fill-opacity:1;stroke-width:0.423419;stroke-dasharray:none"
+       d="m 137.47779,117.59243 h -12.36498 v -12.18842 h 6.97247 v 1.7412 h 5.39251 z m -10.90962,0.0169 h -12.39933 v -12.20532 h 12.39933 v 5.10527 h -5.40967 v 1.99477 h 5.40967 z m -1.57997,-1.55524 v -1.99479 -5.10527 -1.99478 z m -9.62864,1.53834 h -12.365 v -12.18842 h 12.365 z m -11.04196,0 H 91.952626 V 105.40404 H 104.3176 Z m -10.909609,0.0169 H 81.008658 v -12.20532 h 12.399333 z"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccc" />
+    <path
+       id="path164"
+       style="opacity:0.22479;fill:#2647f8;fill-opacity:1;stroke:#2b45f8;stroke-width:0.0119228;paint-order:markers fill stroke;stroke-opacity:1"
+       d="m 62.846505,101.87054 v 1.71191 h -1.457212 v 14.07034 h 1.457212 v 1.99262 l 15.212001,0.0176 v -1.9921 h 1.456788 v -14.08843 h -1.456788 v -1.71191 z"
+       sodipodi:nodetypes="ccccccccccccc" />
+    <path
+       id="path166"
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:url(#linearGradient4);fill-opacity:1;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 70.995971,117.68276 h -8.04457 v -14.26679 h 4.536244 v 2.03812 h 3.508326 z m 7.041383,0 h -8.066917 v -12.22867 h 8.066917 v 5.15821 1.90658 z" />
+    <path
+       id="path167"
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.512643"
+       d="m 70.998249,107.27975 v 8.64547 h 6.011519 v -3.40651 -0.19844 h -4.086572 v -2.39985 h 4.086572 v -0.24805 -2.39262 z"
+       sodipodi:nodetypes="ccccccccccc" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="m 69.968071,115.86905 v -4.39286 h -2.480423 v 2.05791 h -1.027924 v -3.87837 h 3.508347 v -2.33493 h -3.508347 v -2.05791 h -2.480422 v 10.60616 z"
+       id="path168" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 78.037354,116.59284 v -2.6467 h -3.98945 v -6.77375 h 3.98945 v -2.6467 H 71.22363 v 12.06715 z"
+       id="path169" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 69.739763,116.57041 v -4.97938 h -2.811611 v 2.33267 h -1.165171 v -4.3962 h 3.976782 v -2.6467 h -3.976782 v -2.33268 H 62.95137 v 12.02229 z"
+       id="path170" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.423201;stroke-dasharray:none"
+       d="M 93.407991,117.60939 H 81.008658 V 105.4041 h 12.399333 z m -1.579973,-1.55524 v -3.76978 h -1.803225 v -1.55525 h 1.803225 v -3.76978 h -9.239389 v 9.09481 z m -3.829709,-5.54479 h -1.579971 v -1.55525 h 1.579971 z m 0,3.55001 h -1.579971 v -1.55525 h 1.579971 z"
+       id="path171"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#000000;fill-opacity:1;stroke-width:0.423418;stroke-dasharray:none"
+       d="M 104.3176,117.59243 H 91.952626 V 105.40404 H 104.3176 Z m -1.57997,-1.57215 v -1.99476 h -5.392512 v -1.55526 h 5.392512 v -5.51098 H 93.5326 v 9.061 z m -3.812536,-5.51097 h -1.579976 v -1.55525 h 1.579976 z"
+       id="path172"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.423418;stroke-dasharray:none"
+       d="m 115.35956,117.59243 h -12.365 v -12.18839 h 12.365 z m -1.57998,-1.57215 v -9.061 h -9.20505 v 9.061 h 3.81254 v -7.06622 h 1.57997 v 7.06622 z"
+       id="path173"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.423418;stroke-dasharray:none"
+       d="m 126.56817,117.60933 h -12.39933 v -12.20529 h 12.39933 v 5.10526 h -5.40967 v 1.99476 h 5.40967 z m -1.57997,-1.55524 v -1.99478 h -5.40968 v -5.10526 h 5.40968 v -1.99477 h -9.23939 v 9.09481 z"
+       id="path174"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.423418;stroke-dasharray:none"
+       d="m 137.47779,117.59243 h -12.36498 v -12.18839 h 6.97247 v 1.7412 h 5.39251 z m -1.57997,-1.57215 v -7.3029 h -5.39251 v -1.7581 h -3.81253 v 9.061 h 3.81253 v -5.30812 h 1.57997 v 5.30812 z"
+       id="path175"
+       aria-label="h" />
+  </g>
+</svg>

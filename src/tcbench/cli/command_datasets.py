@@ -14,6 +14,7 @@ from tcbench.cli.clickutils import (
     CLICK_CALLBACK_TOINT,
 )
 from tcbench.cli import richutils
+from tcbench import DATASETS
 
 
 @click.group()
@@ -61,7 +62,16 @@ def info(ctx, dataset_name):
     default=None,
     help="Folder where to find pre-downloaded tarballs.",
 )
-def install(ctx, dataset_name, input_folder):
+@click.option(
+    "--num-workers",
+    "-w",
+    required=False,
+    type=int,
+    default=20,
+    show_default=True,
+    help="Number of parallel workers to use when processing the data.",
+)
+def install(ctx, dataset_name, input_folder, num_workers):
     """Install a dataset."""
     if (
         dataset_name
@@ -74,10 +84,15 @@ def install(ctx, dataset_name, input_folder):
         raise RuntimeError(
             f"Cannot automatically download {dataset_name}. Please download it separately and retry install using the --input-folder option"
         )
-    datasets_utils.install(dataset_name, input_folder)
+    datasets_utils.install(dataset_name, input_folder, num_workers=num_workers)
 
 
-@datasets.command(name="lsparquet")
+def _ls_files(dataset_name):
+    rich_obj = datasets_utils.get_rich_tree_parquet_files(dataset_name)
+    cli.console.print(rich_obj)
+
+
+@datasets.command(name="lsfiles")
 @click.pass_context
 @click.option(
     "--name",
@@ -87,12 +102,11 @@ def install(ctx, dataset_name, input_folder):
     type=CLICK_TYPE_DATASET_NAME,
     callback=CLICK_CALLBACK_DATASET_NAME,
     default=None,
-    help="Dataset to install.",
+    help="Dataset name.",
 )
-def lsparquet(ctx, dataset_name):
+def lsfiles(ctx, dataset_name):
     """Tree view of the datasets parquet files."""
-    rich_obj = datasets_utils.get_rich_tree_parquet_files(dataset_name)
-    cli.console.print(rich_obj)
+    _ls_files(dataset_name)
 
 
 @datasets.command(name="schema")
@@ -114,6 +128,7 @@ def lsparquet(ctx, dataset_name):
     required=False,
     type=click.Choice(("unfiltered", "filtered", "splits")),
     default="unfiltered",
+    show_default=True,
     help="Schema type (unfiltered: original raw data; filtered: curated data; splits: train/val/test splits).",
 )
 def schema(ctx, dataset_name, schema_type):
@@ -140,6 +155,7 @@ def schema(ctx, dataset_name, schema_type):
     required=False,
     type=click.Choice(("-1", "10", "1000")),
     default="-1",
+    show_default=True,
     help="",
 )
 @click.option(
@@ -198,29 +214,28 @@ def report_samples_count(ctx, dataset_name, min_pkts, split):
 @datasets.command(name="import")
 @click.pass_context
 @click.option(
-    "--input-folder",
-    "-i",
-    "input_folder",
+    "--name",
+    "-n",
+    "dataset_name",
+    required=True,
+    type=click.Choice([DATASETS.UCDAVISICDM19.value, DATASETS.UTMOBILENET21.value], case_sensitive=False),
+    default=None,
+    help="Dataset name.",
+)
+@click.option(
+    "--archive",
+    "path_archive",
     required=False,
     type=pathlib.Path,
     default=None,
-    help="Folder where to find pre-computed curated datasets.",
+    help="Path of an already downloaded curated archive.",
 )
-def import_datasets(ctx, input_folder):
-    """Import datasets."""
-    subfolders = list(input_folder.iterdir())
-    if len(subfolders) == 1 and subfolders[0].name == "datasets":
-        input_folder /= "datasets"
-
-    datasets_root_folder = datasets_utils.get_datasets_root_folder()
-    for item in input_folder.iterdir():
-        if not item.is_dir():
-            continue
-
-        src = item
-        dst = datasets_root_folder / item.name
-        with cli.console.status(f"Importing {item.name}...", spinner="dots"):
-            shutil.copytree(str(src), str(dst))
+def import_datasets(ctx, dataset_name, path_archive):
+    """Fetch and install the curated version of the dataset."""
+    datasets_utils.import_dataset(dataset_name, path_archive)
+    cli.console.print()
+    cli.console.print("Files installed")
+    _ls_files(dataset_name)
 
 
 @datasets.command(name="delete")

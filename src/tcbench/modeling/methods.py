@@ -616,7 +616,8 @@ class XGboostTrainer:
         # for idx_epoch in range(epochs):
         train_metrics = self.train_one_epoch(train_loader, context=f"{context}train")
         t2 = time.perf_counter_ns()
-        self.tracker.track((t2 - t1) / 1E9, 'duration', context=dict(subset=f"{context}train"))
+        if self.tracker:
+            self.tracker.track((t2 - t1) / 1E9, 'duration', context=dict(subset=f"{context}train"))
 
         # msg = f"epoch: {idx_epoch:3d} | "
         # msg += "train_loss: {loss:.6f}".format(loss=train_metrics["loss"])
@@ -901,7 +902,8 @@ class ContrastiveLearningTrainer(SimpleTrainer):
             context=context,
         )
         t2 = time.perf_counter_ns()
-        self.tracker.track((t2 - t1) / 1E9, 'duration', context=dict(subset=f"{context}train"))
+        if self.tracker:
+            self.tracker.track((t2 - t1) / 1E9, 'duration', context=dict(subset=f"{context}train"))
 
         return res
 
@@ -1141,7 +1143,8 @@ class SimCLRTrainer:
         )
         t2 = time.perf_counter_ns()
         duration = (t2 - t1) / 1E9
-        self.tracker.track(duration, "duration", context=dict(subset="pretrain-train"))
+        if self.tracker:
+            self.tracker.track(duration, "duration", context=dict(subset="pretrain-train"))
         return self.pretrain_best_model
 
     @classmethod
@@ -1277,7 +1280,8 @@ class SimCLRTrainer:
         )
         t2 = time.perf_counter_ns()
         duration = (t2 - t1) / 1E9
-        self.tracker.track(duration, "duration", context=dict(subset="finetune-train"))
+        if self.tracker:
+            self.tracker.track(duration, "duration", context=dict(subset="finetune-train"))
         return self.finetune_best_net
 
     def finetune_test_loop(
@@ -1307,7 +1311,8 @@ class SimCLRTrainer:
             data_loader, idx_epoch, with_reports, context
         )
         t2 = time.perf_counter_ns()
-        self.tracker.track((t2 - t1) / 1E9, "duration", context=dict(subset="finetune-test"))
+        if self.tracker:
+            self.tracker.track((t2 - t1) / 1E9, "duration", context=dict(subset="finetune-test"))
         return res
 
     def pretrain_test_loop(
@@ -1335,7 +1340,8 @@ class SimCLRTrainer:
         t1 = time.perf_counter_ns()
         res = self.pretrain_trainer.test_loop(data_loader, idx_epoch, context)
         t2 = time.perf_counter_ns()
-        self.tracker.track((t2 - t1) / 1E9, "duration", context=dict(subset="pretrain-test"))
+        if self.tracker:
+            self.tracker.track((t2 - t1) / 1E9, "duration", context=dict(subset="pretrain-test"))
         return res
 
 
