@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs.material/overrides/tcbench_logo.svg" width="400px"/>
+  <img src="https://tcbenchstack.github.io/tcbench/tcbench_logo.svg" width="400px"/>
   <h3>An ML/DL framework for Traffic Classification (TC)</h3>
   <a href="https://tcbenchstack.github.io/tcbench">
   <img width="24" height="24" src="https://img.icons8.com/fluency/48/domain.png" alt="domain"/>
