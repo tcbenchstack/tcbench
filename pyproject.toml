@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tcbench"
-version = "0.0.17"
+version = "0.0.18"
 description = "A ML/DL framework for Traffic Classification"
 readme = "README.md"
 authors = [{ name = "Alessandro Finamore", email = "alessandro.finamore@huawei.com" }]
@@ -69,7 +69,7 @@ Homepage = "https://tcbenchstack.github.io/tcbench/"
 tcbench = "tcbench.cli.main:main"
 
 [tool.bumpver]
-current_version = "0.0.17"
+current_version = "0.0.18"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
