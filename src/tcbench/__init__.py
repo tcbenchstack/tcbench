@@ -1,6 +1,6 @@
 import pathlib
 
-__version__ = "0.0.18"
+__version__ = "0.0.19"
 
 DEFAULT_AIM_REPO = pathlib.Path("./aim-repo")
 DEFAULT_ARTIFACTS_FOLDER = pathlib.Path("./aim-repo/artifacts")
