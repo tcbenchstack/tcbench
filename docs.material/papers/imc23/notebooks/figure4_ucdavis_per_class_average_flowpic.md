@@ -1,6 +1,6 @@
 # Figure 4: Average 32x32 flowpic for each class across multiple data splits.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/figure4_ucdavis_per_class_average_flowpic/figure4_ucdavis_per_class_average_flowpic.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure4_ucdavis_per_class_average_flowpic.ipynb)
 
 
 ```python

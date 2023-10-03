@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 5: Impact of dropout and SimCLR projection layer dimension on fine-tuning.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/table5_simclr_dropout_and_projectionlayer/table5_simclr_dropout_and_projectionlayer.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table5_simclr_dropout_and_projectionlayer.ipynb)
 
 
 ```python

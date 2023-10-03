@@ -20,9 +20,9 @@ pre.outputcode {
   color: #208ffb;
 }
 </style>
-# Table 7: Accuracy on 32x32 flowpic when enlargin training set (w/o Dropout)
+# Table 7: Accuracy on 32x32 flowpic when enlarging the training set (w/o Dropout)
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/table7_simclr_larger_trainset/table7_simclr_larger_trainset.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table7_larger_trainset.ipynb)
 
 
 ```python

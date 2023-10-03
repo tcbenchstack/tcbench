@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Miscellaneous stats across the paper
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/miscellaneous_stats/miscellaneous_stats.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/miscellaneous_stats.ipynb)
 
 
 ```python

@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 6: Comparing the fine-tuning performance when using different pairs of augmentation for pretraining.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/table6_simclr_other_augmentation_pairs/table6_simclr_other_augmentation_pairs.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table6_simclr_other_augmentation_pairs.ipynb)
 
 
 ```python

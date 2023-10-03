@@ -1,6 +1,6 @@
 # Figure 5: Critical distance plot of the accuracy obtained with each augmentation for the 32x32 and 64x64 cases.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/figure5_ucdavis_augmentations_comparison/figure5_ucdavis_augmentations_comparison.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure5_ucdavis_augmentations_comparison.ipynb)
 
 
 ```python

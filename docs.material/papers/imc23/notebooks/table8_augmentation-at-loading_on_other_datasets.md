@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 8 (G3) Data augmentation in supervised setting on other datasets.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/table8_augmentation-at-loading_on_other_datasets/table8_augmentation-at-loading_on_other_datasets.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table8_augmentation-at-loading_on_other_datasets.ipynb)
 
 
 ```python

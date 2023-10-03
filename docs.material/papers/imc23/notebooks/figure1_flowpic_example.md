@@ -1,6 +1,6 @@
 # Figure 1 : Example of a packet time series transformed into a flowpic representation for a randomly selected flow
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/figure1_flowpic_example/figure1_flowpic_example.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure1_flowpic_example.ipynb)
 
 
 ```python

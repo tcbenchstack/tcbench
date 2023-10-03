@@ -1,0 +1,15 @@
+imc23:
+    notebooks:
+        url: "https://figshare.com/ndownloader/files/42550111"
+        md5: "224764907e634fcab3ae1e20bc58bbbf"
+        dst_folder: "./"
+
+    pytest_resources:
+        url: "https://figshare.com/ndownloader/files/42538741"
+        md5: "3a2482ad6359ba48be8728221e42f727"
+        dst_folder: "./tests"
+
+    ml_artifacts:
+        url: "https://figshare.com/ndownloader/files/42538675"
+        md5: "a4b53b2d0b95995c5f14bbf2f8489c7c"
+        dst_folder: "notebooks/imc23"

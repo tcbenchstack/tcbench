@@ -1,6 +1,6 @@
 # Figure 6 : Critical distance plot of the accuracy obtained withh each augmentationacross the four tested datasets
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/figur6_augmentations_comparison_across_datasets/figure6_augmentations_comparison_across_datasets.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure6_augmentations_comparison_across_datasets_critical_distance.ipynb)
 
 
 ```python

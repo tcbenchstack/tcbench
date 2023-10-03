@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 3: (G0) Baseline ML performance without augmentation in a supervised setting.
 
-[:simple-jupyter: :material-download:](../../paper_tables_and_figures/table3_xgboost_baseline/table3_xgboost_baseline.ipynb)
+[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table3_xgboost_baseline.ipynb)
 
 
 ```python
