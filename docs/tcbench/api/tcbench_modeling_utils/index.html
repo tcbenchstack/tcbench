@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../tcbench_modeling_methods/">
       
-      
-        <link rel="next" href="../tcbench_modeling_run_augmentations_at_loading/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
     
     
       
-        <title>utils - paper#132</title>
+        <title>Tcbench modeling utils - </title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d451bc0e.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -60,7 +60,18 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -91,26 +102,26 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="paper#132" class="md-header__button md-logo" aria-label="paper#132" data-md-component="logo">
+    <a href="../../.." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../overrides/tcbench_logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            paper#132
+            
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              utils
+              Tcbench modeling utils
             
           </span>
         </div>
@@ -120,6 +131,7 @@
     
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -128,12 +140,15 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -156,6 +171,95 @@
   </nav>
   
     
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  tcbench
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../datasets/" class="md-tabs__link">
+          
+  
+    
+  
+  Datasets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../modeling/" class="md-tabs__link">
+          
+  
+    
+  
+  Modeling
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../papers/" class="md-tabs__link">
+          
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
   
 </header>
     
@@ -175,989 +279,1245 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="paper#132" class="md-nav__button md-logo" aria-label="paper#132" data-md-component="logo">
-      
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
+      
+  <img src="../../../overrides/tcbench_logo.svg" alt="logo">
 
     </a>
-    paper#132
+    
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
       
       
-      
-
   
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
-      
-      
+        
+          
+        
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-          Submission
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
-          Submission
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../artifacts/" class="md-nav__link">
-        Artifacts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../paper_tables_and_figures/reference/" class="md-nav__link">
-        Tables and figures
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../quick_tour/" class="md-nav__link">
-        Quick tour
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
+        
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+    
+    
+    
+    
       
       
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Datasets
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Datasets
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
           
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    tcbench
+  </span>
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            tcbench
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/install/" class="md-nav__link">
-        Install
+      <a href="../../install/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../../../datasets/metadata/" class="md-nav__link">
-        Meta-data
+      <a href="../../cli_intro/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7.25 8a.749.749 0 0 1-.22.53l-2.25 2.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L5.44 8 3.72 6.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.25 2.25c.141.14.22.331.22.53Zm1.5 1.5h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5Z"/></svg>
+  
+  <span class="md-ellipsis">
+    CLI Intro
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internals/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13H7v5h5v2H5V10h2v1h5v2M8 4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2 9v2h-4v-2h4m2-2h-8v6h8v-6Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Interal structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../datasets/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Datasets
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Datasets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/curation_and_metadata/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 3 8 5v2H5C3.85 7 3.12 8 3 9L2 19c-.12 1 .54 2 2 2h16c1.46 0 2.12-1 2-2L21 9c-.12-1-.94-2-2-2h-3V5l-2-2h-4m0 2h4v2h-4V5m1 5h2v3h3v2h-3v3h-2v-3H8v-2h3v-3Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Curation & Meta-data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../datasets/install/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m7 14 5-5h-3V8h-4v4H7l5 5Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Install
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/install/ucdavis-icdm19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ucdavis-icdm19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/install/mirage19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/install/mirage22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/install/utmobilenet21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    utmobilenet21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../../../datasets/import/" class="md-nav__link">
-        Import/Delete
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.43-1.8 2.13-3.42Q9.07 4.1 11 4.1q.83 0 1.41.59.59.59.59 1.41v6.05l1.6-1.55L16 12l-4 4-4-4 1.4-1.4 1.6 1.55V6.1q-1.9.35-2.95 1.84Q7 9.43 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5q0 1.45 1.03 2.5 1.02 1 2.47 1h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-1.2-.55-2.24Q15.9 7.73 15 7V4.68q1.85.87 2.93 2.58Q19 9 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20M12 11.05Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Import
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../datasets/tutorial_load_parquet/" class="md-nav__link">
-        Tutorial - Load parquet files
-      </a>
-    </li>
-  
-
-            
+    
+    
+      
+        
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
+        
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
       
+        
       
+        
       
-        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          Modeling
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Modeling
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
           
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../datasets/schemas/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8H5m8 0v4h6V8h-6m-8 6v4h6v-4H5m8 0v4h6v-4h-6Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Schemas
+  </span>
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../../../modeling/overview/" class="md-nav__link">
-        Overview
+      <a href="../../../datasets/schemas/ucdavis-icdm19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ucdavis-icdm19
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../../../modeling/exploring_artifacts/" class="md-nav__link">
-        Exploring ML artifacts
+      <a href="../../../datasets/schemas/mirage19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage19
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/schemas/mirage22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/schemas/utmobilenet21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    utmobilenet21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../datasets/samples_count/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483.905.477 1.504 1.284 1.504 2.418 0 .966-.471 1.75-1.172 2.27-.687.511-1.587.77-2.521.77-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553.673 0 1.243-.188 1.627-.473.37-.275.566-.635.566-1.067 0-.5-.219-.836-.703-1.091-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75ZM7.88 15.215a1.4 1.4 0 0 0-1.446.83.75.75 0 0 1-1.37-.61 2.899 2.899 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743.434.446.685 1.058.685 1.778 0 1.641-1.254 2.437-2.12 2.986-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21 1.032-.659 1.55-1.031 1.55-1.8 0-.355-.116-.584-.26-.732a1.071 1.071 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.749.749 0 0 1 .762-.02Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Samples count
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Samples count
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/samples_count/ucdavis-icdm19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ucdavis-icdm19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/samples_count/mirage19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/samples_count/mirage22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mirage22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/samples_count/utmobilenet21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    utmobilenet21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../datasets/guides/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 2a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12m0 2h-5v8l-2.5-2.25L8 12V4H6v16h12V4Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../datasets/guides/tutorial_load_datasets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial load datasets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../modeling/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Modeling
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Modeling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../../../modeling/runs/" class="md-nav__link">
-        Runs
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15 6.04 7.5 12 10.85l5.96-3.35L12 4.15Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Runs
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../../../modeling/campaigns/" class="md-nav__link">
-        Campaigns
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.903 11.728-4.528-1.697V4.945a1.69 1.69 0 0 0-1.097-1.58l-4.687-1.757a1.668 1.668 0 0 0-1.186 0L6.717 3.366a1.687 1.687 0 0 0-1.097 1.58v5.085l-4.528 1.697A1.69 1.69 0 0 0 0 13.308v5.16c0 .638.36 1.224.933 1.51l4.687 2.344a1.68 1.68 0 0 0 1.51 0L12 19.884l4.87 2.438a1.68 1.68 0 0 0 1.51 0l4.687-2.344a1.69 1.69 0 0 0 .933-1.51v-5.16c0-.703-.436-1.331-1.097-1.58zm-6.122-1.66-3.984 1.496V8.367l3.984-1.734zM7.22 4.88 12 3.09l4.781 1.79v.028L12 6.848l-4.781-1.94Zm3.937 13.645-3.984 1.992V16.81l3.984-1.818zm0-5.25-4.781 1.94-4.781-1.94v-.028l4.781-1.79 4.781 1.79zm11.25 5.25-3.984 1.992V16.81l3.984-1.818zm0-5.25-4.781 1.94-4.781-1.94v-.028l4.781-1.79 4.781 1.79z"/></svg>
+  
+  <span class="md-ellipsis">
+    Campaigns
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          tcbench
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          tcbench
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
+              
             
               
+                
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
   
   
     
-  
-  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-          API
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          API
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
           
-            
-              
-  
-  
-  
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../modeling/aim_repos/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 18.714v4.8c0 .288-.192.48-.48.48h-4.8c-.288 0-.48-.192-.48-.48v-4.8c0-.288.192-.48.48-.48h1.92v-1.92h-8.16v1.92h1.92c.288 0 .48.192.48.48v4.8c0 .288-.192.48-.48.48H9.6c-.288 0-.48-.192-.48-.48v-4.8c0-.288.192-.48.48-.48h1.92v-1.92H3.36v1.92h1.92c.288 0 .48.192.48.48v4.8c0 .288-.192.48-.48.48H.48c-.288 0-.48-.192-.48-.48v-4.8c0-.288.192-.48.48-.48H2.4v-2.4c0-.288.192-.48.48-.48h8.64v-1.44h.96v1.44h8.64c.288 0 .48.192.48.48v2.4h1.92c.288 0 .48.192.48.48zm-13.92 4.32h3.84v-3.84h-3.84zm-9.12 0H4.8v-3.84H.96Zm18.24 0h3.84v-3.84H19.2ZM6.24 9.642V3.546c0-.192.096-.336.24-.432L11.76.042a.818.818 0 0 1 .48 0l5.28 3.072c.144.096.24.24.24.432v6.096c0 .144-.096.288-.24.384l-5.28 3.072q-.096.048-.24.048t-.24-.048l-5.28-3.072c-.144-.096-.24-.24-.24-.384Zm10.56-.288V4.362l-4.32 2.496v4.992zm-9.6 0 4.32 2.496V6.858L7.2 4.362Zm.48-5.808L12 5.994l4.32-2.448L12 1.05Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Repos
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Repos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modeling/aim_repos/aimrepo_subcmd/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7.25 8a.749.749 0 0 1-.22.53l-2.25 2.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L5.44 8 3.72 6.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.25 2.25c.141.14.22.331.22.53Zm1.5 1.5h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5Z"/></svg>
+  
+  <span class="md-ellipsis">
+    aimrepo subcmd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modeling/aim_repos/aim_webui/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16V4H3v12h18m0-14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7v2h2v2H8v-2h2v-2H3a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2h18M5 6h9v5H5V6m10 0h4v2h-4V6m4 3v5h-4V9h4M5 12h4v2H5v-2m5 0h4v2h-4v-2Z"/></svg>
+  
+  <span class="md-ellipsis">
+    AIM Web UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
       
       
+  
+  
+  
+    
+    
+      
+        
+          
+        
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_1" >
+    
+    
+    
+    
       
       
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
-          cli
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../papers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          cli
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_clickutils/" class="md-nav__link">
-        clickutils
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_command_aimrepo/" class="md-nav__link">
-        command_aimrepo
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_command_campaign/" class="md-nav__link">
-        command_campaign
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_command_datasets/" class="md-nav__link">
-        command_datasets
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_command_singlerun/" class="md-nav__link">
-        command_singlerun
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_cli_richutils/" class="md-nav__link">
-        richutils
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
         
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
-          libtcdatasets
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          libtcdatasets
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_datasets_utils/" class="md-nav__link">
-        datasets_utils
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_ucdavis_icdm19_csv_to_parquet/" class="md-nav__link">
-        ucdavis_icdm19_csv_to_parquet
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_tcbench_ucdavis_icdm19_generate_splits/" class="md-nav__link">
-        ucdavis_icdm19_generate_splits
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_mirage19_json_to_parquet/" class="md-nav__link">
-        mirage19_json_to_parquet
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_mirage19_generate_splits.md" class="md-nav__link">
-        mirage19_generate_splits
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_mirage22_json_to_parquet/" class="md-nav__link">
-        mirage22_json_to_parquet
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_tcbench_mirage22_generate_splits/" class="md-nav__link">
-        mirage22_generate_splits
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_utmobilenet21_csv_to_parquet/" class="md-nav__link">
-        utmobilenet21_csv_to_parquet
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_libtcdatasets_tcbench_utmobilenet21_generate_splits/" class="md-nav__link">
-        utmobilenet21_generate_splits
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_3" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
-          modeling
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          modeling
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_augmentation/" class="md-nav__link">
-        augmentation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_aimutils/" class="md-nav__link">
-        aimutils
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_backbone/" class="md-nav__link">
-        backbone
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_dataprep/" class="md-nav__link">
-        dataprep
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_losses/" class="md-nav__link">
-        losses
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_methods/" class="md-nav__link">
-        methods
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          utils
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        utils
-      </a>
-      
         
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils" class="md-nav__link">
-    tcbench.modeling.utils
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.compose_cli_help_string" class="md-nav__link">
-    compose_cli_help_string()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.load_yaml" class="md-nav__link">
-    load_yaml()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.load_config" class="md-nav__link">
-    load_config()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.get_logger" class="md-nav__link">
-    get_logger()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.log_msg" class="md-nav__link">
-    log_msg()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.seed_everything" class="md-nav__link">
-    seed_everything()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.get_aim_run_hash" class="md-nav__link">
-    get_aim_run_hash()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.dump_cli_args" class="md-nav__link">
-    dump_cli_args()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.classification_reports" class="md-nav__link">
-    classification_reports()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tcbench.modeling.utils.compute_confidence_intervals" class="md-nav__link">
-    compute_confidence_intervals()
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
           
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../papers/imc23/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    IMC23
+  </span>
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            IMC23
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_augmentations_at_loading/" class="md-nav__link">
-        run_augmentations_at_loading
+      <a href="../../../papers/imc23/artifacts/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15 5 8.09v7.82l7 3.94 7-3.94V8.09l-7-3.94Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Artifacts
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_augmentations_at_loading_xgboost/" class="md-nav__link">
-        run_augmentations_at_loading_xgboost
+      <a href="../../../papers/imc23/notebooks/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1-1.784-1.799 1.784 1.799 0 0 1 1.784-1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1-1.415 1.428 1.415 1.427 0 0 1-1.416-1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1-1.047-1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0-3.393-4.547 9.238 9.238 0 0 0-5.377-1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0-3.394 4.547c1.713-2.04 5.004-3.424 8.772-3.424zm.001 13.295c-3.768 0-7.06-1.381-8.768-3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377-1.729 9.363 9.363 0 0 0 3.393-4.547c-1.712 2.044-5.003 3.425-8.772 3.425Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Notebooks
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_contrastive_learning_and_finetune/" class="md-nav__link">
-        run_contrastive_learning_and_finetune
+      <a href="../../../papers/imc23/ml_artifacts/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.903 11.728-4.528-1.697V4.945a1.69 1.69 0 0 0-1.097-1.58l-4.687-1.757a1.668 1.668 0 0 0-1.186 0L6.717 3.366a1.687 1.687 0 0 0-1.097 1.58v5.085l-4.528 1.697A1.69 1.69 0 0 0 0 13.308v5.16c0 .638.36 1.224.933 1.51l4.687 2.344a1.68 1.68 0 0 0 1.51 0L12 19.884l4.87 2.438a1.68 1.68 0 0 0 1.51 0l4.687-2.344a1.69 1.69 0 0 0 .933-1.51v-5.16c0-.703-.436-1.331-1.097-1.58zm-6.122-1.66-3.984 1.496V8.367l3.984-1.734zM7.22 4.88 12 3.09l4.781 1.79v.028L12 6.848l-4.781-1.94Zm3.937 13.645-3.984 1.992V16.81l3.984-1.818zm0-5.25-4.781 1.94-4.781-1.94v-.028l4.781-1.79 4.781 1.79zm11.25 5.25-3.984 1.992V16.81l3.984-1.818zm0-5.25-4.781 1.94-4.781-1.94v-.028l4.781-1.79 4.781 1.79z"/></svg>
+  
+  <span class="md-ellipsis">
+    ML artifacts
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_campaign_augmentations_at_loading/" class="md-nav__link">
-        run_campaign_augmentations_at_loading
+      <a href="../../../papers/imc23/pytest/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.615 0v.887h3.84V0zm5.022 0v.887h3.841V0zm4.957 0v.887h3.841V0zm4.935 0v.887h3.842V0zM2.447 1.895a.935.935 0 0 0-.935.935c0 .517.418.938.935.938h19.106c.517 0 .935-.42.935-.938a.935.935 0 0 0-.935-.936zm.168 2.847V24h3.84V4.742zm5.022 0v15.801h3.842v-15.8zm4.957 0v10.549h3.85V4.742zm4.935 0v6.494h3.842V4.742z"/></svg>
+  
+  <span class="md-ellipsis">
+    pytest
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
-            
               
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_campaign_augmentations_at_loading_xgboost/" class="md-nav__link">
-        run_campaign_augmentations_at_loading_xgboost
-      </a>
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
-            
               
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tcbench_modeling_run_campaign_contrastive_learning_and_finetune/" class="md-nav__link">
-        run_campaign_contrastive_learning_and_finetune
-      </a>
-    </li>
-  
-
             
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1188,7 +1548,7 @@
       
         <li class="md-nav__item">
   <a href="#tcbench.modeling.utils" class="md-nav__link">
-    tcbench.modeling.utils
+    utils
   </a>
   
 </li>
@@ -1263,6 +1623,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tcbench.modeling.utils.log_torchsummary" class="md-nav__link">
+    log_torchsummary()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1282,9 +1649,10 @@
                   
 
 
-  <h1>utils</h1>
+  <h1>Tcbench modeling utils</h1>
 
 <div class="doc doc-object doc-module">
+
 
 
 <a id="tcbench.modeling.utils"></a>
@@ -1305,19 +1673,23 @@ to support a variety of tasks</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.compose_cli_help_string" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compose_cli_help_string</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.compose_cli_help_string" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">compose_cli_help_string</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.compose_cli_help_string" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Attach to the input text the default formatting string used by argparse to print help strings</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1335,7 +1707,11 @@ to support a variety of tasks</p>
           <td>
                 <code>str</code>
           </td>
-          <td><p>the input text to process</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the input text to process</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1347,46 +1723,50 @@ to support a variety of tasks</p>
   <summary>Return</summary>
   <p>The input text modified by appending "(default: %(default)s)"</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="k">def</span> <span class="nf">compose_cli_help_string</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Attach to the input text the default formatting string used by argparse to print help strings</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        text: the input text to process</span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="nf">compose_cli_help_string</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Attach to the input text the default formatting string used by argparse to print help strings</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        The input text modified by appending &quot;(default: %(default)s)&quot;</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="k">return</span> <span class="n">text</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">ARGPARSE_HELP_DEFAULT</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        text: the input text to process</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        The input text modified by appending &quot;(default: %(default)s)&quot;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">return</span> <span class="n">text</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">ARGPARSE_HELP_DEFAULT</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.load_yaml" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.load_yaml" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.load_yaml" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Load an input YAML file</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1402,9 +1782,13 @@ to support a variety of tasks</p>
         <tr>
           <td><code>fname</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>the YAML filename to load</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the YAML filename to load</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1416,48 +1800,52 @@ to support a variety of tasks</p>
   <summary>Return</summary>
   <p>The YAML object loaded</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Load an input YAML file</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        fname: the YAML filename to load</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Load an input YAML file</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        The YAML object loaded</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        fname: the YAML filename to load</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        The YAML object loaded</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.load_config" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">load_config</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.load_config" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">load_config</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.load_config" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Load the configuration file of the framework</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1473,9 +1861,13 @@ to support a variety of tasks</p>
         <tr>
           <td><code>fname</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>the YAML config file to load</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the YAML config file to load</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1487,41 +1879,43 @@ to support a variety of tasks</p>
   <summary>Return</summary>
   <p>The loaded config file</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">def</span> <span class="nf">load_config</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the configuration file of the framework</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">        fname: the YAML config file to load</span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">load_config</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the configuration file of the framework</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        The loaded config file</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">return</span> <span class="n">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        fname: the YAML config file to load</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        The loaded config file</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">return</span> <span class="n">load_yaml</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.get_logger" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_logger</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.get_logger" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_logger</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.get_logger" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
@@ -1530,6 +1924,8 @@ to support a variety of tasks</p>
 and also binds it to the filename passed as input.
 Anything printed via the logger will appear on the
 console and in the file</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1545,9 +1941,13 @@ console and in the file</p>
         <tr>
           <td><code>fname</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>the file name to bind to the logger</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the file name to bind to the logger</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1560,12 +1960,9 @@ console and in the file</p>
   <p>A new logger object associated to both
 console and the specified filename</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
-<span class="normal"><a href="#__codelineno-0-68"> 68</a></span>
-<span class="normal"><a href="#__codelineno-0-69"> 69</a></span>
-<span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
 <span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
 <span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
 <span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
@@ -1606,70 +2003,77 @@ console and the specified filename</p>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">:</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a logger attached to the console</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    and also binds it to the filename passed as input.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    Anything printed via the logger will appear on the</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    console and in the file</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        fname: the file name to bind to the logger</span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">:</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a logger attached to the console</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    and also binds it to the filename passed as input.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Anything printed via the logger will appear on the</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    console and in the file</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        A new logger object associated to both</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">        console and the specified filename</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">fname</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;imc22_flowpic&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="c1"># loggers are kept internally</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="c1"># and consistently returned based on name</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="c1"># thus, if handlers are set, it means</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="c1"># the logger was previously created.</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># In this case we close them</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># and create new ones</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="c1"># logger = logging.getLogger()</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        fname: the file name to bind to the logger</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        A new logger object associated to both</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">        console and the specified filename</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="n">fname</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;tcbench&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="c1"># loggers are kept internally</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># and consistently returned based on name</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># thus, if handlers are set, it means</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="c1"># the logger was previously created.</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="c1"># In this case we close them</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="c1"># and create new ones</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <a id="__codelineno-0-98" name="__codelineno-0-98"></a>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="c1"># logger = logging.getLogger()</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="n">fh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;opened log at </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="n">ch</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="n">ch</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="n">fh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;opened log at </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="k">return</span> <span class="n">logger</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="n">ch</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="n">ch</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">return</span> <span class="n">logger</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.log_msg" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.log_msg" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.log_msg" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>A generic function to print a message via a logger</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1687,7 +2091,11 @@ console and the specified filename</p>
           <td>
                 <code>str</code>
           </td>
-          <td><p>the text to print</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the text to print</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1695,9 +2103,13 @@ console and the specified filename</p>
         <tr>
           <td><code>logger</code></td>
           <td>
-                <code>logging.<span title="logging.Logger">Logger</span></code>
+                <code><span title="logging.Logger">Logger</span></code>
           </td>
-          <td><p>the logger handling the printing</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the logger handling the printing</p>
+            </div>
+          </td>
           <td>
                 <code>None</code>
           </td>
@@ -1705,48 +2117,52 @@ console and the specified filename</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-114">114</a></span>
-<span class="normal"><a href="#__codelineno-0-115">115</a></span>
-<span class="normal"><a href="#__codelineno-0-116">116</a></span>
-<span class="normal"><a href="#__codelineno-0-117">117</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-117">117</a></span>
 <span class="normal"><a href="#__codelineno-0-118">118</a></span>
 <span class="normal"><a href="#__codelineno-0-119">119</a></span>
 <span class="normal"><a href="#__codelineno-0-120">120</a></span>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="k">def</span> <span class="nf">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;A generic function to print a message via a logger</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        msg: the text to print</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        logger: the logger handling the printing</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>    <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="k">def</span> <span class="nf">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;A generic function to print a message via a logger</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        msg: the text to print</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        logger: the logger handling the printing</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.seed_everything" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.seed_everything" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.seed_everything" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Set the seed for pytorch, numpy and python</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1764,7 +2180,11 @@ console and the specified filename</p>
           <td>
                 <code>int</code>
           </td>
-          <td><p>the seed to use for the initialization</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the seed to use for the initialization</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1772,44 +2192,48 @@ console and the specified filename</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-130">130</a></span>
 <span class="normal"><a href="#__codelineno-0-131">131</a></span>
 <span class="normal"><a href="#__codelineno-0-132">132</a></span>
 <span class="normal"><a href="#__codelineno-0-133">133</a></span>
 <span class="normal"><a href="#__codelineno-0-134">134</a></span>
-<span class="normal"><a href="#__codelineno-0-135">135</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="k">def</span> <span class="nf">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the seed for pytorch, numpy and python</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        seed: the seed to use for the initialization</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-135">135</a></span>
+<span class="normal"><a href="#__codelineno-0-136">136</a></span>
+<span class="normal"><a href="#__codelineno-0-137">137</a></span>
+<span class="normal"><a href="#__codelineno-0-138">138</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="k">def</span> <span class="nf">seed_everything</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the seed for pytorch, numpy and python</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        seed: the seed to use for the initialization</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.get_aim_run_hash" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_aim_run_hash</span><span class="p">(</span><span class="n">run</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.get_aim_run_hash" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_aim_run_hash</span><span class="p">(</span><span class="n">run</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.get_aim_run_hash" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Return the hash number of an AIM run based on its name</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1825,9 +2249,13 @@ console and the specified filename</p>
         <tr>
           <td><code>run</code></td>
           <td>
-                <code>aim.<span title="aim.Run">Run</span></code>
+                <code><span title="aim.Run">Run</span></code>
           </td>
-          <td><p>the AIM run from which extract the hash</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the AIM run from which extract the hash</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1839,47 +2267,51 @@ console and the specified filename</p>
   <summary>Return</summary>
   <p>The hash of the run</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span>
-<span class="normal"><a href="#__codelineno-0-141">141</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
 <span class="normal"><a href="#__codelineno-0-145">145</a></span>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span>
-<span class="normal"><a href="#__codelineno-0-147">147</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="k">def</span> <span class="nf">get_aim_run_hash</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">aim</span><span class="o">.</span><span class="n">Run</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the hash number of an AIM run based on its name</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">        run: the AIM run from which extract the hash</span>
+<span class="normal"><a href="#__codelineno-0-147">147</a></span>
+<span class="normal"><a href="#__codelineno-0-148">148</a></span>
+<span class="normal"><a href="#__codelineno-0-149">149</a></span>
+<span class="normal"><a href="#__codelineno-0-150">150</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="k">def</span> <span class="nf">get_aim_run_hash</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">aim</span><span class="o">.</span><span class="n">Run</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the hash number of an AIM run based on its name</span>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="sd">        The hash of the run</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="k">return</span> <span class="n">run</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="sd">        run: the AIM run from which extract the hash</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">        The hash of the run</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="k">return</span> <span class="n">run</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.dump_cli_args" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">dump_cli_args</span><span class="p">(</span><span class="n">cli_args</span><span class="p">,</span> <span class="n">save_as</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.dump_cli_args" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">dump_cli_args</span><span class="p">(</span><span class="n">cli_args</span><span class="p">,</span> <span class="n">save_as</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.dump_cli_args" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Transform a argparse Namespace object into a dictionary
 which is saved as YAML file as well as printed by the logger</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1895,9 +2327,13 @@ which is saved as YAML file as well as printed by the logger</p>
         <tr>
           <td><code>cli_args</code></td>
           <td>
-                <code>argparse.<span title="argparse.Namespace">Namespace</span></code>
+                <code><span title="argparse.Namespace">Namespace</span></code>
           </td>
-          <td><p>a Namespace objected obtained by calling .parse_args() on a argparse parser</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a Namespace objected obtained by calling .parse_args() on a argparse parser</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1905,9 +2341,13 @@ which is saved as YAML file as well as printed by the logger</p>
         <tr>
           <td><code>save_as</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>a file where to save the arguments</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a file where to save the arguments</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1915,9 +2355,13 @@ which is saved as YAML file as well as printed by the logger</p>
         <tr>
           <td><code>logger</code></td>
           <td>
-                <code>logging.<span title="logging.Logger">Logger</span></code>
+                <code><span title="logging.Logger">Logger</span></code>
           </td>
-          <td><p>a logger instance use for printing the parsed CLI arguments</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a logger instance use for printing the parsed CLI arguments</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -1925,12 +2369,9 @@ which is saved as YAML file as well as printed by the logger</p>
     </tbody>
   </table>
 
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-150">150</a></span>
-<span class="normal"><a href="#__codelineno-0-151">151</a></span>
-<span class="normal"><a href="#__codelineno-0-152">152</a></span>
-<span class="normal"><a href="#__codelineno-0-153">153</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-153">153</a></span>
 <span class="normal"><a href="#__codelineno-0-154">154</a></span>
 <span class="normal"><a href="#__codelineno-0-155">155</a></span>
 <span class="normal"><a href="#__codelineno-0-156">156</a></span>
@@ -1951,51 +2392,58 @@ which is saved as YAML file as well as printed by the logger</p>
 <span class="normal"><a href="#__codelineno-0-171">171</a></span>
 <span class="normal"><a href="#__codelineno-0-172">172</a></span>
 <span class="normal"><a href="#__codelineno-0-173">173</a></span>
-<span class="normal"><a href="#__codelineno-0-174">174</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="k">def</span> <span class="nf">dump_cli_args</span><span class="p">(</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a>    <span class="n">cli_args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">,</span> <span class="n">save_as</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Transform a argparse Namespace object into a dictionary</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">    which is saved as YAML file as well as printed by the logger</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a>
-<a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        cli_args: a Namespace objected obtained by calling .parse_args() on a argparse parser</span>
-<a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">        save_as: a file where to save the arguments</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        logger: a logger instance use for printing the parsed CLI arguments</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a>    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a>    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cli_args</span><span class="p">):</span>
-<a id="__codelineno-0-163" name="__codelineno-0-163"></a>        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span><span class="p">:</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a>            <span class="k">continue</span>
-<a id="__codelineno-0-165" name="__codelineno-0-165"></a>        <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cli_args</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<a id="__codelineno-0-166" name="__codelineno-0-166"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">DATASETS</span><span class="p">,</span> <span class="n">MODELING_INPUT_REPR_TYPE</span><span class="p">)):</span>
-<a id="__codelineno-0-167" name="__codelineno-0-167"></a>            <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-<a id="__codelineno-0-168" name="__codelineno-0-168"></a>
-<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">save_as</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_as</span><span class="p">)</span>
-<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_as</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a>        <span class="n">save_as</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">save_as</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_as</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-174">174</a></span>
+<span class="normal"><a href="#__codelineno-0-175">175</a></span>
+<span class="normal"><a href="#__codelineno-0-176">176</a></span>
+<span class="normal"><a href="#__codelineno-0-177">177</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="k">def</span> <span class="nf">dump_cli_args</span><span class="p">(</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">cli_args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">,</span> <span class="n">save_as</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Transform a argparse Namespace object into a dictionary</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">    which is saved as YAML file as well as printed by the logger</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158"></a>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        cli_args: a Namespace objected obtained by calling .parse_args() on a argparse parser</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        save_as: a file where to save the arguments</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">        logger: a logger instance use for printing the parsed CLI arguments</span>
+<a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cli_args</span><span class="p">):</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a>        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a>            <span class="k">continue</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a>        <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cli_args</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">DATASETS</span><span class="p">,</span> <span class="n">MODELING_INPUT_REPR_TYPE</span><span class="p">)):</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a>            <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">save_as</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_as</span><span class="p">)</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_as</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="n">save_as</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">save_as</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_as</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a>        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.classification_reports" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">classification_reports</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">save_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;monolithic&#39;</span><span class="p">,</span> <span class="n">xgboost_model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.classification_reports" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">classification_reports</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">save_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;monolithic&#39;</span><span class="p">,</span> <span class="n">xgboost_model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.classification_reports" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Compute scikit learn classification report
 and confusion matrix</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2011,9 +2459,13 @@ and confusion matrix</p>
         <tr>
           <td><code>net</code></td>
           <td>
-                <code><a class="autorefs autorefs-internal" title="tcbench.modeling.backbone" href="../tcbench_modeling_backbone/#tcbench.modeling.backbone">backbone</a>.<a class="autorefs autorefs-internal" title="tcbench.modeling.backbone.BaseNet" href="../tcbench_modeling_backbone/#tcbench.modeling.backbone.BaseNet">BaseNet</a></code>
+                <code><a class="autorefs autorefs-internal" title="tcbench.modeling.backbone.BaseNet" href="../tcbench_modeling_backbone/#tcbench.modeling.backbone.BaseNet">BaseNet</a></code>
           </td>
-          <td><p>the trained network to use</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the trained network to use</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -2021,9 +2473,13 @@ and confusion matrix</p>
         <tr>
           <td><code>dset</code></td>
           <td>
-                <code><a class="autorefs autorefs-internal" title="tcbench.modeling.dataprep" href="../tcbench_modeling_dataprep/#tcbench.modeling.dataprep">dataprep</a>.<a class="autorefs autorefs-internal" title="tcbench.modeling.dataprep.FlowpicDataset" href="../tcbench_modeling_dataprep/#tcbench.modeling.dataprep.FlowpicDataset">FlowpicDataset</a></code>
+                <code><a class="autorefs autorefs-internal" title="tcbench.modeling.dataprep.FlowpicDataset" href="../tcbench_modeling_dataprep/#tcbench.modeling.dataprep.FlowpicDataset">FlowpicDataset</a></code>
           </td>
-          <td><p>the dataset to use</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the dataset to use</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -2033,7 +2489,11 @@ and confusion matrix</p>
           <td>
                 <code>int</code>
           </td>
-          <td><p>the batch_size to use</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the batch_size to use</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -2043,7 +2503,11 @@ and confusion matrix</p>
           <td>
                 <code>str</code>
           </td>
-          <td><p>the device where to operate inferece</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the device where to operate inferece</p>
+            </div>
+          </td>
           <td>
                 <code>&#39;cuda:0&#39;</code>
           </td>
@@ -2053,7 +2517,11 @@ and confusion matrix</p>
           <td>
                 <code>str</code>
           </td>
-          <td><p>a text string used for AIM tracking</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a text string used for AIM tracking</p>
+            </div>
+          </td>
           <td>
                 <code>&#39;train&#39;</code>
           </td>
@@ -2061,9 +2529,13 @@ and confusion matrix</p>
         <tr>
           <td><code>save_to</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>a folder where to store the report</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a folder where to store the report</p>
+            </div>
+          </td>
           <td>
                 <code>None</code>
           </td>
@@ -2071,9 +2543,13 @@ and confusion matrix</p>
         <tr>
           <td><code>logger</code></td>
           <td>
-                <code>pathlib.<span title="pathlib.Path">Path</span></code>
+                <code><span title="pathlib.Path">Path</span></code>
           </td>
-          <td><p>the logger where to print the reports</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the logger where to print the reports</p>
+            </div>
+          </td>
           <td>
                 <code>None</code>
           </td>
@@ -2083,7 +2559,11 @@ and confusion matrix</p>
           <td>
                 <code>str</code>
           </td>
-          <td><p>e.g. 'monolithic' (NN) or 'xgboost'</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>e.g. 'monolithic' (NN) or 'xgboost'</p>
+            </div>
+          </td>
           <td>
                 <code>&#39;monolithic&#39;</code>
           </td>
@@ -2093,7 +2573,11 @@ and confusion matrix</p>
           <td>
                 <code><span title="typing.Any">Any</span></code>
           </td>
-          <td><p>the xgboost model in case method=='xgboost'</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the xgboost model in case method=='xgboost'</p>
+            </div>
+          </td>
           <td>
                 <code>None</code>
           </td>
@@ -2109,12 +2593,9 @@ to a pandas DataFrame containing the
 classification report and confusion matrix
 computed based on inference</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-177">177</a></span>
-<span class="normal"><a href="#__codelineno-0-178">178</a></span>
-<span class="normal"><a href="#__codelineno-0-179">179</a></span>
-<span class="normal"><a href="#__codelineno-0-180">180</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-180">180</a></span>
 <span class="normal"><a href="#__codelineno-0-181">181</a></span>
 <span class="normal"><a href="#__codelineno-0-182">182</a></span>
 <span class="normal"><a href="#__codelineno-0-183">183</a></span>
@@ -2178,93 +2659,100 @@ computed based on inference</p>
 <span class="normal"><a href="#__codelineno-0-241">241</a></span>
 <span class="normal"><a href="#__codelineno-0-242">242</a></span>
 <span class="normal"><a href="#__codelineno-0-243">243</a></span>
-<span class="normal"><a href="#__codelineno-0-244">244</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="k">def</span> <span class="nf">classification_reports</span><span class="p">(</span>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a>    <span class="n">net</span><span class="p">:</span> <span class="n">backbone</span><span class="o">.</span><span class="n">BaseNet</span><span class="p">,</span>
-<a id="__codelineno-0-179" name="__codelineno-0-179"></a>    <span class="n">dset</span><span class="p">:</span> <span class="n">dataprep</span><span class="o">.</span><span class="n">FlowpicDataset</span><span class="p">,</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a>    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda:0&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="n">save_to</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">logger</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;monolithic&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="n">xgboost_model</span><span class="p">:</span> <span class="n">Any</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute scikit learn classification report</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">    and confusion matrix</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">        net: the trained network to use</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">        dset: the dataset to use</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">        batch_size: the batch_size to use</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">        device: the device where to operate inferece</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        context: a text string used for AIM tracking</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        save_to: a folder where to store the report</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">        logger: the logger where to print the reports</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        method: e.g. &#39;monolithic&#39; (NN) or &#39;xgboost&#39;</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        xgboost_model: the xgboost model in case method==&#39;xgboost&#39;</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        A dictionary with two keys: &quot;class_rep&quot;</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">        and &quot;conf_mtx&quot;. Each key is associated</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        to a pandas DataFrame containing the</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">        classification report and confusion matrix</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">        computed based on inference</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="n">save_to</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_to</span><span class="p">)</span>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_to</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a>        <span class="n">save_to</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="n">dummy_trainer</span> <span class="o">=</span> <span class="n">methods</span><span class="o">.</span><span class="n">trainer_factory</span><span class="p">(</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>        <span class="n">method</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">net</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">xgboost_model</span><span class="o">=</span><span class="n">xgboost_model</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="p">)</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a>    <span class="n">loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">reports</span> <span class="o">=</span> <span class="n">dummy_trainer</span><span class="o">.</span><span class="n">test_loop</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">with_reports</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-244">244</a></span>
+<span class="normal"><a href="#__codelineno-0-245">245</a></span>
+<span class="normal"><a href="#__codelineno-0-246">246</a></span>
+<span class="normal"><a href="#__codelineno-0-247">247</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="k">def</span> <span class="nf">classification_reports</span><span class="p">(</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a>    <span class="n">net</span><span class="p">:</span> <span class="n">backbone</span><span class="o">.</span><span class="n">BaseNet</span><span class="p">,</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="n">dset</span><span class="p">:</span> <span class="n">dataprep</span><span class="o">.</span><span class="n">FlowpicDataset</span><span class="p">,</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda:0&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="n">save_to</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>    <span class="n">logger</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;monolithic&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="n">xgboost_model</span><span class="p">:</span> <span class="n">Any</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute scikit learn classification report</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">    and confusion matrix</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">        net: the trained network to use</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        dset: the dataset to use</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        batch_size: the batch_size to use</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">        device: the device where to operate inferece</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        context: a text string used for AIM tracking</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        save_to: a folder where to store the report</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        logger: the logger where to print the reports</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">        method: e.g. &#39;monolithic&#39; (NN) or &#39;xgboost&#39;</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        xgboost_model: the xgboost model in case method==&#39;xgboost&#39;</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">        A dictionary with two keys: &quot;class_rep&quot;</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">        and &quot;conf_mtx&quot;. Each key is associated</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">        to a pandas DataFrame containing the</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">        classification report and confusion matrix</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">        computed based on inference</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="n">save_to</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">save_to</span><span class="p">)</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_to</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>        <span class="n">save_to</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="n">dummy_trainer</span> <span class="o">=</span> <span class="n">methods</span><span class="o">.</span><span class="n">trainer_factory</span><span class="p">(</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">method</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">net</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span> <span class="n">xgboost_model</span><span class="o">=</span><span class="n">xgboost_model</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="p">)</span>
 <a id="__codelineno-0-220" name="__codelineno-0-220"></a>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="n">labels</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">categories</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">):</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)}</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="c1">###</span>
-<a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)}</span>
-<a id="__codelineno-0-226" name="__codelineno-0-226"></a>    <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;---</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2"> reports---&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">],</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">],</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a>    <span class="k">if</span> <span class="n">save_to</span><span class="p">:</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a>        <span class="n">fname</span> <span class="o">=</span> <span class="n">save_to</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">_class_rep.csv&quot;</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a>        <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="n">fname</span> <span class="o">=</span> <span class="n">save_to</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">_conf_mtx.csv&quot;</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>        <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="k">return</span> <span class="n">reports</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="n">loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">reports</span> <span class="o">=</span> <span class="n">dummy_trainer</span><span class="o">.</span><span class="n">test_loop</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">with_reports</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="n">labels</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">categories</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">):</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)}</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a>    <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>    <span class="c1">###</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)}</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;---</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2"> reports---&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">],</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">],</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>    <span class="k">if</span> <span class="n">save_to</span><span class="p">:</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>        <span class="n">fname</span> <span class="o">=</span> <span class="n">save_to</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">_class_rep.csv&quot;</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>        <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;class_rep&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>        <span class="n">fname</span> <span class="o">=</span> <span class="n">save_to</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">_conf_mtx.csv&quot;</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>        <span class="n">log_msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="n">reports</span><span class="p">[</span><span class="s2">&quot;conf_mtx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="k">return</span> <span class="n">reports</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
 
 
-<h3 id="tcbench.modeling.utils.compute_confidence_intervals" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">compute_confidence_intervals</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span></code>
 
-</h3>
+<h3 id="tcbench.modeling.utils.compute_confidence_intervals" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">compute_confidence_intervals</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.compute_confidence_intervals" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
   <div class="doc doc-contents ">
   
       <p>Computes the confidence intervasl from an array of values.</p>
+
+
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -2282,7 +2770,11 @@ computed based on inference</p>
           <td>
                 <code><span title="numpy.typing.NDArray">NDArray</span></code>
           </td>
-          <td><p>a list of values to process</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>a list of values to process</p>
+            </div>
+          </td>
           <td>
               <em>required</em>
           </td>
@@ -2292,7 +2784,11 @@ computed based on inference</p>
           <td>
                 <code>float</code>
           </td>
-          <td><p>the alpha of the confidence interval</p></td>
+          <td>
+            <div class="doc-md-description">
+              <p>the alpha of the confidence interval</p>
+            </div>
+          </td>
           <td>
                 <code>0.05</code>
           </td>
@@ -2307,12 +2803,9 @@ which reports lower and upper values of the interval.
 However we return the difference between mean value of the
 input array and the upper value of the confidence interval</p>
 </details>
-      <details class="quote">
-        <summary>Source code in <code>tcbench/modeling/utils.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-247">247</a></span>
-<span class="normal"><a href="#__codelineno-0-248">248</a></span>
-<span class="normal"><a href="#__codelineno-0-249">249</a></span>
-<span class="normal"><a href="#__codelineno-0-250">250</a></span>
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-250">250</a></span>
 <span class="normal"><a href="#__codelineno-0-251">251</a></span>
 <span class="normal"><a href="#__codelineno-0-252">252</a></span>
 <span class="normal"><a href="#__codelineno-0-253">253</a></span>
@@ -2326,26 +2819,68 @@ input array and the upper value of the confidence interval</p>
 <span class="normal"><a href="#__codelineno-0-261">261</a></span>
 <span class="normal"><a href="#__codelineno-0-262">262</a></span>
 <span class="normal"><a href="#__codelineno-0-263">263</a></span>
-<span class="normal"><a href="#__codelineno-0-264">264</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-247" name="__codelineno-0-247"></a><span class="k">def</span> <span class="nf">compute_confidence_intervals</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the confidence intervasl from an array of values.</span>
-<a id="__codelineno-0-249" name="__codelineno-0-249"></a>
-<a id="__codelineno-0-250" name="__codelineno-0-250"></a><span class="sd">    Arguments:</span>
-<a id="__codelineno-0-251" name="__codelineno-0-251"></a><span class="sd">        array: a list of values to process</span>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a><span class="sd">        alpha: the alpha of the confidence interval</span>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a><span class="sd">    Return:</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a><span class="sd">        The function is based on statsmodels.stats.api.DescrStatsW()</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a><span class="sd">        which reports lower and upper values of the interval.</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a><span class="sd">        However we return the difference between mean value of the</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a><span class="sd">        input array and the upper value of the confidence interval</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">tconfint_mean</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="n">mean</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="n">ci</span> <span class="o">=</span> <span class="n">high</span> <span class="o">-</span> <span class="n">mean</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="k">return</span> <span class="n">ci</span>
+<span class="normal"><a href="#__codelineno-0-264">264</a></span>
+<span class="normal"><a href="#__codelineno-0-265">265</a></span>
+<span class="normal"><a href="#__codelineno-0-266">266</a></span>
+<span class="normal"><a href="#__codelineno-0-267">267</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-250" name="__codelineno-0-250"></a><span class="k">def</span> <span class="nf">compute_confidence_intervals</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the confidence intervasl from an array of values.</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a><span class="sd">    Arguments:</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a><span class="sd">        array: a list of values to process</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a><span class="sd">        alpha: the alpha of the confidence interval</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a><span class="sd">    Return:</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a><span class="sd">        The function is based on statsmodels.stats.api.DescrStatsW()</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="sd">        which reports lower and upper values of the interval.</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a><span class="sd">        However we return the difference between mean value of the</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">        input array and the upper value of the confidence interval</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">tconfint_mean</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>    <span class="n">mean</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="n">ci</span> <span class="o">=</span> <span class="n">high</span> <span class="o">-</span> <span class="n">mean</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>    <span class="k">return</span> <span class="n">ci</span>
 </code></pre></div></td></tr></table></div>
-      </details>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="tcbench.modeling.utils.log_torchsummary" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">log_torchsummary</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#tcbench.modeling.utils.log_torchsummary" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Log a model backbone architecture</p>
+
+          <details class="quote">
+            <summary>Source code in <code>/Users/alessandrofinamore/opt/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/modeling/utils.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-269">269</a></span>
+<span class="normal"><a href="#__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#__codelineno-0-276">276</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-269" name="__codelineno-0-269"></a><span class="k">def</span> <span class="nf">log_torchsummary</span><span class="p">(</span><span class="n">net</span><span class="p">:</span><span class="n">Any</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">:</span><span class="n">Any</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span><span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Log a model backbone architecture&quot;&quot;&quot;</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="n">f_capture</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">f_capture</span><span class="p">):</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="n">torchsummary</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">)</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="n">log_msg</span><span class="p">(</span><span class="n">f_capture</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(),</span> <span class="n">logger</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2409,42 +2944,6 @@ for (var idx=0; idx < tags.length; idx++) {
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../tcbench_modeling_methods/" class="md-footer__link md-footer__link--prev" aria-label="Previous: methods" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                methods
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../tcbench_modeling_run_augmentations_at_loading/" class="md-footer__link md-footer__link--next" aria-label="Next: run_augmentations_at_loading" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                run_augmentations_at_loading
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2467,11 +2966,11 @@ for (var idx=0; idx < tags.length; idx++) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.tabs.sticky", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.726fbb30.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

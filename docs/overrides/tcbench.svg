@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="tcbench.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.3529261"
+     inkscape:cx="391.00437"
+     inkscape:cy="903.96662"
+     inkscape:window-width="1440"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:lockguides="false">
+    <sodipodi:guide
+       position="93.666329,222.67052"
+       orientation="0,-1"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="93.442779,198.75096"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="103.81367,168.72471"
+       orientation="0,-1"
+       id="guide24"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="76.190621,149.67706"
+       orientation="0,-1"
+       id="guide25"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path180"
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;fill:#fcfcfc;fill-opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 139.84332,267.91616 H 127.47834 V 255.534 h 6.97247 v 1.76888 h 5.39251 z m -10.90962,0.0172 h -12.39933 v -12.39933 h 12.39933 v 5.18642 h -5.40967 v 2.02648 h 5.40967 z m -1.57997,-1.57997 v -2.02649 -5.18642 -2.02648 z m -9.62864,1.5628 h -12.365 v -12.38216 h 12.365 z m -11.04196,0 H 94.318152 v -12.38216 h 12.364978 z m -10.909613,0.0172 H 83.374184 v -12.39933 h 12.399333 z"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccc" />
+    <path
+       id="path138"
+       style="opacity:0.22479;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0119228;paint-order:markers fill stroke"
+       d="m 65.212031,207.50944 v 1.71191 h -1.457212 v 14.07034 h 1.457212 v 1.99262 l 15.212001,0.0176 v -1.9921 h 1.456788 v -14.08843 h -1.456788 v -1.71191 z"
+       sodipodi:nodetypes="ccccccccccccc" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.752295"
+       d="m 83.217006,106.11239 -23.080329,-0.0682 V 87.150402 l 23.080329,0.0682 v 7.90295 3.08789 z"
+       id="path112"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path54"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0130562;paint-order:markers fill stroke"
+       d="m 62.199512,-2.8894482 v 2.46033004 H 59.778684 V 13.640382 h 2.420828 v 2.46033 h -2.420828 v 0.0176 h 20.663729 v -2.45981 h 2.42032 V -0.42908816 h -2.42032 V -2.8894182 Z" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;fill:#262626;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="m 80.402881,13.644582 h -8.39607 V -0.42904816 h 8.39607 V 5.4577018 h -3.663106 v 2.30012 h 3.663106 z"
+       id="path56" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0131622;paint-order:markers fill stroke"
+       id="rect16"
+       width="23.460665"
+       height="19.007584"
+       x="59.590336"
+       y="-63.234119"
+       rx="0"
+       ry="0" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0132758;paint-order:markers fill stroke"
+       id="rect2"
+       width="23.670578"
+       height="19.165543"
+       x="58.790634"
+       y="-113.98604"
+       rx="0"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.7106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.567767"
+       x="126.04106"
+       y="-92.831429"
+       id="text1"
+       transform="scale(0.97655715,1.0240056)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3934px;font-family:ElfBoyClassic;-inkscape-font-specification:'ElfBoyClassic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.567767"
+         x="126.04106"
+         y="-92.831429">N</tspan></text>
+    <g
+       id="g3"
+       transform="matrix(1,0,0,1.0781537,0.3229343,-196.91693)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.3462px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.358658"
+         x="71.528221"
+         y="90.94754"
+         id="text2"
+         transform="scale(0.98510588,1.0151193)"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.3462px;font-family:'FFF Forward';-inkscape-font-specification:'FFF Forward, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.358658"
+           x="71.528221"
+           y="90.94754">c</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.8057px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.320146"
+         x="55.644012"
+         y="101.90108"
+         id="text3"
+         transform="scale(1.1036085,0.90611844)"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.8057px;font-family:'FFF Forward';-inkscape-font-specification:'FFF Forward, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.320146"
+           x="55.644012"
+           y="101.90108">t</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.7106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.567767"
+       x="105.95335"
+       y="-92.831429"
+       id="text4"
+       transform="scale(0.97655715,1.0240056)"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3934px;font-family:ElfBoyClassic;-inkscape-font-specification:'ElfBoyClassic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.567767"
+         x="105.95335"
+         y="-92.831429">E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.7106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.567767"
+       x="85.865646"
+       y="-92.831429"
+       id="text5"
+       transform="scale(0.97655715,1.0240056)"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3934px;font-family:ElfBoyClassic;-inkscape-font-specification:'ElfBoyClassic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.567767"
+         x="85.865646"
+         y="-92.831429">b</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.7106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.567767"
+       x="146.12877"
+       y="-92.831429"
+       id="text6"
+       transform="scale(0.97655715,1.0240056)"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3934px;font-family:ElfBoyClassic;-inkscape-font-specification:'ElfBoyClassic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.567767"
+         x="146.12877"
+         y="-92.831429">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.7106px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.567767"
+       x="166.21648"
+       y="-92.831429"
+       id="text7"
+       transform="scale(0.97655715,1.0240056)"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3934px;font-family:ElfBoyClassic;-inkscape-font-specification:'ElfBoyClassic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.567767"
+         x="166.21648"
+         y="-92.831429">H</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect7"
+       width="3.0033648"
+       height="2.6872211"
+       x="58.644646"
+       y="-114.08873" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect8"
+       width="3.0033648"
+       height="2.6872211"
+       x="79.510124"
+       y="-114.08873" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect9"
+       width="3.0033648"
+       height="2.6872211"
+       x="79.510124"
+       y="-97.491188" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect10"
+       width="3.0033648"
+       height="2.6872211"
+       x="58.565605"
+       y="-97.491188" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:26.3712px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.65928"
+       x="83.194298"
+       y="-71.093201"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.3712px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.65928"
+         x="83.194298"
+         y="-71.093201">Bench</tspan></text>
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0132758;paint-order:markers fill stroke"
+       id="rect11"
+       width="23.670578"
+       height="19.165543"
+       x="58.790634"
+       y="-90.591415"
+       rx="0"
+       ry="0" />
+    <g
+       id="g12"
+       transform="matrix(1,0,0,1.0781537,0.3229343,-173.5223)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.3462px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.358658"
+         x="71.528221"
+         y="90.94754"
+         id="text11"
+         transform="scale(0.98510588,1.0151193)"><tspan
+           sodipodi:role="line"
+           id="tspan11"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.3462px;font-family:'FFF Forward';-inkscape-font-specification:'FFF Forward, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.358658"
+           x="71.528221"
+           y="90.94754">c</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.8057px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.320146"
+         x="55.644012"
+         y="101.90108"
+         id="text12"
+         transform="scale(1.1036085,0.90611844)"><tspan
+           sodipodi:role="line"
+           id="tspan12"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.8057px;font-family:'FFF Forward';-inkscape-font-specification:'FFF Forward, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.320146"
+           x="55.644012"
+           y="101.90108">t</tspan></text>
+    </g>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect12"
+       width="3.0033648"
+       height="2.6872211"
+       x="58.644646"
+       y="-90.694099" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect13"
+       width="3.0033648"
+       height="2.6872211"
+       x="79.510124"
+       y="-90.694099" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect14"
+       width="3.0033648"
+       height="2.6872211"
+       x="79.510124"
+       y="-74.096565" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0178976;paint-order:markers fill stroke"
+       id="rect15"
+       width="3.0033648"
+       height="2.6872211"
+       x="58.565605"
+       y="-74.096565" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.2089px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.380222"
+       x="78.623474"
+       y="-36.450489"
+       id="text15"
+       transform="scale(0.78045253,1.2813079)"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2089px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.380222"
+         x="78.623474"
+         y="-36.450489">tC</tspan></text>
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,-44.220978 H 84.697456 v -19.040015 h 19.040004 z m -2.42615,-2.42615 v -5.880785 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.187715 z m -5.880775,-8.649765 h -2.426151 v -2.42615 h 2.426151 z m 0,5.53795 h -2.426151 v -2.42615 h 2.426151 z"
+       id="text16"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.655334;stroke-dasharray:none"
+       d="m 124.14747,-44.247348 h -18.98726 v -19.013645 h 18.98726 z m -2.42615,-2.45252 v -3.111805 h -8.28056 v -2.42615 h 8.28056 v -8.59702 h -14.13496 v 14.134975 z m -5.85441,-8.597015 h -2.42615 v -2.42615 h 2.42615 z"
+       id="text21"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.655334;stroke-dasharray:none"
+       d="m 144.55748,-44.247348 h -18.98727 v -19.013645 h 18.98727 z m -2.42615,-2.45252 v -14.134975 h -14.13497 v 14.134975 h 5.85441 v -11.023165 h 2.42615 v 11.023165 z"
+       id="text22"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.655334;stroke-dasharray:none"
+       d="m 165.02024,-44.220978 h -19.04001 v -19.040015 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.111815 h -8.30693 v -7.9641 h 8.30693 v -3.1118 h -14.18771 v 14.187715 z"
+       id="text23"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';stroke-width:0.655334;stroke-dasharray:none"
+       d="m 185.43024,-44.247348 h -18.98726 v -19.013645 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 v -11.392365 h -8.28056 v -2.74261 h -5.8544 v 14.134975 h 5.8544 v -8.280565 h 2.42615 v 8.280565 z"
+       id="text24"
+       aria-label="h" />
+    <rect
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.401795;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect43"
+       width="2.4599924"
+       height="2.4599924"
+       x="80.591003"
+       y="-63.234104" />
+    <rect
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.401795;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect44"
+       width="2.4599924"
+       height="2.4599924"
+       x="80.591003"
+       y="-46.68655" />
+    <rect
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.401795;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect45"
+       width="2.4599924"
+       height="2.4599924"
+       x="59.590347"
+       y="-63.234104" />
+    <rect
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.401795;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect46"
+       width="2.4599924"
+       height="2.4599924"
+       x="59.590347"
+       y="-46.704288" />
+    <path
+       id="rect47"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0131551;paint-order:markers fill stroke"
+       d="m 62.050476,-36.033518 v 2.45766 h -2.460315 v 14.05423 h 2.460315 v 2.45766 h -2.460315 v 0.0175 h 21.000785 v -2.45714 h 2.459799 v -14.0723 h -2.459799 v -2.45766 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.2089px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.380222"
+       x="78.623474"
+       y="-15.221601"
+       id="text47"
+       transform="scale(0.78045253,1.2813079)"><tspan
+         sodipodi:role="line"
+         id="tspan47"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2089px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.380222"
+         x="78.623474"
+         y="-15.221601">tC</tspan></text>
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,-17.020258 H 84.697456 v -19.04001 h 19.040004 z m -2.42615,-2.42615 v -5.88078 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.18771 z m -5.880775,-8.64976 h -2.426151 v -2.42615 h 2.426151 z m 0,5.53795 h -2.426151 v -2.42615 h 2.426151 z"
+       id="path47"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 124.14747,-17.046628 h -18.98726 v -19.01364 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 v -2.42615 h 8.28056 v -8.59702 h -14.13496 v 14.13497 z m -5.85441,-8.59701 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path48"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 144.55748,-17.046628 h -18.98727 v -19.01364 h 18.98727 z m -2.42615,-2.45252 v -14.13497 h -14.13497 v 14.13497 h 5.85441 v -11.02316 h 2.42615 v 11.02316 z"
+       id="path49"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 165.02024,-17.020258 h -19.04001 v -19.04001 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 v -7.9641 h 8.30693 v -3.1118 h -14.18771 v 14.18771 z"
+       id="path50"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.5;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 185.43024,-17.046628 h -18.98726 v -19.01364 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 v -11.39236 h -8.28056 v -2.74261 h -5.8544 v 14.13497 h 5.8544 v -8.28056 h 2.42615 v 8.28056 z"
+       id="path51"
+       aria-label="h" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;fill:#262626;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="M 70.611347,13.644582 H 62.238536 V -0.40956816 h 4.721335 V 1.5981718 h 3.651476 z"
+       id="text55" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.0558px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       x="79.706238"
+       y="10.544026"
+       id="text54"
+       transform="scale(0.77238698,1.2946878)"><tspan
+         sodipodi:role="line"
+         id="tspan54"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.0558px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+         x="79.706238"
+         y="10.544026">tC</tspan></text>
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="M 79.333024,11.851272 V 9.5511518 h -3.663108 v -5.88675 h 3.663108 v -2.30013 H 73.076671 V 11.851272 Z"
+       id="path57" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="M 69.541488,11.831782 V 7.5044318 h -2.581617 v 2.02722 h -1.069859 v -3.82054 h 3.651476 v -2.30012 h -3.651476 v -2.02722 H 63.308395 V 11.831782 Z"
+       id="path55" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,16.124842 H 84.697456 V -2.9151682 h 19.040004 z m -2.42615,-2.42615 V 7.8179118 h -2.768973 v -2.42615 h 2.768973 V -0.48901816 H 87.123607 V 13.698692 Z M 95.430535,5.0489318 h -2.426151 v -2.42615 h 2.426151 z m 0,5.5379502 H 93.004384 V 8.1607318 h 2.426151 z"
+       id="path58"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 124.14747,16.098472 H 105.16021 V -2.9151682 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 V 8.1080018 h 8.28056 V -0.48901816 H 107.58636 V 13.645952 Z m -5.85441,-8.5970102 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path59"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 144.55748,16.098472 H 125.57021 V -2.9151682 h 18.98727 z m -2.42615,-2.45252 V -0.48901816 H 127.99636 V 13.645952 h 5.85441 V 2.6227918 h 2.42615 V 13.645952 Z"
+       id="path60"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 165.02024,16.124842 H 145.98023 V -2.9151682 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 V 2.6227818 h 8.30693 V -0.48901816 H 148.40638 V 13.698692 Z"
+       id="path61"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.6;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 185.43024,16.098472 H 166.44298 V -2.9151682 h 10.7067 v 2.71624004 h 8.28056 z m -2.42615,-2.45252 V 2.2535918 h -8.28056 v -2.74260996 h -5.8544 V 13.645952 h 5.8544 V 5.3653918 h 2.42615 v 8.2805602 z"
+       id="path62"
+       aria-label="h" />
+    <path
+       id="path72"
+       style="opacity:0.3;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0130562;paint-order:markers fill stroke"
+       d="m 62.199512,32.758142 v 2.46033 h -2.420828 v 14.0695 h 2.420828 v 2.46033 h -2.420828 v 0.0176 h 20.663729 v -2.45981 h 2.42032 v -14.08759 h -2.42032 v -2.46033 z" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;fill:#262626;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="m 80.402881,49.292172 h -8.39607 v -14.07363 h 8.39607 v 5.88675 h -3.663106 v 2.30012 h 3.663106 z"
+       id="path73" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;fill:#262626;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="m 70.611347,49.292172 h -8.372811 v -14.05415 h 4.721335 v 2.00774 h 3.651476 z"
+       id="path74" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.0558px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       x="79.706238"
+       y="38.07777"
+       id="text74"
+       transform="scale(0.77238698,1.2946878)"><tspan
+         sodipodi:role="line"
+         id="tspan74"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.0558px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+         x="79.706238"
+         y="38.07777">tC</tspan></text>
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="m 79.333024,47.498862 v -2.30012 h -3.663108 v -5.88675 h 3.663108 v -2.30013 h -6.256353 v 10.487 z"
+       id="path75" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="m 69.541488,47.479372 v -4.32735 h -2.581617 v 2.02722 h -1.069859 v -3.82054 h 3.651476 v -2.30012 h -3.651476 v -2.02722 h -2.581617 v 10.44801 z"
+       id="path76" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,51.772432 H 84.697456 v -19.04001 h 19.040004 z m -2.42615,-2.42615 v -5.88078 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.18771 z m -5.880775,-8.64976 h -2.426151 v -2.42615 h 2.426151 z m 0,5.53795 h -2.426151 v -2.42615 h 2.426151 z"
+       id="path77"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 124.14747,51.746062 h -18.98726 v -19.01364 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 v -2.42615 h 8.28056 v -8.59702 h -14.13496 v 14.13497 z m -5.85441,-8.59701 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path78"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 144.55748,51.746062 h -18.98727 v -19.01364 h 18.98727 z m -2.42615,-2.45252 v -14.13497 h -14.13497 v 14.13497 h 5.85441 v -11.02316 h 2.42615 v 11.02316 z"
+       id="path79"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 165.02024,51.772432 h -19.04001 v -19.04001 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 v -7.9641 h 8.30693 v -3.1118 h -14.18771 v 14.18771 z"
+       id="path80"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 185.43024,51.746062 h -18.98726 v -19.01364 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 v -11.39236 h -8.28056 v -2.74261 h -5.8544 v 14.13497 h 5.8544 v -8.28056 h 2.42615 v 8.28056 z"
+       id="path81"
+       aria-label="h" />
+    <path
+       id="path82"
+       style="opacity:0.75;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0130562;paint-order:markers fill stroke"
+       d="m 62.199512,62.928742 v 2.46033 h -2.420828 v 14.0695 h 2.420828 v 2.46033 h -2.420828 v 0.0176 h 20.663729 v -2.45981 h 2.42032 v -14.08759 h -2.42032 v -2.46033 z" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;fill:#717171;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="m 80.402881,79.462772 h -8.39607 v -14.07363 h 8.39607 v 5.88675 h -3.663106 v 2.30012 h 3.663106 z"
+       id="path83" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;fill:#717171;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       d="m 70.611347,79.462772 h -8.372811 v -14.05415 h 4.721335 v 2.00774 h 3.651476 z"
+       id="path84" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.0558px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+       x="79.706238"
+       y="61.381145"
+       id="text84"
+       transform="scale(0.77238698,1.2946878)"><tspan
+         sodipodi:role="line"
+         id="tspan84"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.0558px;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.376393;stroke-opacity:1"
+         x="79.706238"
+         y="61.381145">tC</tspan></text>
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="m 79.333024,77.669462 v -2.30012 h -3.663108 v -5.88675 h 3.663108 v -2.30013 h -6.256353 v 10.487 z"
+       id="path85" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.376393"
+       d="m 69.541488,77.649972 v -4.32735 h -2.581617 v 2.02722 h -1.069859 v -3.82054 h 3.651476 v -2.30012 h -3.651476 v -2.02722 h -2.581617 v 10.44801 z"
+       id="path86" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,81.943032 H 84.697456 v -19.04001 h 19.040004 z m -2.42615,-2.42615 v -5.88078 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.18771 z m -5.880775,-8.64976 h -2.426151 v -2.42615 h 2.426151 z m 0,5.53795 h -2.426151 v -2.42615 h 2.426151 z"
+       id="path87"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 124.14747,81.916662 h -18.98726 v -19.01364 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 v -2.42615 h 8.28056 v -8.59702 h -14.13496 v 14.13497 z m -5.85441,-8.59701 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path88"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 144.55748,81.916662 h -18.98727 v -19.01364 h 18.98727 z m -2.42615,-2.45252 v -14.13497 h -14.13497 v 14.13497 h 5.85441 v -11.02316 h 2.42615 v 11.02316 z"
+       id="path89"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 165.02024,81.943032 h -19.04001 v -19.04001 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 v -7.9641 h 8.30693 v -3.1118 h -14.18771 v 14.18771 z"
+       id="path90"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 185.43024,81.916662 h -18.98726 v -19.01364 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 v -11.39236 h -8.28056 v -2.74261 h -5.8544 v 14.13497 h 5.8544 v -8.28056 h 2.42615 v 8.28056 z"
+       id="path91"
+       aria-label="h" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.9;fill:#a4a4a4;fill-opacity:1;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="M 80.40288,103.79989 H 72.335963 V 89.513322 h 8.066917 v 5.97581 h -3.5195 v 2.33493 h 3.5195 z"
+       id="path102" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.9;fill:#e7e7e7;fill-opacity:0.74902;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 70.995233,103.78011 h -8.04457 V 89.513322 h 4.536243 v 2.03812 h 3.508327 z"
+       id="path103" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852"
+       d="M 79.375058,101.98618 V 99.651242 H 75.85554 v -5.97585 h 3.519518 v -2.33493 h -6.011116 v 10.645718 z"
+       id="path113" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="M 69.967333,101.9664 V 97.573542 H 67.48691 v 2.05791 h -1.027924 v -3.87837 h 3.508347 v -2.33493 h -3.508347 v -2.05791 H 63.978564 V 101.9664 Z"
+       id="path111" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 80.40288,102.69019 v -2.6467 h -3.98945 v -6.773748 h 3.98945 v -2.6467 h -6.813724 v 12.067148 z"
+       id="path104" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 69.739025,102.66776 v -4.979378 h -2.811611 v 2.332668 h -1.165171 v -4.396198 h 3.976782 v -2.6467 h -3.976782 v -2.33268 h -2.811611 v 12.022288 z"
+       id="path105" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,106.1913 H 84.697456 V 87.151292 h 19.040004 z m -2.42615,-2.42615 v -5.880778 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.187708 z m -5.880775,-8.649758 h -2.426151 v -2.42615 h 2.426151 z m 0,5.537948 h -2.426151 v -2.426148 h 2.426151 z"
+       id="path106"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 124.14747,106.16493 H 105.16021 V 87.151292 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 v -2.426148 h 8.28056 v -8.59702 h -14.13496 v 14.134968 z m -5.85441,-8.597008 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path107"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 144.55748,106.16493 H 125.57021 V 87.151292 h 18.98727 z m -2.42615,-2.45252 V 89.577442 h -14.13497 v 14.134968 h 5.85441 V 92.689252 h 2.42615 v 11.023158 z"
+       id="path108"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 165.02024,106.1913 H 145.98023 V 87.151292 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 v -7.964098 h 8.30693 v -3.1118 h -14.18771 v 14.187708 z"
+       id="path109"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="M 185.43024,106.16493 H 166.44298 V 87.151292 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 V 92.320052 h -8.28056 v -2.74261 h -5.8544 v 14.134968 h 5.8544 v -8.280558 h 2.42615 v 8.280558 z"
+       id="path110"
+       aria-label="h" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.4;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.752295"
+       d="m 83.217006,131.25456 -23.080329,-0.0682 v -18.89379 l 23.080329,0.0682 v 7.90295 3.08789 z"
+       id="path114"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.9;fill:#161616;fill-opacity:0.74902;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 80.40288,128.94206 h -8.066917 v -14.28657 h 8.066917 v 5.97581 h -3.5195 v 2.33493 h 3.5195 z"
+       id="path115" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.9;fill:#161616;fill-opacity:0.74902;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 70.995233,128.92228 h -8.04457 v -14.26679 h 4.536243 v 2.03812 h 3.508327 z"
+       id="path116" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852"
+       d="m 79.375058,127.12835 v -2.33494 H 75.85554 v -5.97585 h 3.519518 v -2.33493 h -6.011116 v 10.64572 z"
+       id="path117" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="m 69.967333,127.10857 v -4.39286 H 67.48691 v 2.05791 h -1.027924 v -3.87837 h 3.508347 v -2.33493 h -3.508347 v -2.05791 h -2.480422 v 10.60616 z"
+       id="path118" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 80.40288,127.83236 v -2.6467 h -3.98945 v -6.77375 h 3.98945 v -2.6467 h -6.813724 v 12.06715 z"
+       id="path119" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 69.739025,127.80993 v -4.97938 h -2.811611 v 2.33267 h -1.165171 v -4.3962 h 3.976782 v -2.6467 h -3.976782 v -2.33268 h -2.811611 v 12.02229 z"
+       id="path120" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655;stroke-dasharray:none"
+       d="M 103.73746,131.33347 H 84.697456 v -19.04001 h 19.040004 z m -2.42615,-2.42615 v -5.88078 h -2.768973 v -2.42615 h 2.768973 v -5.88078 H 87.123607 v 14.18771 z m -5.880775,-8.64976 h -2.426151 v -2.42615 h 2.426151 z m 0,5.53795 h -2.426151 v -2.42615 h 2.426151 z"
+       id="path121"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 124.14747,131.3071 h -18.98726 v -19.01364 h 18.98726 z m -2.42615,-2.45252 v -3.1118 h -8.28056 v -2.42615 h 8.28056 v -8.59702 h -14.13496 v 14.13497 z m -5.85441,-8.59701 h -2.42615 v -2.42615 h 2.42615 z"
+       id="path122"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 144.55748,131.3071 h -18.98727 v -19.01364 h 18.98727 z m -2.42615,-2.45252 v -14.13497 h -14.13497 v 14.13497 h 5.85441 v -11.02316 h 2.42615 v 11.02316 z"
+       id="path123"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 165.02024,131.33347 h -19.04001 v -19.04001 h 19.04001 v 7.9641 h -8.30693 v 3.1118 h 8.30693 z m -2.42615,-2.42615 v -3.11181 h -8.30693 v -7.9641 h 8.30693 v -3.1118 h -14.18771 v 14.18771 z"
+       id="path124"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:0.75;stroke-width:0.655334;stroke-dasharray:none"
+       d="m 185.43024,131.3071 h -18.98726 v -19.01364 h 10.7067 v 2.71624 h 8.28056 z m -2.42615,-2.45252 v -11.39236 h -8.28056 v -2.74261 h -5.8544 v 14.13497 h 5.8544 v -8.28056 h 2.42615 v 8.28056 z"
+       id="path125"
+       aria-label="h" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3359;stroke-opacity:1"
+       d="m 80.40288,223.32166 h -8.066917 v -12.22867 h 8.066917 v 5.15821 h -3.5195 v 1.90658 h 3.5195 z"
+       id="path127"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 73.361497,223.32166 h -8.04457 v -14.26679 h 4.536244 v 2.03812 h 3.508326 z"
+       id="path128" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#ffffff;stroke:none;stroke-width:0.512643"
+       d="m 79.375058,221.56435 v -1.8963 H 75.85554 v -4.8532 h 3.519518 v -1.89628 h -6.011116 v 8.64578 z"
+       id="path129" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="m 72.333597,221.50795 v -4.39286 H 69.853174 V 219.173 H 68.82525 v -3.87837 h 3.508347 V 212.9597 H 68.82525 v -2.05791 h -2.480422 v 10.60616 z"
+       id="path130" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 80.40288,222.23174 v -2.6467 h -3.98945 v -6.77375 h 3.98945 v -2.6467 h -6.813724 v 12.06715 z"
+       id="path131" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 72.105289,222.20931 v -4.97938 h -2.811611 v 2.33267 h -1.165171 v -4.3962 h 3.976782 v -2.6467 h -3.976782 v -2.33268 h -2.811611 v 12.02229 z"
+       id="path132" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.426552;stroke-dasharray:none"
+       d="M 95.773517,223.30004 H 83.374184 v -12.39933 h 12.399333 z m -1.579973,-1.57997 v -3.82971 h -1.803225 v -1.57997 h 1.803225 v -3.82971 h -9.239389 v 9.23939 z m -3.829709,-5.63294 h -1.579971 v -1.57997 h 1.579971 z m 0,3.60645 h -1.579971 v -1.57997 h 1.579971 z"
+       id="path133"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 106.68313,223.28287 H 94.318152 v -12.38216 h 12.364978 z m -1.57997,-1.59714 v -2.02648 h -5.392516 v -1.57998 h 5.392516 v -5.59859 h -9.205034 v 9.20505 z m -3.81254,-5.59859 h -1.579976 v -1.57997 h 1.579976 z"
+       id="path134"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 117.72509,223.28287 h -12.365 v -12.38216 h 12.365 z m -1.57998,-1.59714 v -9.20505 h -9.20505 v 9.20505 h 3.81254 v -7.17856 h 1.57997 v 7.17856 z"
+       id="path135"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 128.9337,223.30004 h -12.39933 v -12.39933 h 12.39933 v 5.18642 h -5.40967 v 2.02648 h 5.40967 z m -1.57997,-1.57997 v -2.02649 h -5.40968 v -5.18642 h 5.40968 v -2.02648 h -9.23939 v 9.23939 z"
+       id="path136"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 139.84332,223.28287 h -12.36498 v -12.38216 h 6.97247 v 1.76888 h 5.39251 z m -1.57997,-1.59714 v -7.419 h -5.39251 v -1.78605 h -3.81253 v 9.20505 h 3.81253 v -5.39251 h 1.57997 v 5.39251 z"
+       id="path137"
+       aria-label="h" />
+    <path
+       id="path150"
+       style="opacity:0.22479;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0119228;paint-order:markers fill stroke"
+       d="m 65.212031,229.51478 v 1.71191 h -1.457212 v 14.07034 h 1.457212 v 1.99262 l 15.212001,0.0176 v -1.9921 h 1.456788 v -14.08843 h -1.456788 v -1.71191 z"
+       sodipodi:nodetypes="ccccccccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3359;stroke-opacity:1"
+       d="m 80.40288,245.327 h -8.066917 v -12.22867 h 8.066917 v 5.15821 h -3.5195 v 1.90658 h 3.5195 z"
+       id="path151"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 73.361497,245.327 h -8.04457 v -14.26679 h 4.536244 v 2.03812 h 3.508326 z"
+       id="path152" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#ffffff;stroke:none;stroke-width:0.512643"
+       d="m 79.375058,243.56969 v -1.8963 H 75.85554 v -4.8532 h 3.519518 v -1.89628 h -6.011116 v 8.64578 z"
+       id="path153" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:#ffffff;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="m 72.333597,243.51329 v -4.39286 h -2.480423 v 2.05791 H 68.82525 v -3.87837 h 3.508347 v -2.33493 H 68.82525 v -2.05791 h -2.480422 v 10.60616 z"
+       id="path154" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 80.40288,244.23708 v -2.6467 h -3.98945 v -6.77375 h 3.98945 v -2.6467 h -6.813724 v 12.06715 z"
+       id="path155" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 72.105289,244.21465 v -4.97938 h -2.811611 v 2.33267 h -1.165171 v -4.3962 h 3.976782 v -2.6467 h -3.976782 v -2.33268 h -2.811611 v 12.02229 z"
+       id="path156" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.426552;stroke-dasharray:none"
+       d="M 95.773517,245.30538 H 83.374184 v -12.39933 h 12.399333 z m -1.579973,-1.57997 v -3.82971 h -1.803225 v -1.57997 h 1.803225 v -3.82971 h -9.239389 v 9.23939 z m -3.829709,-5.63294 h -1.579971 v -1.57997 h 1.579971 z m 0,3.60645 h -1.579971 v -1.57997 h 1.579971 z"
+       id="path157"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 106.68313,245.28821 H 94.318152 v -12.38216 h 12.364978 z m -1.57997,-1.59714 v -2.02648 h -5.392516 v -1.57998 h 5.392516 v -5.59859 h -9.205034 v 9.20505 z m -3.81254,-5.59859 h -1.579976 v -1.57997 h 1.579976 z"
+       id="path158"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 117.72509,245.28821 h -12.365 v -12.38216 h 12.365 z m -1.57998,-1.59714 v -9.20505 h -9.20505 v 9.20505 h 3.81254 v -7.17856 h 1.57997 v 7.17856 z"
+       id="path159"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 128.9337,245.30538 h -12.39933 v -12.39933 h 12.39933 v 5.18642 h -5.40967 v 2.02648 h 5.40967 z m -1.57997,-1.57997 v -2.02649 h -5.40968 v -5.18642 h 5.40968 v -2.02648 h -9.23939 v 9.23939 z"
+       id="path160"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 139.84332,245.28821 h -12.36498 v -12.38216 h 6.97247 v 1.76888 h 5.39251 z m -1.57997,-1.59714 v -7.419 h -5.39251 v -1.78605 h -3.81253 v 9.20505 h 3.81253 v -5.39251 h 1.57997 v 5.39251 z"
+       id="path161"
+       aria-label="h" />
+    <path
+       id="path164"
+       style="opacity:0.22479;fill:#000000;fill-opacity:1;stroke:#e4e4e4;stroke-width:0.0119228;paint-order:markers fill stroke"
+       d="m 65.212031,252.19454 v 1.71191 h -1.457212 v 14.07034 h 1.457212 v 1.99262 l 15.212001,0.0176 v -1.9921 h 1.456788 v -14.08843 h -1.456788 v -1.71191 z"
+       sodipodi:nodetypes="ccccccccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3359;stroke-opacity:1"
+       d="m 80.40288,268.00676 h -8.066917 v -12.22867 h 8.066917 v 5.15821 1.90658 z"
+       id="path165"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.371722;stroke-opacity:1"
+       d="m 73.361497,268.00676 h -8.04457 v -14.26679 h 4.536244 v 2.03812 h 3.508326 z"
+       id="path166" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.512643"
+       d="m 79.375058,266.24945 v -3.40657 -2.8467 -2.39251 h -6.011116 v 8.64578 z"
+       id="path167"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="font-size:19.0573px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.568852;stroke-opacity:1"
+       d="m 72.333597,266.19305 v -4.39286 h -2.480423 v 2.05791 H 68.82525 v -3.87837 h 3.508347 V 257.6448 H 68.82525 v -2.05791 h -2.480422 v 10.60616 z"
+       id="path168" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 80.40288,266.91684 v -2.6467 h -3.98945 v -6.77375 h 3.98945 v -2.6467 h -6.813724 v 12.06715 z"
+       id="path169" />
+    <path
+       style="font-size:15.0558px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';fill:none;stroke:none;stroke-width:0.421356"
+       d="m 72.105289,266.89441 v -4.97938 h -2.811611 v 2.33267 h -1.165171 v -4.3962 h 3.976782 v -2.6467 h -3.976782 v -2.33268 h -2.811611 v 12.02229 z"
+       id="path170" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.721742;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect170"
+       width="5.1142325"
+       height="2.4000571"
+       x="75.288651"
+       y="260.24435" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.426552;stroke-dasharray:none"
+       d="M 95.773517,267.93333 H 83.374184 V 255.534 h 12.399333 z m -1.579973,-1.57997 v -3.82971 h -1.803225 v -1.57997 h 1.803225 v -3.82971 h -9.239389 v 9.23939 z m -3.829709,-5.63294 h -1.579971 v -1.57997 h 1.579971 z m 0,3.60645 h -1.579971 v -1.57997 h 1.579971 z"
+       id="path171"
+       aria-label="B" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;fill:#000000;fill-opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 106.68313,267.91616 H 94.318152 V 255.534 h 12.364978 z m -1.57997,-1.59714 v -2.02648 h -5.392516 v -1.57998 h 5.392516 v -5.59859 h -9.205034 v 9.20505 z m -3.81254,-5.59859 h -1.579976 v -1.57997 h 1.579976 z"
+       id="path172"
+       aria-label="e" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="m 117.72509,267.91616 h -12.365 V 255.534 h 12.365 z m -1.57998,-1.59714 v -9.20505 h -9.20505 v 9.20505 h 3.81254 v -7.17856 h 1.57997 v 7.17856 z"
+       id="path173"
+       aria-label="n" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 128.9337,267.93333 H 116.53437 V 255.534 h 12.39933 v 5.18642 h -5.40967 v 2.02648 h 5.40967 z m -1.57997,-1.57997 v -2.02649 h -5.40968 v -5.18642 h 5.40968 v -2.02648 h -9.23939 v 9.23939 z"
+       id="path174"
+       aria-label="C" />
+    <path
+       style="font-size:26.3712px;line-height:1.25;font-family:'Origami Mommy';-inkscape-font-specification:'Origami Mommy, Normal';opacity:1;stroke-width:0.42677;stroke-dasharray:none"
+       d="M 139.84332,267.91616 H 127.47834 V 255.534 h 6.97247 v 1.76888 h 5.39251 z m -1.57997,-1.59714 v -7.419 h -5.39251 v -1.78605 h -3.81253 v 9.20505 h 3.81253 v -5.39251 h 1.57997 v 5.39251 z"
+       id="path175"
+       aria-label="h" />
+  </g>
+</svg>
