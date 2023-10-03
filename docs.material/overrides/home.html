@@ -128,6 +128,7 @@ strong {
 
 .overlay__btn > a {
     color: var(--light-color);
+    /*color: var(--dark-color);*/
 }
 
 .overlay__btn:hover {
@@ -141,6 +142,10 @@ strong {
   border: 2px solid var(--dark-color);
   border-width: 2px;
   margin-right: 0.75rem;
+}
+
+.overlay__btn--transparent > a {
+    color: var(--dark-color);
 }
 
 .overlay__btn-emoji {
@@ -218,11 +223,12 @@ a {
     width: 70%;
 }
 
-#arrow {
-    width: 20px;
+.icon {
+    width: 28px;
     padding-left: 10px;
-    filter: invert(1);
+    /*filter: invert(1);*/
 }
+
 
 @keyframes pulse {
   0%, 100% {
@@ -248,7 +254,9 @@ a {
   <!-- Overlay inner wrapper -->
   <div class="overlay__inner">
     <!-- Title -->
+    <a href="/tcbench" style="height:auto">
     <img src="tcbench_logo.svg" id="logo"/>
+    </a>
     <h1 class="overlay__title">
       A Machine Learning / Deep Learning framework<br>
       for <span class="text-gradient">Traffic Classification</span>
@@ -260,18 +268,22 @@ a {
     -->
     <!-- Buttons -->
     <div class="overlay__btns">
-      <!--
       <button class="overlay__btn overlay__btn--transparent">
-        <a href="/tcbench">Get Started<img src="arrow-right-solid.svg" id="arrow" class="pulse"/></a>
+        <a href="/tcbench">Get Started<img src="arrow-right-solid.svg" class="icon pulse"/></a>
       </button>
 
       <button class="overlay__btn overlay__btn--colors">
-	    <span>Github</span>
+	    <a href="https://github.com/tcbenchstack/tcbench">
+        Github
+        <img src="github-mark/github-mark-white.svg" class="icon"/>
+        </a>
       </button>
-      -->
+
+      <!--
       <button class="overlay__btn">
         <a href="/tcbench">Get Started<img src="arrow-right-solid.svg" id="arrow" class="pulse"/></a>
       </button>
+      -->
     </div>
   </div>
 </div>

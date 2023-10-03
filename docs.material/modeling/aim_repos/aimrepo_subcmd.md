@@ -334,7 +334,7 @@ tcbench aimrepo merge --help
 ```
 
 !!! note "Output"
-```
+    ```
 	 Usage: tcbench aimrepo merge [OPTIONS]
 
 	 Coalesce different AIM repos into a single new repo.
@@ -344,7 +344,7 @@ tcbench aimrepo merge --help
 	│    --dst     PATH  New AIM repository to create. [default: aim-repo]       │
 	│    --help          Show this message and exit.                             │
 	╰────────────────────────────────────────────────────────────────────────────╯
-```
+    ```
 
 If the destionation repository does not exists, it will be created.
 When using merge, the recommendation is to create a new destination

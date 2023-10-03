@@ -1,4 +1,5 @@
 site_name: ""
+docs_dir: docs.material
 
 theme:
   name: material
@@ -9,7 +10,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.footer
     - navigation.indexes
-  custom_dir: docs/overrides
+  custom_dir: docs.material/overrides
   logo: overrides/tcbench_logo.svg
 
 
