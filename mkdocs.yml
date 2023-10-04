@@ -15,8 +15,8 @@ theme:
 
 
 nav:
+    - About: about.md
     - tcbench: 
-        - tcbench/index.md
         - tcbench/install.md
         - tcbench/cli_intro.md
         - tcbench/internals.md
@@ -81,7 +81,7 @@ nav:
         - modeling/index.md
         - modeling/runs.md
         - modeling/campaigns.md
-        - Repos:
+        - ML Repos:
             - modeling/aim_repos/index.md
             - modeling/aim_repos/aimrepo_subcmd.md
             - modeling/aim_repos/aim_webui.md

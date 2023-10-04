@@ -240,9 +240,9 @@ tcbench datasets install \
     │generate splits│
     ╰───────────────╯
     saving: ./envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_0.parquet
-    saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_1.parquet
+    saving: ./envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_1.parquet
     saving: ./envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_2.parquet
-    saving: /opt/anaconda/anaconda3/envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_3.parquet
+    saving: ./envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_3.parquet
     saving: ./envs/tcbench/lib/python3.10/site-packages/tcbench/libtcdatasets/datasets/ucdavis-icdm19/preprocessed/imc23/train_split_4.parquet
     samples count : train_split = 0 to 4
     ┏━━━━━━━━━━━━━━━┳━━━━━━━━━┓

@@ -29,6 +29,7 @@ across [4 datasets](datasets/install), namely
       eprint={2309.09733},
       archivePrefix={arXiv},
       primaryClass={cs.LG}
+    }
     ```
 
 === "Abstract"
