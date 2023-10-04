@@ -21,6 +21,7 @@ from tcbench.cli import get_rich_console
 from tcbench.cli.richutils import rich_label, rich_samples_count_report
 
 FNAME_DATASET_YAML = "DATASETS.yml"
+DATASETS_FILES_MD5_YAML = "DATASETS_FILES_MD5.yml"
 FOLDER_DATASETS = "datasets"
 
 console = get_rich_console()
@@ -84,6 +85,10 @@ def load_datasets_yaml():
     with open(fname) as fin:
         data = yaml.safe_load(fin)
     return data
+
+
+def load_datasets_files_md5_yaml():
+    return load_yaml( _get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
 
 
 def get_rich_tree_datasets_properties(dataset_name=None):
@@ -317,11 +322,17 @@ def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):
         dict(datasets={str(DATASETS.UCDAVISICDM19): preprocessed_folder})
     )
 
+    verify_dataset_md5s(DATASETS.UCDAVISICDM19)
+
 
 def install_utmobilenet21(input_folder, num_workers=50):
     # moved here to speed up loading
     from tcbench.libtcdatasets import utmobilenet21_csv_to_parquet
     from tcbench.libtcdatasets import utmobilenet21_generate_splits
+
+    # enforcing this to 50, attempting to replicate the 
+    # original setting used to create the artifact
+    num_workers=50
 
     rich_label("unpack")
     expected_files = ["UTMobileNet2021.zip"]
@@ -356,8 +367,10 @@ def install_utmobilenet21(input_folder, num_workers=50):
     args.config = dict(datasets={str(DATASETS.UTMOBILENET21): preprocessed_folder})
     utmobilenet21_generate_splits.main(args)
 
+    #verify_dataset_md5s(DATASETS.UTMOBILENET21)
 
-def install_mirage22(input_folder=None):
+
+def install_mirage22(input_folder=None, num_workers=30):
     # moved here to speed up loading
     from tcbench.libtcdatasets import mirage22_json_to_parquet
     from tcbench.libtcdatasets import mirage22_generate_splits
@@ -408,8 +421,10 @@ def install_mirage22(input_folder=None):
     args.config = dict(datasets={str(DATASETS.MIRAGE22): preprocess_folder})
     mirage22_generate_splits.main(args)
 
+    verify_dataset_md5s(DATASETS.MIRAGE22)
 
-def install_mirage19(input_folder=None):
+
+def install_mirage19(input_folder=None, num_workers=30):
     from tcbench.libtcdatasets import mirage19_json_to_parquet
     from tcbench.libtcdatasets import mirage19_generate_splits
 
@@ -433,7 +448,7 @@ def install_mirage19(input_folder=None):
 
     rich_label("preprocess", extra_new_line=True)
     preprocess_folder = dataset_folder / "preprocessed"
-    cmd = f"--input-folder {raw_folder} --output-folder {preprocess_folder}"
+    cmd = f"--input-folder {raw_folder} --output-folder {preprocess_folder} --num-workers {num_workers}"
     args = mirage19_json_to_parquet.cli_parser().parse_args(cmd.split())
     mirage19_json_to_parquet.main(
         args.input_folder, args.output_folder / "mirage19.parquet", args.num_workers
@@ -445,6 +460,8 @@ def install_mirage19(input_folder=None):
     args = mirage19_generate_splits.cli_parser().parse_args(cmd.split())
     args.config = dict(datasets={str(DATASETS.MIRAGE19): preprocess_folder})
     mirage19_generate_splits.main(args)
+
+    verify_dataset_md5s(DATASETS.MIRAGE19)
 
 
 def install(dataset_name, *args, **kwargs):
@@ -619,3 +636,52 @@ def import_dataset(dataset_name, path_archive):
             md5 = get_md5(path_archive)
             assert md5 == expected_md5, f"MD5 check error: found {md5} while should be {expected_md5}"
         untar(path_archive, folder_datasets)
+
+def verify_dataset_md5s(dataset_name):
+
+    def flatten_dict(data):
+        res = []
+        for key, value in data.items():
+            key = pathlib.Path(key)
+            if isinstance(value, str):
+                res.append((key, value))
+                continue
+            for inner_key, inner_value in flatten_dict(value):
+                res.append((key / inner_key, inner_value))
+        return res
+
+    dataset_name = str(dataset_name)
+    data_md5 = load_datasets_files_md5_yaml().get(dataset_name, None)
+    expected_files = flatten_dict(data_md5)
+
+    if dataset_name in (None, "") or data_md5 is None:
+        raise RuntimeError(f"Invalid dataset name {dataset_name}")
+
+    folder_dataset = _get_module_folder() / FOLDER_DATASETS / dataset_name
+    if not folder_dataset.exists():
+        raise RuntimeError(f"Dataset {dataset_name} is not installed. Run first \"tcbench datasets install --name {dataset_name}\"")
+
+    folder_dataset /= "preprocessed"
+
+    mismatches = dict()
+    for exp_path, exp_md5 in richprogress.track(expected_files, description="Verifying parquet MD5..."):
+        path = folder_dataset / exp_path
+        if not path.exists():
+            raise RuntimeError(f"File {path} not found")
+
+        found_md5 = get_md5(path)
+        fname = path.name
+        if found_md5 == exp_md5:
+            continue
+        mismatches[path] = (exp_md5, found_md5)
+
+    if mismatches:
+        console.print(f"Found {len(mismatches)}/{len(expected_files)} mismatches when verifying parquet files md5")
+        for path, (expected_md5, found_md5) in mismatches.items():
+            console.print()
+            console.print(f"path: {path}")
+            console.print(f"expected_md5: {expected_md5}")
+            console.print(f"found_md5: {found_md5}")
+    else:
+        console.print("All MD5 are correct!")
+    

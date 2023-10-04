@@ -1,0 +1,30 @@
+ucdavis-icdm19:
+    ucdavis-icdm19.parquet: "f4333724f03a0ccaa7d87ba878148f34"
+    imc23:
+        test_split_human.parquet: "5a6f27a51d6dde6bb3b59d6757c00c1f"
+        test_split_script.parquet: "93a49d51513f7b1dec0dc7ccf6f139b5"
+        train_split_0.parquet: "98bc4a849c2f2e3abf259be26eed2f06"
+        train_split_1.parquet: "2f7b849325c1f4d710b761d2d48a84f2"
+        train_split_2.parquet: "1d74dc9dc389a72a0f6b29e2be3b72e3"
+        train_split_3.parquet: "323bb4504d23d25b25ef31b8b76205f5"
+        train_split_4.parquet: "5a0b00ed58e365551f9ef12956caa0d0"
+
+mirage19:
+    mirage19.parquet: "aa0c4cbffc6f5dffba6718a7ab43f451"
+    imc23:
+        mirage19_filtered_minpkts10_splits.parquet: "12c83fb39eb61924aa411ca2d663eb94"
+        mirage19_filtered_minpkts10.parquet: "75851ec3312751a8a3dca79a4c24e2fb"
+
+mirage22:
+    mirage22.parquet: "4b8f5bfa528989ee857934f7611b052e"
+    imc23:
+        mirage22_filtered_minpkts10.parquet: "e117cbe37eba5c1235e4df787cf3b2d6"
+        mirage22_filtered_minpkts10_splits.parquet: "a445db52fe1ec342fed7eb1d765c9825"
+        mirage22_filtered_minpkts1000.parquet: "6312e82a0526071ab269a92d5eb745c6"
+        mirage22_filtered_minpkts1000_splits.parquet: "21396f8a9d5033cf049407c4dc573195"
+
+#utmobilenet21:
+#    utmobilenet21.parquet: "863e35d558c7ef9f4f5d0e552a57f3cb"
+#    imc23:
+#        utmobilenet21_filtered_minpkts10.parquet: "102e125e3236a1e8211bfd5e8272afdb"
+#        utmobilenet21_filtered_minpkts10_splits.parquet: "3ea1378753f1b4e1f2773bd750e56d1b"

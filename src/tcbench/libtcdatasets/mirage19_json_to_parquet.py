@@ -241,7 +241,8 @@ def main(
         ) as progressbar:
             task_id = progressbar.add_task("Converting JSONs...", total=len(files))
             with Pool(workers) as pool:
-                # for _ in pool.imap(worker, params):
+                # note: order does not matter because the worker
+                #   save output to file
                 for _ in pool.imap_unordered(func_worker, files):
                     progressbar.advance(task_id)
 
