@@ -45,9 +45,9 @@ We designed tcbench with the following goals in mind:
 
 | Goal | State of the art | tcbench |
 |:-----|:-----------------|:--------|
-|__:octicons-stack-24: Data curation__ | There are a few public datasets for TC, yet no common format/schema, cleaning process, or standard train/val/test folds. | An (opinionated) curation of datasets to create easy to use parquet files with associated train/val/test fold.|
-|__:octicons-file-code-24: Code__ | TC literature has no reference code base for ML/DL modeling | tcbench is [:material-github: open source](https://github.com/tcbenchstack/tcbench) with an easy to use CLI based on [:fontawesome-solid-arrow-pointer: click](https://click.palletsprojects.com/en/8.1.x/)|
-|__:material-monitor-dashboard: Model tracking__ | Most of ML framework requires integration with cloud environments and subscription services | tcbench uses [aimstack](https://aimstack.io/) to save on local servers metrics during training which can be later explored via its web UI or aggregated in report summaries using tcbench |
+| __Data curation__ | There are a few public datasets for TC, yet no common format/schema, cleaning process, or standard train/val/test folds. | An (opinionated) curation of datasets to create easy to use parquet files with associated train/val/test fold.|
+|__Code__ | TC literature has no reference code base for ML/DL modeling | tcbench is [open source](https://github.com/tcbenchstack/tcbench) with an easy to use CLI based on [click](https://click.palletsprojects.com/en/8.1.x/)|
+|__Model tracking__ | Most of ML framework requires integration with cloud environments and subscription services | tcbench uses [aimstack](https://aimstack.io/) to save on local servers metrics during training which can be later explored via its web UI or aggregated in report summaries using tcbench |
 
 ## Install
 
@@ -59,7 +59,7 @@ conda activate tcbench
 python -m pip install tcbench
 ```
 
-For the development version
+For the developer version
 ```
 python -m pip install tcbench[dev]
 ```
