@@ -30,8 +30,8 @@ while limit social media traffic.
 [__Traffic classification__](https://en.wikipedia.org/wiki/Traffic_classification) 
 is the the act of labeling an exchange of packets 
 between network hosts based on the application that generated it.
-For instance, you want to identify a zoom/webx/skype/etc. call and 
-twitter/instagram/facebook/mastodon traffic
+For instance, you want to identify traffic related to zoom/webx/skype/etc. calls 
+or traffic related to twitter/instagram/facebook/mastodon
 out of all traffic flowing throught the network.
 
 
