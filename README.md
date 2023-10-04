@@ -44,7 +44,7 @@ python -m pip install tcbench
 
 For the development version
 ```
-python -m pip isntall tcbench[dev]
+python -m pip install tcbench[dev]
 ```
 
 ## Features and roadmap
