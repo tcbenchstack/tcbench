@@ -19,20 +19,20 @@ tcbench design is cored in the following objectives:
 
 ## ...wait, what is Traffic Classification?
     
-    Nodes within a computer network operate by exchanging 
-    information, namely *packets*, according
-    to standardized protocols (e.g., [HTTP](https://en.wikipedia.org/wiki/HTTP) is the protocol used for the web). 
-    So to properly operate/manage networks one is required to monitor
-    this flow of information and react accordingly. For instance, 
-    in an office/enterprise environment, one might want to prioritize video meeting traffic
-    while limit social media traffic.
+A computer network is formed by hosts that exchange
+information, namely *packets*, according
+to standardized protocols (e.g., [HTTP](https://en.wikipedia.org/wiki/HTTP) is the protocol used for the web). 
+So to properly operate/manage networks one is required to monitor
+this flow of information and react accordingly. For instance, 
+in an office/enterprise environment, one might want to prioritize video meeting traffic
+while limit social media traffic.
 
-    [__Traffic classification__](https://en.wikipedia.org/wiki/Traffic_classification) 
-    is the the act of labeling an exchange of packets 
-    between network hosts based on the application that generated it.
-    For instance, you want to identify a zoom/webx/skype/etc. call and 
-    twitter/instagram/facebook/mastodon traffic
-    out of all traffic flowing throught the network.
+[__Traffic classification__](https://en.wikipedia.org/wiki/Traffic_classification) 
+is the the act of labeling an exchange of packets 
+between network hosts based on the application that generated it.
+For instance, you want to identify a zoom/webx/skype/etc. call and 
+twitter/instagram/facebook/mastodon traffic
+out of all traffic flowing throught the network.
 
 
 ## Motivations
