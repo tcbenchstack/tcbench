@@ -1736,8 +1736,10 @@ with the following process</p>
 </code></pre></div></p>
 </li>
 <li>
-<p>Clone the tcbench repo with the imc23 tag
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
+<p>Clone the tcbench repo and use the <code>imc23</code> branch
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git clone https://github.com/tcbenchstack/tcbench.git tcbench.git
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cd tcbench.git
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git checkout imc23
 </code></pre></div></p>
 </li>
 <li>
@@ -1751,6 +1753,31 @@ with the following process</p>
 </code></pre></div></p>
 </li>
 </ul>
+<p>This will install locally</p>
+<ul>
+<li>
+<p>The <a href="/papers/imc23/notebooks/">notebooks</a> for replicating tables and figures of the paper under <code>/notebooks/imc23</code>.
+The cloned repository already contains the notebooks but since the code might
+change, the version fetched from figshare is identical to what used for the submission.</p>
+</li>
+<li>
+<p>The <a href="/papers/imc23/ml_artifacts/">ml-artifacts</a> under <code>/notebooks/imc23/campaigns</code>.</p>
+</li>
+<li>
+<p>The <a href="/papers/imc23/pytest/">pytest resources</a> for enabling unit tests.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Packages depencency version and <code>/imc23</code> branch</p>
+<p>When installing tcbench via pypi of from the main branch of the repository,
+only a few sensible packages have a pinned version.</p>
+<p>If you are trying to replicate the results of the paper, please
+refer to the <code>/imc23</code> branch which also contains a
+<code>requirements-imc23.txt</code> generated via <code>pip freeze</code> from 
+the environment used for collecting results. </p>
+<p>Based on our experience, the most probable cause of results inconsistency
+is due to package version. </p>
+</div>
 
 
 
