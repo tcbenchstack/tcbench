@@ -32,10 +32,10 @@ dependencies = [
     "rich-click",
     "scikit-learn",
     "statsmodels",
-    "torch",
+    "torch==2.0.1",
     "torchsummary",
-    "torchvision",
-    "xgboost"
+    "torchvision==0.15.2",
+    "xgboost==1.7.5"
 ]
 requires-python = ">=3.9"
 
