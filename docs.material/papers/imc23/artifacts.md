@@ -59,8 +59,11 @@ with the following process
     conda activate tcbench
     ```
 
-2. Clone the tcbench repo with the imc23 tag
+2. Clone the tcbench repo and use the `imc23` branch
     ```
+    git clone https://github.com/tcbenchstack/tcbench.git tcbench.git
+    cd tcbench.git
+    git checkout imc23
     ```
 
 3. Install tcbench
@@ -72,3 +75,27 @@ with the following process
     ```
     tcbench fetch-artifacts
     ```
+
+This will install locally
+
+* The [notebooks](/papers/imc23/notebooks/) for replicating tables and figures of the paper under `/notebooks/imc23`.
+The cloned repository already contains the notebooks but since the code might
+change, the version fetched from figshare is identical to what used for the submission.
+
+* The [ml-artifacts](/papers/imc23/ml_artifacts/) under `/notebooks/imc23/campaigns`.
+
+* The [pytest resources](/papers/imc23/pytest/) for enabling unit tests.
+
+
+!!! warning "Packages depencency version and `/imc23` branch"
+
+    When installing tcbench via pypi of from the main branch of the repository,
+    only a few sensible packages have a pinned version.
+
+    If you are trying to replicate the results of the paper, please
+    refer to the `/imc23` branch which also contains a
+    `requirements-imc23.txt` generated via `pip freeze` from 
+    the environment used for collecting results. 
+
+    Based on our experience, the most probable cause of results inconsistency
+    is due to package version. 
