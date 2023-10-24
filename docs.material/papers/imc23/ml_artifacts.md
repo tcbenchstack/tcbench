@@ -108,7 +108,7 @@ the different campaigns map to the results in the paper.
 |`mirage22/augmentation-at-loading-no-dropout/minpkts10`| Table 8<br>Figure 6,7 | [:octicons-terminal-24:](#mirage22augmentation-at-loading-no-dropoutminpkts10)|
 |`mirage22/augmentation-at-loading-no-dropout/minpkts1000`| Table 8<br>Figure 6,7 | [:octicons-terminal-24:](#mirage22augmentation-at-loading-no-dropoutminpkts1000)|
 |`utmobilenet21/augmentation-at-loading-no-dropout/minpkts10`| Table 8<br>Figure 6,7 | [:octicons-terminal-24:](#utmobilenet21augmentation-at-loading-no-dropoutminpkts10)|
-|`ucdavis-icdm19-git-repo-forked`| Table 9<br>Figure 10 |  [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19-git-repo-forked) |
+|`ucdavis-icdm19-git-repo-forked`| Table 9<br>Figure 10 |  [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19-git-repo-forked) |
 |`ucdavis-icdm19/augmentation-at-loading-dropout-impact`| Figure 11 | [:octicons-terminal-24:](#ucdavis-icdm19augmentation-at-loading-dropout-impact)|
 
 

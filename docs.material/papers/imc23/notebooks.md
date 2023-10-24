@@ -8,7 +8,7 @@ icon: simple/jupyter
 The tables and figures are created via a set of :simple-jupyter: Jupyter notebooks.
 
 The notebooks are stored on both [tcbench github](https://github.com/tcbenchstack/tcbench) as well as 
-the in the paper [:simple-figshare: figshare collection](https://figshare.com/account/collections/6849252).
+the in the paper [:simple-figshare: figshare collection](https://figshare.com/collections/IMC23_artifacts_-_Replication_Contrastive_Learning_and_Data_Augmentation_in_Traffic_Classification_Using_a_Flowpic_Input_Representation/6849252).
 
 The pages linked below show the rendered version of the notebooks.
 If you want to run the notebooks, make sure to
@@ -16,7 +16,7 @@ If you want to run the notebooks, make sure to
 1. Have installed (or imported) [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19/), [`mirage19`](/tcbench/datasets/install/mirage19/), [`mirage22`](/tcbench/datasets/install/mirage22), [`utmobilenet21`](/tcbench/datasets/install/utmobilenet21/). 
 Please check each dataset page for more details.
 
-2. Have installed the [ml_artifacts](/tcbench/tcbench/papers/imc23/artifacts/)
+2. Have installed the [ml_artifacts](/tcbench/papers/imc23/artifacts/)
 
 * To install modeling artifacts, grab `ml_artifacts.tgz` and unpack it under the 
 folder mentioned above. The tarball contains a `/campaigns` folder so the final
@@ -29,7 +29,7 @@ notebooks/
 └── tutorials
 ```
 
-* To install/import datasets refer to the [`install`](../../datasets/install) and [`import`](../../datasets/import) pages.
+* To install/import datasets refer to the [`install`](/tcbench/datasets/install) and [`import`](/tcbench/datasets/import) pages.
 
 ## Tables
 

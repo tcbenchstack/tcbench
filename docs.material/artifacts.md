@@ -24,7 +24,7 @@ this website will be published on github pages or similar solutions,
 and data artifacts will be on a public cloud storage solution.
 
 Yet, due to double-blind policy, we temporarily uploaded our artifacts to a
-:simple-figshare: [figshare repository](https://figshare.com/s/cab23f730cfbc5172f78).
+:simple-figshare: [figshare repository](https://figshare.com/collections/IMC23_artifacts_-_Replication_Contrastive_Learning_and_Data_Augmentation_in_Traffic_Classification_Using_a_Flowpic_Input_Representation/6849252).
 
 More specifically, on figshare you find the following tarball.
 

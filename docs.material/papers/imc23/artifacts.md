@@ -8,11 +8,11 @@ icon: material/hexagon-outline
 The paper is associated to the following types of artifacts:
 
 * __:octicons-stack-24: Data__: This includes 
-    * The datasets curation and splits for [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19), 
-    [`mirage19`](/datasets/install/mirage19), 
-    [`mirage22`](/datasets/install/mirage22) and 
-    [`utmobilenet21`](/datasets/install/utmobilenet21). Please refer to the 
-    [datasets webpage](/datasets/) and related pages for more details.
+    * The datasets curation and splits for [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19), 
+    [`mirage19`](/tcbench/datasets/install/mirage19), 
+    [`mirage22`](/tcbench/datasets/install/mirage22) and 
+    [`utmobilenet21`](/tcbench/datasets/install/utmobilenet21). Please refer to the 
+    [datasets webpage](/tcbench/datasets/) and related pages for more details.
     * All [:simple-docsdotrs: models and logs](/tcbench/papers/imc23/ml_artifacts/) generated through our modeling campaigns.
 
 * __:octicons-file-code-24: Code__: This includes 
