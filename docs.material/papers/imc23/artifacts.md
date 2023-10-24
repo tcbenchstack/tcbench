@@ -13,12 +13,12 @@ The paper is associated to the following types of artifacts:
     [`mirage22`](/datasets/install/mirage22) and 
     [`utmobilenet21`](/datasets/install/utmobilenet21). Please refer to the 
     [datasets webpage](/datasets/) and related pages for more details.
-    * All [:simple-docsdotrs: models and logs](/papers/imc23/ml_artifacts/) generated through our modeling campaigns.
+    * All [:simple-docsdotrs: models and logs](/tcbench/papers/imc23/ml_artifacts/) generated through our modeling campaigns.
 
 * __:octicons-file-code-24: Code__: This includes 
-    * A collection of [:simple-jupyter: Jupyter notebooks](/papers/imc23/notebooks) 
+    * A collection of [:simple-jupyter: Jupyter notebooks](/tcbench/papers/imc23/notebooks) 
     used for the tables and figures of the paper.
-    * A collection of data to support [:simple-pytest: pytest unittest](/papers/imc23/pytest) related to the 
+    * A collection of data to support [:simple-pytest: pytest unittest](/tcbench/papers/imc23/pytest) related to the 
     results collected for the paper.
 
 
@@ -33,9 +33,9 @@ with the following items:
 
 * `imc23_ml_artifacts.tgz`: Models and output logs generated via tcbench.
 
-* `imc23_notebooks.tgz`: A collection of [jupyter notebooks](/papers/imc23/notebooks) for recreating tables and figures from the paper.
+* `imc23_notebooks.tgz`: A collection of [jupyter notebooks](/tcbench/papers/imc23/notebooks) for recreating tables and figures from the paper.
 
-* `imc23_pytest_resources.tgz`: A collection of reference [resources for pytest](/papers/imc23/pytest) unit testing (to verify model training replicability).
+* `imc23_pytest_resources.tgz`: A collection of reference [resources for pytest](/tcbench/papers/imc23/pytest) unit testing (to verify model training replicability).
 
 * `ucdavis-icdm19-git-repo-forked.tgz`: A fork of the repository https://github.com/shrezaei/Semi-supervised-Learning-QUIC- to verify results of "How to Achieve High Classification Accuracy with Just a Few Labels: A Semi-supervised Approach Using Sampled Packets" https://doi.org/10.48550/arXiv.1812.09761
 
@@ -47,8 +47,8 @@ __make sure to refer to the latest version__ of an archive when downloading manu
 
 tcbench offers automated procedures to fetch the right content from figshare:
 
-* For datasets please refer to [datasets page](/datasets) page, 
-the specific page for each datasets and the [import command](/datasets/import).
+* For datasets please refer to [datasets page](/tcbench/datasets) page, 
+the specific page for each datasets and the [import command](/tcbench/datasets/import).
 
 * For the remaning, you can use the `fetch-artifacts` subcommand
 with the following process
@@ -78,13 +78,13 @@ with the following process
 
 This will install locally
 
-* The [notebooks](/papers/imc23/notebooks/) for replicating tables and figures of the paper under `/notebooks/imc23`.
+* The [notebooks](/tcbench/papers/imc23/notebooks/) for replicating tables and figures of the paper under `/notebooks/imc23`.
 The cloned repository already contains the notebooks but since the code might
 change, the version fetched from figshare is identical to what used for the submission.
 
-* The [ml-artifacts](/papers/imc23/ml_artifacts/) under `/notebooks/imc23/campaigns`.
+* The [ml-artifacts](/tcbench/papers/imc23/ml_artifacts/) under `/notebooks/imc23/campaigns`.
 
-* The [pytest resources](/papers/imc23/pytest/) for enabling unit tests.
+* The [pytest resources](/tcbench/papers/imc23/pytest/) for enabling unit tests.
 
 
 !!! warning "Packages depencency version and `/imc23` branch"

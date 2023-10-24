@@ -3,11 +3,11 @@
 This work investigates the role of data
 augmentation by using both supervised
 and contrastive learning techniques
-across [4 datasets](datasets/install), namely
-[`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19), 
-[`mirage19`](/datasets/install/mirage19), 
-[`mirage22`](/datasets/install/mirage22) and 
-[`utmobilenet21`](/datasets/install/utmobilenet21).
+across [4 datasets](/tcbench/datasets/install), namely
+[`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19), 
+[`mirage19`](/tcbench/datasets/install/mirage19), 
+[`mirage22`](/tcbench/datasets/install/mirage22) and 
+[`utmobilenet21`](/tcbench/datasets/install/utmobilenet21).
 
 === "Bibtex"
 	```
@@ -113,10 +113,10 @@ and expand the previous analysis to more datasets.
 
 1. We were able only to partially reproduce the results from the IMC22 paper.
    Specifically, we found a 20% accuracy gap with respect to the IMC22
-   paper which relates to a data shift in the [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19) dataset
+   paper which relates to a data shift in the [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19) dataset
    previously undetected in the reference paper.
 
-2. Simply using the [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19), and differently
+2. Simply using the [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19), and differently
    from the IMC22 paper, we do not find statistical significance differences across 
    the 6 augmentations under analysis.
 
@@ -125,9 +125,9 @@ and expand the previous analysis to more datasets.
    is beneficial to boost performance, i.e., augmentations are not perfect replacement for 
    real input samples.
        
-4. Using multiple datasets (namely [`mirage19`](/datasets/install/mirage19), 
-   [`mirage22`](/datasets/install/mirage22) and 
-   [`utmobilenet21`](/datasets/install/utmobilenet21) allowed to confirm 
+4. Using multiple datasets (namely [`mirage19`](/tcbench/datasets/install/mirage19), 
+   [`mirage22`](/tcbench/datasets/install/mirage22) and 
+   [`utmobilenet21`](/tcbench/datasets/install/utmobilenet21) allowed to confirm 
    *Change RTT* and *Time Shift* augmentations (used in the IMC22 paper) 
    as superior with respect to alternatives on a flowpic input representation.
    Yet, the augmentations are not statistically different from each other.

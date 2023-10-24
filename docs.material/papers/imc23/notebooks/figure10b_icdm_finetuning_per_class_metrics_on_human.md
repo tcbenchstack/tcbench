@@ -1,6 +1,6 @@
 # Figure 10(b): Classwise evaluation on human.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure10b_icdm_finetuning_per_class_metrics_on_human.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/figure10b_icdm_finetuning_per_class_metrics_on_human.ipynb)
 
 
 ```python

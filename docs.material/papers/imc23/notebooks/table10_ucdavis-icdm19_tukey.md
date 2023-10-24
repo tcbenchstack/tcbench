@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 10: Performance comparison across augmentations for different flowpic sizes.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table10_ucdavis-icdm19_tukey.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/table10_ucdavis-icdm19_tukey.ipynb)
 
 
 ```python

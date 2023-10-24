@@ -29,10 +29,10 @@ those locations is available only for some of the datasets.
 
 | Name | Auto download | 
 |:----:|:-------------:|
-|[`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19/)| :octicons-x-24: |
-|[`mirage19`](/datasets/install/mirage19/)| :material-check: |
-|[`mirage22`](/datasets/install/mirage22/)| :material-check: |
-|[`utmobilenet21`](/datasets/install/utmobilenet21/)| :octicons-x-24: |
+|[`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19/)| :octicons-x-24: |
+|[`mirage19`](/tcbench/datasets/install/mirage19/)| :material-check: |
+|[`mirage22`](/tcbench/datasets/install/mirage22/)| :material-check: |
+|[`utmobilenet21`](/tcbench/datasets/install/utmobilenet21/)| :octicons-x-24: |
 
 If auto download is not possible, to install the dataset
 you need to manually fetch the related archives, place them

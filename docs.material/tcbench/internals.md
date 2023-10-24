@@ -44,7 +44,7 @@ format
 
 For instance, for `ucdavis-icdm19` the two modules are
 `ucdavis_icdm19_csv_to_parquet` and `ucdavis_icdm19_generate_splits`.
-Please refer to [datasets install](/datasets/install) for more details
+Please refer to [datasets install](/tcbench/datasets/install) for more details
 about this pre-processing steps.
 
 These module pairs are designed to be also usable from the command line.
@@ -95,8 +95,8 @@ These modules in this group handle DL/ML model training.
 
 These modules are "glued" together into two sub-group utilities
 
-* `run_<XYZ>` are modules triggering [runs](/modeling/runs)
-* `run_campaign_<XYZ>` are modules tringgering [campaigns](/modeling/campaigns)
+* `run_<XYZ>` are modules triggering [runs](/tcbench/modeling/runs)
+* `run_campaign_<XYZ>` are modules tringgering [campaigns](/tcbench/modeling/campaigns)
 
 Both these module types work also as script and can be invoked on the command line.
 

@@ -11,10 +11,10 @@ a [general purpose tutorial](https://aimstack.readthedocs.io/en/latest/ui/overvi
 
 In this mini guide we limit to showcase a basic set 
 of operations to navigate the ML artifacts using
-some artifacts from our [IMC23](/papers/imc23) paper.
+some artifacts from our [IMC23](/tcbench/papers/imc23) paper.
 
 To replicate the following, make sure you [installed
-the needed artifacts]().
+the needed artifacts](/tcbench/papers/imc23/artifacts/#downloading-artifacts).
 
 ```
 aim up --repo notebooks/imc23/campaigns/ucdavis-icdm19/augmentation-at-loading-with-dropout/

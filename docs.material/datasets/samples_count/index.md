@@ -12,7 +12,7 @@ You can easily recover this using the `datasets samples-count` subcommand.
 
 For instance, 
 the following command computes the samples count for the *unfitered* 
-version of the [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19) dataset.
+version of the [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19) dataset.
 
 ```
 tcbench datasets samples-count --name ucdavis-icdm19

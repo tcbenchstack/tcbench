@@ -62,7 +62,7 @@ The example refers to the initial setup where no dataset is yet
 installed.
 
 However, when [unpacking artifacts with the 
-provided scripts](/artifacts/#unpack-artifacts), 
+provided scripts](/tcbench/artifacts/#unpack-artifacts), 
 the curated datasets are automatically installed
 
 ```
@@ -134,6 +134,6 @@ general stats (mean, std, percentiles)
 about number of packets
 for each flow across classes.
 
-Please check out the [datasets meta-data](/datasets/metadata) page for more details.
+Please check out the [datasets meta-data](/tcbench/datasets/metadata) page for more details.
 
 

@@ -1,6 +1,6 @@
 # Figure 8: Investigating root cause of G1 discrepancies: Kernel density estimation of the per-class packet size distributions.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure8_ucdavis_kde_on_pkts_size.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/figure8_ucdavis_kde_on_pkts_size.ipynb)
 
 
 ```python

@@ -95,7 +95,7 @@ nav:
             - papers/imc23/pytest.md
 
 
-#copyright: material under double blind submission
+copyright: Copyright tcbenchstack 2023
 
 extra_css:
 - css/style.css

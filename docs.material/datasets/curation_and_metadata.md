@@ -52,7 +52,7 @@ tcbench can easily show the meta-data
 related to the datasets.
 
 For instance, you can see the 
-[datasets summary table](/datasets/#table-datasets-properties)
+[datasets summary table](/tcbench/datasets/#table-datasets-properties)
 by running
 
 ```
@@ -173,7 +173,7 @@ In case of need, you can inspect the internal
 organization of a dataset using the 
 `datasets lsfiles` subcommand.
 
-For instance, for the [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19/) datasets
+For instance, for the [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19/) datasets
 ```
 tcbench datasets lsfiles --name ucdavis-icdm19
 ```
@@ -212,4 +212,4 @@ to the monolithic parquet obtained reformatting
 
 * the files under the `preprocessed/imc23` 
 corresponds to the curation operated to the
-dataset based on our [IMC23](/papers/imc23) paper.
+dataset based on our [IMC23](/tcbench/papers/imc23) paper.

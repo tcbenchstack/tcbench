@@ -9,7 +9,7 @@ Multiple tests are available to verify different functionalities
 for either tcbench and the modeling campaigns created.
 
 Tests are not bundled with pypi installation. Rather, you need
-to follow the procedure described in the [artifact page](/papers/imc23/artifacts/)
+to follow the procedure described in the [artifact page](/tcbench/papers/imc23/artifacts/)
 to fetch the source code and install all artifacts and datasets.
 
 Tests are coded via [`pytest` :simple-pytest:](https://docs.pytest.org/en/7.4.x/)

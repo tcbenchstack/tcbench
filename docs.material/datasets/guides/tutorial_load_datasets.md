@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Tutorial: loading datasets APIs
 
-[:simple-jupyter: :material-download:](/datasets/guides/tutorial_load_datasets.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/datasets/guides/tutorial_load_datasets.ipynb)
 
 Let's import `tcbench` and map its alias `tcb`
 

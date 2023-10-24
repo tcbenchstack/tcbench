@@ -1,7 +1,7 @@
 ## Submission campaigns commands
 
 We report below the command used to trigger the campaigns
-collected in the [ML artifacts](/modeling/exploring_artifacts/)
+collected in the [ML artifacts](/tcbench/modeling/exploring_artifacts/)
 
 #### `ucdavis-icdm19/xgboost/noaugmentation-flowpic`
 
@@ -389,7 +389,7 @@ done
 #### `ucdavis-icdm19-git-repo-forked`
 
 This campaign is different from all the others
-because is just [repeating]() the experiments
+because is just repeating the experiments
 of the following paper ICDM19.
 
 ```

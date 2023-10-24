@@ -17,7 +17,7 @@ multiprocessing/multicore architecture.
 * Further strength replicability (although
 the curation process of tcbench is deterministic).
 
-The [datasets summary table](/datasets/#table-datasets-properties) indicates that the
+The [datasets summary table](/tcbench/datasets/#table-datasets-properties) indicates that the
 not all datasets have the curated data already available.
 This is because some datasets (namely MIRAGE) has
 tighter licensing. For these datasets
@@ -61,7 +61,7 @@ tcbench datasets import --name ucdavis-icdm19
 Notice that `installed` is not set. Indeed
 the prepared curated datasets do NOT repack
 the original datasets, just the preprocessed ones 
-(see the [meta-data](datasets/metadata/#samples-count-reports) page).
+(see the [meta-data](/tcbench/datasets/metadata/#samples-count-reports) page).
 
 You can also import the curated data by downloading the individual
 archives from figshare and use the `--archive` option

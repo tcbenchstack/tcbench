@@ -168,7 +168,7 @@ the datasets are the following.
 |`app`|The final label encoded as a pandas `category`|
 |`row_id`|A unique row identifier|
 
-Please refer to the [datasets schema](/datasets/metadata/#schemas) page for more details.
+Please refer to the [datasets schema](/tcbench/datasets/metadata/#schemas) page for more details.
 
 ## Splits
 

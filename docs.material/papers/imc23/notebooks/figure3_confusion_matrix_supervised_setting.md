@@ -1,6 +1,6 @@
 # Figure 3 : Average confusion matrixes for the 32x32 resolution across all experiments in Table 4
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure3_confusion_matrix_supervised_setting.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/figure3_confusion_matrix_supervised_setting.ipynb)
 
 
 ```python

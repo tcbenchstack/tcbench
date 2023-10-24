@@ -5,7 +5,7 @@ title: Schemas
 
 # Datasets schemas
 
-Despite the [curation](), datasets can have intrinsically
+Despite the [curation](/tcbench/datasets/curation_and_metadata/), datasets can have intrinsically
 different schemas.
 
 You can investigate those on the command line via

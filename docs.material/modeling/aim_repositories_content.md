@@ -1,4 +1,4 @@
-Exploring AIM repositories via the [web UI](/modeling/exploring_artifacts/#aim-web-ui)
+Exploring AIM repositories via the [web UI](/tcbench/modeling/exploring_artifacts/#aim-web-ui)
 or [run artifacts](#run-artifacts) are great ways as long as
 a precise target is already defined.
 
@@ -28,7 +28,7 @@ tcbench aimrepo --help
 
 In the following we illustrate each
 sub-command using the 
-[`ucdavis-icdm19/augmentation-at-loading-with-dropout`]()
+[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/tcbench/papers/imc23/ml_artifacts/#ucdavis-icdm19augmentation-at-loading-with-dropout)
 repository
 
 

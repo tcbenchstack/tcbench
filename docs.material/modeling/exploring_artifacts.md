@@ -1,6 +1,6 @@
 The ML artifacts provided with the submission 
 (`ml_artifacts.tgz` on [:simple-figshare: figshare](https://figshare.com/s/cab23f730cfbc5172f78))
-corresponds to data gathered by the [modeling campaigns created for the submission](/modeling/campaigns).
+corresponds to data gathered by the [modeling campaigns created for the submission](/tcbench/modeling/campaigns).
 
 You can explore/investigate ML artifacts in three ways
 
@@ -10,8 +10,8 @@ You can explore/investigate ML artifacts in three ways
 
 ## ML artifacts overview
 
-First of all, make sure to [install `tcbench`](/quick_intro)
-and [unpack the ML artifacts](/paper_tables_and_figures/reference).
+First of all, make sure to [install `tcbench`](/tcbench/quick_intro)
+and [unpack the ML artifacts](/tcbench/paper_tables_and_figures/reference).
 
 You can verify that everything is ok by running two checks.
 
@@ -136,22 +136,22 @@ the different campaigns map to the results of the submission.
 
 | Subfolder | Submission reference | CLI trigger |
 |:----------|:--------------------:|:-----------------:|
-|`ucdavis-icdm19/xgboost/noaugmentation-flowpic`| Table 2 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-flowpic) |
-|`ucdavis-icdm19/xgboost/noaugmentation-timeseries`| Table 2 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-timeseries) |
-|`ucdavis-icdm19/augmentation-at-loading-with-dropout`| Table 3,9; Figure 1,3,9 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout) |
-|`ucdavis-icdm19/simclr-dropout-and-projection`| Table 4 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-dropout-and-projection)|
-|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt)|
-|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss) |
-|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate) |
-|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt)|
-|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss`| Table 5 | [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss)|
-|`ucdavis-icdm19/larger-trainset/augmentation-at-loading`| Table 6 | [:octicons-terminal-24:](modeling/campaigns/#ucdavis-icdm19larger-trainsetaugmentation-at-loading)|
-|`mirage19/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage19augmentation-at-loading-no-dropoutminpkts10)|
-|`mirage22/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts10)|
-|`mirage22/augmentation-at-loading-no-dropout/minpkts1000`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts1000)|
-|`utmobilenet21/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/modeling/campaigns/#utmobilenet21augmentation-at-loading-no-dropoutminpkts10)|
-|`ucdavis-icdm19-git-repo-forked`| Table 8; Figure 8 |  [:octicons-terminal-24:](/modeling/campaigns/#ucdavis-icdm19-git-repo-forked) |
-|`ucdavis-icdm19/augmentation-at-loading-suppress-dropout`| Figure 9 | [:octicons-terminal-24:](http://10.206.215.209:10812/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-suppress-dropout)|
+|`ucdavis-icdm19/xgboost/noaugmentation-flowpic`| Table 2 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-flowpic) |
+|`ucdavis-icdm19/xgboost/noaugmentation-timeseries`| Table 2 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19xgboostnoaugmentation-timeseries) |
+|`ucdavis-icdm19/augmentation-at-loading-with-dropout`| Table 3,9; Figure 1,3,9 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout) |
+|`ucdavis-icdm19/simclr-dropout-and-projection`| Table 4 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-dropout-and-projection)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-changertt`| Table 5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-changertt)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-packetloss`| Table 5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-packetloss) |
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/colorjitter-rotate`| Table 5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairscolorjitter-rotate) |
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-changertt`| Table 5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-changertt)|
+|`ucdavis-icdm19/simclr-other-augmentation-pairs/rotate-packetloss`| Table 5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19simclr-other-augmentation-pairsrotate-packetloss)|
+|`ucdavis-icdm19/larger-trainset/augmentation-at-loading`| Table 6 | [:octicons-terminal-24:](/tcbenchmodeling/campaigns/#ucdavis-icdm19larger-trainsetaugmentation-at-loading)|
+|`mirage19/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#mirage19augmentation-at-loading-no-dropoutminpkts10)|
+|`mirage22/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts10)|
+|`mirage22/augmentation-at-loading-no-dropout/minpkts1000`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#mirage22augmentation-at-loading-no-dropoutminpkts1000)|
+|`utmobilenet21/augmentation-at-loading-no-dropout/minpkts10`| Table 7; Figure 4,5 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#utmobilenet21augmentation-at-loading-no-dropoutminpkts10)|
+|`ucdavis-icdm19-git-repo-forked`| Table 8; Figure 8 |  [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19-git-repo-forked) |
+|`ucdavis-icdm19/augmentation-at-loading-suppress-dropout`| Figure 9 | [:octicons-terminal-24:](/tcbench/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-suppress-dropout)|
 
 ## :material-monitor-dashboard: AIM Web UI
 
@@ -336,7 +336,7 @@ tcbench aimrepo --help
 
 In the following we illustrate each
 sub-command using the 
-[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout)
+[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/tcbench/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout)
 repository
 
 

@@ -161,7 +161,7 @@ The following table describes the schema of the curated datasets.
 The 3 partition created by *Rezaei et al.* needs to be complemented
 with actual folds before being able to train models.
 
-The splits generated for this datasets relate to our [IMC23](/papers/imc23) paper.
+The splits generated for this datasets relate to our [IMC23](/tcbench/papers/imc23) paper.
 
 Specifically:
 

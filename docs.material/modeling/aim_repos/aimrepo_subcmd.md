@@ -31,8 +31,8 @@ tcbench aimrepo --help
 
 In the following we illustrate each
 sub-command using the 
-[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout)
-repository from our [IMC23 paper](/papers/imc23).
+[`ucdavis-icdm19/augmentation-at-loading-with-dropout`](/tcbench/modeling/campaigns/#ucdavis-icdm19augmentation-at-loading-with-dropout)
+repository from our [IMC23 paper](/tcbench/papers/imc23).
 
 
 ## Listing runs hash

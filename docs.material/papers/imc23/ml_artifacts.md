@@ -84,11 +84,11 @@ a collection of 13 modeling campaigns.
 Each subfolder relates to a different campaign
 with some semantic encoded in the folder names themselves.
 
-* Subfolders containing an `.aim/` folder are [AIM repositories](/modeling/aim_repos/).
+* Subfolders containing an `.aim/` folder are [AIM repositories](/tcbench/modeling/aim_repos/).
 
-* Subfolders named `artifacts/` collect each [run artifacts](/modeling/aim_repos/).
+* Subfolders named `artifacts/` collect each [run artifacts](/tcbench/modeling/aim_repos/).
 
-* Subfolders named `campaign_summary/` contains [reports summarizing a campaign](/modeling/aim_repos/aimrepo_subcmd/#summary-reports).
+* Subfolders named `campaign_summary/` contains [reports summarizing a campaign](/tcbench/modeling/aim_repos/aimrepo_subcmd/#summary-reports).
 
 The following reference table details how
 the different campaigns map to the results in the paper.
@@ -593,7 +593,7 @@ tcbench aimrepo report \
 This campaign differ from all the others as it 
 repeats the experiments of 
 [*Rezaei et al.* ICDM19 paper](https://arxiv.org/abs/1812.09761).
-using our version of the [`ucdavis-icdm19`](/datasets/install/ucdavis-icdm19) datasets
+using our version of the [`ucdavis-icdm19`](/tcbench/datasets/install/ucdavis-icdm19) datasets
 to validate that our preprocessing does not alter the dataset itself.
 
 To do so, we did minor modification (stored in this

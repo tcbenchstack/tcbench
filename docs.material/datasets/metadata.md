@@ -17,7 +17,7 @@ of the number of samples.
 
 The static information corresponds
 to the information displayed in the 
-[datasets properties](/datasets/install/#table-datasets-properties)
+[datasets properties](/tcbench/datasets/install/#table-datasets-properties)
 shown in the installation page.
 
 To show it in the console run
@@ -192,11 +192,11 @@ in the raw dataset.
 
 * For all other datasets, the files `xyz_minpkts<N>.parquet`
 contains a filtered version of the monolithic data
-(see [install page](/datasets/install) for more details on the filtering)
+(see [install page](/tcbench/datasets/install) for more details on the filtering)
 and the related `xyz_minpkts<N>_split.parquet` contains
 the index of the rows to use for train/val/test splits.
 
-The [tutorial about load and explore data]() offers more
+The [tutorial about load and explore data](/tcbench/datasets/guides/tutorial_load_datasets/) offers more
 details about how to handle those differences.
 
 ### :material-table: Schemas

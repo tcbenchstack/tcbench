@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 2 : Datasets properties
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table2_datasets_properties.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/table2_datasets_properties.ipynb)
 
 
 ```python

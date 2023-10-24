@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Figure 7: Average rank obtained per augmentation and dataset.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure7_augmentations_comparison_across_datasets_average_rank.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/figure7_augmentations_comparison_across_datasets_average_rank.ipynb)
 
 
 ```python

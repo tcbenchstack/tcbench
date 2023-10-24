@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 4: Comparing data augmentation functions applied in supervised training.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table4_ucdavis-icdm19_comparing_data_augmentations_functions.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/table4_ucdavis-icdm19_comparing_data_augmentations_functions.ipynb)
 
 
 ```python

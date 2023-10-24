@@ -788,7 +788,7 @@ tcbench run contralearn-and-finetune \
 ## Limitations
 
 Currently tcbench supports only the modeling functionalities
-related to our [__IMC23 paper__](papers/imc23) and the 
+related to our [__IMC23 paper__](/tcbench/papers/imc23) and the 
 parametrization of those runs is strictly limited to 
 what was required for the purpose of the paper.
 

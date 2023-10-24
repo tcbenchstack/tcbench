@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Table 9: Macro-average Accuracy with different retraining dataset and different sampling methods
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/table9_icdm_finetuning_per_class_metrics_on_human.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/table9_icdm_finetuning_per_class_metrics_on_human.ipynb)
 
 
 ```python

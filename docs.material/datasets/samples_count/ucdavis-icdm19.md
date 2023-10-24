@@ -4,7 +4,7 @@ Below we report the samples count for each version of the dataset.
 
 !!! tip "Semantic of the splits"
 
-    The split available for this datasets relate to our [:material-file-document-outline: IMC23 paper](/papers/imc23).
+    The split available for this datasets relate to our [:material-file-document-outline: IMC23 paper](/tcbench/papers/imc23).
 
 ### unfiltered
 

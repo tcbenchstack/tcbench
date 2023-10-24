@@ -52,7 +52,7 @@ The authors of the dataset (*Guarino et. al*) describe it as follows
     }
     ```
 
-As suggested by the name, the dataset is from the same research group of [`mirage19`](/datasets/install/mirage19) 
+As suggested by the name, the dataset is from the same research group of [`mirage19`](/tcbench/datasets/install/mirage19) 
 so the two datasets share many properties.
 
 The major difference is the target of applications as
@@ -91,7 +91,7 @@ data but unfortunately is undocumented.
 ## Curation & splits
 
 We follow the same processes described for
-[`mirage19` curation](/datasets/install/mirage19/#curation), i.e.,
+[`mirage19` curation](/tcbench/datasets/install/mirage19/#curation), i.e.,
 consolidation and flattening of the JSON files, removal of the 
 background, etc.
 
@@ -101,7 +101,7 @@ version imposing a minimum of 1,000 packets per flow.
 
 Once the parquet files are generate we create 80/10/10
 train/validation/test splits with the same process 
-described for the [`mirage19` splits](/datasets/install/mirage19/#splits).
+described for the [`mirage19` splits](/tcbench/datasets/install/mirage19/#splits).
 
 ## Install
 

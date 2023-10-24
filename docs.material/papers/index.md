@@ -1,10 +1,10 @@
 # Research articles featuring tcbench
 
-[__Replication: Contrastive Learning and Data Augmentation in Traffic Classification__](/papers/imc23)
+[__Replication: Contrastive Learning and Data Augmentation in Traffic Classification__](/tcbench/papers/imc23)
 <br>
 *A. Finamore, C. Wang, J. Krolikowki, J. M. Navarro, F. Cheng, D. Rossi*, 
 <br> ACM Internet Measurement Conference (IMC), 2023
-<br> [:material-hexagon-outline: __Artifacts__](/papers/imc23/artifacts) [:fontawesome-regular-file-pdf: __PDF__](https://arxiv.org/pdf/2309.09733)
+<br> [:material-hexagon-outline: __Artifacts__](/tcbench/papers/imc23/artifacts) [:fontawesome-regular-file-pdf: __PDF__](https://arxiv.org/pdf/2309.09733)
 
 === "Bibtex"
     ```

@@ -273,7 +273,7 @@ especially if individual runs are not very computational intensive.
 
 At this stage tcbench does not offer a mechanisms to distribute
 jobs across multiple servers. However, you can launch separate
-campaigns and then merge their output using the [`aimrepo merge`](/modeling/aim_repos/aimrepo_subcmd/#merge-repositories) subcommand.
+campaigns and then merge their output using the [`aimrepo merge`](/tcbench/modeling/aim_repos/aimrepo_subcmd/#merge-repositories) subcommand.
 
 !!! tip "AIM remote server"
 

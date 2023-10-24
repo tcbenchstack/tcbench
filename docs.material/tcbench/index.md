@@ -40,7 +40,7 @@ At the current stage, tcbench offers
 
 * Integration with 4 datasets, namely `ucdavis-icdm19`, `mirage19`, `mirage22` and `utmobilenet21`.
 You can use these datasets and their curated version independently from tcbench.
-Check out the [dataset install]() process and [dataset loading tutorial]().
+Check out the [dataset install](/tcbench/datasets/install/) process and [dataset loading tutorial](/tcbench/datasets/guides/tutorial_load_datasets/).
 
 * Good support for flowpic input representation and minimal support
 for 1d time series (based on network packets properties) input representation.

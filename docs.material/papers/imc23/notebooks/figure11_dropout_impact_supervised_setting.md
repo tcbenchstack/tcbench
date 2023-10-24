@@ -22,7 +22,7 @@ pre.outputcode {
 </style>
 # Figure 11: Accuracy difference w/ and w/o Dropout in supervised learning.
 
-[:simple-jupyter: :material-download:](/papers/imc23/notebooks/figure11_dropout_impact_supervised_setting.ipynb)
+[:simple-jupyter: :material-download:](/tcbench/papers/imc23/notebooks/figure11_dropout_impact_supervised_setting.ipynb)
 
 
 ```python
