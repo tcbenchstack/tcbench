@@ -49,7 +49,7 @@ for 1d time series (based on network packets properties) input representation.
 
 * Modeling via XGBoost, vanilla DL supervision and contrastive learning (via SimCLR or SupCon).
 
-Most of the above functionalities described relate to our __:material-file-document-outline: [IMC23 paper](/papers/imc23/)__.
+Most of the above functionalities described relate to our __:material-file-document-outline: [IMC23 paper](/tcbench/papers/imc23/)__.
 
 More exiting features including more datasets and algorithms will come in the next months. 
 

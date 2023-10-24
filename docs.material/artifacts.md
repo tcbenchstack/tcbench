@@ -4,7 +4,7 @@ The submission is associated to three types of artifacts
 of documentation. It collects
     * Documentation about [datasets :simple-artifacthub:](../datasets/install).
     * Documentation about our modeling framework called :material-link-off:[`tcbench`]().
-    * Guides on how to [run experiments :fontawesome-solid-flask:](/modeling/campaigns/) via `tcbench`.
+    * Guides on how to [run experiments :fontawesome-solid-flask:](/tcbench/modeling/campaigns/) via `tcbench`.
 
 * __:octicons-file-code-24: Code__: This includes 
     * All source code related to :material-link-off:[`tcbench` :material-language-python:]().
@@ -13,7 +13,7 @@ of documentation. It collects
 
 * __:octicons-stack-24: Data__: This includes 
     * The [datasets install, curation and split generation :material-rhombus-split-outline:](../datasets/install) used in our modeling
-    * All [models and logs :material-file-multiple-outline:](/modeling/exploring_artifacts/) generated through our modeling campaigns.
+    * All [models and logs :material-file-multiple-outline:](/tcbench/modeling/exploring_artifacts/) generated through our modeling campaigns.
 
 ## :simple-figshare: Figshare material
 
@@ -39,7 +39,7 @@ you already know the tarball contains this website :octicons-smiley-24:.
 Please see the datasets pages in this website.
 
 * `ml_artifacts.tgz`: All output data generated via modeling campaigns.
-For fine grained view, those can be explored via [AIM web UI](/modeling/exploring_artifacts/#aim-web-ui) 
+For fine grained view, those can be explored via [AIM web UI](/tcbench/modeling/exploring_artifacts/#aim-web-ui) 
 while results are generated via [:simple-jupyter: Jupyter notebooks](../paper_tables_and_figures/reference/).
 
 ## :material-package-variant: Unpack artifacts

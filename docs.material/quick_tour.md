@@ -10,7 +10,7 @@ which is designed to cover two functionalities
 ## :material-language-python: Install `tcbench`
 
 !!! note "If you unpacked the artifacts..."
-    When [unpacking the artifacts](/artifacts/#unpack-artifacts), `tcbench` has been already installed
+    When [unpacking the artifacts](/tcbench/artifacts/#unpack-artifacts), `tcbench` has been already installed
 
 First prepare a python virtual environment, for example via :simple-anaconda: conda
 ```
