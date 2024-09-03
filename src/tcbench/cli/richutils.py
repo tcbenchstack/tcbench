@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pandas as pd
+import rich.progress as richprogress
 
 from rich.table import Table
 from rich.panel import Panel
@@ -112,3 +113,45 @@ def rich_label(text:str, extra_new_line:bool=False) -> None:
     if extra_new_line:
         console.print()
     console.print(Panel(text, box=box.ROUNDED, expand=False, padding=0))
+
+class SpinnerProgress(richprogress.Progress):
+    def __init__(self, description: str = ""):
+        super().__init__(
+            richprogress.SpinnerColumn(),
+            richprogress.TimeElapsedColumn(),
+            richprogress.TextColumn("[progress.description]{task.description}"),
+            transient=True,
+            console=console,
+        )
+        self.add_task(description=description)
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.stop()
+
+class FileDownloadProgress(richprogress.Progress):
+    def __init__(self, totalbytes: int): 
+        super().__init__(
+            richprogress.TextColumn("[progress.description]{task.description}"),
+            richprogress.BarColumn(),
+            richprogress.FileSizeColumn(),
+            richprogress.TextColumn("/"),
+            richprogress.TotalFileSizeColumn(),
+            richprogress.TextColumn("eta"),
+            richprogress.TimeRemainingColumn(),
+            console=console,
+        )
+        self.task_id = self.add_task("Downloading...", total=totalbytes)
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.stop()
+
+    def update(self, *args, **kwargs):
+        super().advance(self.task_id, *args, **kwargs)
