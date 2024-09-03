@@ -35,7 +35,8 @@ dependencies = [
     "torch==2.0.1",
     "torchsummary",
     "torchvision==0.15.2",
-    "xgboost==1.7.5"
+    "xgboost==1.7.5",
+    "polars"
 ]
 requires-python = ">=3.9"
 
