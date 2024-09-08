@@ -2,27 +2,28 @@ from __future__ import annotations
 import rich.progress as richprogress
 import polars as pl
 
-#from rich.tree import Tree
-#from rich.table import Table
-#import rich.box
+# from rich.tree import Tree
+# from rich.table import Table
+# import rich.box
 from typing import Dict, Any
 from collections import UserDict
 
-#import yaml
-#import sys
+# import yaml
+# import sys
 import abc
 import pathlib
 import dataclasses
-#import rich
-#import zipfile
-#import tempfile
-#import requests
-#import tarfile
-#import enum
-#import hashlib
 
-#from tcbench.cli import get_rich_console
-#from tcbench.cli.richutils import rich_label, rich_samples_count_report
+# import rich
+# import zipfile
+# import tempfile
+# import requests
+# import tarfile
+# import enum
+# import hashlib
+
+# from tcbench.cli import get_rich_console
+# from tcbench.cli.richutils import rich_label, rich_samples_count_report
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
     DATASETS_DEFAULT_INSTALL_ROOT_FOLDER,
@@ -31,18 +32,21 @@ from tcbench.libtcdatasets.constants import (
 from tcbench.libtcdatasets import fileutils
 from tcbench import _tcbenchrc
 
-#console = get_rich_console()
+# console = get_rich_console()
+
 
 def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
     """Returns the path where a specific datasets in installed"""
     return DATASETS_DEFAULT_INSTALL_ROOT_FOLDER / str(dataset_name)
 
-#def load_datasets_resources_yaml():
+
+# def load_datasets_resources_yaml():
 #    return fileutils.load_yaml(DATASETS_RESOURCES_YAML_FNAME)
 
 
-#def load_datasets_files_md5_yaml():
+# def load_datasets_files_md5_yaml():
 #    return load_yaml(get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
+
 
 @dataclasses.dataclass
 class DatasetMetadata:
@@ -54,10 +58,13 @@ class DatasetMetadata:
     curated_data_url: str = None
     curated_data_md5: str = None
 
+
 class DatasetMetadataCatalog(UserDict):
     def __init__(self):
         super().__init__()
-        for dataset_name, dataset_metadata in fileutils.load_yaml(DATASETS_RESOURCES_METADATA_FNAME).items():
+        for dataset_name, dataset_metadata in fileutils.load_yaml(
+            DATASETS_RESOURCES_METADATA_FNAME
+        ).items():
             self.data[dataset_name] = DatasetMetadata(**dataset_metadata)
 
     def __getitem__(self, key: Any) -> DatasetMetadata:
@@ -75,8 +82,9 @@ class DatasetMetadataCatalog(UserDict):
 
 
 class RawDatasetInstaller:
-    def __init__(self, 
-        url: str, 
+    def __init__(
+        self,
+        url: str,
         install_folder: pathlib.Path = None,
         verify_tls: bool = True,
         force_reinstall: bool = False,
@@ -98,7 +106,7 @@ class RawDatasetInstaller:
 
     def download(self) -> pathlib.Path:
         return fileutils.download_url(
-            self.url, 
+            self.url,
             self.install_folder / "download",
             self.verify_tls,
             self.force_reinstall,
@@ -117,7 +125,7 @@ class RawDatasetInstaller:
         if self.force_reinstall or not dst.exists() or len(list(dst.iterdir())) == 0:
             return func_unpack(src=path, dst=dst)
         return dst
-        
+
 
 class RawDataset:
     def __init__(self, name: DATASET_NAME):
@@ -154,23 +162,22 @@ class RawDataset:
             url=self.metadata.raw_data_url,
             install_folder=self.install_folder,
             verify_tls=True,
-            force_reinstall=True
+            force_reinstall=True,
         )
         return self.install_folder
 
     def preprocess(self) -> None:
         pass
-        
+
     def curate(self) -> None:
         pass
-        
+
     @abc.abstractmethod
     def load(self, *args, **kwargs) -> pl.DataFrame:
         pass
 
 
-
-#def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):
+# def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):
 #    # moved here to speedup loading
 #    from tcbench.libtcdatasets import ucdavis_icdm19_csv_to_parquet
 #    from tcbench.libtcdatasets import ucdavis_icdm19_generate_splits
@@ -214,12 +221,12 @@ class RawDataset:
 #    verify_dataset_md5s(DATASETS.UCDAVISICDM19)
 #
 #
-#def install_utmobilenet21(input_folder, num_workers=50):
+# def install_utmobilenet21(input_folder, num_workers=50):
 #    # moved here to speed up loading
 #    from tcbench.libtcdatasets import utmobilenet21_csv_to_parquet
 #    from tcbench.libtcdatasets import utmobilenet21_generate_splits
 #
-#    # enforcing this to 50, attempting to replicate the 
+#    # enforcing this to 50, attempting to replicate the
 #    # original setting used to create the artifact
 #    num_workers=50
 #
@@ -259,7 +266,7 @@ class RawDataset:
 #    #verify_dataset_md5s(DATASETS.UTMOBILENET21)
 #
 #
-#def install_mirage22(input_folder=None, num_workers=30):
+# def install_mirage22(input_folder=None, num_workers=30):
 #    # moved here to speed up loading
 #    from tcbench.libtcdatasets import mirage22_json_to_parquet
 #    from tcbench.libtcdatasets import mirage22_generate_splits
@@ -313,7 +320,7 @@ class RawDataset:
 #    verify_dataset_md5s(DATASETS.MIRAGE22)
 #
 #
-#def install_mirage19(input_folder=None, num_workers=30):
+# def install_mirage19(input_folder=None, num_workers=30):
 #    from tcbench.libtcdatasets import mirage19_json_to_parquet
 #    from tcbench.libtcdatasets import mirage19_generate_splits
 #
@@ -353,7 +360,7 @@ class RawDataset:
 #    verify_dataset_md5s(DATASETS.MIRAGE19)
 #
 #
-#def install(dataset_name, *args, **kwargs):
+# def install(dataset_name, *args, **kwargs):
 #    dataset_name = str(dataset_name).replace("-", "_")
 #    curr_module = sys.modules[__name__]
 #    func_name = f"install_{dataset_name}"
@@ -361,9 +368,9 @@ class RawDataset:
 #    return func(*args, **kwargs)
 #
 #
-#def get_dataset_parquet_filename(
+# def get_dataset_parquet_filename(
 #    dataset_name: str | DATASETS, min_pkts: int = -1, split: str = None, animation=False
-#) -> pathlib.Path:
+# ) -> pathlib.Path:
 #    """Returns the path of a dataset parquet file
 #
 #    Arguments:
@@ -433,13 +440,13 @@ class RawDataset:
 #    return path
 #
 #
-#def load_parquet(
+# def load_parquet(
 #    dataset_name: str | DATASETS,
 #    min_pkts: int = -1,
 #    split: str = None,
 #    columns: List[str] = None,
 #    animation: bool = False,
-#) -> pd.DataFrame:
+# ) -> pd.DataFrame:
 #    """Load and returns a dataset parquet file
 #
 #    Arguments:
@@ -469,7 +476,7 @@ class RawDataset:
 #    return pd.read_parquet(path, columns=columns)
 #
 #
-#def get_split_indexes(dataset_name, min_pkts=-1):
+# def get_split_indexes(dataset_name, min_pkts=-1):
 #    dataset_path = get_dataset_folder(dataset_name) / "preprocessed" / "imc23"
 #    if str(dataset_name) == str(DATASETS.UCDAVISICDM19):  #'ucdavis-icdm19':
 #        # automatically detect all split indexes
@@ -502,7 +509,7 @@ class RawDataset:
 #
 #    return split_indexes
 #
-#def import_dataset(dataset_name, path_archive):
+# def import_dataset(dataset_name, path_archive):
 #    data = load_datasets_yaml()
 #    folder_datasets = _get_module_folder() #/ FOLDER_DATASETS
 #
@@ -526,7 +533,7 @@ class RawDataset:
 #            assert md5 == expected_md5, f"MD5 check error: found {md5} while should be {expected_md5}"
 #        untar(path_archive, folder_datasets)
 #
-#def verify_dataset_md5s(dataset_name):
+# def verify_dataset_md5s(dataset_name):
 #
 #    def flatten_dict(data):
 #        res = []
@@ -573,4 +580,4 @@ class RawDataset:
 #            console.print(f"found_md5: {found_md5}")
 #    else:
 #        console.print("All MD5 are correct!")
-#    
+#

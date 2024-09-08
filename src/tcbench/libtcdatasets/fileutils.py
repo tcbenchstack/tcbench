@@ -13,7 +13,7 @@ import requests
 import os
 import shutil
 
-#import tcbench.cli
+# import tcbench.cli
 from tcbench.libtcdatasets.constants import *
 from tcbench.cli import richutils
 
@@ -29,7 +29,8 @@ def load_yaml(fname: pathlib.Path) -> Dict[Any, Any]:
     """
     with open(fname) as fin:
         return yaml.safe_load(fin)
- 
+
+
 def save_yaml(data: Any, save_as: pathlib.Path) -> None:
     save_as = pathlib.Path(save_as)
     if not save_as.parent.exists():
@@ -49,8 +50,9 @@ def load_config(fname: pathlib.Path) -> Dict:
     """
     return load_yaml(fname)
 
+
 def get_md5(path: pathlib.Path) -> str:
-    h = hashlib.new('md5')
+    h = hashlib.new("md5")
     with open(str(path), "rb") as fin:
         h.update(fin.read())
     return h.hexdigest()
@@ -62,9 +64,7 @@ def get_module_folder():
     return folder
 
 
-
-
-#def get_rich_tree_datasets_properties(dataset_name=None):
+# def get_rich_tree_datasets_properties(dataset_name=None):
 #    data = load_datasets_yaml()
 #    folder_datasets = get_module_folder() / FOLDER_DATASETS
 #
@@ -123,7 +123,7 @@ def get_module_folder():
 #    return tree
 
 
-#def get_rich_tree_parquet_files(dataset_name=None):
+# def get_rich_tree_parquet_files(dataset_name=None):
 #    data = load_datasets_yaml()
 #    folder_datasets = get_module_folder() / FOLDER_DATASETS
 #
@@ -139,7 +139,7 @@ def get_module_folder():
 #
 #        preprocessed = Tree(":file_folder: preprocessed/")
 #        preprocessed.add(f"{curr_dataset_name}.parquet")
-#        
+#
 #        path = folder_datasets / curr_dataset_name / "preprocessed" / "LICENSE"
 #        if path.exists():
 #            preprocessed.add("LICENSE")
@@ -154,7 +154,7 @@ def get_module_folder():
 #    return tree
 
 
-#def get_rich_dataset_schema(dataset_name, schema_type):
+# def get_rich_dataset_schema(dataset_name, schema_type):
 #    folder = get_dataset_resources_folder()
 #    path = folder / f"{dataset_name}.yml"
 #    data = load_yaml(path)
@@ -172,20 +172,25 @@ def get_module_folder():
 #    return table
 
 
-def download_url(url: str, save_to: pathlib.Path, verify_tls:bool=True, force_redownload: bool = False) -> pathlib.Path:
+def download_url(
+    url: str,
+    save_to: pathlib.Path,
+    verify_tls: bool = True,
+    force_redownload: bool = False,
+) -> pathlib.Path:
     """Download content via URL.
 
     Args:
         url: the object URL.
-        save_to: the destination folder. 
+        save_to: the destination folder.
         verify_tls: if False, skip TLS verification when downloading.
-        force_redownload: if False, return with no action if the destination folder 
+        force_redownload: if False, return with no action if the destination folder
             already contains a file with the expected name
 
     Returns:
         the path of the downloaded file
     """
-    #from tcbench.cli import get_rich_console
+    # from tcbench.cli import get_rich_console
     save_to = pathlib.Path(save_to)
 
     fname = pathlib.Path(url).name
@@ -238,10 +243,7 @@ def unzip(src: str | pathlib.Path, dst: str | pathlib.Path = None) -> pathlib.Pa
         shutil.rmtree(dst, ignore_errors=True)
     dst.mkdir(parents=True)
 
-    with (
-        richutils.SpinnerProgress(f"Unpacking..."),
-        zipfile.ZipFile(src) as fzipped
-    ):
+    with richutils.SpinnerProgress(f"Unpacking..."), zipfile.ZipFile(src) as fzipped:
         fzipped.extractall(dst)
     return dst
 
@@ -267,11 +269,6 @@ def untar(src: pathlib.Path, dst: pathlib.Path = None) -> pathlib.Path:
         shutil.rmtree(dst, ignore_errors=True)
     dst.mkdir(parents=True)
 
-    with (
-        richutils.SpinnerProgress(f"Unpacking..."),
-        tarfile.open(src, "r:gz") as ftar
-    ):
+    with richutils.SpinnerProgress(f"Unpacking..."), tarfile.open(src, "r:gz") as ftar:
         ftar.extractall(dst)
     return dst
-
-

@@ -51,6 +51,7 @@ def main(args: argparse.Namespace) -> None:
 def cli_parser():
     return mirage19_json_to_parquet.cli_parser()
 
+
 if __name__ == "__main__":
     args = cli_parser().parse_args()
     main(args)

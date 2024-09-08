@@ -56,11 +56,14 @@ def create_connection_id(ser: pd.Series) -> str:
     conn_id = f"{src_ip}_{src_port}_{dst_ip}_{dst_port}_{proto}"
     return conn_id
 
+
 INVALID_IPS = {
     "127.0.0.1",
     "0.0.0.0",
     "255.255.255.255",
 }
+
+
 def worker(fname: str, tmp_folder: str) -> None:
     """Helper function responsible for processing a
     utmobilenet21 CSV and save it into a temporary folder

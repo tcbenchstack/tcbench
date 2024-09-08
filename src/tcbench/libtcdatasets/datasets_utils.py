@@ -68,11 +68,13 @@ def load_config(fname: pathlib.Path) -> Dict:
     """
     return load_yaml(fname)
 
+
 def get_md5(path: pathlib.Path) -> str:
-    h = hashlib.new('md5')
+    h = hashlib.new("md5")
     with open(str(path), "rb") as fin:
         h.update(fin.read())
     return h.hexdigest()
+
 
 def _get_module_folder():
     curr_module = sys.modules[__name__]
@@ -88,7 +90,7 @@ def load_datasets_yaml():
 
 
 def load_datasets_files_md5_yaml():
-    return load_yaml( _get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
+    return load_yaml(_get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
 
 
 def get_rich_tree_datasets_properties(dataset_name=None):
@@ -122,7 +124,9 @@ def get_rich_tree_datasets_properties(dataset_name=None):
         table.add_row(":link: data:", attributes["data"])
         if "data_curated" in attributes:
             table.add_row(":link: curated data:", attributes["data_curated"])
-            table.add_row(":heavy_plus_sign: curated data MD5:", attributes["data_curated_md5"])
+            table.add_row(
+                ":heavy_plus_sign: curated data MD5:", attributes["data_curated_md5"]
+            )
 
         if is_installed:
             path = curr_dataset_folder / "raw"
@@ -166,7 +170,7 @@ def get_rich_tree_parquet_files(dataset_name=None):
 
         preprocessed = Tree(":file_folder: preprocessed/")
         preprocessed.add(f"{curr_dataset_name}.parquet")
-        
+
         path = folder_datasets / curr_dataset_name / "preprocessed" / "LICENSE"
         if path.exists():
             preprocessed.add("LICENSE")
@@ -199,7 +203,7 @@ def get_rich_dataset_schema(dataset_name, schema_type):
     return table
 
 
-def download_url(url: str, save_to: pathlib.Path, verify:bool =True) -> pathlib.Path:
+def download_url(url: str, save_to: pathlib.Path, verify: bool = True) -> pathlib.Path:
     """Download a dataset tarball.
 
     Args:
@@ -330,9 +334,9 @@ def install_utmobilenet21(input_folder, num_workers=50):
     from tcbench.libtcdatasets import utmobilenet21_csv_to_parquet
     from tcbench.libtcdatasets import utmobilenet21_generate_splits
 
-    # enforcing this to 50, attempting to replicate the 
+    # enforcing this to 50, attempting to replicate the
     # original setting used to create the artifact
-    num_workers=50
+    num_workers = 50
 
     rich_label("unpack")
     expected_files = ["UTMobileNet2021.zip"]
@@ -367,7 +371,7 @@ def install_utmobilenet21(input_folder, num_workers=50):
     args.config = dict(datasets={str(DATASETS.UTMOBILENET21): preprocessed_folder})
     utmobilenet21_generate_splits.main(args)
 
-    #verify_dataset_md5s(DATASETS.UTMOBILENET21)
+    # verify_dataset_md5s(DATASETS.UTMOBILENET21)
 
 
 def install_mirage22(input_folder=None, num_workers=30):
@@ -613,9 +617,10 @@ def get_split_indexes(dataset_name, min_pkts=-1):
 
     return split_indexes
 
+
 def import_dataset(dataset_name, path_archive):
     data = load_datasets_yaml()
-    folder_datasets = _get_module_folder() #/ FOLDER_DATASETS
+    folder_datasets = _get_module_folder()  # / FOLDER_DATASETS
 
     if dataset_name is None or str(dataset_name) not in data:
         raise RuntimeError(f"Invalid dataset name {dataset_name}")
@@ -624,7 +629,9 @@ def import_dataset(dataset_name, path_archive):
         if path_archive is None:
             dataset_name = str(dataset_name)
             if "data_curated" not in data[dataset_name]:
-                raise RuntimeError(f"The curated dataset cannot be downloaded (likely for licencing problems). Regenerate it using `tcbench datasets install --name {dataset_name}`")
+                raise RuntimeError(
+                    f"The curated dataset cannot be downloaded (likely for licencing problems). Regenerate it using `tcbench datasets install --name {dataset_name}`"
+                )
             url = data[dataset_name]["data_curated"]
             expected_md5 = data[dataset_name]["data_curated_md5"]
 
@@ -634,11 +641,13 @@ def import_dataset(dataset_name, path_archive):
                 path_archive = download_url(url, tmpfolder, verify=False)
 
             md5 = get_md5(path_archive)
-            assert md5 == expected_md5, f"MD5 check error: found {md5} while should be {expected_md5}"
+            assert (
+                md5 == expected_md5
+            ), f"MD5 check error: found {md5} while should be {expected_md5}"
         untar(path_archive, folder_datasets)
 
-def verify_dataset_md5s(dataset_name):
 
+def verify_dataset_md5s(dataset_name):
     def flatten_dict(data):
         res = []
         for key, value in data.items():
@@ -659,12 +668,16 @@ def verify_dataset_md5s(dataset_name):
 
     folder_dataset = _get_module_folder() / FOLDER_DATASETS / dataset_name
     if not folder_dataset.exists():
-        raise RuntimeError(f"Dataset {dataset_name} is not installed. Run first \"tcbench datasets install --name {dataset_name}\"")
+        raise RuntimeError(
+            f'Dataset {dataset_name} is not installed. Run first "tcbench datasets install --name {dataset_name}"'
+        )
 
     folder_dataset /= "preprocessed"
 
     mismatches = dict()
-    for exp_path, exp_md5 in richprogress.track(expected_files, description="Verifying parquet MD5..."):
+    for exp_path, exp_md5 in richprogress.track(
+        expected_files, description="Verifying parquet MD5..."
+    ):
         path = folder_dataset / exp_path
         if not path.exists():
             raise RuntimeError(f"File {path} not found")
@@ -676,7 +689,9 @@ def verify_dataset_md5s(dataset_name):
         mismatches[path] = (exp_md5, found_md5)
 
     if mismatches:
-        console.print(f"Found {len(mismatches)}/{len(expected_files)} mismatches when verifying parquet files md5")
+        console.print(
+            f"Found {len(mismatches)}/{len(expected_files)} mismatches when verifying parquet files md5"
+        )
         for path, (expected_md5, found_md5) in mismatches.items():
             console.print()
             console.print(f"path: {path}")
@@ -684,4 +699,3 @@ def verify_dataset_md5s(dataset_name):
             console.print(f"found_md5: {found_md5}")
     else:
         console.print("All MD5 are correct!")
-    
