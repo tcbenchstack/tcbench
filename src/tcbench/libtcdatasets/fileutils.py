@@ -29,6 +29,13 @@ def load_yaml(fname: pathlib.Path) -> Dict[Any, Any]:
     """
     with open(fname) as fin:
         return yaml.safe_load(fin)
+ 
+def save_yaml(data: Any, save_as: pathlib.Path) -> None:
+    save_as = pathlib.Path(save_as)
+    if not save_as.parent.exists():
+        save_as.parent.mkdir(parents=True)
+    with open(save_as, "w") as fout:
+        yaml.dump(data, fout)
 
 
 def load_config(fname: pathlib.Path) -> Dict:
@@ -192,17 +199,6 @@ def download_url(url: str, save_to: pathlib.Path, verify_tls:bool=True, force_re
     if not save_as.parent.exists():
         save_as.parent.mkdir(parents=True)
 
-#    with open(str(save_as), "wb") as fout, richprogress.Progress(
-#        richprogress.TextColumn("[progress.description]{task.description}"),
-#        richprogress.BarColumn(),
-#        richprogress.FileSizeColumn(),
-#        richprogress.TextColumn("/"),
-#        richprogress.TotalFileSizeColumn(),
-#        richprogress.TextColumn("eta"),
-#        richprogress.TimeRemainingColumn(),
-#        console=tcbench.cli.get_rich_console(),
-#    ) as progressbar:
-#        task_id = progressbar.add_task("Downloading...", total=totalbytes)
     with (
         richutils.FileDownloadProgress(totalbytes=totalbytes) as progressbar,
         open(str(save_as), "wb") as fout,
@@ -243,11 +239,9 @@ def unzip(src: str | pathlib.Path, dst: str | pathlib.Path = None) -> pathlib.Pa
     dst.mkdir(parents=True)
 
     with (
-        richutils.SpinnerProgress(f"Unpacking {src}..."),
+        richutils.SpinnerProgress(f"Unpacking..."),
         zipfile.ZipFile(src) as fzipped
     ):
-    #print(f"opening: {src}")
-    #with zipfile.ZipFile(src) as fzipped:
         fzipped.extractall(dst)
     return dst
 
@@ -273,14 +267,11 @@ def untar(src: pathlib.Path, dst: pathlib.Path = None) -> pathlib.Path:
         shutil.rmtree(dst, ignore_errors=True)
     dst.mkdir(parents=True)
 
-    #print(f"opening: {src}")
     with (
-        richutils.SpinnerProgress(f"Unpacking {src}..."),
+        richutils.SpinnerProgress(f"Unpacking..."),
         tarfile.open(src, "r:gz") as ftar
     ):
-        #ftar = tarfile.open(src, "r:gz")
         ftar.extractall(dst)
-        #ftar.close()
     return dst
 
 

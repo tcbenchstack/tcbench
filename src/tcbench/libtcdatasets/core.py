@@ -1,5 +1,6 @@
 from __future__ import annotations
 import rich.progress as richprogress
+import polars as pl
 
 #from rich.tree import Tree
 #from rich.table import Table
@@ -9,6 +10,7 @@ from collections import UserDict
 
 #import yaml
 #import sys
+import abc
 import pathlib
 import dataclasses
 #import rich
@@ -27,6 +29,7 @@ from tcbench.libtcdatasets.constants import (
     DATASETS_RESOURCES_METADATA_FNAME,
 )
 from tcbench.libtcdatasets import fileutils
+from tcbench import _tcbenchrc
 
 #console = get_rich_console()
 
@@ -74,7 +77,7 @@ class DatasetMetadataCatalog(UserDict):
 class RawDatasetInstaller:
     def __init__(self, 
         url: str, 
-        install_folder: pathlib.Path, 
+        install_folder: pathlib.Path = None,
         verify_tls: bool = True,
         force_reinstall: bool = False,
     ):
@@ -83,6 +86,10 @@ class RawDatasetInstaller:
         self.verify_tls = verify_tls
         self.force_reinstall = force_reinstall
         self.download_path = None
+
+        if install_folder is None:
+            self.install_folder = DATASETS_DEFAULT_INSTALL_ROOT_FOLDER
+
         self.install()
 
     def install(self):
@@ -112,24 +119,54 @@ class RawDatasetInstaller:
         return dst
         
 
-        
-class Mirage19RawDatasetInstaller(RawDatasetInstaller):
-    def __init__(
-        self, 
-        install_folder: pathlib.Path = None,
-        verify_tls: bool = True,
-        force_reinstall: bool = False,
-    ):
-        dset = DatasetMetadataCatalog()[DATASET_NAME.MIRAGE19]
-        if install_folder is None:
-            install_folder = DATASETS_DEFAULT_INSTALL_ROOT_FOLDER
-        super().__init__(
-            url = dset.raw_data_url,
-            install_folder = install_folder,
-            verify_tls=verify_tls,
-            force_reinstall=force_reinstall,
+class RawDataset:
+    def __init__(self, name: DATASET_NAME):
+        self.name = name
+        self.metadata = DatasetMetadataCatalog()[name]
+        self.install_folder = _tcbenchrc.install_folder / str(self.name)
+        self.df = None
+        self.df_stats = None
+
+    @property
+    def folder_download(self):
+        return self.install_folder / "download"
+
+    @property
+    def folder_raw(self):
+        return self.install_folder / "raw"
+
+    @property
+    def folder_preprocess(self):
+        return self.install_folder / "preprocess"
+
+    @property
+    def folder_curate(self):
+        return self.install_folder / "curate"
+
+    def install(self) -> pathlib.Path:
+        self._raw_install()
+        self.preprocess()
+        self.curate()
+        return self.install_folder
+
+    def _raw_install(self) -> pathlib.Path:
+        RawDatasetInstaller(
+            url=self.metadata.raw_data_url,
+            install_folder=self.install_folder,
+            verify_tls=True,
+            force_reinstall=True
         )
+        return self.install_folder
+
+    def preprocess(self) -> None:
+        pass
         
+    def curate(self) -> None:
+        pass
+        
+    @abc.abstractmethod
+    def load(self, *args, **kwargs) -> pl.DataFrame:
+        pass
 
 
 
