@@ -162,5 +162,14 @@ cython_debug/
 
 ######
 # EXTRAS
+######
 __ATTIC__
 __TMP__
+.DS_Store
+NOTES
+README.md.offline
+__scratch__.ipynb
+_mkdocs_build.sh
+scripts/
+src/tcbench/libtcdatasets/installed_datasets/
+src/tcbench/scripts/
