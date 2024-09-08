@@ -46,6 +46,7 @@ dev = [
     "bumpver", 
     "click-plugins",
     "isort", 
+    "ipywidgets",
     "jupyterlab",
     "matplotlib",
     "mkdocs",
