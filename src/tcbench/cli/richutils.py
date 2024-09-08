@@ -8,9 +8,14 @@ from rich.panel import Panel
 from rich import box
 from typing import List
 
+import sys
+
 from tcbench import cli
 
 console = cli.console
+
+PDB_DETECTED="pdb" in sys.modules
+
 
 
 def _rich_table_from_series(ser:pd.Series, columns:List[str], with_total:bool=False) -> rich.table.Table:
@@ -116,42 +121,107 @@ def rich_label(text:str, extra_new_line:bool=False) -> None:
 
 class SpinnerProgress(richprogress.Progress):
     def __init__(self, description: str = ""):
+        if description:
+            description = "| " + description
         super().__init__(
             richprogress.SpinnerColumn(),
             richprogress.TimeElapsedColumn(),
-            richprogress.TextColumn("[progress.description]{task.description}"),
-            transient=True,
+            richprogress.TextColumn(description),
+            transient=False,
             console=console,
         )
         self.add_task(description=description)
 
     def __enter__(self):
-        self.start()
+        if not PDB_DETECTED:
+            self.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.stop()
+        if not PDB_DETECTED:
+            self.stop()
+
+class SpinnerAndCounterProgress(richprogress.Progress):
+    def __init__(self, total:int, description: str = ""):
+        if description:
+            description = "| " + description
+        super().__init__(
+            richprogress.SpinnerColumn(),
+            richprogress.TimeElapsedColumn(),
+            richprogress.MofNCompleteColumn(),
+            richprogress.TextColumn(description),
+            transient=False,
+            console=console,
+        )
+        self.task_id = self.add_task(description=description, total=total)
+
+    def __enter__(self):
+        if not PDB_DETECTED:
+            self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if not PDB_DETECTED:
+            self.stop()
+
+    def update(self, *args, **kwargs):
+        if not PDB_DETECTED:
+            super().advance(self.task_id, *args, **kwargs)
 
 class FileDownloadProgress(richprogress.Progress):
     def __init__(self, totalbytes: int): 
         super().__init__(
-            richprogress.TextColumn("[progress.description]{task.description}"),
             richprogress.BarColumn(),
             richprogress.FileSizeColumn(),
             richprogress.TextColumn("/"),
             richprogress.TotalFileSizeColumn(),
             richprogress.TextColumn("eta"),
             richprogress.TimeRemainingColumn(),
+            richprogress.TextColumn("| Downloading..."),
             console=console,
         )
-        self.task_id = self.add_task("Downloading...", total=totalbytes)
+        self.task_id = self.add_task(
+            "", 
+            total=totalbytes, 
+        )
 
     def __enter__(self):
-        self.start()
+        if not PDB_DETECTED:
+            self.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.stop()
+        if not PDB_DETECTED:
+            self.stop()
 
     def update(self, *args, **kwargs):
-        super().advance(self.task_id, *args, **kwargs)
+        if not PDB_DETECTED:
+            super().advance(self.task_id, *args, **kwargs)
+
+class Progress(richprogress.Progress):
+    def __init__(self, total: int, description: str = ""):
+        if description:
+            description = "| " + description
+        super().__init__(
+            richprogress.BarColumn(),
+            richprogress.MofNCompleteColumn(),
+            richprogress.TimeElapsedColumn(),
+            richprogress.TextColumn("eta"),
+            richprogress.TimeRemainingColumn(),
+            richprogress.TextColumn(description),
+            console=console,
+        )
+        self.task_id = self.add_task(description, total=total)
+
+    def __enter__(self):
+        if not PDB_DETECTED:
+            self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if not PDB_DETECTED:
+            self.stop()
+
+    def update(self):
+        if not PDB_DETECTED:
+            super().advance(self.task_id, advance=1)
