@@ -6,7 +6,7 @@ import polars as pl
 # from rich.table import Table
 # import rich.box
 from typing import Dict, Any
-from collections import UserDict
+from collections import UserDict, UserList
 
 # import yaml
 # import sys
@@ -30,6 +30,7 @@ from tcbench.libtcdatasets.constants import (
     DATASETS_RESOURCES_METADATA_FNAME,
 )
 from tcbench.libtcdatasets import fileutils
+from tcbench.cli import richutils
 from tcbench import _tcbenchrc
 
 # console = get_rich_console()
@@ -176,6 +177,42 @@ class RawDataset:
     def load(self, *args, **kwargs) -> pl.DataFrame:
         pass
 
+
+class SequentialPipeStage:
+    def __init__(self, func, name:str = None, **kwargs):
+        self.func = func
+        self.name = name if name else ""
+        self.run_kwargs = kwargs
+
+    def run(self, data:Any) -> Any:
+        return self.func(data, **self.run_kwargs)
+
+
+class SequentialPipe(UserList):
+    def __init__(
+        self, 
+        *stages: SequentialPipelineStage,
+        name: str = None, 
+        progress: bool = True
+    ):
+        super().__init__(stages)
+        self.name = name if name is not None else ""
+        self.progress = progress
+
+    def run(self, data:Any) -> Any:
+        with richutils.SpinnerAndCounterProgress(
+            description=self.name,
+            total=len(self.data),
+            visible=self.progress
+        ) as progress:
+            for idx, stage in enumerate(self.data):
+                progress.update_description(
+                    " ".join([self.name, stage.name]).strip()
+                )
+                data = stage.run(data)
+                progress.update()
+        return data 
+        
 
 # def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):
 #    # moved here to speedup loading

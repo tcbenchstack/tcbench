@@ -21,6 +21,8 @@ from tcbench.libtcdatasets import curation
 from tcbench.libtcdatasets.core import (
     RawDataset,
     DatasetMetadataCatalog,
+    SequentialPipeStage,
+    SequentialPipe
 )
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
@@ -506,46 +508,88 @@ class Mirage19(RawDataset):
         return df_new
 
     def curate(self) -> pl.DataFrame:
-        df = self.load(DATASET_TYPE.PREPROCESS)
+        def _get_stats(df):
+            df_stats = curation.get_stats(df)
+            return (df, df_stats)
 
-        if not self.folder_curate.exists():
-            self.folder_curate.mkdir(parents=True)
-
-        with richutils.SpinnerAndCounterProgress(
-            description="Curate...", total=6
-        ) as progress:
-            df_new = self._curate_drop_background(df)
-            progress.update()
-            df_new = self._curate_adjust_packet_series(df_new)
-            progress.update()
-            df_new = self._curate_add_pkt_indices_columns(df_new)
-            progress.update()
-            df_new = self._curate_drop_columns(df_new)
-            progress.update()
-            df_new = self._curate_filter(df_new)
-            progress.update()
-            df_stats = curation.get_stats(df_new)
-            progress.update()
-            self.df = df_new
-            self.df_stats = df_stats
-
-        with richutils.SpinnerAndCounterProgress(
-            description="Saving...", total=2
-        ) as progress:
-            self.df.write_parquet(self.folder_curate / f"{self.name}.parquet")
-            progress.update()
-            self.df_stats.write_parquet(
+        def _write_parquet(tpl):
+            df, df_stats = tpl
+            if not self.folder_curate.exists():
+                self.folder_curate.mkdir(parents=True)
+            df.write_parquet(self.folder_curate / f"{self.name}.parquet")
+            df_stats.write_parquet(
                 self.folder_curate / f"{self.name}_stats.parquet"
             )
-            progress.update()
+            return df, df_stats
+
+        df = self.load(DATASET_TYPE.PREPROCESS)
+
+        self.df, self.df_stats = SequentialPipe(
+            SequentialPipeStage(
+                self._curate_drop_background, 
+                name="drop background flows"
+            ),
+            SequentialPipeStage(
+                self._curate_adjust_packet_series,
+                name="adjust packet series",
+            ),
+            SequentialPipeStage(
+                self._curate_add_pkt_indices_columns,
+                name="add packet series indices"
+            ),
+            SequentialPipeStage(
+                self._curate_drop_columns,
+                name="drop columns",
+            ),
+            SequentialPipeStage(
+                self._curate_filter,
+                name="filter out flows",
+            ),
+            SequentialPipeStage(
+                _get_stats,
+                name="compute stats",
+            ),
+            SequentialPipeStage(
+                _write_parquet,
+                name="write parquets",
+            ),
+            name="Curate..."
+        ).run(df)
+
+#        with richutils.SpinnerAndCounterProgress(
+#            description="Curate...", total=6
+#        ) as progress:
+#            df_new = self._curate_drop_background(df)
+#            progress.update()
+#            df_new = self._curate_adjust_packet_series(df_new)
+#            progress.update()
+#            df_new = self._curate_add_pkt_indices_columns(df_new)
+#            progress.update()
+#            df_new = self._curate_drop_columns(df_new)
+#            progress.update()
+#            df_new = self._curate_filter(df_new)
+#            progress.update()
+#            progress.update()
+#            self.df = df_new
+#            self.df_stats = df_stats
+#
+#        with richutils.SpinnerAndCounterProgress(
+#            description="Saving...", total=2
+#        ) as progress:
+#            progress.update()
 
         return self.df
 
     def load(self, dset_type: DATASET_TYPE, n_rows: int = None) -> pl.DataFrame:
         folder = self.folder_preprocess
-        self.df = pl.read_parquet(
-            folder / f"{self.name}.parquet",
-            n_rows=n_rows,
-        )
-        self.df_stats = pl.read_parquet(folder / f"{self.name}_stats.parquet")
+        with richutils.SpinnerProgress(
+            description=f"Loading {self.name}/{dset_type}"
+        ):
+            self.df = pl.read_parquet(
+                folder / f"{self.name}.parquet",
+                n_rows=n_rows,
+            )
+            self.df_stats = pl.read_parquet(
+                folder / f"{self.name}_stats.parquet"
+            )
         return self.df
