@@ -120,7 +120,7 @@ def rich_label(text:str, extra_new_line:bool=False) -> None:
     console.print(Panel(text, box=box.ROUNDED, expand=False, padding=0))
 
 class SpinnerProgress(richprogress.Progress):
-    def __init__(self, description: str = ""):
+    def __init__(self, description: str = "", visible: bool = True):
         if description:
             description = "| " + description
         super().__init__(
@@ -130,46 +130,61 @@ class SpinnerProgress(richprogress.Progress):
             transient=False,
             console=console,
         )
+        self.visible = visible
         self.add_task(description=description)
 
     def __enter__(self):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.stop()
 
+    def update(self, *args, **kwargs):
+        pass
+
 class SpinnerAndCounterProgress(richprogress.Progress):
-    def __init__(self, total:int, description: str = ""):
+    def __init__(self, total:int, description: str = "", visible: bool = True):
         if description:
             description = "| " + description
         super().__init__(
             richprogress.SpinnerColumn(),
             richprogress.TimeElapsedColumn(),
             richprogress.MofNCompleteColumn(),
-            richprogress.TextColumn(description),
+            richprogress.TextColumn("[progress.description]{task.description}"),
             transient=False,
             console=console,
         )
+        self.visible = visible
         self.task_id = self.add_task(description=description, total=total)
 
-    def __enter__(self):
-        if not PDB_DETECTED:
+    def __enter__(self) -> SpinnerAndCounterProgress:
+        if self.visible and not PDB_DETECTED:
             self.start()
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if not PDB_DETECTED:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        if self.visible and not PDB_DETECTED:
             self.stop()
 
-    def update(self, *args, **kwargs):
-        if not PDB_DETECTED:
+    def update_description(self, description:str = "") -> None:
+        if self.visible and not PDB_DETECTED and self.task_id is not None:
+            if description is None:
+                description = ""
+            if description != "":
+                description = "| " + description
+            #print(description)
+            super().update(self.task_id, description=description, refresh=True)
+            #print(self.tasks[0].description)
+
+    def update(self, *args, **kwargs) -> None:
+        if self.visible and not PDB_DETECTED:
             super().advance(self.task_id, *args, **kwargs)
 
 class FileDownloadProgress(richprogress.Progress):
-    def __init__(self, totalbytes: int): 
+    def __init__(self, totalbytes: int, visible: bool = True): 
         super().__init__(
             richprogress.BarColumn(),
             richprogress.FileSizeColumn(),
@@ -180,18 +195,19 @@ class FileDownloadProgress(richprogress.Progress):
             richprogress.TextColumn("| Downloading..."),
             console=console,
         )
+        self.visible = visible
         self.task_id = self.add_task(
             "", 
             total=totalbytes, 
         )
 
     def __enter__(self):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.stop()
 
     def update(self, *args, **kwargs):
@@ -199,7 +215,7 @@ class FileDownloadProgress(richprogress.Progress):
             super().advance(self.task_id, *args, **kwargs)
 
 class Progress(richprogress.Progress):
-    def __init__(self, total: int, description: str = ""):
+    def __init__(self, total: int, description: str = "", visible: bool = True):
         if description:
             description = "| " + description
         super().__init__(
@@ -211,17 +227,18 @@ class Progress(richprogress.Progress):
             richprogress.TextColumn(description),
             console=console,
         )
+        self.visible = visible
         self.task_id = self.add_task(description, total=total)
 
     def __enter__(self):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             self.stop()
 
     def update(self):
-        if not PDB_DETECTED:
+        if self.visible and not PDB_DETECTED:
             super().advance(self.task_id, advance=1)
