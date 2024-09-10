@@ -1,5 +1,5 @@
 """
-This modules contains the a hierarchy of classes
+This modules contains a hierarchy of classes
 for composing Datasets and a variety of 
 function to load those objects from file
 
