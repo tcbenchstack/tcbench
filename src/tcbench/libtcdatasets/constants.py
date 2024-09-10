@@ -32,6 +32,7 @@ class DATASET_NAME(enum.Enum):
 
 class DATASET_TYPE(enum.Enum):
     PREPROCESS = "preprocess"
+    CURATE = "curate"
 
     @classmethod
     def from_str(cls, text):
