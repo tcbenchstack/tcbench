@@ -457,33 +457,37 @@ class Mirage19(RawDataset):
         )
 
     def _curate_add_other_columns(self, df: pl.DataFrame) -> pl.DataFrame:
-        return df.with_columns(
-            # length of all series
-            pkts_len=(pl.col("pkts_size").list.len()),
-            # flag to indicate if the packet sizes have all packets
-            pkts_is_complete=(pl.col("pkts_size").list.len() == pl.col("packets")),
-            # series pkts_size * pkts_dir
-            pkts_size_times_dir=(curation.expr_pkts_size_times_dir()),
-            # number of ack packets
-            packets_ack=(pl.col("pkts_ack_idx").list.len()),
-            # number of ack packets in upload
-            packets_ack_upload=(
-                curation.expr_list_len_upload("pkts_size_times_dir", "pkts_ack_idx")
-            ),
-            # number of ack packets in download
-            packets_ack_download=(
-                curation.expr_list_len_download("pkts_size_times_dir", "pkts_ack_idx")
-            ),
-            # number of data packets
-            packets_data=(pl.col("pkts_data_idx").list.len()),
-            # number of ack packets in upload
-            packets_data_upload=(
-                curation.expr_list_len_upload("pkts_size_time_dir", "pkts_data_idx")
-            ),
-            # number of ack packets in download
-            packets_data_download=(
-                curation.expr_list_len_download("pkts_size_time_dir", "pkts_data_idx")
-            ),
+        return (df
+            .with_columns(
+                # length of all series
+                pkts_len=(pl.col("pkts_size").list.len()),
+                # flag to indicate if the packet sizes have all packets
+                pkts_is_complete=(pl.col("pkts_size").list.len() == pl.col("packets")),
+                # series pkts_size * pkts_dir
+                pkts_size_times_dir=(curation.expr_pkts_size_times_dir()),
+            )
+            .with_columns(
+                # number of ack packets
+                packets_ack=(pl.col("pkts_ack_idx").list.len()),
+                # number of ack packets in upload
+                packets_ack_upload=(
+                    curation.expr_list_len_upload("pkts_size_times_dir", "pkts_ack_idx")
+                ),
+                # number of ack packets in download
+                packets_ack_download=(
+                    curation.expr_list_len_download("pkts_size_times_dir", "pkts_ack_idx")
+                ),
+                # number of data packets
+                packets_data=(pl.col("pkts_data_idx").list.len()),
+                # number of ack packets in upload
+                packets_data_upload=(
+                    curation.expr_list_len_upload("pkts_size_times_dir", "pkts_data_idx")
+                ),
+                # number of ack packets in download
+                packets_data_download=(
+                    curation.expr_list_len_download("pkts_size_times_dir", "pkts_data_idx")
+                ),
+            )
         )
 
     def _curate_drop_columns(self, df: pl.DataFrame) -> pl.DataFrame:
@@ -496,7 +500,7 @@ class Mirage19(RawDataset):
             ]
         )
 
-    def _curate_filter(self, df: pl.DataFrame, min_pkts: int = None) -> pl.DataFrame:
+    def _curate_final_filter(self, df: pl.DataFrame, min_pkts: int = None) -> pl.DataFrame:
         df_new = df.filter(
             # flows starting with a complete handshake
             pl.col("is_valid_handshake")
@@ -538,11 +542,15 @@ class Mirage19(RawDataset):
                 name="add packet series indices"
             ),
             SequentialPipeStage(
+                self._curate_add_other_columns,
+                name="add more columns",
+            ),
+            SequentialPipeStage(
                 self._curate_drop_columns,
                 name="drop columns",
             ),
             SequentialPipeStage(
-                self._curate_filter,
+                self._curate_final_filter,
                 name="filter out flows",
             ),
             SequentialPipeStage(
@@ -580,16 +588,32 @@ class Mirage19(RawDataset):
 
         return self.df
 
-    def load(self, dset_type: DATASET_TYPE, n_rows: int = None) -> pl.DataFrame:
+    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
         folder = self.folder_preprocess
+        if dset_type == DATASET_TYPE.CURATE:
+            folder = self.folder_curate
+
+        if min_packets is None or min_packets <= 0:
+            min_packets = -1
+
         with richutils.SpinnerProgress(
             description=f"Loading {self.name}/{dset_type}"
         ):
-            self.df = pl.read_parquet(
-                folder / f"{self.name}.parquet",
-                n_rows=n_rows,
+            self.df = (
+                pl.scan_parquet(
+                    folder / f"{self.name}.parquet",
+                    n_rows=n_rows,
+                )
+                .filter(
+                    pl.col("packets") >= min_packets
+                )
+                .collect()
             )
-            self.df_stats = pl.read_parquet(
-                folder / f"{self.name}_stats.parquet"
-            )
+
+            self.df_stats = None
+            if min_packets != -1:
+                self.df_stats = pl.read_parquet(
+                    folder / f"{self.name}_stats.parquet"
+                )
+
         return self.df
