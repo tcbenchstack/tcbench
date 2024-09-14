@@ -26,6 +26,7 @@ import dataclasses
 # from tcbench.cli.richutils import rich_label, rich_samples_count_report
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
+    DATASET_TYPE,
     DATASETS_DEFAULT_INSTALL_ROOT_FOLDER,
     DATASETS_RESOURCES_METADATA_FNAME,
 )
@@ -128,7 +129,7 @@ class RawDatasetInstaller:
         return dst
 
 
-class RawDataset:
+class Dataset:
     def __init__(self, name: DATASET_NAME):
         self.name = name
         self.metadata = DatasetMetadataCatalog()[name]
@@ -153,12 +154,12 @@ class RawDataset:
         return self.install_folder / "curate"
 
     def install(self) -> pathlib.Path:
-        self._raw_install()
+        self._install_raw()
         self.preprocess()
         self.curate()
         return self.install_folder
 
-    def _raw_install(self) -> pathlib.Path:
+    def _install_raw(self) -> pathlib.Path:
         RawDatasetInstaller(
             url=self.metadata.raw_data_url,
             install_folder=self.install_folder,
@@ -173,9 +174,35 @@ class RawDataset:
     def curate(self) -> None:
         pass
 
-    @abc.abstractmethod
-    def load(self, *args, **kwargs) -> pl.DataFrame:
-        pass
+    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
+        folder = self.folder_preprocess
+        if dset_type == DATASET_TYPE.CURATE:
+            folder = self.folder_curate
+
+        if min_packets is None or min_packets <= 0:
+            min_packets = -1
+
+        with richutils.SpinnerProgress(
+            description=f"Loading {self.name}/{dset_type}"
+        ):
+            self.df = (
+                pl.scan_parquet(
+                    folder / f"{self.name}.parquet",
+                    n_rows=n_rows,
+                )
+                .filter(
+                    pl.col("packets") >= min_packets
+                )
+                .collect()
+            )
+
+            self.df_stats = None
+            if min_packets != -1:
+                self.df_stats = pl.read_parquet(
+                    folder / f"{self.name}_stats.parquet"
+                )
+
+        return self.df
 
 
 class SequentialPipeStage:

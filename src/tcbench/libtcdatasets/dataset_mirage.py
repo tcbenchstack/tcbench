@@ -19,7 +19,7 @@ import numpy as np
 from tcbench.cli import richutils
 from tcbench.libtcdatasets import curation
 from tcbench.libtcdatasets.core import (
-    RawDataset,
+    Dataset,
     DatasetMetadataCatalog,
     SequentialPipeStage,
     SequentialPipe
@@ -233,7 +233,7 @@ def load_mirage_json(fname: pathlib.Path) -> pl.DataFrame:
     return pl.concat(l)
 
 
-def _worker(fname: pathlib.Path, save_to: pathlib.Path):
+def _pool_worker(fname: pathlib.Path, save_to: pathlib.Path) -> None:
     fname = pathlib.Path(fname)
     with open(fname) as fin:
         data = json.load(fin)
@@ -255,8 +255,12 @@ def _worker(fname: pathlib.Path, save_to: pathlib.Path):
 
 
 def _rename_columns(columns: List[str]) -> Dict[str, str]:
-    def rename_stats_column(col_name, prefix, new_prefix):
-        new_name = col_name.replace(prefix, "").replace("biflow", new_prefix)
+    def _rename_stats_column(col_name, prefix, new_prefix):
+        new_name = (
+            col_name
+            .replace(prefix, new_prefix)
+            .replace("biflow", "")
+        )
         if new_name.endswith("percentile"):
             _1, q, _2 = new_name.rsplit("_", 2)
             new_name = new_name.replace(f"{q}_percentile", f"q{q}")
@@ -278,7 +282,7 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
             )
         elif col.startswith("flow_metadata"):
             new_name = (
-                new_name.replace("flow_metadata_", "")
+                new_name.replace("flow_metadata_", "flow_")
                 .replace("bf_", "")
                 .replace("num_packets", "packets")
                 .replace("ip_packet_bytes", "bytes")
@@ -289,17 +293,18 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
             elif "df" in new_name:
                 new_name = new_name.replace("df_", "") + "_download"
         elif col.startswith("flow_features_packet_length_"):
-            new_name = rename_stats_column(
-                new_name, "flow_features_packet_length_", "pkts_size"
+            new_name = _rename_stats_column(
+                new_name, "flow_features_packet_length_", "flow_pkts_size"
             )
         elif col.startswith("flow_features_iat_"):
-            new_name = rename_stats_column(new_name, "flow_features_iat_", "pkts_iat")
-
+            new_name = _rename_stats_column(
+                new_name, "flow_features_iat_", "flow_pkts_iat"
+            )
         rename[col] = new_name
     return rename
 
 
-class Mirage19(RawDataset):
+class Mirage19(Dataset):
     def __init__(self):
         super().__init__(name=DATASET_NAME.MIRAGE19)
         self.df_app_metadata = pl.read_csv(
@@ -364,7 +369,7 @@ class Mirage19(RawDataset):
         files = list(self.folder_raw.rglob("*.json"))
         with (tempfile.TemporaryDirectory() as tmp_folder,):
             tmp_folder = pathlib.Path(tmp_folder)
-            func = functools.partial(_worker, save_to=tmp_folder)
+            func = functools.partial(_pool_worker, save_to=tmp_folder)
             with (
                 richutils.Progress(
                     description="Parse JSON files...", total=len(files)
@@ -563,28 +568,6 @@ class Mirage19(RawDataset):
             ),
             name="Curate..."
         ).run(df)
-
-#        with richutils.SpinnerAndCounterProgress(
-#            description="Curate...", total=6
-#        ) as progress:
-#            df_new = self._curate_drop_background(df)
-#            progress.update()
-#            df_new = self._curate_adjust_packet_series(df_new)
-#            progress.update()
-#            df_new = self._curate_add_pkt_indices_columns(df_new)
-#            progress.update()
-#            df_new = self._curate_drop_columns(df_new)
-#            progress.update()
-#            df_new = self._curate_filter(df_new)
-#            progress.update()
-#            progress.update()
-#            self.df = df_new
-#            self.df_stats = df_stats
-#
-#        with richutils.SpinnerAndCounterProgress(
-#            description="Saving...", total=2
-#        ) as progress:
-#            progress.update()
 
         return self.df
 
