@@ -1,6 +1,7 @@
-import enum
+from __future__ import annotations
 
 from tcbench.libtcdatasets.fileutils import get_module_folder
+from tcbench.core import StringEnum
 
 _module_folder = get_module_folder()
 
@@ -13,33 +14,12 @@ APP_LABEL_BACKGROUND = "_background_"
 APP_LABEL_ALL = "_all_"
 
 
-class DATASET_NAME(enum.Enum):
+class DATASET_NAME(StringEnum):
     UCDAVIS19 = "ucdavis19"
     UTMOBILENET21 = "utmobilenet21"
     MIRAGE19 = "mirage19"
     MIRAGE22 = "mirage22"
 
-    @classmethod
-    def from_str(cls, text):
-        for member in cls.__members__.values():
-            if member.value == text:
-                return member
-        return None
-
-    def __str__(self):
-        return self.value
-
-
-class DATASET_TYPE(enum.Enum):
+class DATASET_TYPE(StringEnum):
     PREPROCESS = "preprocess"
     CURATE = "curate"
-
-    @classmethod
-    def from_str(cls, text):
-        for member in cls.__members__.values():
-            if member.value == text:
-                return member
-        return None
-
-    def __str__(self):
-        return self.value
