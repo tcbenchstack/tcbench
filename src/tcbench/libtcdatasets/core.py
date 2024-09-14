@@ -1,5 +1,7 @@
 from __future__ import annotations
-import rich.progress as richprogress
+import rich.table as richtable
+import rich.tree as richtree
+import rich.box as richbox
 import polars as pl
 
 # from rich.tree import Tree
@@ -52,22 +54,118 @@ def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
 
 @dataclasses.dataclass
 class DatasetMetadata:
+    name: DATASET_NAME
     num_classes: int = -1
-    paper: str = None
-    website: str = None
+    url_paper: str = None
+    url_website: str = None
     raw_data_url: str = None
     raw_data_md5: str = None
     curated_data_url: str = None
     curated_data_md5: str = None
 
+    def __post_init__(self):
+        self.folder_dset = _tcbenchrc.install_folder / str(self.name)
+
+    @property
+    def folder_download(self):
+        return self.folder_dset / "download"
+
+    @property
+    def folder_raw(self):
+        return self.folder_dset / "raw"
+
+    @property
+    def folder_preprocess(self):
+        return self.folder_dset / "preprocess"
+
+    @property
+    def folder_curate(self):
+        return self.folder_dset / "curate"
+
+    @property
+    def is_downloaded(self) -> bool:
+        return self.folder_download.exists()
+
+    @property
+    def is_preprocessed(self) -> bool:
+        return self.folder_preprocess.exists()
+
+    @property
+    def is_curated(self) -> bool:
+        return self.folder_curate.exists()
+
+    def __rich__(self) -> richtable.Table:
+        table = richtable.Table(show_header=False, box=richbox.HORIZONTALS, show_footer=False, pad_edge=False)
+        table.add_column("property")
+        table.add_column("value", overflow="fold")
+
+        table.add_row(":triangular_flag: Num. classes:", str(self.num_classes))
+        table.add_row(
+            ":link: Paper URL:", 
+            f"[link={self.url_paper}]{self.url_paper}[/link]"
+        )
+        table.add_row(
+            ":link: Website:", 
+            f"[link={self.url_website}]{self.url_website}[/link]",
+            end_section=True,
+        )
+        table.add_row(
+            ":link: Raw data URL:", 
+            f"[link={self.raw_data_url}]{self.raw_data_url}[/link]"
+        )
+        table.add_row(
+            ":heavy_plus_sign: Raw data MD5:", 
+            self.raw_data_md5,
+            end_section=True,
+        )
+        table.add_section()
+        table.add_row(
+            ":link: Curated data URL:", 
+            f"[link={self.curated_data_url}]{self.curated_data_url}[/link]"
+            if self.curated_data_url else
+            ""
+        )
+        table.add_row(
+            ":heavy_plus_sign: Curated data MD5:", 
+            self.curated_data_md5,
+            end_section=True,
+        )
+
+        table.add_row(":file_folder: Root folder:", str(self.folder_dset))
+        table.add_row(
+            ":question: Downloaded:", 
+            ":heavy_check_mark:" if self.is_downloaded else ":cross_mark:"
+        )
+        table.add_row(
+            ":question: Preprocessed:", 
+            ":heavy_check_mark:" if self.is_preprocessed else ":cross_mark:"
+        )
+        table.add_row(
+            ":question: Curated:", 
+            ":heavy_check_mark:" if self.is_curated else ":cross_mark:"
+        )
+
+#        if has_splits:
+#            path = curr_dataset_folder / "preprocessed" / "imc23"
+#            text = f"[green]{path}[/green]"
+#        else:
+#            text = f"[red]None[/red]"
+#        table.add_row(":file_folder: data splits:", text)
+#        node.add(table)
+        return table
+
+
 
 class DatasetMetadataCatalog(UserDict):
-    def __init__(self):
+    def __init__(
+        self,
+        fname_metadata: pathlib.Path = DATASETS_RESOURCES_METADATA_FNAME,
+    ):
         super().__init__()
-        for dataset_name, dataset_metadata in fileutils.load_yaml(
-            DATASETS_RESOURCES_METADATA_FNAME
-        ).items():
-            self.data[dataset_name] = DatasetMetadata(**dataset_metadata)
+        self._metadata = fileutils.load_yaml(fname_metadata)
+        for dset_name, dset_data in self._metadata.items():
+            dset_data["name"] = DATASET_NAME.from_str(dset_name)
+            self.data[dset_name] = DatasetMetadata(**dset_data)
 
     def __getitem__(self, key: Any) -> DatasetMetadata:
         if isinstance(key, DATASET_NAME):
@@ -81,6 +179,15 @@ class DatasetMetadataCatalog(UserDict):
 
     def __setitem__(self, key: Any, value: Any) -> None:
         raise ValueError(f"DatasetMetadataCatalog is immutable")
+
+    def __rich__(self) -> richtree.Tree:
+        tree = richtree.Tree("Datasets")
+        for dset_name in sorted(self.keys()):
+            dset_metadata = self[dset_name]    
+            node = richtree.Tree(dset_name)
+            node.add(dset_metadata.__rich__())
+            tree.add(node)
+        return tree
 
 
 class RawDatasetInstaller:

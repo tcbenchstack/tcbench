@@ -11,22 +11,21 @@ __version__ = "0.0.22"
 
 TCBENCHRC_PATH = pathlib.Path(os.path.expandvars("$HOME")) / ".tcbenchrc"
 
-class TCBenchConfig(UserDict):
+def _init_tcbenchrc():
+    data=dict(
+        datasets=dict(
+            install_folder=str(DATASETS_DEFAULT_INSTALL_ROOT_FOLDER)
+        )
+    )
+    fileutils.save_yaml(data, TCBENCHRC_PATH)
+
+class TCBenchRC(UserDict):
     def __init__(self):
         super().__init__()
         if not TCBENCHRC_PATH.exists():
-            TCBenchConfig.init()
+            _init_tcbenchrc()
         self.load()
 
-    @classmethod
-    def init(cls):
-        data=dict(
-            datasets=dict(
-                install_folder=str(DATASETS_DEFAULT_INSTALL_ROOT_FOLDER)
-            )
-        )
-        fileutils.save_yaml(data, TCBENCHRC_PATH)
-        
     @property
     def install_folder(self):
         return pathlib.Path(self.data["datasets"]["install_folder"])
@@ -37,7 +36,10 @@ class TCBenchConfig(UserDict):
     def load(self):
         self.data = fileutils.load_yaml(TCBENCHRC_PATH)
 
-_tcbenchrc = TCBenchConfig()
+_tcbenchrc = TCBenchRC()
+
+from tcbench.libtcdatasets.core import DatasetMetadataCatalog
+datasets_catalog = DatasetMetadataCatalog()
 
 
 ##########################
