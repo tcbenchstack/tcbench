@@ -1,33 +1,45 @@
 from __future__ import annotations
 
+from typing import Tuple
+
 import polars as pl
+
+from tcbench.modeling.columns import (
+    SPLIT_NAME_TEST,
+    SPLIT_NAME_TRAIN,
+    COL_SPLIT_NAME,
+    COL_SPLIT_INDEX,
+    COL_SPLIT_TRAIN_INDICES,
+    COL_SPLIT_TEST_INDICES,
+)
 
 def _verify_split_indices_table(
     df: pl.DataFrame, 
     y_colname:str, 
+    index_colname:str = "row_id",
     expected_test_size: float = 0.1
 ) -> bool:
     df_split_sizes = (df
-        .group_by(y_colname, "split")
+        .group_by(y_colname, COL_SPLIT_NAME)
         .agg(
-            pl.col("row_id").count()
+            pl.col(index_colname).count()
         )
         .pivot(
             index=y_colname,
-            on="split",
-            values="row_id"
+            on=COL_SPLIT_NAME,
+            values=index_colname,
         )
         .with_columns(
             total=(
-                pl.sum_horizontal("test", "train")
+                pl.sum_horizontal(SPLIT_NAME_TEST, SPLIT_NAME_TRAIN)
             )
         )
         .with_columns(
             test_size=(
-                pl.col("test") / pl.col("total")
+                pl.col(SPLIT_NAME_TEST) / pl.col("total")
             ),
             train_size=(
-                pl.col("train") / pl.col("total")
+                pl.col(SPLIT_NAME_TRAIN) / pl.col("total")
             )
         )
         .sort("total", descending=True)
@@ -50,7 +62,6 @@ def _get_split_indices(
     test_size: float = 0.1,
     seed: int = 1, 
 ) -> pl.DataFrame:
-
     df_split_indices = (df
         .select(
             y_colname,
@@ -58,25 +69,26 @@ def _get_split_indices(
         )
         .group_by(y_colname)
         .map_groups(
-            lambda df_group: (df_group
+            lambda df_group: (
+                df_group
                 # new index, specific for each label
                 .with_row_index("_inner_idx")
                 # shuffle original index
                 .with_columns(
                     pl.col(index_colname).shuffle(seed=seed)    
                 )
-                .with_columns(
+                .with_columns(**{
                     # split=test for the first test_size samples
                     # split=train otherwise
-                    split=(
+                    COL_SPLIT_NAME: (
                         pl.when(
                             pl.col("_inner_idx") 
                             < pl.lit(len(df_group) * test_size).ceil()
                         )
-                        .then(pl.lit("test"))
-                        .otherwise(pl.lit("train"))
+                        .then(pl.lit(SPLIT_NAME_TEST))
+                        .otherwise(pl.lit(SPLIT_NAME_TRAIN))
                     )
-                )
+                })
                 .drop("_inner_idx")
             )
         )
@@ -85,10 +97,69 @@ def _get_split_indices(
     _verify_split_indices_table(
         df_split_indices, 
         y_colname,
-        expected_test_size=test_size
+        expected_test_size=test_size,
+        index_colname=index_colname
     )
 
     return df_split_indices
+
+def _split_indices_to_list(df: pl.DataFrame, split_index: int, index_colname:str = "row_id") -> pl.DataFrame:
+    return (
+        df
+        .group_by(COL_SPLIT_NAME)
+        .agg(pl.col(index_colname))
+        .with_columns(**{
+            COL_SPLIT_INDEX: pl.lit(split_index)
+        })
+        .pivot(
+            on=COL_SPLIT_NAME,
+            index=COL_SPLIT_INDEX,
+            values=index_colname,
+        )
+        .rename({
+            SPLIT_NAME_TRAIN: COL_SPLIT_TRAIN_INDICES,
+            SPLIT_NAME_TEST: COL_SPLIT_TEST_INDICES,
+        })
+        # guarantee that columns order is deterministic
+        .select(
+            COL_SPLIT_INDEX,
+            COL_SPLIT_TRAIN_INDICES,
+            COL_SPLIT_TEST_INDICES
+        )
+    )
+
+
+def _split_indices_from_list(
+    df_splits: pl.DataFrame, 
+    split_index: int, 
+    index_colname: str = "row_id"
+) -> pl.DataFrame:
+    expr = pl.col(COL_SPLIT_INDEX) == pl.lit(split_index)
+    return pl.concat((
+        df_splits
+            .filter(expr)
+            .select(
+                (
+                    pl.col(COL_SPLIT_TRAIN_INDICES)
+                    .list
+                    .explode()
+                    .alias(index_colname)
+                ),
+                pl.lit(SPLIT_NAME_TRAIN).alias(COL_SPLIT_NAME)
+            ),
+        df_splits
+            .filter(expr)
+            .select(
+                (
+                    pl.col(COL_SPLIT_TEST_INDICES)
+                    .list
+                    .explode()
+                    .alias(index_colname)
+                ),
+                pl.lit(SPLIT_NAME_TEST).alias(COL_SPLIT_NAME)
+            )
+    ))
+
 
 def add_split_column(
     df: pl.DataFrame, 
@@ -102,4 +173,42 @@ def add_split_column(
         df_split_indices, 
         on=[y_colname, index_colname]
     )
+
+def split_monte_carlo(
+    df: pl.DataFrame,
+    y_colname: str,
+    index_colname: str = "row_id",
+    num_splits: int = 1,
+    seed: int = 1,
+    test_size: float = 0.1,
+) -> pl.DataFrame:
+    return pl.concat([
+        _split_indices_to_list(
+            _get_split_indices(df, y_colname, index_colname, test_size=test_size, seed=seed+split_index),
+            split_index=split_index
+        )
+        for split_index in range(1, num_splits+1)
+    ])
+
+
+def get_train_test_splits(
+    df: pl.DataFrame, 
+    df_splits: pl.DataFrame, 
+    split_index: int = 1,
+    index_colname: str = "row_id"
+) -> Tuple[pl.DataFrame, pl.DataFrame]:
+    df_split_indices = _split_indices_from_list(
+        df_splits, 
+        split_index, 
+        index_colname=index_colname
+    )
+    df_tmp = df.join(
+        df_split_indices,
+        on=[index_colname]
+    )
+    return (
+        df_tmp.filter(pl.col(COL_SPLIT_NAME) == SPLIT_NAME_TRAIN),
+        df_tmp.filter(pl.col(COL_SPLIT_NAME) == SPLIT_NAME_TEST)
+    )
+
 
