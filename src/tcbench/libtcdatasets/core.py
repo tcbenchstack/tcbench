@@ -56,12 +56,13 @@ def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
 class DatasetMetadata:
     name: DATASET_NAME
     num_classes: int = -1
-    url_paper: str = None
-    url_website: str = None
-    raw_data_url: str = None
-    raw_data_md5: str = None
-    curated_data_url: str = None
-    curated_data_md5: str = None
+    url_paper: str = ""
+    url_website: str = ""
+    raw_data_url: str = ""
+    raw_data_md5: str = ""
+    raw_data_size: str = ""
+    curated_data_url: str = ""
+    curated_data_md5: str = ""
 
     def __post_init__(self):
         self.folder_dset = _tcbenchrc.install_folder / str(self.name)
@@ -107,8 +108,9 @@ class DatasetMetadata:
         table.add_row(
             ":link: Website:", 
             f"[link={self.url_website}]{self.url_website}[/link]",
-            end_section=True,
         )
+        table.add_section()
+        ###
         table.add_row(
             ":link: Raw data URL:", 
             f"[link={self.raw_data_url}]{self.raw_data_url}[/link]"
@@ -116,21 +118,26 @@ class DatasetMetadata:
         table.add_row(
             ":heavy_plus_sign: Raw data MD5:", 
             self.raw_data_md5,
-            end_section=True,
+        )
+        table.add_row(
+            ":triangular_ruler: Raw data size:", 
+            self.raw_data_size,
         )
         table.add_section()
-        table.add_row(
-            ":link: Curated data URL:", 
-            f"[link={self.curated_data_url}]{self.curated_data_url}[/link]"
-            if self.curated_data_url else
-            ""
-        )
-        table.add_row(
-            ":heavy_plus_sign: Curated data MD5:", 
-            self.curated_data_md5,
-            end_section=True,
-        )
-
+        ####
+        if self.curated_data_url:
+            table.add_row(
+                ":link: Curated data URL:", 
+                f"[link={self.curated_data_url}]{self.curated_data_url}[/link]"
+                if self.curated_data_url else
+                ""
+            )
+            table.add_row(
+                ":heavy_plus_sign: Curated data MD5:", 
+                self.curated_data_md5,
+            )
+            table.add_section()
+        ###
         table.add_row(":file_folder: Root folder:", str(self.folder_dset))
         table.add_row(
             ":question: Downloaded:", 

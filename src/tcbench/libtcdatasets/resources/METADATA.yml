@@ -12,6 +12,7 @@ mirage19:
     url_website: "https://traffic.comics.unina.it/mirage/mirage-2019.html"
     raw_data_url: "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz"
     raw_data_md5: "9a69d6d496023f67f75a7d7efd8bba31"
+    raw_data_size: "1.4GB"
 #    data_curated: ""
 #    data_curated_md5: ""
 
