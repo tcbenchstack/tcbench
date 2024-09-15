@@ -1,12 +1,11 @@
 from __future__ import annotations
+
 import rich.table as richtable
 import rich.tree as richtree
 import rich.box as richbox
+
 import polars as pl
 
-# from rich.tree import Tree
-# from rich.table import Table
-# import rich.box
 from typing import Dict, Any
 from collections import UserDict, UserList
 
@@ -15,6 +14,7 @@ from collections import UserDict, UserList
 import abc
 import pathlib
 import dataclasses
+import rich.console
 
 # import rich
 # import zipfile
@@ -160,6 +160,12 @@ class DatasetMetadata:
 #        table.add_row(":file_folder: data splits:", text)
 #        node.add(table)
         return table
+
+    def __rich_console__(self,
+        console: rich.console.Console,
+        options: rich.console.ConsoleOptions,
+    ) -> rich.console.RenderResult:
+        yield self.__rich__()
 
 
 

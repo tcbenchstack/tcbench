@@ -44,7 +44,7 @@ def info(ctx, dataset_name):
         obj = tcbench.datasets_catalog
     else:
         obj = tcbench.datasets_catalog[dataset_name]
-    cli.console.print(obj)
+    cli.logger.log(obj)
 
 
 #@datasets.command(name="install")
