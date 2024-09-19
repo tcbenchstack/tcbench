@@ -11,12 +11,10 @@ import shutil
 import tcbench
 from tcbench import cli
 from tcbench.cli.clickutils import (
-    CLICK_TYPE_DATASET_NAME,
-    CLICK_CALLBACK_DATASET_NAME,
-    CLICK_CALLBACK_TOINT,
+    CLICK_CHOICE_DATASET_NAME,
+    CLICK_PARSE_DATASET_NAME,
+    CLICK_PARSE_STRTOINT,
 )
-#from tcbench.cli import richutils
-#from tcbench import DATASETS
 
 
 @click.group()
@@ -33,8 +31,8 @@ def datasets(ctx):
     "-n",
     "dataset_name",
     required=False,
-    type=CLICK_TYPE_DATASET_NAME,
-    callback=CLICK_CALLBACK_DATASET_NAME,
+    type=CLICK_CHOICE_DATASET_NAME,
+    callback=CLICK_PARSE_DATASET_NAME,
     help="Show dataset information.",
     default=None,
 )
@@ -47,17 +45,26 @@ def info(ctx, dataset_name):
     cli.logger.log(obj)
 
 
-#@datasets.command(name="install")
-#@click.pass_context
-#@click.option(
-#    "--name",
-#    "-n",
-#    "dataset_name",
-#    required=True,
-#    type=CLICK_TYPE_DATASET_NAME,
-#    callback=CLICK_CALLBACK_DATASET_NAME,
-#    help="Dataset to install.",
-#)
+@datasets.command(name="install")
+@click.pass_context
+@click.option(
+    "--name",
+    "-n",
+    "dataset_name",
+    required=True,
+    type=CLICK_CHOICE_DATASET_NAME,
+    callback=CLICK_PARSE_DATASET_NAME,
+    help="Dataset name to install.",
+)
+@click.option(
+    "--no-download",
+    "-D",
+    "no_download",
+    type=click.BOOL,
+    default=False,
+    is_flag=True,
+    help="Avoid (re)downloading the raw data.",
+)
 #@click.option(
 #    "--input-folder",
 #    "-i",
@@ -76,8 +83,8 @@ def info(ctx, dataset_name):
 #    show_default=True,
 #    help="Number of parallel workers to use when processing the data.",
 #)
-#def install(ctx, dataset_name, input_folder, num_workers):
-#    """Install a dataset."""
+def install(ctx, dataset_name:DATASET_NAME, no_download:bool):
+    """Install a dataset."""
 #    if (
 #        dataset_name
 #        in (
@@ -89,9 +96,10 @@ def info(ctx, dataset_name):
 #        raise RuntimeError(
 #            f"Cannot automatically download {dataset_name}. Please download it separately and retry install using the --input-folder option"
 #        )
-#    datasets_utils.install(dataset_name, input_folder, num_workers=num_workers)
-#
-#
+    catalog = tcbench.datasets_catalog()
+    catalog[dataset_name].install(no_download)
+
+
 #def _ls_files(dataset_name):
 #    rich_obj = datasets_utils.get_rich_tree_parquet_files(dataset_name)
 #    cli.console.print(rich_obj)
