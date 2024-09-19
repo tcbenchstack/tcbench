@@ -145,6 +145,8 @@ class SpinnerProgress(richprogress.Progress):
             description = ""
             if self.description is not None:
                 description = f"{self.description} Done!"
+            # remove Spinner and MofN columns
+            self.columns = self.columns[1:]
             self.update(self.task_id, description=description, refresh=True)
             self.stop()
 
@@ -158,7 +160,6 @@ class SpinnerAndCounterProgress(richprogress.Progress):
             richprogress.TimeElapsedColumn(),
             richprogress.TextColumn("|"),
             richprogress.TextColumn("[progress.description]{task.description}"),
-            richprogress.TextColumn("(", table_column=richcolumns.Column(padding=(0,0))),
             self._col_mofn,
             self._col_inner_text,
             transient=False,
