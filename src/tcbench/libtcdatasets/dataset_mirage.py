@@ -311,7 +311,7 @@ class Mirage19(Dataset):
             .join(
                 self.df_app_metadata,
                 left_on="label",
-                right_on="package_name",
+                right_on="android_package_name",
                 how="left",
             )
             .with_columns(
@@ -378,13 +378,14 @@ class Mirage19(Dataset):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
 
-        def _write_parquet(tpl):
+        def _write_parquet_files(tpl):
             df, df_stats = tpl
-            if not self.folder_curate.exists():
-                self.folder_curate.mkdir(parents=True)
-            df.write_parquet(self.folder_curate / f"{self.name}.parquet")
+            folder = self.folder_preprocess
+            if not folder.exists():
+                folder.mkdir(parents=True)
+            df.write_parquet(folder / f"{self.name}.parquet")
             df_stats.write_parquet(
-                self.folder_curate / f"{self.name}_stats.parquet"
+                folder / f"{self.name}_stats.parquet"
             )
             return df, df_stats
 
@@ -412,27 +413,18 @@ class Mirage19(Dataset):
                 name="Compute statistics",
             ),
             SequentialPipeStage(
-                _write_parquet,
+                _write_parquet_files,
                 name="Write parquet files",
             ),
             name="Preprocess..."
         ).run(df) 
 
-#        with richutils.SpinnerProgress(description="Preprocess..."):
-#            # impose a deterministic order
-#            df = df.sort(by=["device_id", "fname", "fname_row_idx"])
-#            df = self._preprocess_rename_columns(df)
-#            df = self._preprocess_add_other_columns(df)
-#            df = self._preprocess_add_app_and_background(df)
-#            # compute global stats
-#            df_stats = curation.get_stats(df)
-#
-#        with richutils.SpinnerProgress(description="Saving..."):
-#            df.write_parquet(self.folder_preprocess / f"{self.name}.parquet")
-#            df_stats.write_parquet(
-#                self.folder_preprocess / f"{self.name}_stats.parquet"
-#            )
         return df
+
+    def _curate_rename(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.rename({
+            "label": "android_package_name",
+        })
 
     def _curate_drop_background(self, df: pl.DataFrame) -> pl.DataFrame:
         return df.with_columns(
@@ -546,19 +538,24 @@ class Mirage19(Dataset):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
 
-        def _write_parquet(tpl):
+        def _write_parquet_files(tpl):
             df, df_stats = tpl
-            if not self.folder_curate.exists():
-                self.folder_curate.mkdir(parents=True)
-            df.write_parquet(self.folder_curate / f"{self.name}.parquet")
+            folder = self.folder_curate
+            if not folder.exists():
+                folder.mkdir(parents=True)
+            df.write_parquet(folder / f"{self.name}.parquet")
             df_stats.write_parquet(
-                self.folder_curate / f"{self.name}_stats.parquet"
+                folder / f"{self.name}_stats.parquet"
             )
             return df, df_stats
 
         df = self.load(DATASET_TYPE.PREPROCESS)
 
         self.df, self.df_stats = SequentialPipe(
+            SequentialPipeStage(
+                self._curate_rename,
+                name="Column renaming",
+            ),
             SequentialPipeStage(
                 self._curate_drop_background, 
                 name="Drop background flows"
@@ -588,7 +585,7 @@ class Mirage19(Dataset):
                 name="Compute statistics",
             ),
             SequentialPipeStage(
-                _write_parquet,
+                _write_parquet_files,
                 name="Write parquet files",
             ),
             name="Curation..."
@@ -605,7 +602,7 @@ class Mirage19(Dataset):
             min_packets = -1
 
         with richutils.SpinnerProgress(
-            description=f"Loading {self.name}/{dset_type}"
+            description=f"Loading ({self.name}/{dset_type})..."
         ):
             self.df = (
                 pl.scan_parquet(
