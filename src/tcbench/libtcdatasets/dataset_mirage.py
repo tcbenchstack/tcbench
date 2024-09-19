@@ -20,7 +20,6 @@ from tcbench.cli import richutils
 from tcbench.libtcdatasets import curation
 from tcbench.libtcdatasets.core import (
     Dataset,
-    DatasetMetadataCatalog,
     SequentialPipeStage,
     SequentialPipe
 )
@@ -255,21 +254,6 @@ def _pool_worker(fname: pathlib.Path, save_to: pathlib.Path) -> None:
 
 
 def _rename_columns(columns: List[str]) -> Dict[str, str]:
-    def _rename_stats_column(col_name, prefix, new_prefix):
-        new_name = (
-            col_name
-            .replace(prefix, new_prefix)
-            .replace("biflow", "")
-        )
-        if new_name.endswith("percentile"):
-            _1, q, _2 = new_name.rsplit("_", 2)
-            new_name = new_name.replace(f"{q}_percentile", f"q{q}")
-        if "upstream_flow" in new_name:
-            new_name = new_name.replace("upstream_flow", new_prefix) + "_upload"
-        elif "downstream_flow" in new_name:
-            new_name = new_name.replace("downstream_flow", new_prefix) + "_download"
-        return new_name
-
     rename = dict()
     for col in columns:
         new_name = col.lower()
@@ -282,7 +266,7 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
             )
         elif col.startswith("flow_metadata"):
             new_name = (
-                new_name.replace("flow_metadata_", "flow_")
+                new_name.replace("flow_metadata_", "")
                 .replace("bf_", "")
                 .replace("num_packets", "packets")
                 .replace("ip_packet_bytes", "bytes")
@@ -292,14 +276,20 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
                 new_name = new_name.replace("uf_", "") + "_upload"
             elif "df" in new_name:
                 new_name = new_name.replace("df_", "") + "_download"
-        elif col.startswith("flow_features_packet_length_"):
-            new_name = _rename_stats_column(
-                new_name, "flow_features_packet_length_", "flow_pkts_size"
-            )
-        elif col.startswith("flow_features_iat_"):
-            new_name = _rename_stats_column(
-                new_name, "flow_features_iat_", "flow_pkts_iat"
-            )
+        elif col.startswith("flow_features_"): 
+            new_name = (
+                new_name
+                .replace("flow_features_", "")
+                .replace("packet_length", "packet_size")
+                .replace("_biflow", "")
+            ) 
+            if new_name.endswith("percentile"):
+                _1, q, _2 = new_name.rsplit("_", 2)
+                new_name = new_name.replace(f"{q}_percentile", f"q{q}")
+            if "upstream_flow" in new_name:
+                new_name = new_name.replace("_upstream_flow", "") + "_upload"
+            elif "downstream_flow" in new_name:
+                new_name = new_name.replace("_downstream_flow", "") + "_download"
         rename[col] = new_name
     return rename
 
@@ -384,29 +374,64 @@ class Mirage19(Dataset):
         return df
 
     def preprocess(self) -> pl.DataFrame:
+        def _get_stats(df):
+            df_stats = curation.get_stats(df)
+            return (df, df_stats)
+
+        def _write_parquet(tpl):
+            df, df_stats = tpl
+            if not self.folder_curate.exists():
+                self.folder_curate.mkdir(parents=True)
+            df.write_parquet(self.folder_curate / f"{self.name}.parquet")
+            df_stats.write_parquet(
+                self.folder_curate / f"{self.name}_stats.parquet"
+            )
+            return df, df_stats
+
         df = self._preprocess_parse_json()
-        df = self._preprocess_add_columns(df)
-        # df = pl.read_parquet(self.folder_preprocess / "mirage19.parquet").drop([
-        #    "src_ip_is_private",
-        #    "dst_ip_is_private",
-        #    "row_id",
-        # ])
+        df = df.sort(by=["device_id", "fname", "fname_row_idx"])
+
         if not self.folder_preprocess.exists():
             self.folder_preprocess.mkdir(parents=True)
 
-        with richutils.SpinnerProgress(description="Preprocess..."):
-            # impose a deterministic order
-            df = df.sort(by=["device_id", "fname", "fname_row_idx"])
-            df = self._preprocess_rename_columns(df)
-            df = self._preprocess_add_other_columns(df)
-            df = self._preprocess_add_app_and_background(df)
-            # compute global stats
-            df_stats = curation.get_stats(df)
-        with richutils.SpinnerProgress(description="Saving..."):
-            df.write_parquet(self.folder_preprocess / f"{self.name}.parquet")
-            df_stats.write_parquet(
-                self.folder_preprocess / f"{self.name}_stats.parquet"
-            )
+        self.df, self.df_stats = SequentialPipe(
+            SequentialPipeStage(
+                self._preprocess_rename_columns,
+                name="Rename columns",
+            ),
+            SequentialPipeStage(
+                self._preprocess_add_other_columns,
+                name="Add columns", 
+            ),
+            SequentialPipeStage(
+                self._preprocess_add_app_and_background,
+                name="Add metadata",
+            ),
+            SequentialPipeStage(
+                _get_stats,
+                name="Compute statistics",
+            ),
+            SequentialPipeStage(
+                _write_parquet,
+                name="Write parquet files",
+            ),
+            name="Preprocess..."
+        ).run(df) 
+
+#        with richutils.SpinnerProgress(description="Preprocess..."):
+#            # impose a deterministic order
+#            df = df.sort(by=["device_id", "fname", "fname_row_idx"])
+#            df = self._preprocess_rename_columns(df)
+#            df = self._preprocess_add_other_columns(df)
+#            df = self._preprocess_add_app_and_background(df)
+#            # compute global stats
+#            df_stats = curation.get_stats(df)
+#
+#        with richutils.SpinnerProgress(description="Saving..."):
+#            df.write_parquet(self.folder_preprocess / f"{self.name}.parquet")
+#            df_stats.write_parquet(
+#                self.folder_preprocess / f"{self.name}_stats.parquet"
+#            )
         return df
 
     def _curate_drop_background(self, df: pl.DataFrame) -> pl.DataFrame:
@@ -536,37 +561,37 @@ class Mirage19(Dataset):
         self.df, self.df_stats = SequentialPipe(
             SequentialPipeStage(
                 self._curate_drop_background, 
-                name="drop background flows"
+                name="Drop background flows"
             ),
             SequentialPipeStage(
                 self._curate_adjust_packet_series,
-                name="adjust packet series",
+                name="Adjust packet series",
             ),
             SequentialPipeStage(
                 self._curate_add_pkt_indices_columns,
-                name="add packet series indices"
+                name="Add packet series indices"
             ),
             SequentialPipeStage(
                 self._curate_add_other_columns,
-                name="add more columns",
+                name="Add more columns",
             ),
             SequentialPipeStage(
                 self._curate_drop_columns,
-                name="drop columns",
+                name="Drop columns",
             ),
             SequentialPipeStage(
                 self._curate_final_filter,
-                name="filter out flows",
+                name="Filter out flows",
             ),
             SequentialPipeStage(
                 _get_stats,
-                name="compute stats",
+                name="Compute statistics",
             ),
             SequentialPipeStage(
                 _write_parquet,
-                name="write parquets",
+                name="Write parquet files",
             ),
-            name="Curate..."
+            name="Curation..."
         ).run(df)
 
         return self.df

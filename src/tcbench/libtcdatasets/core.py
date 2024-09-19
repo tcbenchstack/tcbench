@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import rich.table as richtable
-import rich.tree as richtree
 import rich.box as richbox
 
 import polars as pl
@@ -169,38 +168,6 @@ class DatasetMetadata:
 
 
 
-class DatasetMetadataCatalog(UserDict):
-    def __init__(
-        self,
-        fname_metadata: pathlib.Path = DATASETS_RESOURCES_METADATA_FNAME,
-    ):
-        super().__init__()
-        self._metadata = fileutils.load_yaml(fname_metadata)
-        for dset_name, dset_data in self._metadata.items():
-            dset_data["name"] = DATASET_NAME.from_str(dset_name)
-            self.data[dset_name] = DatasetMetadata(**dset_data)
-
-    def __getitem__(self, key: Any) -> DatasetMetadata:
-        if isinstance(key, DATASET_NAME):
-            key = str(key)
-        return self.data[str(key)]
-
-    def __contains__(self, key: Any) -> bool:
-        if isinstance(key, DATASET_NAME):
-            key = str(key)
-        return key in self.data
-
-    def __setitem__(self, key: Any, value: Any) -> None:
-        raise ValueError(f"DatasetMetadataCatalog is immutable")
-
-    def __rich__(self) -> richtree.Tree:
-        tree = richtree.Tree("Datasets")
-        for dset_name in sorted(self.keys()):
-            dset_metadata = self[dset_name]    
-            node = richtree.Tree(dset_name)
-            node.add(dset_metadata.__rich__())
-            tree.add(node)
-        return tree
 
 
 class RawDatasetInstaller:
@@ -251,11 +218,16 @@ class RawDatasetInstaller:
 
 class Dataset:
     def __init__(self, name: DATASET_NAME):
+        dset_data = fileutils.load_yaml(DATASETS_RESOURCES_METADATA_FNAME).get(str(name), None)
+        if dset_data is None:
+            raise RuntimeError(f"Dataset {name} not recognized")
+        dset_data["name"] = name
         self.name = name
-        self.metadata = DatasetMetadataCatalog()[name]
+        self.metadata = DatasetMetadata(**dset_data)
         self.install_folder = _tcbenchrc.install_folder / str(self.name)
         self.df = None
         self.df_stats = None
+
 
     @property
     def folder_download(self):
@@ -273,8 +245,9 @@ class Dataset:
     def folder_curate(self):
         return self.install_folder / "curate"
 
-    def install(self) -> pathlib.Path:
-        self._install_raw()
+    def install(self, no_download:bool = False) -> pathlib.Path:
+        if not no_download:
+            self._install_raw()
         self.preprocess()
         self.curate()
         return self.install_folder
@@ -347,15 +320,14 @@ class SequentialPipe(UserList):
         self.progress = progress
 
     def run(self, data:Any) -> Any:
+        names = [stage.name for stage in self]
         with richutils.SpinnerAndCounterProgress(
             description=self.name,
+            steps_description=names,
             total=len(self.data),
-            visible=self.progress
+            visible=self.progress,
         ) as progress:
             for idx, stage in enumerate(self.data):
-                progress.update_description(
-                    " ".join([self.name, stage.name]).strip()
-                )
                 data = stage.run(data)
                 progress.update()
         return data 

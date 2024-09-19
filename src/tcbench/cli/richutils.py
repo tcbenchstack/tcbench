@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 import rich.progress as richprogress
+import rich.columns as richcolumns
 
 from rich.table import Table
 from rich.panel import Panel
@@ -122,16 +123,17 @@ def rich_label(text:str, extra_new_line:bool=False) -> None:
 class SpinnerProgress(richprogress.Progress):
     def __init__(self, description: str = "", visible: bool = True):
         if description:
-            description = "| " + description
+            description = f"| {description}"
         super().__init__(
             richprogress.SpinnerColumn(),
             richprogress.TimeElapsedColumn(),
-            richprogress.TextColumn(description),
+            richprogress.TextColumn("[progress.description]{task.description}"),
             transient=False,
             console=console,
         )
+        self.description = description
         self.visible = visible
-        self.add_task(description=description)
+        self.task_id = self.add_task(description=description)
 
     def __enter__(self):
         if self.visible and not PDB_DETECTED:
@@ -140,47 +142,55 @@ class SpinnerProgress(richprogress.Progress):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.visible and not PDB_DETECTED:
+            description = ""
+            if self.description is not None:
+                description = f"{self.description} Done!"
+            self.update(self.task_id, description=description, refresh=True)
             self.stop()
 
-    def update(self, *args, **kwargs):
-        pass
 
 class SpinnerAndCounterProgress(richprogress.Progress):
-    def __init__(self, total:int, description: str = "", visible: bool = True):
-        if description:
-            description = "| " + description
+    def __init__(self, total:int, description: str = "", steps_description: List[str] = None, visible: bool = True):
+        self._col_inner_text = richprogress.TextColumn("")
+        self._col_mofn = richprogress.MofNCompleteColumn()
         super().__init__(
             richprogress.SpinnerColumn(),
             richprogress.TimeElapsedColumn(),
-            richprogress.MofNCompleteColumn(),
+            richprogress.TextColumn("|"),
             richprogress.TextColumn("[progress.description]{task.description}"),
+            richprogress.TextColumn("(", table_column=richcolumns.Column(padding=(0,0))),
+            self._col_mofn,
+            self._col_inner_text,
             transient=False,
             console=console,
         )
         self.visible = visible
+        self.description = description
+        self.steps_description = steps_description
         self.task_id = self.add_task(description=description, total=total)
 
     def __enter__(self) -> SpinnerAndCounterProgress:
         if self.visible and not PDB_DETECTED:
             self.start()
+            if self.steps_description:
+                self._col_inner_text.text_format = self.steps_description.pop(0)
+                super().update(self.task_id, refresh=True)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         if self.visible and not PDB_DETECTED:
+            description = self.description
+            if description:
+                self._col_inner_text.text_format = "Done!"
+                # remove Spinner and MofN columns
+                self.columns = (*self.columns[1:4], *self.columns[5:])
+                super().update(self.task_id, description=description, refresh=True)
             self.stop()
-
-    def update_description(self, description:str = "") -> None:
-        if self.visible and not PDB_DETECTED and self.task_id is not None:
-            if description is None:
-                description = ""
-            if description != "":
-                description = "| " + description
-            #print(description)
-            super().update(self.task_id, description=description, refresh=True)
-            #print(self.tasks[0].description)
 
     def update(self, *args, **kwargs) -> None:
         if self.visible and not PDB_DETECTED:
+            if self.steps_description:
+                self._col_inner_text.text_format = self.steps_description.pop(0)
             super().advance(self.task_id, *args, **kwargs)
 
 class FileDownloadProgress(richprogress.Progress):
@@ -216,18 +226,17 @@ class FileDownloadProgress(richprogress.Progress):
 
 class Progress(richprogress.Progress):
     def __init__(self, total: int, description: str = "", visible: bool = True):
-        if description:
-            description = "| " + description
         super().__init__(
             richprogress.BarColumn(),
             richprogress.MofNCompleteColumn(),
             richprogress.TimeElapsedColumn(),
             richprogress.TextColumn("eta"),
             richprogress.TimeRemainingColumn(),
-            richprogress.TextColumn(description),
+            richprogress.TextColumn("[progress.description]{task.description}"),
             console=console,
         )
         self.visible = visible
+        self.description = description
         self.task_id = self.add_task(description, total=total)
 
     def __enter__(self):
@@ -237,7 +246,15 @@ class Progress(richprogress.Progress):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.visible and not PDB_DETECTED:
+            if self.description:
+                description = f"{self.description} Done!"
+                super().update(self.task_id, description=description, refresh=True)
             self.stop()
+
+    def update_description(self, description:str = "") -> None:
+        if self.visible and not PDB_DETECTED and self.task_id is not None:
+            self.description = description
+            super().update(self.task_id, description=description, refresh=True)
 
     def update(self):
         if self.visible and not PDB_DETECTED:
