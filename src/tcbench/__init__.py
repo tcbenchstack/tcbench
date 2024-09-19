@@ -38,8 +38,7 @@ class TCBenchRC(UserDict):
 
 _tcbenchrc = TCBenchRC()
 
-from tcbench.libtcdatasets.core import DatasetMetadataCatalog
-datasets_catalog = DatasetMetadataCatalog()
+from tcbench.libtcdatasets.catalog import datasets_catalog
 
 
 ##########################

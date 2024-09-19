@@ -1,29 +1,39 @@
+from __future__ import annotations
 import rich_click as click
 
 from typing import List, Dict, Any
 
-from tcbench import DATASETS
-from tcbench.modeling import MODELING_METHOD_TYPE, MODELING_INPUT_REPR_TYPE
+import functools
+
+from tcbench.core import StringEnum
+from tcbench.libtcdatasets.constants import (
+    DATASET_NAME,
+)
+from tcbench.modeling import (
+    MODELING_METHOD_TYPE, 
+    MODELING_INPUT_REPR_TYPE
+)
 
 
-def _create_choice(enumeration):
-    return click.Choice(list(map(lambda x: x.value, enumeration)), case_sensitive=False)
+def _create_choice(enumeration:StringEnum) -> click.Choice:
+    return click.Choice(enumeration.values(), case_sensitive=False)
 
+def _parse_enum_from_str(command: str, parameter:str, value:str, enumeration:StringEnum) -> StringEnum:
+    return enumeration.from_str(value)
 
-def _create_choice_callback(enumeration):
-    return lambda c, p, v: enumeration.from_str(v)
+def _parse_str_to_int(command: str, parameter: str, value: str) -> int:
+    return int(value)
 
+CLICK_CHOICE_DATASET_NAME = _create_choice(DATASET_NAME)
+CLICK_PARSE_DATASET_NAME = functools.partial(_parse_enum_from_str, enumeration=DATASET_NAME)
 
-CLICK_TYPE_DATASET_NAME = _create_choice(DATASETS)
-CLICK_CALLBACK_DATASET_NAME = _create_choice_callback(DATASETS)
+#CLICK_CHOICE_METHOD_NAME = _create_choice(MODELING_METHOD_TYPE)
+#CLICK_PARSE_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_TYPE)
 
-CLICK_TYPE_METHOD_NAME = _create_choice(MODELING_METHOD_TYPE)
-CLICK_CALLBACK_METHOD_NAME = _create_choice_callback(MODELING_METHOD_TYPE)
+#CLICK_CHOICE_INPUT_REPR = _create_choice(MODELING_INPUT_REPR_TYPE)
+#CLICK_PARSE_INPUT_REPR = functools.partial(_parse_enum_from_str, enumeration=MODELING_INPUT_REPR_TYPE)
 
-CLICK_TYPE_INPUT_REPR = _create_choice(MODELING_INPUT_REPR_TYPE)
-CLICK_CALLBACK_INPUT_REPR = _create_choice_callback(MODELING_INPUT_REPR_TYPE)
-
-CLICK_CALLBACK_TOINT = lambda c, p, v: int(v)
+CLICK_PARSE_STRTOINT = _parse_str_to_int
 
 
 def compose_help_string_from_list(items:List[str]) -> str:

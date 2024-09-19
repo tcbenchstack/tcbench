@@ -42,33 +42,6 @@ class ConsoleLogger:
         if fname:
             self.fname = pathlib.Path(fname)
             self.console_file = get_rich_console(fname, log_time=True)
-        #self.logger = self._get_logger()
-
-#    def _get_logger(self) -> logging.Logger:
-#        handlers = [
-#            RichHandler(
-#                console=self.console,
-#                show_time=False,
-#                show_level=False,
-#                show_path=False,
-#            )
-#        ]
-#        if self.console_file:
-#            handlers.append(
-#                RichHandler(
-#                    console=self.console_file, 
-#                    show_time=True,
-#                    omit_repeated_times=False,
-#                    show_level=False,
-#                    show_path=False,
-#                )
-#            )
-#        logging.basicConfig(
-#            level="NOTSET", 
-#            format="%(message)s",
-#            handlers=handlers,
-#        )
-#        return logging.getLogger(self.name)
 
     def log(self, obj: str | RenderableType) -> None:
         self.console.print(obj)
@@ -78,8 +51,8 @@ class ConsoleLogger:
     def save_svg(self, save_as: pathlib.Path, title: str = "") -> None:
         self.console.save_svg(save_as, title=title)
 
-    def save_html(self, save_as: pathlib.Path, title: str = "") -> None:
-        self.console.save_html(save_as, title=title)
+#    def save_html(self, save_as: pathlib.Path, title: str = "") -> None:
+#        self.console.save_html(save_as, title=title)
 
 logger = ConsoleLogger()
 console = logger.console
