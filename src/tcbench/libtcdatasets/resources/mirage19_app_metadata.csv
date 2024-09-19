@@ -1,4 +1,4 @@
-package_name,app,app_category
+android_package_name,app,app_category
 com.pinterest,pinterest,social
 com.facebook.katana,facebook,social
 com.spotify.music,spotify,music and Audio
