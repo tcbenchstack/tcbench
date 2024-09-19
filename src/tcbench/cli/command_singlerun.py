@@ -4,13 +4,13 @@ import pathlib
 
 from tcbench.cli import clickutils
 from tcbench.cli.clickutils import (
-    CLICK_TYPE_DATASET_NAME,
-    CLICK_CALLBACK_DATASET_NAME,
-    CLICK_TYPE_METHOD_NAME,
-    CLICK_CALLBACK_METHOD_NAME,
-    CLICK_CALLBACK_TOINT,
-    CLICK_TYPE_INPUT_REPR,
-    CLICK_CALLBACK_INPUT_REPR,
+    CLICK_CHOICE_DATASET_NAME,
+    #CLICK_CHOICE_INPUT_REPR,
+    #CLICK_CHOICE_METHOD_NAME,
+    CLICK_PARSE_DATASET_NAME,
+    #CLICK_PARSE_METHOD_NAME,
+    #CLICK_PARSE_INPUT_REPR,
+    CLICK_PARSE_STRTOINT,
 )
 
 from tcbench import (
@@ -197,7 +197,7 @@ def singlerun(ctx):
     "--flowpic-dim",
     "flowpic_dim",
     type=click.Choice(("32", "64", "1500")),
-    callback=CLICK_CALLBACK_TOINT,
+    callback=CLICK_PARSE_STRTOINT,
     default="32",
     show_default=True,
     help="Flowpic dimension.",
@@ -216,8 +216,8 @@ def singlerun(ctx):
 @click.option(
     "--dataset",
     "dataset",
-    type=CLICK_TYPE_DATASET_NAME,
-    callback=CLICK_CALLBACK_DATASET_NAME,
+    type=CLICK_CHOICE_DATASET_NAME,
+    callback=CLICK_PARSE_DATASET_NAME,
     default=str(DATASETS.UCDAVISICDM19),
     show_default=True,
     help="Dataset to use for modeling.",
@@ -226,7 +226,7 @@ def singlerun(ctx):
     "--dataset-minpkts",
     type=click.Choice(("-1", "10", "100", "1000")),
     default="-1",
-    callback=CLICK_CALLBACK_TOINT,
+    callback=CLICK_PARSE_STRTOINT,
     show_default=True,
     help="In combination with --dataset, refines preprocessed and split dataset to use.",
 )
@@ -346,9 +346,9 @@ def singlerun(ctx):
 @click.option(
     "--input-repr",
     "flow_representation",
-    type=CLICK_TYPE_INPUT_REPR,
-    callback=CLICK_CALLBACK_INPUT_REPR,
-    default=str(MODELING_INPUT_REPR_TYPE.PKTSERIES),
+    #type=CLICK_CHOICE_INPUT_REPR,
+    #callback=CLICK_PARSE_INPUT_REPR,
+    #default=str(MODELING_INPUT_REPR_TYPE.PKTSERIES),
     show_default=True,
     #metavar="TEXT",
     help="Input representation.",
@@ -453,7 +453,7 @@ def augment_at_loading(ctx, **kwargs):
     "--flowpic-dim",
     "flowpic_dim",
     type=click.Choice(("32",)),  # "64", "1500")),
-    callback=CLICK_CALLBACK_TOINT,
+    callback=CLICK_PARSE_STRTOINT,
     default="32",
     show_default=True,
     help="Flowpic dimension.",
