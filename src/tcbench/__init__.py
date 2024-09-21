@@ -19,6 +19,13 @@ def _init_tcbenchrc():
     )
     fileutils.save_yaml(data, TCBENCHRC_PATH)
 
+def is_valid_config(param_name:str, param_value: str) -> bool:
+    if param_name not in {
+        "datasets.install_folder"
+    }:
+        return False
+    return True
+
 class TCBenchRC(UserDict):
     def __init__(self):
         super().__init__()
@@ -33,8 +40,32 @@ class TCBenchRC(UserDict):
     def save(self):
         fileutils.save_yaml(self.data, TCBENCHRC_PATH)
 
+    def __getitem__(self, key: str) -> str:
+        curr_level = self.data     
+        key_levels = key.split(".")[::-1]
+        while key_levels:
+            try:
+                curr_level = curr_level[key_levels.pop()]
+            except KeyError:
+                raise KeyError(key)
+        return curr_level
+
+    def __setitem__(self, key: str, value = str) -> None:
+        curr_level = self.data 
+        key_levels = key.split(".")[::-1]
+        while len(key_levels) > 1:
+            curr_level = curr_level[key_levels.pop()]
+        curr_level[key_levels[0]] = value
+
     def load(self):
         self.data = fileutils.load_yaml(TCBENCHRC_PATH)
+
+        if "datasets" not in self.data:
+            raise RuntimeException(f"""missing "datasets" section in {TCBENCHRC_PATH}""")
+        if "install_folder" not in self.data["datasets"]:
+            raise RuntimeException(f"""missing "datasets.install_folder" in {TCBENCHRC_PATH}""")
+
+
 
 _tcbenchrc = TCBenchRC()
 

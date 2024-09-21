@@ -17,12 +17,14 @@ def main(ctx, show_version):
         sys.exit()
 
 
+from tcbench.cli.command_config import config
 from tcbench.cli.command_datasets import datasets
 #from tcbench.cli.command_singlerun import singlerun
 #from tcbench.cli.command_campaign import campaign
 #from tcbench.cli.command_aimrepo import aimrepo
 #from tcbench.cli.command_fetchartifacts import fetchartifacts
 
+main.add_command(config)
 main.add_command(datasets)
 #main.add_command(singlerun)
 #main.add_command(campaign)
