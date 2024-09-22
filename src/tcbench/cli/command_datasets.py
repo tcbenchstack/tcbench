@@ -1,10 +1,7 @@
 from __future__ import annotations
 import rich_click as click
 
-import requests
-import yaml
 import pathlib
-import sys
 import shutil
 
 #from tcbench.libtcdatasets import datasets_utils
@@ -27,13 +24,13 @@ def datasets(ctx):
 @datasets.command(name="info")
 @click.pass_context
 @click.option(
-    "--name",
-    "-n",
+    "--dset-name",
+    "-d",
     "dataset_name",
     required=False,
     type=CLICK_CHOICE_DATASET_NAME,
     callback=CLICK_PARSE_DATASET_NAME,
-    help="Show dataset information.",
+    help="Dataset name.",
     default=None,
 )
 def info(ctx, dataset_name):
@@ -48,13 +45,13 @@ def info(ctx, dataset_name):
 @datasets.command(name="install")
 @click.pass_context
 @click.option(
-    "--name",
-    "-n",
+    "--dset-name",
+    "-d",
     "dataset_name",
     required=True,
     type=CLICK_CHOICE_DATASET_NAME,
     callback=CLICK_PARSE_DATASET_NAME,
-    help="Dataset name to install.",
+    help="Dataset name.",
 )
 @click.option(
     "--no-download",
