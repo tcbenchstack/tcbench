@@ -8,9 +8,10 @@ import functools
 from tcbench.core import StringEnum
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
+    DATASET_TYPE,
 )
 from tcbench.modeling import (
-    MODELING_METHOD_TYPE, 
+    MODELING_METHOD_NAME, 
     MODELING_INPUT_REPR_TYPE
 )
 
@@ -26,6 +27,12 @@ def _parse_str_to_int(command: str, parameter: str, value: str) -> int:
 
 CLICK_CHOICE_DATASET_NAME = _create_choice(DATASET_NAME)
 CLICK_PARSE_DATASET_NAME = functools.partial(_parse_enum_from_str, enumeration=DATASET_NAME)
+
+CLICK_CHOICE_DATASET_TYPE = _create_choice(DATASET_TYPE)
+CLICK_PARSE_DATASET_TYPE = functools.partial(_parse_enum_from_str, enumeration=DATASET_TYPE)
+
+CLICK_CHOICE_MODELING_METHOD_NAME = _create_choice(MODELING_METHOD_NAME)
+CLICK_PARSE_MODELING_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_NAME)
 
 #CLICK_CHOICE_METHOD_NAME = _create_choice(MODELING_METHOD_TYPE)
 #CLICK_PARSE_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_TYPE)

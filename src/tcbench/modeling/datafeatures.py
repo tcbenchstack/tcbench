@@ -12,6 +12,9 @@ from tcbench.modeling.columns import (
     COL_PACKETS,
     COL_ROW_ID,
 )
+from tcbench.modeling import (
+    MODELING_FEATURE
+)
 
 DEFAULT_EXTRA_COLUMNS = (
     COL_BYTES,
@@ -98,15 +101,18 @@ def packet_series_cut(
 
 def features_dataprep(
     df: pl.DataFrame,
-    features: List[str],
+    features: Iterable[MODELING_FEATURE],
     series_len: int,
     series_pad: int = None,
-    y_colname: str = "app",
+    y_colname: str = COL_APP,
     extra_colnames: Iterable[str] = DEFAULT_EXTRA_COLUMNS,
 ) -> Tuple[NDArray, NDArray, pl.DataFrame]:
 
     if extra_colnames is None:
         extra_colnames = []
+
+    # converting enumeration to string
+    features  = list(map(str, features))
 
     cols_series = [
         col

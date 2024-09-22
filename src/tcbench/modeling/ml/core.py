@@ -11,9 +11,11 @@ from sklearn.preprocessing import LabelEncoder
 from dataclasses import dataclass
 
 from tcbench import fileutils
+from tcbench.cli import richutils
 from tcbench.modeling import (
     splitting, 
     datafeatures,
+    reporting,
 )
 from tcbench.libtcdatasets.core import (
     Dataset,
@@ -25,9 +27,197 @@ from tcbench.modeling.columns import (
     COL_APP,
     COL_ROW_ID,
 )
-from tcbench.modeling.constants import (
-    MLMODEL_NAME,
-)
+
+
+class ClassificationResults:
+    def __init__(
+        self, 
+        df_feat: pl.DataFrame,
+        labels: NDArray,
+        y_true: NDArray = None,
+        y_pred: NDArray = None,
+        split_index: int = None,
+        name: str = "test",
+        with_reports: bool = True,
+        model: MLModel = None,
+    ):
+        self.labels = labels
+        self.model = model
+        self.name = name
+        self.df_feat = df_feat
+
+        if y_true is not None:
+            self.df_feat = self.df_feat.with_columns(
+                y_true=pl.Series(y_true),
+                y_pred=pl.Series(y_pred),
+            )
+        self.df_feat = self.df_feat.with_columns(
+            split_index=pl.Series(split_index) if split_index else None
+        ) 
+        self.confusion_matrix = None
+        self.confusion_matrix_normalized = None
+        self.classification_report = None
+        if with_reports:
+            self.compute_reports()
+
+    @property
+    def y_true(self) -> NDArray:
+        return self.df_feat["y_true"].to_numpy()
+
+    @property
+    def y_pred(self) -> NDArray:
+        return self.df_feat["y_pred"].to_numpy()
+
+    def compute_reports(self) -> None:
+        if not (
+            ("y_true" in self.df_feat.columns) 
+            or ("y_pred" in self.df_feat.columns)
+        ):
+            raise RuntimeError("MissingColumns: y_true or y_pred are missing!")
+
+        y_true = self.y_true
+        y_pred = self.y_pred
+
+        self.confusion_matrix = reporting.confusion_matrix(
+            y_true, 
+            y_pred, 
+            expected_labels=self.labels,
+            order="samples", 
+            descending=True, 
+            normalize=False
+        )
+        self.confusion_matrix_normalized = reporting.confusion_matrix(
+            y_true, 
+            y_pred, 
+            expected_labels=self.labels,
+            order="samples", 
+            descending=True, 
+            normalize=True
+        )
+        self.classification_report = reporting.classification_report_from_confusion_matrix(
+            self.confusion_matrix, order="samples", descending=True
+        )
+
+    def set_split_index(self, n: int) -> None:
+        self.df_feat = self.df_feat.with_columns(
+            split_index=pl.literal(n)
+        )
+
+    def save(
+        self, 
+        save_to: pathlib.Path, 
+        name: str = "test", 
+        with_progress: bool = True, 
+        echo: bool = False
+    ) -> ClassificationResults:
+        save_to = pathlib.Path(save_to)
+        fileutils.create_folder(save_to)
+
+        with richutils.SpinnerProgress("Saving..."):
+            self.df_feat.write_parquet(save_to / f"{name}_df_feat.parquet")
+            if self.confusion_matrix is not None:
+                fileutils.save_csv(
+                    self.confusion_matrix,
+                    save_to / f"{name}_confusion_matrix.csv",
+                    echo=echo
+                )
+                fileutils.save_csv(
+                    self.confusion_matrix_normalized,
+                    save_to / f"{name}_confusion_matrix_normalized.csv",
+                    echo=echo,
+                )
+                fileutils.save_csv(
+                    self.classification_report,
+                    save_to / f"{name}_classification_report.csv",
+                    echo=echo,
+                )
+                fileutils.save_pickle(
+                    self.labels, 
+                    save_to / f"{name}_labels.pkl",
+                    echo=echo
+                )
+
+    @classmethod
+    def load(cls, folder: pathlib.Path, name: str = "test", echo: bool = False) -> ClassificationResults:
+        folder = pathlib.Path(folder)
+        model = fileutils.load_if_exists(
+            folder / "model.pkl", 
+            echo=echo,
+            error_policy="return",
+        )
+        labels = fileutils.load_if_exists(
+            folder / f"{name}_labels.pkl", 
+            echo=echo,
+            error_policy="raise"
+        )
+        df_feat = fileutils.load_if_exists(
+            folder / f"{name}_df_feat.parquet", 
+            echo=echo,
+            error_policy="raise"
+        )
+        confusion_matrix = fileutils.load_if_exists(
+            folder / f"{name}_confusion_matrix.csv", 
+            echo=echo,
+            error_policy="raise"
+        )
+        confusion_matrix_normalized = fileutils.load_if_exists(
+            folder / f"{name}_confusion_matrix_normalized.csv", 
+            echo=echo,
+            error_policy="raise"
+        )
+        classification_report = fileutils.load_if_exists(
+            folder / f"{name}_classification_report.csv", 
+            echo=echo,
+            error_policy="raise"
+        )
+        clsres = ClassificationResults(
+            df_feat=df_feat,
+            labels=labels,
+            y_true=None,
+            y_pred=None,
+            model=model,
+            with_reports=False
+        )
+        clsres.confusion_matrix = confusion_matrix
+        clsres.confusion_matrix_normalized = confusion_matrix_normalized
+        clsres.classification_ports = classification_report
+        return clsres
+
+@dataclass
+class MultiClassificationResults:
+    train: ClassificationResults = None
+    val: ClassificationResults = None
+    test: ClassificationResults = None
+    model: MLModel = None
+
+    @classmethod
+    def load(
+        cls, 
+        folder: pathlib.Path, 
+        name_train: str = "train",
+        name_test: str = "test",
+        name_val: str = "val",
+        echo: bool = False,
+    ) -> MultiClassificationResults:
+        folder = pathlib.Path(folder)
+
+        clsres = MultiClassificationResults(
+            model = MLModel.load(folder)
+        )
+        if name_train and (folder / f"{name_train}_df_feat.parquet").exists():
+            clsres.train = ClassificationResults.load(
+                folder, name=name_train, echo=echo
+            )
+        if name_test and (folder / f"{name_test}_df_feat.parquet").exists():
+            clsres.test = ClassificationResults.load(
+                folder, name=name_test, echo=echo
+            )
+        if name_val and (folder / f"{name_val}_df_feat.parquet").exists():
+            clsres.val = ClassificationResults.load(
+                folder, name=name_val, echo=echo
+            )
+        return clsres
+
 
 
 class MLDataLoader:
@@ -145,43 +335,6 @@ class MLDataLoader:
             )
 
 
-class ClassificationResults:
-    def __init__(
-        self, 
-        model: MLModel,
-        df_feat: pl.DataFrame,
-        y_true: NDArray,
-        y_pred: NDArray,
-        split_index: int = None,
-        name: str = "test",
-    ):
-        self.model = model
-        self.name = name
-        self.df_feat = df_feat.with_columns(
-            y_true=pl.Series(y_true),
-            y_pred=pl.Series(y_pred),
-            split_index=pl.Series(split_index) if split_index else None
-        ) 
-
-    @property
-    def labels(self) -> List[str]:
-        return self.model.labels
-
-    @property
-    def y_true(self) -> NDArray:
-        return self.df_feat["y_true"].to_numpy()
-
-    @property
-    def y_pred(self) -> NDArray:
-        return self.df_feat["y_pred"].to_numpy()
-
-    def save(self, save_to: pathlib.Path, name: str = "test") -> ClassificationResults:
-        return self
-
-    @classmethod
-    def load(cls, folder: pathlib.Path, name: str = "test") -> ClassificationResults:
-        return None
-
 
 class MLModel:
     def __init__(
@@ -227,14 +380,18 @@ class MLModel:
         return self.decode_y(self._model.predict(X))
 
     @classmethod
-    def load(cls, path: pathlib.Path) -> MLModel:
+    def load(cls, path: pathlib.Path, echo: bool = False) -> MLModel:
         path = pathlib.Path(path)
         if path.is_dir():
             path /= "tcbench_model.pkl"
-        return fileutils.load_pickle(path)
+        return fileutils.load_pickle(path, echo=echo)
 
-    def save(self, save_to: pathlib.Path) -> MLModel:
-        fileutils.save_pickle(self, save_to)
+    def save(self, save_to: pathlib.Path, echo: bool = False) -> MLModel:
+        if save_to:
+            save_to = pathlib.Path(save_to)
+            fileutils.save_pickle(
+                self, save_to / "tcbench_model.pkl", echo=echo
+            )
         return self
 
     @property
@@ -242,7 +399,7 @@ class MLModel:
         return None
 
 
-class MLTrainer:
+class MLTester:
     def __init__(
         self,
         model: MLModel,
@@ -253,31 +410,53 @@ class MLTrainer:
         self.dataloader = dataloader
         self.split_index = split_index
 
-    def fit(self, name: str = "train") -> ClassificationResults:
+    def predict(
+        self, 
+        name: str = "test", 
+        save_to: pathlib.Path = None, 
+        echo: bool = False,
+    ) -> ClassificationResults:
+        y_pred = self.model.predict(
+            self.dataloader.X_test,
+        )
+        clsres = ClassificationResults(
+            df_feat=self.dataloader.test_feat,
+            labels=self.model.labels,
+            y_true=self.dataloader.y_test,
+            y_pred=y_pred,
+            split_index=self.split_index,
+            name=name,
+            model=self.model,
+        )
+        if save_to:
+            clsres.save(
+                save_to, name=name, echo=echo
+            )
+        return clsres
+
+class MLTrainer(MLTester):
+    def fit(
+        self, 
+        name: str = "train", 
+        save_to: pathlib.Path = None,
+        echo: bool = False,
+    ) -> ClassificationResults:
         y_pred = self.model.fit(
             self.dataloader.X_train,
             self.dataloader.y_train
         )
-        return ClassificationResults(
-            self.model,
-            name=name,
+        clsres = ClassificationResults(
             df_feat=self.dataloader.train_feat,
+            labels=self.model.labels,
             y_true=self.dataloader.y_train,
             y_pred=y_pred,
             split_index=self.split_index,
-        )
-
-    def predict(self, name: str = "test") -> ClassificationResults:
-        y_pred = self.model.predict(
-            self.dataloader.X_test,
-        )
-        return ClassificationResults(
-            self.model,
+            model=self.model,
             name=name,
-            df_feat=self.dataloader.test_feat,
-            y_true=self.dataloader.y_test,
-            y_pred=y_pred,
-            split_index=self.split_index,
         )
-
+        if save_to:
+            clsres.save(
+                save_to, name=name, echo=echo
+            )
+        return clsres
 

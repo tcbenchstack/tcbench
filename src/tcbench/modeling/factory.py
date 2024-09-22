@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Iterable, Dict
 
-from tcbench.modeling.constants import (
-    MLMODEL_NAME,
+from tcbench.modeling import (
+    #MLMODEL_NAME,
+    MODELING_METHOD_NAME
 )
 from tcbench.modeling.ml import (
     classifiers as mlclassifiers,
@@ -11,15 +12,15 @@ from tcbench.modeling.ml import (
 )
 
 MODEL_NAME_TO_CLASS = {
-    MLMODEL_NAME.XGBOOST_CLASSIFIER: mlclassifiers.XGBoostClassifier
+    MODELING_METHOD_NAME.XGBOOST: mlclassifiers.XGBoostClassifier
 }
 
 
-def _get_model_class(name: MLMODEL_NAME) -> mlcore.MLModel:
+def _get_model_class(name: MODELING_METHOD_NAME) -> mlcore.MLModel:
     return MODEL_NAME_TO_CLASS.get(name, None)
 
 def mlmodel_factory(
-    name: MLMODEL_NAME,
+    name: MODELING_METHOD_NAME,
     labels: Iterable[str],
     feature_names: Iterable[str],
     seed: int = 1,
