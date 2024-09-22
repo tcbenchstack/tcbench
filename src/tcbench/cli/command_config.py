@@ -29,8 +29,9 @@ def _parse_set_option(option_values):
 def _set(ctx, option):
     """Set a TCBench config to a specific value."""
     param_name, param_value = _parse_set_option(option)
-    tcbench._tcbenchrc[param_name] = param_value
-    tcbench._tcbenchrc.save()
+    tcbenchrc = tcbench.get_config()
+    tcbenchrc[param_name] = param_value
+    tcbenchrc.save()
     console.print("Configuration updated!")
 
 @config.command(name="init")
