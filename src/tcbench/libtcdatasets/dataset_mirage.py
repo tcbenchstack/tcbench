@@ -357,12 +357,13 @@ class Mirage19(Dataset):
 
     def _preprocess_parse_json(self) -> pl.DataFrame:
         files = list(self.folder_raw.rglob("*.json"))
-        with (tempfile.TemporaryDirectory() as tmp_folder,):
+        with tempfile.TemporaryDirectory() as tmp_folder:
             tmp_folder = pathlib.Path(tmp_folder)
             func = functools.partial(_pool_worker, save_to=tmp_folder)
             with (
                 richutils.Progress(
-                    description="Parse JSON files...", total=len(files)
+                    description="Parse JSON files...", 
+                    total=len(files)
                 ) as progress,
                 multiprocessing.Pool(processes=2) as pool,
             ):
@@ -593,32 +594,32 @@ class Mirage19(Dataset):
 
         return self.df
 
-    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
-        folder = self.folder_preprocess
-        if dset_type == DATASET_TYPE.CURATE:
-            folder = self.folder_curate
-
-        if min_packets is None or min_packets <= 0:
-            min_packets = -1
-
-        with richutils.SpinnerProgress(
-            description=f"Loading ({self.name}/{dset_type})..."
-        ):
-            self.df = (
-                pl.scan_parquet(
-                    folder / f"{self.name}.parquet",
-                    n_rows=n_rows,
-                )
-                .filter(
-                    pl.col("packets") >= min_packets
-                )
-                .collect()
-            )
-
-            self.df_stats = None
-            if min_packets != -1:
-                self.df_stats = pl.read_parquet(
-                    folder / f"{self.name}_stats.parquet"
-                )
-
-        return self.df
+#    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
+#        folder = self.folder_preprocess
+#        if dset_type == DATASET_TYPE.CURATE:
+#            folder = self.folder_curate
+#
+#        if min_packets is None or min_packets <= 0:
+#            min_packets = -1
+#
+#        with richutils.SpinnerProgress(
+#            description=f"Loading ({self.name}/{dset_type})..."
+#        ):
+#            self.df = (
+#                pl.scan_parquet(
+#                    folder / f"{self.name}.parquet",
+#                    n_rows=n_rows,
+#                )
+#                .filter(
+#                    pl.col("packets") >= min_packets
+#                )
+#                .collect()
+#            )
+#
+#            self.df_stats = None
+#            if min_packets != -1:
+#                self.df_stats = pl.read_parquet(
+#                    folder / f"{self.name}_stats.parquet"
+#                )
+#
+#        return self.df
