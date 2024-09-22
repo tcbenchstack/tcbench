@@ -1,23 +1,27 @@
+from __future__ import annotations
 from collections import UserDict
+
+from typing import Dict, Any
 
 import pathlib
 import os.path
 import yaml
 
 from tcbench.libtcdatasets.constants import DATASETS_DEFAULT_INSTALL_ROOT_FOLDER
-from tcbench.libtcdatasets import fileutils
+from tcbench import fileutils
 
 __version__ = "0.0.22"
 
 TCBENCHRC_PATH = pathlib.Path(os.path.expandvars("$HOME")) / ".tcbenchrc"
 
-def _init_tcbenchrc():
+
+def _init_tcbenchrc() -> Dict[str, Any]:
     data=dict(
         datasets=dict(
             install_folder=str(DATASETS_DEFAULT_INSTALL_ROOT_FOLDER)
         )
     )
-    fileutils.save_yaml(data, TCBENCHRC_PATH)
+    fileutils.save_yaml(data, TCBENCHRC_PATH, echo=False)
 
 def is_valid_config(param_name:str, param_value: str) -> bool:
     if param_name not in {
@@ -58,7 +62,7 @@ class TCBenchRC(UserDict):
         curr_level[key_levels[0]] = value
 
     def load(self):
-        self.data = fileutils.load_yaml(TCBENCHRC_PATH)
+        self.data = fileutils.load_yaml(TCBENCHRC_PATH, echo=False)
 
         if "datasets" not in self.data:
             raise RuntimeException(f"""missing "datasets" section in {TCBENCHRC_PATH}""")
@@ -66,8 +70,8 @@ class TCBenchRC(UserDict):
             raise RuntimeException(f"""missing "datasets.install_folder" in {TCBENCHRC_PATH}""")
 
 
-
-_tcbenchrc = TCBenchRC()
+def get_config():
+    return TCBenchRC()
 
 from tcbench.libtcdatasets.catalog import datasets_catalog
 
@@ -103,15 +107,15 @@ DEFAULT_CAMPAIGN_CONTRALEARNANDFINETUNE_VALID_AUGMENTATIONS = tuple([
     if aug_name != "noaug"
 ])
 
-from tcbench.libtcdatasets.datasets_utils import (
-    get_datasets_root_folder,
-    get_dataset_folder,
-    DATASETS,
-    load_parquet,
-)
+#from tcbench.libtcdatasets.datasets_utils import (
+#    get_datasets_root_folder,
+#    get_dataset_folder,
+#    DATASETS,
+#    load_parquet,
+#)
 
-from tcbench.modeling import (
-    MODELING_DATASET_TYPE,
-    MODELING_INPUT_REPR_TYPE,
-    MODELING_METHOD_TYPE,
-)
+#from tcbench.modeling import (
+#    MODELING_DATASET_TYPE,
+#    MODELING_INPUT_REPR_TYPE,
+#    #MODELING_METHOD_TYPE,
+#)

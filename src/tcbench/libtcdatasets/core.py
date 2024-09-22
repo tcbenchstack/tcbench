@@ -25,6 +25,7 @@ import rich.console
 
 # from tcbench.cli import get_rich_console
 # from tcbench.cli.richutils import rich_label, rich_samples_count_report
+import tcbench
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
     DATASET_TYPE,
@@ -33,7 +34,7 @@ from tcbench.libtcdatasets.constants import (
 )
 from tcbench.libtcdatasets import fileutils
 from tcbench.cli import richutils
-from tcbench import _tcbenchrc
+#from tcbench import _tcbenchrc
 
 # console = get_rich_console()
 
@@ -64,7 +65,7 @@ class DatasetMetadata:
     curated_data_md5: str = ""
 
     def __post_init__(self):
-        self.folder_dset = _tcbenchrc.install_folder / str(self.name)
+        self.folder_dset = tcbench.get_config().install_folder / str(self.name)
 
     @property
     def folder_download(self):
@@ -224,9 +225,11 @@ class Dataset:
         dset_data["name"] = name
         self.name = name
         self.metadata = DatasetMetadata(**dset_data)
-        self.install_folder = _tcbenchrc.install_folder / str(self.name)
+        self.install_folder = tcbench.get_config().install_folder / str(self.name)
         self.df = None
         self.df_stats = None
+        self.y_colname = "app"
+        self.index_colname = "row_id"
 
 
     @property
@@ -267,7 +270,7 @@ class Dataset:
     def curate(self) -> None:
         pass
 
-    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
+    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> Dataset:
         folder = self.folder_preprocess
         if dset_type == DATASET_TYPE.CURATE:
             folder = self.folder_curate
@@ -295,7 +298,7 @@ class Dataset:
                     folder / f"{self.name}_stats.parquet"
                 )
 
-        return self.df
+        return self
 
 
 class SequentialPipeStage:

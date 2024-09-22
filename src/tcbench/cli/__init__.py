@@ -36,23 +36,28 @@ class ConsoleLogger:
         #name: str = "tcbench",
         fname: pathlib.Path = None,
     ):
-        #self.name = name
         self.console = get_rich_console(record=True)
         self.console_file = None
         if fname:
             self.fname = pathlib.Path(fname)
             self.console_file = get_rich_console(fname, log_time=True)
 
-    def log(self, obj: str | RenderableType) -> None:
-        self.console.print(obj)
+    def log(self, obj: str | RenderableType, echo: bool = True) -> None:
+        if echo:
+            self.console.print(obj)
         if self.console_file:
             self.console_file.log(obj)
 
     def save_svg(self, save_as: pathlib.Path, title: str = "") -> None:
         self.console.save_svg(save_as, title=title)
 
-#    def save_html(self, save_as: pathlib.Path, title: str = "") -> None:
-#        self.console.save_html(save_as, title=title)
 
 logger = ConsoleLogger()
 console = logger.console
+
+
+def reset_logger(fname: pathlib.Path = None) -> ConsoleLogger:
+    global logger
+    global console
+    logger = ConsoleLogger(fname)
+    console = logger.console
