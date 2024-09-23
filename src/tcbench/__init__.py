@@ -73,7 +73,14 @@ class TCBenchRC(UserDict):
 def get_config():
     return TCBenchRC()
 
-from tcbench.libtcdatasets.catalog import datasets_catalog
+from tcbench.libtcdatasets.catalog import (
+    datasets_catalog,
+    get_dataset,
+)
+from tcbench.libtcdatasets.constants import (
+    DATASET_NAME,
+    DATASET_TYPE,
+)
 
 
 ##########################

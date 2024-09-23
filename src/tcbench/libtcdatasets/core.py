@@ -5,26 +5,14 @@ import rich.box as richbox
 
 import polars as pl
 
-from typing import Dict, Any
+from typing import Dict, Any, Iterable
 from collections import UserDict, UserList
 
-# import yaml
-# import sys
 import abc
 import pathlib
 import dataclasses
 import rich.console
 
-# import rich
-# import zipfile
-# import tempfile
-# import requests
-# import tarfile
-# import enum
-# import hashlib
-
-# from tcbench.cli import get_rich_console
-# from tcbench.cli.richutils import rich_label, rich_samples_count_report
 import tcbench
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
@@ -32,11 +20,9 @@ from tcbench.libtcdatasets.constants import (
     DATASETS_DEFAULT_INSTALL_ROOT_FOLDER,
     DATASETS_RESOURCES_METADATA_FNAME,
 )
-from tcbench.libtcdatasets import fileutils
+#from tcbench.libtcdatasets import fileutils
 from tcbench.cli import richutils
-#from tcbench import _tcbenchrc
-
-# console = get_rich_console()
+from tcbench import fileutils
 
 
 def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
@@ -219,18 +205,18 @@ class RawDatasetInstaller:
 
 class Dataset:
     def __init__(self, name: DATASET_NAME):
-        dset_data = fileutils.load_yaml(DATASETS_RESOURCES_METADATA_FNAME).get(str(name), None)
+        dset_data = fileutils.load_yaml(DATASETS_RESOURCES_METADATA_FNAME, echo=False).get(str(name), None)
         if dset_data is None:
             raise RuntimeError(f"Dataset {name} not recognized")
         dset_data["name"] = name
         self.name = name
         self.metadata = DatasetMetadata(**dset_data)
         self.install_folder = tcbench.get_config().install_folder / str(self.name)
-        self.df = None
-        self.df_stats = None
         self.y_colname = "app"
         self.index_colname = "row_id"
-
+        self.df = None
+        self.df_stats = None
+        self.df_splits = None
 
     @property
     def folder_download(self):
@@ -270,14 +256,43 @@ class Dataset:
     def curate(self) -> None:
         pass
 
-    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> Dataset:
+    def compute_splits(
+        self, 
+        num_splits: int = 10, 
+        seed: int = 1, 
+        test_size: float = 0.1,
+    ) -> pl.DataFrame:
+        from tcbench.modeling import splitting
+        return splitting.split_monte_carlo(
+            self.df,
+            y_colname = self.y_colname,
+            index_colname = self.index_colname, 
+            num_splits = num_splits,
+            seed = 1,
+            test_size = 0.1,
+        )
+
+    def load(
+        self, 
+        dset_type: DATASET_TYPE, 
+        n_rows: int = None, 
+        min_packets:int = None,
+        columns: Iterable[str] = None,
+    ) -> Dataset:
         folder = self.folder_preprocess
         if dset_type == DATASET_TYPE.CURATE:
             folder = self.folder_curate
 
         if min_packets is None or min_packets <= 0:
             min_packets = -1
+        if columns is None:
+            columns = [pl.col("*")]
+        else:
+            columns = list(map(str, columns))
 
+        self.df = None
+        self.df_stats = None
+        self.df_splits = None
         with richutils.SpinnerProgress(
             description=f"Loading {self.name}/{dset_type}"
         ):
@@ -289,14 +304,21 @@ class Dataset:
                 .filter(
                     pl.col("packets") >= min_packets
                 )
+                .select(
+                    *columns
+                )
                 .collect()
             )
 
-            self.df_stats = None
             if min_packets != -1:
                 self.df_stats = pl.read_parquet(
                     folder / f"{self.name}_stats.parquet"
                 )
+
+            self.df_splits = fileutils.load_if_exists(
+                folder / f"{self.name}_splits.parquet",
+                echo=False,
+            )
 
         return self
 

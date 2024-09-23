@@ -539,8 +539,17 @@ class Mirage19(Dataset):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
 
-        def _write_parquet_files(tpl):
+        def _get_splits(tpl):
             df, df_stats = tpl
+            df_splits = self.compute_splits(
+                num_splits=10,
+                test_size=0.1,
+                seed=1,
+            )
+            return (df, df_stats, df_splits)
+
+        def _write_parquet_files(tpl):
+            df, df_stats, df_splits = tpl
             folder = self.folder_curate
             if not folder.exists():
                 folder.mkdir(parents=True)
@@ -548,11 +557,15 @@ class Mirage19(Dataset):
             df_stats.write_parquet(
                 folder / f"{self.name}_stats.parquet"
             )
-            return df, df_stats
+            df_splits.write_parquet(
+                folder / f"{self.name}_splits.parquet"
+            )
+            return df, df_stats, df_splits
 
-        df = self.load(DATASET_TYPE.PREPROCESS)
+        self.load(DATASET_TYPE.PREPROCESS)
+        df = self.df
 
-        self.df, self.df_stats = SequentialPipe(
+        self.df, self.df_stats, self.df_splits = SequentialPipe(
             SequentialPipeStage(
                 self._curate_rename,
                 name="Column renaming",
@@ -586,6 +599,10 @@ class Mirage19(Dataset):
                 name="Compute statistics",
             ),
             SequentialPipeStage(
+                _get_splits,
+                name="Compute splits",
+            ),
+            SequentialPipeStage(
                 _write_parquet_files,
                 name="Write parquet files",
             ),
@@ -593,33 +610,3 @@ class Mirage19(Dataset):
         ).run(df)
 
         return self.df
-
-#    def load(self, dset_type: DATASET_TYPE, n_rows: int = None, min_packets:int = None) -> pl.DataFrame:
-#        folder = self.folder_preprocess
-#        if dset_type == DATASET_TYPE.CURATE:
-#            folder = self.folder_curate
-#
-#        if min_packets is None or min_packets <= 0:
-#            min_packets = -1
-#
-#        with richutils.SpinnerProgress(
-#            description=f"Loading ({self.name}/{dset_type})..."
-#        ):
-#            self.df = (
-#                pl.scan_parquet(
-#                    folder / f"{self.name}.parquet",
-#                    n_rows=n_rows,
-#                )
-#                .filter(
-#                    pl.col("packets") >= min_packets
-#                )
-#                .collect()
-#            )
-#
-#            self.df_stats = None
-#            if min_packets != -1:
-#                self.df_stats = pl.read_parquet(
-#                    folder / f"{self.name}_stats.parquet"
-#                )
-#
-#        return self.df

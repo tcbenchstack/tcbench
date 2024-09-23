@@ -15,10 +15,10 @@ APP_LABEL_ALL = "_all_"
 
 
 class DATASET_NAME(StringEnum):
-    UCDAVIS19 = "ucdavis19"
-    UTMOBILENET21 = "utmobilenet21"
     MIRAGE19 = "mirage19"
-    MIRAGE22 = "mirage22"
+#    UCDAVIS19 = "ucdavis19"
+#    UTMOBILENET21 = "utmobilenet21"
+#    MIRAGE22 = "mirage22"
 
 class DATASET_TYPE(StringEnum):
     PREPROCESS = "preprocess"

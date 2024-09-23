@@ -150,6 +150,10 @@ class SpinnerProgress(richprogress.Progress):
             self.update(self.task_id, description=description, refresh=True)
             self.stop()
 
+    def update(self, *args, **kwargs):
+        kwargs["refresh"] = True
+        super().update(*args, **kwargs)
+
 
 class SpinnerAndCounterProgress(richprogress.Progress):
     def __init__(self, total:int, description: str = "", steps_description: List[str] = None, visible: bool = True):
@@ -189,6 +193,7 @@ class SpinnerAndCounterProgress(richprogress.Progress):
             self.stop()
 
     def update(self, *args, **kwargs) -> None:
+        kwargs["refresh"] = True
         if self.visible and not PDB_DETECTED:
             if self.steps_description:
                 self._col_inner_text.text_format = self.steps_description.pop(0)
@@ -222,6 +227,7 @@ class FileDownloadProgress(richprogress.Progress):
             self.stop()
 
     def update(self, *args, **kwargs):
+        kwargs["refresh"] = True
         if not PDB_DETECTED:
             super().advance(self.task_id, *args, **kwargs)
 
@@ -259,4 +265,4 @@ class Progress(richprogress.Progress):
 
     def update(self):
         if self.visible and not PDB_DETECTED:
-            super().advance(self.task_id, advance=1)
+            super().advance(self.task_id, advance=1, refresh=True)

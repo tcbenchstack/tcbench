@@ -8,6 +8,8 @@ from collections import UserDict
 from tcbench.libtcdatasets import (
     dataset_mirage
 )
+from tcbench.libtcdatasets.core import Dataset
+
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
 )
@@ -56,3 +58,6 @@ class DatasetsCatalog(UserDict):
 
 def datasets_catalog() -> DatasetsCatalog:
     return DatasetsCatalog()
+
+def get_dataset(name: DATASET_NAME) -> Dataset:
+    return DatasetsCatalog()[name]

@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import polars as pl
+import itertools
 
 from typing import Iterable
 
-from tcbench.libtcdatasets import (
+from tcbench import (
     DATASET_NAME,
     DATASET_TYPE,
-    datasets_catalog,
+    get_dataset,
 )
 from tcbench.libtcdatasets.core import Dataset
 from tcbench.modeling import (
@@ -26,27 +27,52 @@ from tcbench.modeling.ml.core import (
     MultiClassificationResults,
 )
 
+DEFAULT_TRACK_EXTRA_COLUMNS = (
+    COL_BYTES, 
+    COL_PACKETS, 
+    COL_ROW_ID
+)
 
-def train_loop(
-    dset: Dataset,
-    df_splits: pl.DataFrame,
+def _train_loop_worker(
+    dataset_name: DATASET_NAME,
+    dataset_type: DATASET_TYPE,
     method_name: MODELING_METHOD_NAME,
     features: Iterable[str],
     series_len: int = 10,
+    series_pad: int = None,
     seed: int = 1,
     save_to: pathlib.Path = None,
+    split_index: int = 1,
     track_train: bool = False,
+    track_extra_columns: Iterable[str] = DEFAULT_TRACK_EXTRA_COLUMNS,
 ) -> MultiClassificationResults:
+    if track_extra_columns is None:
+        track_extra_columns = []
+
+    dset = get_dataset(dataset_name)
+
+    columns = [dset.y_colname, dset.index_colname]
+    for col in itertools.chain(features, track_extra_columns):
+        col = str(col)
+        if col not in columns:
+            columns.append(col)
+
+    dset.load(
+        dataset_type, 
+        min_packets=series_len,
+        columns=columns
+    )
+
     ldr = MLDataLoader(
         dset,
         features=features,
-        df_splits=df_splits,
-        split_index=1,
+        df_splits=dset.df_splits,
+        split_index=split_index,
         series_len=series_len,
-        series_pad=None,
-        extra_colnames=(COL_BYTES, COL_PACKETS, COL_ROW_ID),
+        series_pad=series_pad,
+        extra_colnames=track_extra_columns,
         shuffle_train=True,
-        seed=seed
+        seed=seed,
     )
 
     mdl = mlmodel_factory(
@@ -71,3 +97,26 @@ def train_loop(
     )
 
     return clsres
+
+
+def train_loop(
+    dataset_name: DATASET_NAME,
+    dataset_type: DATASET_TYPE,
+    method_name: MODELING_METHOD_NAME,
+    features: Iterable[str],
+    series_len: int = 10,
+    seed: int = 1,
+    save_to: pathlib.Path = None,
+    track_train: bool = False,
+    num_workers: int = 1,
+) -> MultiClassificationResults:
+    return _train_loop_worker(
+        dataset_name=dataset_name,
+        dataset_type=dataset_type,
+        method_name=method_name,
+        features=features,
+        series_len=series_len,
+        seed=seed,
+        save_to=save_to,
+        track_train=track_train
+    )
