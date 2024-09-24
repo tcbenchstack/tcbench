@@ -265,4 +265,4 @@ class Progress(richprogress.Progress):
 
     def update(self):
         if self.visible and not PDB_DETECTED:
-            super().advance(self.task_id, advance=1, refresh=True)
+            super().advance(self.task_id, advance=1)

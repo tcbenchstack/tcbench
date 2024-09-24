@@ -278,6 +278,8 @@ class Dataset:
         n_rows: int = None, 
         min_packets:int = None,
         columns: Iterable[str] = None,
+        lazy: bool = False,
+        echo: bool = True,
     ) -> Dataset:
         folder = self.folder_preprocess
         if dset_type == DATASET_TYPE.CURATE:
@@ -294,7 +296,8 @@ class Dataset:
         self.df_stats = None
         self.df_splits = None
         with richutils.SpinnerProgress(
-            description=f"Loading {self.name}/{dset_type}"
+            description=f"Loading {self.name}/{dset_type}",
+            visible=echo,
         ):
             self.df = (
                 pl.scan_parquet(
@@ -307,18 +310,24 @@ class Dataset:
                 .select(
                     *columns
                 )
-                .collect()
             )
 
             if min_packets != -1:
-                self.df_stats = pl.read_parquet(
+                self.df_stats = pl.scan_parquet(
                     folder / f"{self.name}_stats.parquet"
                 )
 
-            self.df_splits = fileutils.load_if_exists(
-                folder / f"{self.name}_splits.parquet",
-                echo=False,
-            )
+            if (folder / f"{self.name}_splits.parquet").exists():
+                self.df_splits = pl.scan_parquet(
+                    folder / f"{self.name}_splits.parquet"
+                )
+            
+            if not lazy:
+                self.df = self.df.collect()
+                if self.df_stats is not None:
+                    self.df_stats = self.df_stats.collect()
+                if self.df_splits is not None:
+                    self.df_splits = self.df_splits.collect()
 
         return self
 

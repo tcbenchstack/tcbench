@@ -68,6 +68,18 @@ class ClassificationResults:
     def y_pred(self) -> NDArray:
         return self.df_feat["y_pred"].to_numpy()
 
+    @property
+    def f1(self) -> NDArray:
+        if self.classification_report is None:
+            return None
+        return (
+            self.classification_report
+            .filter(pl.col("label") == "weighted avg")
+            ["f1-score"]
+            .to_numpy()
+            [0]
+        )
+
     def compute_reports(self) -> None:
         if not (
             ("y_true" in self.df_feat.columns) 
@@ -111,9 +123,9 @@ class ClassificationResults:
         echo: bool = False
     ) -> ClassificationResults:
         save_to = pathlib.Path(save_to)
-        fileutils.create_folder(save_to)
+        fileutils.create_folder(save_to, echo=echo)
 
-        with richutils.SpinnerProgress("Saving..."):
+        with richutils.SpinnerProgress("Saving...", visible=echo):
             self.df_feat.write_parquet(save_to / f"{name}_df_feat.parquet")
             if self.confusion_matrix is not None:
                 fileutils.save_csv(
@@ -180,7 +192,7 @@ class ClassificationResults:
         )
         clsres.confusion_matrix = confusion_matrix
         clsres.confusion_matrix_normalized = confusion_matrix_normalized
-        clsres.classification_ports = classification_report
+        clsres.classification_report = classification_report
         return clsres
 
 @dataclass
@@ -218,6 +230,23 @@ class MultiClassificationResults:
             )
         return clsres
 
+    @property
+    def f1_train(self) -> float:
+        if self.train is not None:
+            return self.train.f1
+        return None
+
+    @property
+    def f1_test(self) -> float:
+        if self.test is not None:
+            return self.test.f1
+        return None
+
+    @property
+    def f1_val(self) -> float:
+        if self.val is not None:
+            return self.val.f1
+        return None
 
 
 class MLDataLoader:

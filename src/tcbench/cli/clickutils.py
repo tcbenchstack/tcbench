@@ -25,6 +25,8 @@ def _parse_enum_from_str(command: str, parameter:str, value:str, enumeration:Str
 def _parse_str_to_int(command: str, parameter: str, value: str) -> int:
     return int(value)
 
+        
+
 CLICK_CHOICE_DATASET_NAME = _create_choice(DATASET_NAME)
 CLICK_PARSE_DATASET_NAME = functools.partial(_parse_enum_from_str, enumeration=DATASET_NAME)
 
@@ -33,6 +35,20 @@ CLICK_PARSE_DATASET_TYPE = functools.partial(_parse_enum_from_str, enumeration=D
 
 CLICK_CHOICE_MODELING_METHOD_NAME = _create_choice(MODELING_METHOD_NAME)
 CLICK_PARSE_MODELING_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_NAME)
+
+def CLICK_PARSE_STR_TO_LIST_INT(command: str, parameter: str, value: str) -> Tuple[int]:
+    value = " ".join(value)
+    if value == "" or value is None:
+        return None
+    l = []
+    for text in value.split(","):
+        text = text.strip()
+        parts = text.split(":")
+        if len(parts) == 1:
+            l.append(int(text))
+        else:
+            l.extend(list(range(*parts)))
+    return tuple(l)
 
 #CLICK_CHOICE_METHOD_NAME = _create_choice(MODELING_METHOD_TYPE)
 #CLICK_PARSE_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_TYPE)
