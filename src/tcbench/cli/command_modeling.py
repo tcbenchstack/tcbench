@@ -1,26 +1,28 @@
 from __future__ import annotations
 import rich_click as click
 
-from typing import Iterable
+from typing import Iterable, Dict, Tuple
 import pathlib
 
-import tcbench
-from tcbench.cli.clickutils import (
+from tcbench import (
     DATASET_NAME,
     DATASET_TYPE,
-    MODELING_METHOD_NAME,
-    CLICK_CHOICE_DATASET_NAME,
-    CLICK_CHOICE_DATASET_TYPE,
-    CLICK_CHOICE_MODELING_METHOD_NAME,
-    CLICK_PARSE_DATASET_NAME,
-    CLICK_PARSE_DATASET_TYPE,
-    CLICK_PARSE_MODELING_METHOD_NAME,
-    CLICK_PARSE_STR_TO_LIST_INT,
 )
+from tcbench.cli import clickutils
+#from tcbench.cli.clickutils import (
+#    CLICK_CHOICE_DATASET_NAME,
+#    CLICK_CHOICE_DATASET_TYPE,
+#    CLICK_CHOICE_MODELING_METHOD_NAME,
+#    CLICK_PARSE_DATASET_NAME,
+#    CLICK_PARSE_DATASET_TYPE,
+#    CLICK_PARSE_MODELING_METHOD_NAME,
+#    CLICK_PARSE_STR_TO_LIST_INT,
+#)
 from tcbench.modeling.ml import loops
 from tcbench.modeling.ml.core import MultiClassificationResults
 from tcbench.modeling import (
-    MODELING_FEATURE
+    MODELING_FEATURE,
+    MODELING_METHOD_NAME,
 )
 
 @click.group()
@@ -36,8 +38,8 @@ def modeling(ctx):
     "-d",
     "dataset_name",
     required=False,
-    type=CLICK_CHOICE_DATASET_NAME,
-    callback=CLICK_PARSE_DATASET_NAME,
+    type=clickutils.CHOICE_DATASET_NAME,
+    callback=clickutils.parse_dataset_name,
     help="Dataset name.",
     default=None,
 )
@@ -46,8 +48,8 @@ def modeling(ctx):
     "-t",
     "dataset_type",
     required=False,
-    type=CLICK_CHOICE_DATASET_TYPE,
-    callback=CLICK_PARSE_DATASET_TYPE,
+    type=clickutils.CHOICE_DATASET_TYPE,
+    callback=clickutils.parse_dataset_type,
     help="Dataset type.",
     #default=click.Choice(DATASET_TYPE.CURATE),
 )
@@ -56,8 +58,8 @@ def modeling(ctx):
     "-m",
     "method_name",
     required=False,
-    type=CLICK_CHOICE_MODELING_METHOD_NAME,
-    callback=CLICK_PARSE_MODELING_METHOD_NAME,
+    type=clickutils.CHOICE_MODELING_METHOD_NAME,
+    callback=clickutils.parse_modeling_method_name,
     help="Modeling method.",
     default=None,
 )
@@ -95,8 +97,14 @@ def modeling(ctx):
     required=False,
     default="",
     type=tuple,
-    callback=CLICK_PARSE_STR_TO_LIST_INT,
+    callback=clickutils.parse_raw_text_to_list_int,
     help="Number of parallel workers."
+)
+@click.argument(
+    "method_hyperparams",
+    nargs=-1,
+    type=click.UNPROCESSED,
+    callback=clickutils.parse_remainder,
 )
 @click.pass_context
 def run(
@@ -108,6 +116,7 @@ def run(
     save_to: pathlib.Path,
     num_workers: int,
     split_indices: Iterable[int],
+    method_hyperparams: Dict[str, Tuple[Any]],
 ) -> Iterable[MultiClassificationResults]:
     """Run an experiment or campaign."""
     return loops.train_loop(
@@ -122,5 +131,6 @@ def run(
         save_to=save_to,
         num_workers=num_workers,
         split_indices=split_indices,
+        method_hyperparams=method_hyperparams,
     )
 

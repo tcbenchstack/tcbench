@@ -30,6 +30,7 @@ from tcbench.modeling.ml.core import (
     MLTrainer,
     ClassificationResults,
     MultiClassificationResults,
+    compose_hyperparams_grid,
 )
 
 DEFAULT_TRACK_EXTRA_COLUMNS = (
@@ -88,7 +89,9 @@ def _train_loop_worker(params: MultiprocessingWorkerKWArgs) -> MultiClassificati
         labels=ldr.labels,
         feature_names=ldr.feature_names,
         seed=params.seed,
+        **params.method_hyperparams,
     )
+
     trainer = MLTrainer(mdl, ldr)
 
     clsres_train = trainer.fit(name="train")
@@ -97,7 +100,7 @@ def _train_loop_worker(params: MultiprocessingWorkerKWArgs) -> MultiClassificati
         if params.track_train:
             clsres_train.save(params.save_to, echo=params.echo)
         clsres_test.save(params.save_to, echo=params.echo)
-        mdl.save(params.save_to, echo=echo)
+        mdl.save(params.save_to, echo=params.echo)
 
     clsres = MultiClassificationResults(
         train=clsres_train,
@@ -119,6 +122,7 @@ def train_loop(
     track_train: bool = False,
     num_workers: int = 1,
     split_indices: Iterable[int] = None,
+    method_hyperparams: Dict[str, Any] = None,
 ) -> Iterable[MultiClassificationResults]:
     if split_indices is None:
         dset = get_dataset(dataset_name).load(dataset_type, lazy=True, echo=False)
@@ -131,42 +135,49 @@ def train_loop(
             .to_list()
         )
 
-    split_indices = (1, 2, 3)
+    if method_hyperparams is None:
+        method_hyperparams = dict()
 
-    with (
-        richutils.Progress(
-            description="Train...", 
-            total=len(split_indices)
-        ) as progress,
-        multiprocessing.get_context("spawn").Pool(
-            #processes=num_workers, 
-            processes=2,
-            maxtasksperchild=1
-        ) as pool,
-    ):
-        params = [
-            MultiprocessingWorkerKWArgs(
-                dataset_name=dataset_name,
-                dataset_type=dataset_type,
-                method_name=method_name,
-                features=features,
-                series_len=series_len,
-                series_pad=None,
-                seed=split_index,
-                save_to=(
-                    save_to / f"split_{split_index:02d}" 
-                    if save_to 
-                    else None
-                ),
-                split_index=split_index,
-                track_train=track_train,
-                track_extra_columns=DEFAULT_TRACK_EXTRA_COLUMNS,
-                echo=False,
-            )
-            for split_index in split_indices
-        ]
-        for clsres in pool.imap_unordered(_train_loop_worker, params):
-            progress.update()
+    hyperparams_grid = compose_hyperparams_grid(method_hyperparams)
+
+    for hyperparams_idx, hyperparams_curr in enumerate(hyperparams_grid, start=1):
+        with (
+            richutils.Progress(
+                description="Train...", 
+                total=len(split_indices)
+            ) as progress,
+#            multiprocessing.get_context("spawn").Pool(
+#                #processes=num_workers, 
+#                processes=2,
+#                maxtasksperchild=1
+#            ) as pool,
+        ):
+            params = [
+                MultiprocessingWorkerKWArgs(
+                    dataset_name=dataset_name,
+                    dataset_type=dataset_type,
+                    method_name=method_name,
+                    method_hyperparams=hyperparams_curr,
+                    features=features,
+                    series_len=series_len,
+                    series_pad=None,
+                    seed=split_index,
+                    save_to=(
+                        save_to / f"split_{split_index:02d}" 
+                        if save_to 
+                        else None
+                    ),
+                    split_index=split_index,
+                    track_train=track_train,
+                    track_extra_columns=DEFAULT_TRACK_EXTRA_COLUMNS,
+                    echo=False,
+                )
+                for split_index in split_indices
+            ]
+#            for clsres in pool.imap_unordered(_train_loop_worker, params):
+            for p in params:
+                _train_loop_worker(p)
+                progress.update()
 #    return _train_loop_worker(
 #        dataset_name=dataset_name,
 #        dataset_type=dataset_type,

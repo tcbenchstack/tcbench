@@ -27,28 +27,59 @@ def _parse_str_to_int(command: str, parameter: str, value: str) -> int:
 
         
 
-CLICK_CHOICE_DATASET_NAME = _create_choice(DATASET_NAME)
-CLICK_PARSE_DATASET_NAME = functools.partial(_parse_enum_from_str, enumeration=DATASET_NAME)
+CHOICE_DATASET_NAME = _create_choice(DATASET_NAME)
+parse_dataset_name = functools.partial(_parse_enum_from_str, enumeration=DATASET_NAME)
 
-CLICK_CHOICE_DATASET_TYPE = _create_choice(DATASET_TYPE)
-CLICK_PARSE_DATASET_TYPE = functools.partial(_parse_enum_from_str, enumeration=DATASET_TYPE)
+CHOICE_DATASET_TYPE = _create_choice(DATASET_TYPE)
+parse_dataset_type = functools.partial(_parse_enum_from_str, enumeration=DATASET_TYPE)
 
-CLICK_CHOICE_MODELING_METHOD_NAME = _create_choice(MODELING_METHOD_NAME)
-CLICK_PARSE_MODELING_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_NAME)
+CHOICE_MODELING_METHOD_NAME = _create_choice(MODELING_METHOD_NAME)
+parse_modeling_method_name = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_NAME)
 
-def CLICK_PARSE_STR_TO_LIST_INT(command: str, parameter: str, value: str) -> Tuple[int]:
-    value = " ".join(value)
+def _parse_range(text: str) -> List[Any]:
+    parts = list(map(float, text.split(":")))
+    if len(parts) == 1:
+        return parts
+    
+    import numpy as np
+    return np.arange(*parts).tolist()
+
+def parse_raw_text_to_list(command: str, parameter: str, value: Tuple[str]) -> Tuple[Any]:
+    """Parse a coma separated text string into the associated list of values.
+       The list can be a combination of string, numeric or range values
+       in the format first:last or first:last:step. In the latter two cases,
+       the range are expanded into the associated formats.
+
+       Examples:
+        "1,a"       -> (1.0, "a")
+        "0:3,a"     -> (0.0, 1.0, 2.0, "a")
+        "0:2:0.5,a" -> (0.0, 0.5, 1.0, 1.5, "a")
+    """
+    value = "".join(value)
     if value == "" or value is None:
         return None
     l = []
     for text in value.split(","):
-        text = text.strip()
-        parts = text.split(":")
-        if len(parts) == 1:
-            l.append(int(text))
+        if text.isnumeric():
+            func = float
+            if '.' not in text:
+                func = int
+            l.append(func(text))
+        elif ":" in text:
+            l.extend(_parse_range(text))
         else:
-            l.extend(list(range(*parts)))
+            l.append(text)
     return tuple(l)
+
+def parse_raw_text_to_list_int(command: str, parameter: str, value: Tuple[str]) -> Tuple[int]:
+    return tuple(map(int, parse_raw_text_to_list(command, parameter, value)))
+
+def parse_remainder(command: str, argument: str, value: Tuple[str]) -> Dict[str, Any]:
+    opts = dict()
+    for text in value:
+        key, val = text.split("=")
+        opts[key] = parse_raw_text_to_list(None, None, val)
+    return opts
 
 #CLICK_CHOICE_METHOD_NAME = _create_choice(MODELING_METHOD_TYPE)
 #CLICK_PARSE_METHOD_NAME = functools.partial(_parse_enum_from_str, enumeration=MODELING_METHOD_TYPE)

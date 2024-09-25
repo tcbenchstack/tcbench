@@ -3,6 +3,7 @@ from __future__ import annotations
 import polars as pl
 
 import pathlib
+import itertools
 
 from typing import Tuple, List, Dict, Any, Iterable, Callable
 from numpy.typing import NDArray
@@ -28,6 +29,15 @@ from tcbench.modeling.columns import (
     COL_ROW_ID,
 )
 
+
+def compose_hyperparams_grid(hyperparams: Dict[str, Any]) -> Tuple[Dict[str, Any]]:
+    opts = []
+    for key, value in hyperparams.items():
+        if not isinstance(value, (list, tuple)):
+            opts.append(((key, value)))
+        else:
+            opts.append(zip(itertools.repeat(key, len(value)), value))
+    return tuple(dict(pairs) for pairs in itertools.product(*opts))
 
 class ClassificationResults:
     def __init__(

@@ -7,11 +7,7 @@ import shutil
 #from tcbench.libtcdatasets import datasets_utils
 import tcbench
 from tcbench import cli
-from tcbench.cli.clickutils import (
-    CLICK_CHOICE_DATASET_NAME,
-    CLICK_PARSE_DATASET_NAME,
-    CLICK_PARSE_STRTOINT,
-)
+from tcbench.cli import clickutils
 
 
 @click.group()
@@ -28,8 +24,8 @@ def datasets(ctx):
     "-d",
     "dataset_name",
     required=False,
-    type=CLICK_CHOICE_DATASET_NAME,
-    callback=CLICK_PARSE_DATASET_NAME,
+    type=clickutils.CHOICE_DATASET_NAME,
+    callback=clickutils.parse_dataset_name,
     help="Dataset name.",
     default=None,
 )
@@ -49,8 +45,8 @@ def info(ctx, dataset_name):
     "-d",
     "dataset_name",
     required=True,
-    type=CLICK_CHOICE_DATASET_NAME,
-    callback=CLICK_PARSE_DATASET_NAME,
+    type=clickutils.CHOICE_DATASET_NAME,
+    callback=clickutils.parse_dataset_name,
     help="Dataset name.",
 )
 @click.option(
