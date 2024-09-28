@@ -227,7 +227,7 @@ class FileDownloadProgress(richprogress.Progress):
             self.stop()
 
     def update(self, *args, **kwargs):
-        kwargs["refresh"] = True
+        #kwargs["refresh"] = True
         if not PDB_DETECTED:
             super().advance(self.task_id, *args, **kwargs)
 

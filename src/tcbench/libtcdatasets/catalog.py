@@ -15,27 +15,21 @@ from tcbench.libtcdatasets.constants import (
 )
 
 _DATASET_NAME_TO_CLASS = {
-    DATASET_NAME.MIRAGE19: dataset_mirage.Mirage19
+    DATASET_NAME.MIRAGE19: dataset_mirage.Mirage19,
+    DATASET_NAME.MIRAGE22: dataset_mirage.Mirage22,
 }
 
 class DatasetsCatalog(UserDict):
-    def __init__(
-        self,
-        #fname_metadata: pathlib.Path = DATASETS_RESOURCES_METADATA_FNAME,
-    ):
+    def __init__(self):
         super().__init__()
         for dset_name, dset_class in _DATASET_NAME_TO_CLASS.items():
             self.data[str(dset_name)] = dset_class()
 
     def __getitem__(self, key: Any) -> DatasetMetadata:
-        if isinstance(key, DATASET_NAME):
-            key = str(key)
         return self.data[str(key)]
 
     def __contains__(self, key: Any) -> bool:
-        if isinstance(key, DATASET_NAME):
-            key = str(key)
-        return key in self.data
+        return str(key) in self.data
 
     def __setitem__(self, key: Any, value: Any) -> None:
         raise ValueError(f"{self.__class__.__name__} is immutable")

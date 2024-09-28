@@ -31,11 +31,11 @@ def datasets(ctx):
 )
 def info(ctx, dataset_name):
     """Show the meta-data related to supported datasets."""
-    if dataset_name is None:
-        obj = tcbench.datasets_catalog
+    catalog = tcbench.datasets_catalog()
+    if dataset_name is not None:
+        cli.logger.log(catalog[dataset_name])
     else:
-        obj = tcbench.datasets_catalog[dataset_name]
-    cli.logger.log(obj)
+        cli.logger.log(catalog)
 
 
 @datasets.command(name="install")

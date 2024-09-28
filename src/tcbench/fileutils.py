@@ -7,8 +7,14 @@ from typing import Any, Dict
 import pickle
 import yaml
 import pathlib
+import requests
+import tarfile
+import zipfile
+import os
+import shutil
 
 from tcbench import cli
+from tcbench.cli import richutils
 
 def _check_file_exists(path: pathlib.Path) -> pathlib.Path:
     path = pathlib.Path(path)
@@ -90,3 +96,105 @@ def load_if_exists(path: pathlib.Path, echo: bool = True, error_policy: str = "r
     if not func:
         raise RuntimeError(f"Unrecognized suffix {path.suffix}")
     return func(path, echo=echo)
+
+
+def download_url(
+    url: str,
+    save_to: pathlib.Path,
+    verify_tls: bool = True,
+    force_redownload: bool = False,
+) -> pathlib.Path:
+    """Download content via URL.
+
+    Args:
+        url: the object URL.
+        save_to: the destination folder.
+        verify_tls: if False, skip TLS verification when downloading.
+        force_redownload: if False, return with no action if the destination folder
+            already contains a file with the expected name
+
+    Returns:
+        the path of the downloaded file
+    """
+    # from tcbench.cli import get_rich_console
+    save_to = pathlib.Path(save_to)
+
+    fname = pathlib.Path(url).name
+    save_as = save_to / fname
+    if save_as.exists() and not force_redownload:
+        return save_as
+
+    resp = requests.get(url, stream=True, verify=verify_tls)
+    totalbytes = int(resp.headers.get("content-length", 0))
+
+    if not save_as.parent.exists():
+        save_as.parent.mkdir(parents=True)
+
+    with (
+        richutils.FileDownloadProgress(totalbytes=totalbytes) as progressbar,
+        open(str(save_as), "wb") as fout,
+    ):
+        for data in resp.iter_content(chunk_size=64 * 1024):
+            size = fout.write(data)
+            progressbar.update(advance=size)
+
+    return save_as
+
+
+def _verify_expected_files_exists(folder, expected_files):
+    for fname in expected_files:
+        path = folder / fname
+        if not path.exists():
+            raise RuntimeError(f"missing {path}")
+
+
+def unzip(src: str | pathlib.Path, dst: str | pathlib.Path = None) -> pathlib.Path:
+    """Unpack a zip archive.
+
+    Arguments:
+        src: path of the .zip archive
+        dst: destination folder. If None, the archive is
+            unpacked in the same folder of src
+
+    Returns:
+        the destination folder
+    """
+    src = pathlib.Path(src)
+    if dst is None:
+        dst = src.parent
+    else:
+        dst = pathlib.Path(dst)
+
+    if dst.exists():
+        shutil.rmtree(dst, ignore_errors=True)
+    dst.mkdir(parents=True)
+
+    with richutils.SpinnerProgress(f"Unpacking..."), zipfile.ZipFile(src) as fzipped:
+        fzipped.extractall(dst)
+    return dst
+
+
+def untar(src: pathlib.Path, dst: pathlib.Path = None) -> pathlib.Path:
+    """Unpack a tarball archive.
+
+    Arguments:
+        src: path of the .zip archive
+        dst: destination folder. If None, the archive is
+            unpacked in the same folder of src
+
+    Returns:
+        the destination folder
+    """
+    src = pathlib.Path(src)
+    if dst is None:
+        dst = src.parent
+    else:
+        dst = pathlib.Path(dst)
+
+    if dst.exists():
+        shutil.rmtree(dst, ignore_errors=True)
+    dst.mkdir(parents=True)
+
+    with richutils.SpinnerProgress(f"Unpacking..."), tarfile.open(src, "r:gz") as ftar:
+        ftar.extractall(dst)
+    return dst

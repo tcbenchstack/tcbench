@@ -610,3 +610,16 @@ class Mirage19(Dataset):
         ).run(df)
 
         return self.df
+
+class Mirage22(Mirage19):
+    def __init__(self):
+        super(Mirage19, self).__init__(name=DATASET_NAME.MIRAGE22)
+        self.df_app_metadata = pl.read_csv(
+            DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
+        )
+
+    def preprocess(self):
+        pass
+
+    def curate(self):
+        pass

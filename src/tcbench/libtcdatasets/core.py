@@ -331,6 +331,16 @@ class Dataset:
 
         return self
 
+    def __rich__(self) -> richtable.Table:
+        return self.metadata.__rich__()
+
+    def __rich_console__(self,
+        console: rich.console.Console,
+        options: rich.console.ConsoleOptions,
+    ) -> rich.console.RenderResult:
+        yield self.__rich__()
+        
+
 
 class SequentialPipeStage:
     def __init__(self, func, name:str = None, **kwargs):

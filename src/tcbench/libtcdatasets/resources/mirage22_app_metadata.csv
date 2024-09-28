@@ -1,0 +1,10 @@
+android_package_name,app,app_category
+com.discord,discord,communication
+com.gotomeeting,gotomeeting,business
+com.google.android.apps.meetings,google meet,business
+com.facebook.orca,messenger,communication
+com.skype.raider,skype,communication
+com.slack,slack,business
+com.microsoft.teams,microsoft teams,business
+com.cisco.webex.meetings,webex meetings,business
+us.zoom.videomeetings,zoom cloud meetings,business
