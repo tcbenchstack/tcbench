@@ -54,7 +54,7 @@ def save_yaml(data: Any, save_as: pathlib.Path, echo: bool = True) -> None:
     create_folder(save_as.parent)
     cli.logger.log(f"saving: {save_as}", echo=echo)
     with open(save_as, "w") as fout:
-        yaml.dump(data, fout)
+        yaml.dump(data, fout, sort_keys=False)
 
 def load_csv(path: pathlib.Path, echo: bool = True) -> pl.DataFrame:
     cli.logger.log(f"loading: {path}", echo=echo)
@@ -148,7 +148,12 @@ def _verify_expected_files_exists(folder, expected_files):
             raise RuntimeError(f"missing {path}")
 
 
-def unzip(src: str | pathlib.Path, dst: str | pathlib.Path = None) -> pathlib.Path:
+def unzip(
+    src: str | pathlib.Path, 
+    dst: str | pathlib.Path = None, 
+    progress:bool=True,
+    remove_dst: bool = True
+) -> pathlib.Path:
     """Unpack a zip archive.
 
     Arguments:
@@ -165,16 +170,24 @@ def unzip(src: str | pathlib.Path, dst: str | pathlib.Path = None) -> pathlib.Pa
     else:
         dst = pathlib.Path(dst)
 
-    if dst.exists():
+    if dst.exists() and remove_dst:
         shutil.rmtree(dst, ignore_errors=True)
-    dst.mkdir(parents=True)
+        dst.mkdir(parents=True)
 
-    with richutils.SpinnerProgress(f"Unpacking..."), zipfile.ZipFile(src) as fzipped:
+    with (
+        richutils.SpinnerProgress(f"Unpacking...", visible=progress), 
+        zipfile.ZipFile(src) as fzipped,
+    ):
         fzipped.extractall(dst)
     return dst
 
 
-def untar(src: pathlib.Path, dst: pathlib.Path = None) -> pathlib.Path:
+def untar(
+    src: pathlib.Path, 
+    dst: pathlib.Path = None, 
+    progress: bool = True,
+    remove_dst: bool = True,
+) -> pathlib.Path:
     """Unpack a tarball archive.
 
     Arguments:
@@ -191,10 +204,13 @@ def untar(src: pathlib.Path, dst: pathlib.Path = None) -> pathlib.Path:
     else:
         dst = pathlib.Path(dst)
 
-    if dst.exists():
+    if dst.exists() and remove_dst:
         shutil.rmtree(dst, ignore_errors=True)
-    dst.mkdir(parents=True)
+        dst.mkdir(parents=True)
 
-    with richutils.SpinnerProgress(f"Unpacking..."), tarfile.open(src, "r:gz") as ftar:
+    with (
+        richutils.SpinnerProgress(f"Unpacking...", visible=progress), 
+        tarfile.open(src, "r:gz") as ftar
+    ):
         ftar.extractall(dst)
     return dst

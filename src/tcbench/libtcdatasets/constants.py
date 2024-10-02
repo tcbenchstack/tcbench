@@ -21,5 +21,6 @@ class DATASET_NAME(StringEnum):
 #    UTMOBILENET21 = "utmobilenet21"
 
 class DATASET_TYPE(StringEnum):
-    PREPROCESS = "preprocess"
+    RAW = "raw"
+#    PREPROCESS = "preprocess"
     CURATE = "curate"

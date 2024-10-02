@@ -16,12 +16,14 @@ from multiprocessing import get_context
 import polars as pl
 import numpy as np
 
+from tcbench import fileutils
 from tcbench.cli import richutils
 from tcbench.libtcdatasets import curation
 from tcbench.libtcdatasets.core import (
     Dataset,
     SequentialPipeStage,
-    SequentialPipe
+    SequentialPipe,
+    DatasetSchema
 )
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
@@ -176,11 +178,14 @@ _POLAR_SCHEMA_PREPROCESS.update(
 )
 
 
-def _reformat_json_entry(json_entry: Dict[str, Any]) -> Dict[str, Any]:
+def _reformat_json_entry(
+    json_entry: Dict[str, Any], 
+    fields_order: List[str]
+) -> Dict[str, Any]:
     """Process a JSON nested structure by chaining partial names via "_" """
     data = OrderedDict()
-    for key in _POLAR_SCHEMA_RAW.keys():
-        data[key] = None
+    for field_name in fields_order:
+        data[field_name] = None
 
     queue = deque(json_entry.items())
     while len(queue):
@@ -195,52 +200,37 @@ def _reformat_json_entry(json_entry: Dict[str, Any]) -> Dict[str, Any]:
     return data
 
 
-def _json_entry_to_dataframe(json_entry: Dict[str, Any]) -> pl.DataFrame:
+def _json_entry_to_dataframe(
+    json_entry: Dict[str, Any], 
+    dset_schema: DatasetSchema
+) -> pl.DataFrame:
     """Create a DataFrame by flattening the JSON nested structure
     chaining partial names via "_"
     """
-
-    # enforce values to be list
-    json_entry = _reformat_json_entry(json_entry)
+    json_entry = _reformat_json_entry(json_entry, dset_schema.fields)
     for key, value in json_entry.items():
         if value == "NaN":
             value = np.nan
+        # Note: enforce values to be list for pl.DataFrame conversion
         json_entry[key] = [value]
-
-    return pl.DataFrame(json_entry, schema=_POLAR_SCHEMA_RAW)
-
-
-def load_mirage_json(fname: pathlib.Path) -> pl.DataFrame:
-    fname = pathlib.Path(fname)
-    with open(fname) as fin:
-        data = json.load(fin)
-
-    l = []
-    for flow_id, json_entry in data.items():
-        src_ip, src_port, dst_ip, dst_port, proto_id = flow_id.split(",")
-        l.append(
-            _json_entry_to_dataframe(json_entry).with_columns(
-                pl.lit(src_ip).alias("src_ip"),
-                pl.lit(src_port).alias("src_port"),
-                pl.lit(dst_ip).alias("dst_ip"),
-                pl.lit(dst_port).alias("dst_port"),
-                pl.lit(proto_id).alias("proto_id"),
-                pl.lit(fname.parent.name).alias("device_id"),
-                pl.lit(fname.stem).alias("fname"),
-            )
-        )
-    return pl.concat(l)
+    return pl.DataFrame(json_entry, schema=dset_schema.to_polars())
 
 
-def _pool_worker(fname: pathlib.Path, save_to: pathlib.Path) -> None:
+def _load_raw_json_worker(
+    fname: pathlib.Path, 
+    dset_schema: DatasetSchema, 
+    save_to: pathlib.Path,
+) -> None:
     fname = pathlib.Path(fname)
     with open(fname) as fin:
         data = json.load(fin)
 
     with open(save_to / f"{fname.parent.name}__{fname.name}", "w") as fout:
         for idx, (flow_id, json_entry) in enumerate(data.items()):
-            src_ip, src_port, dst_ip, dst_port, proto_id = flow_id.split(",")
-            json_entry = _reformat_json_entry(json_entry)
+            # adding a few extra columns after parsing raw data
+            json_entry = _reformat_json_entry(json_entry, dset_schema.fields)
+            src_ip, src_port, dst_ip, dst_port, proto_id = \
+                flow_id.split(",")
             json_entry["src_ip"] = src_ip
             json_entry["src_port"] = int(src_port)
             json_entry["dst_ip"] = dst_ip
@@ -252,6 +242,34 @@ def _pool_worker(fname: pathlib.Path, save_to: pathlib.Path) -> None:
             json.dump(json_entry, fout)
             fout.write("\n")
 
+def load_raw_json(fname: pathlib.Path, dataset_name: DATASET_NAME) -> pl.DataFrame:
+    import tcbench
+    fname = pathlib.Path(fname)
+    with open(fname) as fin:
+        data = json.load(fin)
+
+    dset_schema = (
+        tcbench
+        .datasets_catalog()
+        [dataset_name]
+        .get_schema(DATASET_TYPE.RAW)
+    )
+
+    l = []
+    for idx, (flow_id, json_entry) in enumerate(data.items()):
+        json_entry = _reformat_json_entry(json_entry, dset_schema.fields)
+        src_ip, src_port, dst_ip, dst_port, proto_id = \
+            flow_id.split(",")
+        json_entry["src_ip"] = src_ip
+        json_entry["src_port"] = int(src_port)
+        json_entry["dst_ip"] = dst_ip
+        json_entry["dst_port"] = int(dst_port)
+        json_entry["proto_id"] = int(proto_id)
+        json_entry["device_id"] = fname.parent.name
+        json_entry["fname"] = fname.stem
+        json_entry["fname_row_idx"] = idx
+        l.append(_json_entry_to_dataframe(json_entry, dset_schema))
+    return pl.concat(l)
 
 def _rename_columns(columns: List[str]) -> Dict[str, str]:
     rename = dict()
@@ -301,10 +319,61 @@ class Mirage19(Dataset):
             DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
         )
 
-    def _preprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+    @property
+    def _list_raw_json_files(self):
+        return list(self.folder_raw.rglob("*.json"))
+
+    def _parse_raw_json(
+        self, 
+    ) -> pl.DataFrame:
+        files = self._list_raw_json_files
+        dset_schema = self.get_schema(DATASET_TYPE.RAW)
+
+        with tempfile.TemporaryDirectory() as tmp_folder:
+            tmp_folder = pathlib.Path(tmp_folder)
+            func = functools.partial(
+                _load_raw_json_worker, 
+                dset_schema=dset_schema, 
+                save_to=tmp_folder,
+            )
+            with (
+                richutils.Progress(
+                    description="Parse JSON files...", 
+                    total=len(files)
+                ) as progress,
+                multiprocessing.Pool(processes=2) as pool,
+            ):
+                for _ in pool.imap_unordered(func, files):
+                    progress.update()
+
+            with richutils.SpinnerProgress(description="Reload..."):
+                df = (
+                    pl.read_ndjson(
+                        tmp_folder, 
+                        schema=dset_schema.to_polars()
+                    )
+                    .sort(
+                        "device_id", 
+                        "fname", 
+                        "fname_row_idx"
+                    )
+                )
+        return df
+
+    def raw(self) -> pl.DataFrame:
+        df = self._parse_raw_json()
+        with richutils.SpinnerProgress(description="Writing parquet files..."):
+            fileutils.save_parquet(
+                df, 
+                save_as=self.folder_raw/f"{self.name}.parquet", 
+                echo=False
+            )
+        return df
+
+    def _raw_postprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
         return df.rename(_rename_columns(df.columns))
 
-    def _preprocess_add_app_and_background(self, df: pl.DataFrame) -> pl.DataFrame:
+    def _raw_postprocess_add_app_and_background(self, df: pl.DataFrame) -> pl.DataFrame:
         return (
             df
             # add app column using static metadata
@@ -332,7 +401,7 @@ class Mirage19(Dataset):
             )
         )
 
-    def _preprocess_add_other_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+    def _raw_postprocess_add_other_columns(self, df: pl.DataFrame) -> pl.DataFrame:
         # add column: convert proto_id to string (6->tcp, 17->udp)
         df = df.with_columns(
             proto=(
@@ -355,58 +424,38 @@ class Mirage19(Dataset):
             .with_row_index(name="row_id")
         )
 
-    def _preprocess_parse_json(self) -> pl.DataFrame:
-        files = list(self.folder_raw.rglob("*.json"))
-        with tempfile.TemporaryDirectory() as tmp_folder:
-            tmp_folder = pathlib.Path(tmp_folder)
-            func = functools.partial(_pool_worker, save_to=tmp_folder)
-            with (
-                richutils.Progress(
-                    description="Parse JSON files...", 
-                    total=len(files)
-                ) as progress,
-                multiprocessing.Pool(processes=2) as pool,
-            ):
-                for _ in pool.imap_unordered(func, files):
-                    progress.update()
 
-            with richutils.SpinnerProgress(description="Reload..."):
-                df = pl.read_ndjson(tmp_folder, schema=_POLAR_SCHEMA_PREPROCESS)
-        return df
-
-    def preprocess(self) -> pl.DataFrame:
+    def _raw_postprocess(self) -> pl.DataFrame:
         def _get_stats(df):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
 
         def _write_parquet_files(tpl):
             df, df_stats = tpl
-            folder = self.folder_preprocess
-            if not folder.exists():
-                folder.mkdir(parents=True)
-            df.write_parquet(folder / f"{self.name}.parquet")
+            df.write_parquet(
+                self.folder_raw / "_postprocess.parquet"
+            )
             df_stats.write_parquet(
-                folder / f"{self.name}_stats.parquet"
+                self.folder_raw / f"_postprocess_stats.parquet"
             )
             return df, df_stats
 
-        df = self._preprocess_parse_json()
-        df = df.sort(by=["device_id", "fname", "fname_row_idx"])
-
-        if not self.folder_preprocess.exists():
-            self.folder_preprocess.mkdir(parents=True)
-
-        self.df, self.df_stats = SequentialPipe(
+        # attempt at loading the previously generate raw version
+        df = fileutils.load_if_exists(self.folder_raw / f"{self.name}.parquet", echo=False)
+        if df is None:
+            df = self.raw()
+        # ...and triggering postprocessing steps        
+        df, _ = SequentialPipe(
             SequentialPipeStage(
-                self._preprocess_rename_columns,
+                self._raw_postprocess_rename_columns,
                 name="Rename columns",
             ),
             SequentialPipeStage(
-                self._preprocess_add_other_columns,
+                self._raw_postprocess_add_other_columns,
                 name="Add columns", 
             ),
             SequentialPipeStage(
-                self._preprocess_add_app_and_background,
+                self._raw_postprocess_add_app_and_background,
                 name="Add metadata",
             ),
             SequentialPipeStage(
@@ -417,7 +466,7 @@ class Mirage19(Dataset):
                 _write_parquet_files,
                 name="Write parquet files",
             ),
-            name="Preprocess..."
+            name="Postprocess raw..."
         ).run(df) 
 
         return df
@@ -541,11 +590,13 @@ class Mirage19(Dataset):
 
         def _get_splits(tpl):
             df, df_stats = tpl
+            self.df = df
             df_splits = self.compute_splits(
                 num_splits=10,
                 test_size=0.1,
                 seed=1,
             )
+            self.df = None
             return (df, df_stats, df_splits)
 
         def _write_parquet_files(tpl):
@@ -562,8 +613,7 @@ class Mirage19(Dataset):
             )
             return df, df_stats, df_splits
 
-        self.load(DATASET_TYPE.PREPROCESS)
-        df = self.df
+        df = self._raw_postprocess() 
 
         self.df, self.df_stats, self.df_splits = SequentialPipe(
             SequentialPipeStage(
@@ -617,6 +667,36 @@ class Mirage22(Mirage19):
         self.df_app_metadata = pl.read_csv(
             DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
         )
+
+    @property
+    def _list_raw_json(self) -> List[pathlib.Path]:
+        return list(
+            (
+                self.folder_raw 
+                / "MIRAGE-COVID-CCMA-2022" 
+                / "Raw_JSON"
+            ).rglob("*.json")
+        )
+
+    def install(self, no_download: bool = False) -> pathlib.Path:
+        subfolder = (
+            self.install_folder 
+            / "raw" 
+            / "MIRAGE-COVID-CCMA-2022" 
+            / "Raw_JSON"
+        )
+        extra_unpack = (
+            subfolder / "Discord.zip",
+            subfolder / "Meet.zip",
+            subfolder / "Slack.zip",
+            subfolder / "Zoom.zip",
+            subfolder / "GotoMeeting.zip",
+            subfolder / "Messenger.zip",
+            subfolder / "Teams.zip",
+            subfolder / "Skype.zip",
+            subfolder / "Webex.zip",
+        )
+        return super().install(no_download, extra_unpack)
 
     def preprocess(self):
         pass

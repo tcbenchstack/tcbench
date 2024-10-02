@@ -5,8 +5,8 @@ import rich.box as richbox
 
 import polars as pl
 
-from typing import Dict, Any, Iterable
-from collections import UserDict, UserList
+from typing import Dict, Any, Iterable, List
+from collections import UserDict, UserList, OrderedDict
 
 import abc
 import pathlib
@@ -19,8 +19,8 @@ from tcbench.libtcdatasets.constants import (
     DATASET_TYPE,
     DATASETS_DEFAULT_INSTALL_ROOT_FOLDER,
     DATASETS_RESOURCES_METADATA_FNAME,
+    DATASETS_RESOURCES_FOLDER,
 )
-#from tcbench.libtcdatasets import fileutils
 from tcbench.cli import richutils
 from tcbench import fileutils
 
@@ -52,6 +52,18 @@ class DatasetMetadata:
 
     def __post_init__(self):
         self.folder_dset = tcbench.get_config().install_folder / str(self.name)
+        self._schemas = dict()
+
+        fname = DATASETS_RESOURCES_FOLDER / f"schema_{self.name}.yml"
+        if fname.exists():
+            data = fileutils.load_yaml(fname, echo=False)
+            for dset_type in DATASET_TYPE.values():
+                if str(dset_type) in data:
+                    self._schemas[dset_type] = DatasetSchema(
+                        self.name,
+                        DATASET_TYPE.from_str(dset_type),
+                        data[dset_type]
+                    )
 
     @property
     def folder_download(self):
@@ -80,6 +92,9 @@ class DatasetMetadata:
     @property
     def is_curated(self) -> bool:
         return self.folder_curate.exists()
+
+    def get_schema(self, dataset_type: DATASET_TYPE) -> DatasetSchema:
+        return self._schemas.get(str(dataset_type), None)
 
     def __rich__(self) -> richtable.Table:
         table = richtable.Table(show_header=False, box=richbox.HORIZONTALS, show_footer=False, pad_edge=False)
@@ -164,21 +179,25 @@ class RawDatasetInstaller:
         install_folder: pathlib.Path = None,
         verify_tls: bool = True,
         force_reinstall: bool = False,
+        extra_unpack: Iterable[pathlib.Path] = None
     ):
         self.url = url
         self.install_folder = install_folder
         self.verify_tls = verify_tls
         self.force_reinstall = force_reinstall
         self.download_path = None
+        self.extra_unpack = [] if extra_unpack is None else extra_unpack
 
         if install_folder is None:
             self.install_folder = DATASETS_DEFAULT_INSTALL_ROOT_FOLDER
 
         self.install()
 
-    def install(self):
-        self.download_path = self.download()
-        self.unpack(self.download_path)
+    def install(self) -> Tuple[pathlib.Path]:
+        #self.download_path = self.download()
+        #self.download_path = pathlib.Path("/Users/alessandrofinamore/src/github.com/tcbenchstack/tcbench.github.io/src/tcbench/libtcdatasets/installed_datasets/mirage22/download/MIRAGE-COVID-CCMA-2022.zip")
+        self.download_path = pathlib.Path("/Users/alessandrofinamore/src/github.com/tcbenchstack/tcbench.github.io/src/tcbench/libtcdatasets/installed_datasets/mirage19/download/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz")
+        return self.unpack(self.download_path, *self.extra_unpack)
 
     def download(self) -> pathlib.Path:
         return fileutils.download_url(
@@ -188,7 +207,12 @@ class RawDatasetInstaller:
             self.force_reinstall,
         )
 
-    def unpack(self, path: pathlib.Path) -> pathlib.Path:
+    def _unpack(
+        self, 
+        path: pathlib.Path, 
+        progress: bool = True,
+        remove_dst: bool = True,
+    ) -> pathlib.Path:
         func_unpack = None
         if path.suffix == ".zip":
             func_unpack = fileutils.unzip
@@ -197,10 +221,161 @@ class RawDatasetInstaller:
         else:
             raise RuntimeError(f"Unrecognized {path.suffix} archive")
 
+        # do not change the destination folder
+        # if path already under /raw 
         dst = self.install_folder / "raw"
-        if self.force_reinstall or not dst.exists() or len(list(dst.iterdir())) == 0:
-            return func_unpack(src=path, dst=dst)
+        if str(path).startswith(str(self.install_folder / "raw")):
+            dst = path.parent
+
+        if (
+            self.force_reinstall 
+            or not dst.exists() 
+            or len(list(dst.iterdir())) == 0
+        ):
+            return func_unpack(src=path, dst=dst, progress=progress, remove_dst=remove_dst)
         return dst
+
+    def unpack(self, path: pathlib.Path, *extra_paths: pathlib.Path) -> Tuple[pathlib.Path]:
+        progress_class = richutils.SpinnerProgress
+        progress_params = dict(
+            description="Unpack...",
+        )
+        if extra_paths:
+            progress_class = richutils.SpinnerAndCounterProgress
+            progress_params["total"] = len(extra_paths) + 1
+
+        res = []
+        with progress_class(**progress_params) as progress:
+            res = [self._unpack(path, progress=False, remove_dst=True)]
+            progress.update()
+
+            for extra_path in extra_paths:
+                res.append(self._unpack(
+                    extra_path, 
+                    progress=False, 
+                    remove_dst=False
+                ))
+                progress.update()
+            return tuple(res)
+
+
+@dataclasses.dataclass
+class DatasetSchemaField:
+    name: str
+    dtype_repr: str
+    desc: str = ""
+    window: str = ""
+
+    def __post_init__(self):
+        self._dtype = self._parse_dtype_repr(self.dtype_repr)
+
+    def _parse_dtype_repr(self, text: str) -> Any:
+        from polars.datatypes.convert import dtype_short_repr_to_dtype
+        if "list" not in text:
+            return dtype_short_repr_to_dtype(text)
+        
+        num_list = text.count("list")
+        _, inner_dtype_repr = text[:-num_list].rsplit("[", 1)
+        dtype = dtype_short_repr_to_dtype(inner_dtype_repr)
+        while num_list:
+            dtype = pl.List(dtype)
+            num_list -= 1
+        return dtype
+        
+    @property
+    def dtype(self) -> Any:
+        return self._dtype
+
+class DatasetSchema:
+    def __init__(
+        self, 
+        dataset_name: DATASET_NAME, 
+        dataset_type: DATASET_TYPE,
+        metadata: Dict[str, Any]
+    ):
+        self.dataset_name = dataset_name
+        self.dataset_type = dataset_type
+        self.metadata = OrderedDict()
+        self._schema = OrderedDict()
+        for field_name, field_data in metadata.items():
+            field = DatasetSchemaField(
+                name=field_name,
+                dtype_repr=field_data["type"],
+                desc=field_data.get("desc", ""),
+                window=field_data.get("window", ""),
+            )
+            self.metadata[field_name] = field
+            self._schema[field_name] = field.dtype
+
+    @classmethod
+    def from_dataframe(
+        cls, 
+        dset_name: DATASET_NAME, 
+        dset_type: DATASET_TYPE, 
+        df: pl.DataFrame
+    ) -> DatasetSchema:
+        metadata = OrderedDict()
+
+        schema = None
+        if isinstance(df, pl.DataFrame):
+            schema = df.schema
+        else:
+            schema = df.collect_schema()
+
+        for field_name, field_dtype in schema.items():
+            metadata[field_name] = dict(
+                type=field_dtype._string_repr(),
+            )
+        return DatasetSchema(dset_name, dset_type, metadata)
+
+    def to_yaml(self) -> Dict[str, Any]:
+        data = dict()
+        for field_name, field_data in self.metadata.items():
+            data[field_name] = dict(
+                type=field_data.dtype_repr,
+                desc=field_data.desc,
+                window=field_data.window
+            )
+        return {str(self.dataset_type): data}
+
+    @property
+    def fields(self) -> List[str]:
+        return list(self.metadata.keys())
+
+#    @property
+#    def schema(self) -> pl.Schema:
+#        return self._schema
+    def to_polars(self) -> pl.Schema:
+        return self._schema
+
+
+    def __rich__(self) -> richtable.Table:
+        import rich.markup
+
+        table = rich.table.Table(
+            box=richbox.HORIZONTALS,
+            show_header=True, 
+            show_footer=False, 
+            pad_edge=False
+        )
+        table.add_column("Field")
+        table.add_column("Type")
+        table.add_column("Window")
+        table.add_column("Description", overflow="fold")
+        for field in self.metadata.values():
+            table.add_row(
+                field.name, 
+                rich.markup.escape(field.dtype_repr),
+                field.window,
+                field.desc
+            )
+        return table
+
+    def __rich_console__(self,
+        console: rich.console.Console,
+        options: rich.console.ConsoleOptions,
+    ) -> rich.console.RenderResult:
+        yield self.__rich__()
 
 
 class Dataset:
@@ -217,6 +392,7 @@ class Dataset:
         self.df = None
         self.df_stats = None
         self.df_splits = None
+        self.metadata_schema = None
 
     @property
     def folder_download(self):
@@ -234,27 +410,37 @@ class Dataset:
     def folder_curate(self):
         return self.install_folder / "curate"
 
-    def install(self, no_download:bool = False) -> pathlib.Path:
+    @property
+    def list_folder_raw(self) -> List[pathlib.Path]:
+        return list(self.folder_raw.rglob("*"))
+
+    def get_schema(self, dataset_type: DATASET_TYPE) -> DatasetSchema:
+        return self.metadata.get_schema(dataset_type)
+
+    def install(
+        self, 
+        no_download:bool = False, 
+        extra_unpack: Iterable[pathlib.Path] = None
+    ) -> pathlib.Path:
         if not no_download:
-            self._install_raw()
+            self._install_raw(extra_unpack)
         self.preprocess()
         self.curate()
         return self.install_folder
 
-    def _install_raw(self) -> pathlib.Path:
+    def _install_raw(
+        self, 
+        extra_unpack: Iterable[pathlib.Path]=None
+    ) -> pathlib.Path:
         RawDatasetInstaller(
             url=self.metadata.raw_data_url,
             install_folder=self.install_folder,
             verify_tls=True,
             force_reinstall=True,
+            extra_unpack=extra_unpack,
         )
         return self.install_folder
 
-    def preprocess(self) -> None:
-        pass
-
-    def curate(self) -> None:
-        pass
 
     def compute_splits(
         self, 
@@ -272,6 +458,18 @@ class Dataset:
             test_size = 0.1,
         )
 
+    def _load_schema(self, dset_type: DATASET_TYPE) -> DatasetSchema:
+        fname = DATASETS_RESOURCES_FOLDER / f"schema_{self.name}.yml"
+        if not fname.exists():
+            raise FileNotFoundError(fname)
+        metadata = fileutils.load_yaml(fname, echo=False).get(str(dset_type), None) 
+        if metadata is None:
+            raise RuntimeError(
+                f"Dataset schema {self.name}.{dset_type} not found"
+            )
+
+        return DatasetSchema(self.name, dset_type, metadata)
+        
     def load(
         self, 
         dset_type: DATASET_TYPE, 
@@ -281,9 +479,11 @@ class Dataset:
         lazy: bool = False,
         echo: bool = True,
     ) -> Dataset:
-        folder = self.folder_preprocess
-        if dset_type == DATASET_TYPE.CURATE:
-            folder = self.folder_curate
+        folder = self.folder_curate
+        if dset_type == DATASET_TYPE.RAW:
+            folder = self.folder_raw
+        #elif dset_type == DATASET_TYPE.PREPROCESS:
+        #    folder = self.folder_preprocess
 
         if min_packets is None or min_packets <= 0:
             min_packets = -1
@@ -299,20 +499,16 @@ class Dataset:
             description=f"Loading {self.name}/{dset_type}",
             visible=echo,
         ):
-            self.df = (
-                pl.scan_parquet(
-                    folder / f"{self.name}.parquet",
-                    n_rows=n_rows,
-                )
-                .filter(
+            fname = folder / f"{self.name}.parquet",
+            self.df = pl.scan_parquet(fname, n_rows=n_rows)
+            if dset_type != DATASET_TYPE.RAW:
+                self.df = self.df.filter(
                     pl.col("packets") >= min_packets
                 )
-                .select(
-                    *columns
-                )
-            )
+            self.df = self.df.select(*columns)
 
-            if min_packets != -1:
+            fname = folder / f"{self.name}_stats.parquet"
+            if min_packets != -1 and fname.exists():
                 self.df_stats = pl.scan_parquet(
                     folder / f"{self.name}_stats.parquet"
                 )
@@ -329,7 +525,16 @@ class Dataset:
                 if self.df_splits is not None:
                     self.df_splits = self.df_splits.collect()
 
+        self.metadata_schema = self._load_schema(dset_type)
         return self
+
+    @abc.abstractmethod
+    def raw(self) -> Any:
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def curate(self) -> Any:
+        raise NotImplementedError()
 
     def __rich__(self) -> richtable.Table:
         return self.metadata.__rich__()
