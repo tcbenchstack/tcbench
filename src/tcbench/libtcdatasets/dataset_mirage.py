@@ -438,7 +438,7 @@ class Mirage19(Dataset):
         # add columns: ip addresses private/public
         df = curation.add_is_private_ip_columns(df)
         # add columns: check if tcp handshake is valid
-        df = curation.add_is_valid_tcp_handshake(
+        df = curation.add_is_valid_tcp_handshake_heuristic(
             df, tcp_handshake_size=0, direction_upload=0, direction_download=1
         )
 
@@ -449,7 +449,7 @@ class Mirage19(Dataset):
         )
 
 
-    def _raw_postprocess(self) -> pl.DataFrame:
+    def _raw_postprocess(self, recompute: bool = False) -> pl.DataFrame:
         def _get_stats(df):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
@@ -465,9 +465,11 @@ class Mirage19(Dataset):
             return df, df_stats
 
         # attempt at loading the previously generate raw version
-        df = fileutils.load_if_exists(self.folder_raw / f"{self.name}.parquet", echo=False)
-        if df is None:
-            df = self.raw()
+        fname = self.folder_raw / f"{self.name}.parquet"
+        if fname.exists() and not recompute:
+            return fileutils.load_parquet(fname, echo=False)
+
+        df = self.raw()
         # ...and triggering postprocessing steps        
         df, _ = SequentialPipe(
             SequentialPipeStage(
@@ -501,16 +503,17 @@ class Mirage19(Dataset):
         })
 
     def _curate_drop_background(self, df: pl.DataFrame) -> pl.DataFrame:
-        return df.with_columns(
-            # force to background flows with UDP packets of size zero
-            app=(
-                pl.when(
-                    (pl.col("proto") == "udp").and_(pl.col("pkts_size").list.min() == 0)
-                )
-                .then(pl.lit(APP_LABEL_BACKGROUND))
-                .otherwise(pl.col("app"))
-            )
-        ).filter(pl.col("app") != APP_LABEL_BACKGROUND)
+#        return df.with_columns(
+#            # force to background flows with UDP packets of size zero
+#            app=(
+#                pl.when(
+#                    (pl.col("proto") == "udp").and_(pl.col("pkts_size").list.min() == 0)
+#                )
+#                .then(pl.lit(APP_LABEL_BACKGROUND))
+#                .otherwise(pl.col("app"))
+#            )
+#        ).filter(pl.col("app") != APP_LABEL_BACKGROUND)
+        return df.filter(pl.col("app") != APP_LABEL_BACKGROUND)
 
     def _curate_adjust_packet_series(self, df: pl.DataFrame) -> pl.DataFrame:
         return df.with_columns(
@@ -637,7 +640,7 @@ class Mirage19(Dataset):
             )
             return df, df_stats, df_splits
 
-        df = self._raw_postprocess() 
+        df = self._raw_postprocess(recompute=False)
 
         self.df, self.df_stats, self.df_splits = SequentialPipe(
             SequentialPipeStage(
@@ -744,7 +747,8 @@ class Mirage22(Mirage19):
             .rename(_rename_columns(df.columns))
             .rename({
                 "device": "device_id",
-                "pkts_l3_size": "pkts_size"
+                "pkts_l3_size": "pkts_size",
+                #"label": "android_package_name",
             })
         )
         return df
@@ -759,7 +763,7 @@ class Mirage22(Mirage19):
             "label_version_code",
             "label_version_name",
             "labeling_type",
-            "pkts_l4_size",
+            #"pkts_l4_size",
             "pkts_l4_header_size",
             "pkts_l3_header_size",
             "pkts_raw_payload",
@@ -767,20 +771,50 @@ class Mirage22(Mirage19):
             "pkts_dst_port",
         )
 
-    def _raw_postprocess_clip_series(self, df: pl.DataFrame, num_packets: int = 30) -> pl.DataFrame:
-        return df.with_columns(**{
-            col: pl.col(col).list.head(num_packets)
-            for col in (
-                'pkts_timestamp',
-                'pkts_dir',
-                'pkts_size',
-                'pkts_iat',
-                'pkts_tcp_win_size',
-                'pkts_tcp_flags',
-            )
-        })
+#    def _raw_postprocess_clip_series(self, df: pl.DataFrame, num_packets: int = 30) -> pl.DataFrame:
+#        return df.with_columns(**{
+#            col: pl.col(col).list.head(num_packets)
+#            for col in (
+#                "pkts_timestamp",
+#                "pkts_dir",
+#                "pkts_size",
+#                "pkts_iat",
+#                "pkts_tcp_win_size",
+#                "pkts_tcp_flags",
+#                "pkts_l4_size",
+#            )
+#        })
 
-    def _raw_postprocess(self) -> pl.DataFrame:
+    def _raw_postprocess_add_other_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        # add column: convert proto_id to string (6->tcp, 17->udp)
+        df = df.with_columns(
+            proto=(
+                pl.when(pl.col("proto_id").eq(6))
+                .then(pl.lit("tcp"))
+                .otherwise(pl.lit("udp"))
+            ),
+        )
+
+        # add columns: ip addresses private/public
+        df = curation.add_is_private_ip_columns(df)
+        # add columns: check if tcp handshake is valid
+        df = curation.add_is_valid_tcp_handshake_from_flags(
+            df, 
+            "pkts_tcp_flags",
+            "pkts_dir",
+            "proto", 
+            proto_udp="udp",
+            direction_upload=0,
+            direction_download=1, 
+        )
+
+        return (
+            df
+            # add a global row_id
+            .with_row_index(name="row_id")
+        )
+
+    def _raw_postprocess(self, recompute: bool = False) -> pl.DataFrame:
         def _get_stats(df):
             df_stats = curation.get_stats(df)
             return (df, df_stats)
@@ -795,10 +829,15 @@ class Mirage22(Mirage19):
             )
             return df, df_stats
 
-        # attempt at loading the previously generate raw version
-        df = fileutils.load_if_exists(self.folder_raw / f"{self.name}.parquet", echo=False)
-        if df is None:
-            df = self.raw()
+        fname = self.folder_raw / f"_postprocess.parquet"
+        if fname.exists() and not recompute:
+            with richutils.Progress(description="Loading raw postprocess..."):
+                df = fileutils.load_parquet(fname, echo=False)
+            return df
+
+        _ = self.load(DATASET_TYPE.RAW)
+        df = self.df
+
         # ...and triggering postprocessing steps        
         df, _ = SequentialPipe(
             SequentialPipeStage(
@@ -809,10 +848,10 @@ class Mirage22(Mirage19):
                 self._raw_postprocess_drop_columns,
                 name="Drop columns",
             ),
-            SequentialPipeStage(
-                self._raw_postprocess_clip_series,
-                name="Clip series",
-            ),
+#            SequentialPipeStage(
+#                self._raw_postprocess_clip_series,
+#                name="Clip series",
+#            ),
             SequentialPipeStage(
                 self._raw_postprocess_add_other_columns,
                 name="Add columns", 
@@ -834,6 +873,118 @@ class Mirage22(Mirage19):
 
         return df
 
+    def _curate_adjust_packet_series(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.with_columns(
+            # enforce direction (0/upload: 1, 1/download: -1)
+            pkts_dir=(
+                pl.col("pkts_dir").list.eval(
+                    pl.when(pl.element() == 0).then(1).otherwise(-1)
+                )
+            ),
+        )
 
-    def curate(self):
-        pass
+    def _curate_add_pkt_indices_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.with_columns(
+            # series with the index of TCP acks packets
+            pkts_ack_idx=(
+                pl.when(pl.col("proto") == "tcp")
+                # for TCP, acks are enforced to 40 bytes
+                .then(curation.expr_pkts_ack_idx("pkts_l4_size", ack_size=0))
+                # for UDP, packets are always larger then 0 bytes
+                # so the following is selecting all indices
+                .otherwise(curation.expr_pkts_ack_idx("pkts_l4_size", ack_size=-1))
+            ),
+            # series with the index of data packets
+            pkts_data_idx=(
+                pl.when(pl.col("proto") == "tcp")
+                # for TCP, acks are enforced to 40 bytes
+                .then(curation.expr_pkts_data_idx("pkts_l4_size", ack_size=0))
+                # for UDP, packets are always larger then 0 bytes
+                # so the following is selecting all indices
+                .otherwise(curation.expr_pkts_data_idx("pkts_l4_size", ack_size=-1))
+            ),
+        )
+
+    def _curate_drop_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.drop(
+            "pkts_l4_size",
+        )
+
+
+    def curate(self) -> pl.DataFrame:
+        def _get_stats(df):
+            df_stats = curation.get_stats(df)
+            return (df, df_stats)
+
+        def _get_splits(tpl):
+            df, df_stats = tpl
+            self.df = df
+            df_splits = self.compute_splits(
+                num_splits=10,
+                test_size=0.1,
+                seed=1,
+            )
+            self.df = None
+            return (df, df_stats, df_splits)
+
+        def _write_parquet_files(tpl):
+            df, df_stats, df_splits = tpl
+            folder = self.folder_curate
+            if not folder.exists():
+                folder.mkdir(parents=True)
+            df.write_parquet(folder / f"{self.name}.parquet")
+            df_stats.write_parquet(
+                folder / f"{self.name}_stats.parquet"
+            )
+            df_splits.write_parquet(
+                folder / f"{self.name}_splits.parquet"
+            )
+            return df, df_stats, df_splits
+
+        df = self._raw_postprocess() 
+
+        self.df, self.df_stats, self.df_splits = SequentialPipe(
+            #SequentialPipeStage(
+            #    self._curate_rename,
+            #    name="Column renaming",
+            #),
+            SequentialPipeStage(
+                self._curate_drop_background, 
+                name="Drop background flows"
+            ),
+            SequentialPipeStage(
+                self._curate_adjust_packet_series,
+                name="Adjust packet series",
+            ),
+            SequentialPipeStage(
+                self._curate_add_pkt_indices_columns,
+                name="Add packet series indices"
+            ),
+            SequentialPipeStage(
+                self._curate_add_other_columns,
+                name="Add more columns",
+            ),
+            SequentialPipeStage(
+                self._curate_drop_columns,
+                name="Drop columns",
+            ),
+            SequentialPipeStage(
+                self._curate_final_filter,
+                name="Filter out flows",
+            ),
+            SequentialPipeStage(
+                _get_stats,
+                name="Compute statistics",
+            ),
+            SequentialPipeStage(
+                _get_splits,
+                name="Compute splits",
+            ),
+            SequentialPipeStage(
+                _write_parquet_files,
+                name="Write parquet files",
+            ),
+            name="Curation..."
+        ).run(df)
+
+        return self.df

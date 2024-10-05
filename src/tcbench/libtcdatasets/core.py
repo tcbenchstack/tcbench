@@ -506,7 +506,7 @@ class Dataset:
         self.df_stats = None
         self.df_splits = None
         with richutils.SpinnerProgress(
-            description=f"Loading {self.name}/{dset_type}",
+            description=f"Loading {self.name}/{dset_type}...",
             visible=echo,
         ):
             fname = folder / f"{self.name}.parquet",

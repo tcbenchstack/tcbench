@@ -57,7 +57,7 @@ def add_is_private_ip_columns(
     )
 
 
-def add_is_valid_tcp_handshake(
+def add_is_valid_tcp_handshake_heuristic(
     df: pl.DataFrame,
     tcp_handshake_size: int = 40,
     direction_upload: int = 1,
@@ -84,6 +84,42 @@ def add_is_valid_tcp_handshake(
         .map_elements(_is_valid_tcp_handshake, return_dtype=pl.Boolean())
         .alias("is_valid_handshake")
     )
+
+def add_is_valid_tcp_handshake_from_flags(
+    df: pl.DataFrame,
+    colname_pkts_flags: str = "pkts_tcp_flags",
+    colname_pkts_dir: str = "pkts_dir",
+    colname_proto: str = "proto", 
+    proto_udp: str = 17,
+    direction_upload: int = 0,
+    direction_download: int = 1, 
+) -> pl.DataFrame:
+    def _is_valid_tcp_handshake(struct):
+        return (struct[colname_proto] == proto_udp) | (
+            # outgoing SYN
+            ((struct["flags_pkt1"] == "S") & (struct["dir_pkt1"] == 0)) 
+            # incoming SYN+ACK 
+            & ((struct["flags_pkt2"] == "SA") & (struct["dir_pkt2"] == 1))
+            # outgoing ACK 
+            & (
+                ((struct["flags_pkt3"] == "A") | (struct["flags_pkt3"] == "PA"))
+                & (struct["dir_pkt3"] == 0) 
+            )
+        )
+
+    return df.with_columns(
+        pl.struct(
+            colname_proto,
+            pl.col(colname_pkts_flags).list.get(0).alias("flags_pkt1"), 
+            pl.col(colname_pkts_flags).list.get(1, null_on_oob=True).alias("flags_pkt2"), 
+            pl.col(colname_pkts_flags).list.get(2, null_on_oob=True).alias("flags_pkt3"), 
+            pl.col(colname_pkts_dir).list.get(0).alias("dir_pkt1"), 
+            pl.col(colname_pkts_dir).list.get(1, null_on_oob=True).alias("dir_pkt2"), 
+            pl.col(colname_pkts_dir).list.get(2, null_on_oob=True).alias("dir_pkt3"), 
+        )
+        .map_elements(_is_valid_tcp_handshake, return_dtype=pl.Boolean())
+        .alias("is_valid_handshake")
+      )
 
 
 def get_stats(df: pl.DataFrame) -> pl.DataFrame:
@@ -172,14 +208,14 @@ def helper_list_index_not_equal_value(data: pl.Series, value: Any) -> pl.Series:
     return pl.Series(np.where(data != value)[0])
 
 
-def expr_pkts_ack_idx(ack_size: int = 40) -> pl.Expr:
+def expr_pkts_ack_idx(colname: str = "pkts_size", ack_size: int = 40) -> pl.Expr:
     func = functools.partial(helper_list_index_equal_value, value=ack_size)
-    return pl.col("pkts_size").map_elements(
+    return pl.col(colname).map_elements(
         function=func, return_dtype=pl.List(pl.Int64)
     )
 
 
-def expr_pkts_data_idx(ack_size: int = 40) -> pl.Expr:
+def expr_pkts_data_idx(colname: str = "pkts_size", ack_size: int = 40) -> pl.Expr:
     func = functools.partial(helper_list_index_not_equal_value, value=ack_size)
     return pl.col("pkts_size").map_elements(
         function=func, return_dtype=pl.List(pl.Int64)
