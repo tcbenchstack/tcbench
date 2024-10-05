@@ -37,6 +37,16 @@ def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
 # def load_datasets_files_md5_yaml():
 #    return load_yaml(get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
 
+def _from_schema_to_yaml(schema:pl.schema.Schema) -> Dict[str, Any]:
+	data = dict()
+	for field_name, field_dtype in schema.items():
+		data[field_name] = dict(
+			type=field_dtype._string_repr(),
+			desc="",
+			window="flow",
+		)
+	return data
+
 
 @dataclasses.dataclass
 class DatasetMetadata:

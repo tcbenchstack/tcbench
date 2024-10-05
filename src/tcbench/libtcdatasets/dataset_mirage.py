@@ -33,157 +33,159 @@ from tcbench.libtcdatasets.constants import (
     APP_LABEL_ALL,
 )
 
-_POLAR_SCHEMA_RAW = OrderedDict(
-    (
-        ("packet_data_src_port", pl.List(pl.UInt32())),
-        ("packet_data_dst_port", pl.List(pl.UInt32())),
-        ("packet_data_packet_dir", pl.List(pl.UInt8())),
-        ("packet_data_L4_payload_bytes", pl.List(pl.UInt16())),
-        ("packet_data_iat", pl.List(pl.Float32())),
-        ("packet_data_TCP_win_size", pl.List(pl.UInt16())),
-        ("packet_data_L4_raw_payload", pl.List(pl.List(pl.UInt8()))),
-        ("flow_metadata_BF_label", pl.String()),
-        ("flow_metadata_BF_labeling_type", pl.String()),
-        ("flow_metadata_BF_num_packets", pl.UInt64()),
-        ("flow_metadata_BF_IP_packet_bytes", pl.UInt64()),
-        ("flow_metadata_BF_L4_payload_bytes", pl.UInt64()),
-        ("flow_metadata_BF_duration", pl.Float32()),
-        ("flow_metadata_UF_num_packets", pl.UInt64()),
-        ("flow_metadata_UF_IP_packet_bytes", pl.UInt64()),
-        ("flow_metadata_UF_L4_payload_bytes", pl.UInt64()),
-        ("flow_metadata_UF_duration", pl.Float64()),
-        ("flow_metadata_DF_num_packets", pl.Int64()),
-        ("flow_metadata_DF_IP_packet_bytes", pl.Int64()),
-        ("flow_metadata_DF_L4_payload_bytes", pl.Int64()),
-        ("flow_metadata_DF_duration", pl.Float64()),
-        ("flow_features_packet_length_biflow_min", pl.Float64()),
-        ("flow_features_packet_length_biflow_max", pl.Float64()),
-        ("flow_features_packet_length_biflow_mean", pl.Float64()),
-        ("flow_features_packet_length_biflow_std", pl.Float64()),
-        ("flow_features_packet_length_biflow_var", pl.Float64()),
-        ("flow_features_packet_length_biflow_mad", pl.Float64()),
-        ("flow_features_packet_length_biflow_skew", pl.Float64()),
-        ("flow_features_packet_length_biflow_kurtosis", pl.Float64()),
-        ("flow_features_packet_length_biflow_10_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_20_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_30_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_40_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_50_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_60_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_70_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_80_percentile", pl.Float64()),
-        ("flow_features_packet_length_biflow_90_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_min", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_max", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_mean", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_std", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_var", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_mad", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_skew", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_kurtosis", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_10_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_20_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_30_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_40_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_50_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_60_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_70_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_80_percentile", pl.Float64()),
-        ("flow_features_packet_length_upstream_flow_90_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_min", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_max", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_mean", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_std", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_var", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_mad", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_skew", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_kurtosis", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_10_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_20_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_30_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_40_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_50_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_60_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_70_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_80_percentile", pl.Float64()),
-        ("flow_features_packet_length_downstream_flow_90_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_min", pl.Float64()),
-        ("flow_features_iat_biflow_max", pl.Float64()),
-        ("flow_features_iat_biflow_mean", pl.Float64()),
-        ("flow_features_iat_biflow_std", pl.Float64()),
-        ("flow_features_iat_biflow_var", pl.Float64()),
-        ("flow_features_iat_biflow_mad", pl.Float64()),
-        ("flow_features_iat_biflow_skew", pl.Float64()),
-        ("flow_features_iat_biflow_kurtosis", pl.Float64()),
-        ("flow_features_iat_biflow_10_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_20_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_30_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_40_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_50_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_60_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_70_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_80_percentile", pl.Float64()),
-        ("flow_features_iat_biflow_90_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_min", pl.Float64()),
-        ("flow_features_iat_upstream_flow_max", pl.Float64()),
-        ("flow_features_iat_upstream_flow_mean", pl.Float64()),
-        ("flow_features_iat_upstream_flow_std", pl.Float64()),
-        ("flow_features_iat_upstream_flow_var", pl.Float64()),
-        ("flow_features_iat_upstream_flow_mad", pl.Float64()),
-        ("flow_features_iat_upstream_flow_skew", pl.Float64()),
-        ("flow_features_iat_upstream_flow_kurtosis", pl.Float64()),
-        ("flow_features_iat_upstream_flow_10_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_20_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_30_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_40_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_50_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_60_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_70_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_80_percentile", pl.Float64()),
-        ("flow_features_iat_upstream_flow_90_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_min", pl.Float64()),
-        ("flow_features_iat_downstream_flow_max", pl.Float64()),
-        ("flow_features_iat_downstream_flow_mean", pl.Float64()),
-        ("flow_features_iat_downstream_flow_std", pl.Float64()),
-        ("flow_features_iat_downstream_flow_var", pl.Float64()),
-        ("flow_features_iat_downstream_flow_mad", pl.Float64()),
-        ("flow_features_iat_downstream_flow_skew", pl.Float64()),
-        ("flow_features_iat_downstream_flow_kurtosis", pl.Float64()),
-        ("flow_features_iat_downstream_flow_10_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_20_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_30_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_40_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_50_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_60_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_70_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_80_percentile", pl.Float64()),
-        ("flow_features_iat_downstream_flow_90_percentile", pl.Float64()),
-    )
-)
-
-_POLAR_SCHEMA_PREPROCESS = _POLAR_SCHEMA_RAW.copy()
-_POLAR_SCHEMA_PREPROCESS.update(
-    OrderedDict(
-        (
-            ("src_ip", pl.String()),
-            ("src_port", pl.Int32()),
-            ("dst_ip", pl.String()),
-            ("dst_port", pl.Int32()),
-            ("proto_id", pl.Int32()),
-            ("device_id", pl.String()),
-            ("fname", pl.String()),
-            ("fname_row_idx", pl.Int64()),
-        )
-    )
-)
+#_POLAR_SCHEMA_RAW = OrderedDict(
+#    (
+#        ("packet_data_src_port", pl.List(pl.UInt32())),
+#        ("packet_data_dst_port", pl.List(pl.UInt32())),
+#        ("packet_data_packet_dir", pl.List(pl.UInt8())),
+#        ("packet_data_L4_payload_bytes", pl.List(pl.UInt16())),
+#        ("packet_data_iat", pl.List(pl.Float32())),
+#        ("packet_data_TCP_win_size", pl.List(pl.UInt16())),
+#        ("packet_data_L4_raw_payload", pl.List(pl.List(pl.UInt8()))),
+#        ("flow_metadata_BF_label", pl.String()),
+#        ("flow_metadata_BF_labeling_type", pl.String()),
+#        ("flow_metadata_BF_num_packets", pl.UInt64()),
+#        ("flow_metadata_BF_IP_packet_bytes", pl.UInt64()),
+#        ("flow_metadata_BF_L4_payload_bytes", pl.UInt64()),
+#        ("flow_metadata_BF_duration", pl.Float32()),
+#        ("flow_metadata_UF_num_packets", pl.UInt64()),
+#        ("flow_metadata_UF_IP_packet_bytes", pl.UInt64()),
+#        ("flow_metadata_UF_L4_payload_bytes", pl.UInt64()),
+#        ("flow_metadata_UF_duration", pl.Float64()),
+#        ("flow_metadata_DF_num_packets", pl.Int64()),
+#        ("flow_metadata_DF_IP_packet_bytes", pl.Int64()),
+#        ("flow_metadata_DF_L4_payload_bytes", pl.Int64()),
+#        ("flow_metadata_DF_duration", pl.Float64()),
+#        ("flow_features_packet_length_biflow_min", pl.Float64()),
+#        ("flow_features_packet_length_biflow_max", pl.Float64()),
+#        ("flow_features_packet_length_biflow_mean", pl.Float64()),
+#        ("flow_features_packet_length_biflow_std", pl.Float64()),
+#        ("flow_features_packet_length_biflow_var", pl.Float64()),
+#        ("flow_features_packet_length_biflow_mad", pl.Float64()),
+#        ("flow_features_packet_length_biflow_skew", pl.Float64()),
+#        ("flow_features_packet_length_biflow_kurtosis", pl.Float64()),
+#        ("flow_features_packet_length_biflow_10_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_20_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_30_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_40_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_50_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_60_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_70_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_80_percentile", pl.Float64()),
+#        ("flow_features_packet_length_biflow_90_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_min", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_max", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_mean", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_std", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_var", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_mad", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_skew", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_kurtosis", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_10_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_20_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_30_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_40_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_50_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_60_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_70_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_80_percentile", pl.Float64()),
+#        ("flow_features_packet_length_upstream_flow_90_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_min", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_max", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_mean", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_std", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_var", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_mad", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_skew", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_kurtosis", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_10_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_20_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_30_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_40_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_50_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_60_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_70_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_80_percentile", pl.Float64()),
+#        ("flow_features_packet_length_downstream_flow_90_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_min", pl.Float64()),
+#        ("flow_features_iat_biflow_max", pl.Float64()),
+#        ("flow_features_iat_biflow_mean", pl.Float64()),
+#        ("flow_features_iat_biflow_std", pl.Float64()),
+#        ("flow_features_iat_biflow_var", pl.Float64()),
+#        ("flow_features_iat_biflow_mad", pl.Float64()),
+#        ("flow_features_iat_biflow_skew", pl.Float64()),
+#        ("flow_features_iat_biflow_kurtosis", pl.Float64()),
+#        ("flow_features_iat_biflow_10_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_20_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_30_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_40_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_50_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_60_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_70_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_80_percentile", pl.Float64()),
+#        ("flow_features_iat_biflow_90_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_min", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_max", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_mean", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_std", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_var", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_mad", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_skew", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_kurtosis", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_10_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_20_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_30_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_40_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_50_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_60_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_70_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_80_percentile", pl.Float64()),
+#        ("flow_features_iat_upstream_flow_90_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_min", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_max", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_mean", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_std", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_var", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_mad", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_skew", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_kurtosis", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_10_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_20_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_30_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_40_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_50_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_60_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_70_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_80_percentile", pl.Float64()),
+#        ("flow_features_iat_downstream_flow_90_percentile", pl.Float64()),
+#    )
+#)
+#
+#_POLAR_SCHEMA_PREPROCESS = _POLAR_SCHEMA_RAW.copy()
+#_POLAR_SCHEMA_PREPROCESS.update(
+#    OrderedDict(
+#        (
+#            ("src_ip", pl.String()),
+#            ("src_port", pl.Int32()),
+#            ("dst_ip", pl.String()),
+#            ("dst_port", pl.Int32()),
+#            ("proto_id", pl.Int32()),
+#            ("device_id", pl.String()),
+#            ("fname", pl.String()),
+#            ("fname_row_idx", pl.Int64()),
+#        )
+#    )
+#)
 
 
 def _reformat_json_entry(
     json_entry: Dict[str, Any], 
-    fields_order: List[str]
+    fields_order: List[str] = None,
 ) -> Dict[str, Any]:
     """Process a JSON nested structure by chaining partial names via "_" """
     data = OrderedDict()
+    if fields_order is None:
+        fields_order = []
     for field_name in fields_order:
         data[field_name] = None
 
@@ -191,7 +193,11 @@ def _reformat_json_entry(
     while len(queue):
         key, value = queue.popleft()
         if not isinstance(value, dict):
-            if not isinstance(value, (list, str)) and math.isnan(value):
+            if (
+                value is not None 
+                and not isinstance(value, (list, str)) 
+                and math.isnan(value)
+            ):
                 value = "NaN"
             data[key] = value
             continue
@@ -213,6 +219,7 @@ def _json_entry_to_dataframe(
             value = np.nan
         # Note: enforce values to be list for pl.DataFrame conversion
         json_entry[key] = [value]
+    breakpoint()
     return pl.DataFrame(json_entry, schema=dset_schema.to_polars())
 
 
@@ -236,11 +243,13 @@ def _load_raw_json_worker(
             json_entry["dst_ip"] = dst_ip
             json_entry["dst_port"] = int(dst_port)
             json_entry["proto_id"] = int(proto_id)
-            json_entry["device_id"] = fname.parent.name
             json_entry["fname"] = fname.stem
             json_entry["fname_row_idx"] = idx
+            if dset_schema.dataset_name == DATASET_NAME.MIRAGE19:
+                json_entry["parent_folder"] = fname.parent.name
             json.dump(json_entry, fout)
             fout.write("\n")
+
 
 def load_raw_json(fname: pathlib.Path, dataset_name: DATASET_NAME) -> pl.DataFrame:
     import tcbench
@@ -265,11 +274,13 @@ def load_raw_json(fname: pathlib.Path, dataset_name: DATASET_NAME) -> pl.DataFra
         json_entry["dst_ip"] = dst_ip
         json_entry["dst_port"] = int(dst_port)
         json_entry["proto_id"] = int(proto_id)
-        json_entry["device_id"] = fname.parent.name
         json_entry["fname"] = fname.stem
         json_entry["fname_row_idx"] = idx
+        if dataset_name == DATASET_NAME.MIRAGE19:
+            json_entry["parent_folder"] = fname.parent.name
         l.append(_json_entry_to_dataframe(json_entry, dset_schema))
     return pl.concat(l)
+
 
 def _rename_columns(columns: List[str]) -> Dict[str, str]:
     rename = dict()
@@ -279,7 +290,10 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
             new_name = (
                 new_name.replace("packet_data", "pkts")
                 .replace("packet_dir", "dir")
-                .replace("l4_payload_bytes", "size")
+                .replace("ip_packet_bytes", "l3_size")
+                .replace("ip_header_bytes", "l3_header_size")
+                .replace("l4_payload_bytes", "l4_size")
+                .replace("l4_header_bytes", "l4_header_size")
                 .replace("l4_raw_payload", "raw_payload")
             )
         elif col.startswith("flow_metadata"):
@@ -325,6 +339,7 @@ class Mirage19(Dataset):
 
     def _parse_raw_json(
         self, 
+        sort_by: Iterable[str],
     ) -> pl.DataFrame:
         files = self._list_raw_json_files
         dset_schema = self.get_schema(DATASET_TYPE.RAW)
@@ -352,16 +367,18 @@ class Mirage19(Dataset):
                         tmp_folder, 
                         schema=dset_schema.to_polars()
                     )
-                    .sort(
-                        "device_id", 
-                        "fname", 
-                        "fname_row_idx"
-                    )
+                    .sort(*sort_by)
                 )
         return df
 
     def raw(self) -> pl.DataFrame:
-        df = self._parse_raw_json()
+        df = self._parse_raw_json(
+            sort_by=(
+                "parent_folder", 
+                "fname", 
+                "fname_row_idx"
+            )
+        )
         with richutils.SpinnerProgress(description="Writing parquet files..."):
             fileutils.save_parquet(
                 df, 
@@ -371,7 +388,14 @@ class Mirage19(Dataset):
         return df
 
     def _raw_postprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
-        return df.rename(_rename_columns(df.columns))
+        df = (
+            df
+            .rename(_rename_columns(df.columns))
+            .rename({
+                "parent_folder": "device_id"
+            })
+        )
+        return df
 
     def _raw_postprocess_add_app_and_background(self, df: pl.DataFrame) -> pl.DataFrame:
         return (
@@ -698,8 +722,118 @@ class Mirage22(Mirage19):
         )
         return super().install(no_download, extra_unpack)
 
-    def preprocess(self):
-        pass
+    def raw(self) -> pl.DataFrame:
+        df = self._parse_raw_json(
+            sort_by=(
+                "flow_metadata_BF_device",
+                "fname", 
+                "fname_row_idx"
+            )
+        )
+        with richutils.SpinnerProgress(description="Writing parquet files..."):
+            fileutils.save_parquet(
+                df, 
+                save_as=self.folder_raw/f"{self.name}.parquet", 
+                echo=False
+            )
+        return df
+
+    def _raw_postprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        df = (
+            df
+            .rename(_rename_columns(df.columns))
+            .rename({
+                "device": "device_id",
+                "pkts_l3_size": "pkts_size"
+            })
+        )
+        return df
+
+    def _raw_postprocess_drop_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.drop(
+            "pkts_is_clear",
+            "pkts_heuristic",
+            "pkts_annotations",
+            "label_source",
+            "sublabel",
+            "label_version_code",
+            "label_version_name",
+            "labeling_type",
+            "pkts_l4_size",
+            "pkts_l4_header_size",
+            "pkts_l3_header_size",
+            "pkts_raw_payload",
+            "pkts_src_port",
+            "pkts_dst_port",
+        )
+
+    def _raw_postprocess_clip_series(self, df: pl.DataFrame, num_packets: int = 30) -> pl.DataFrame:
+        return df.with_columns(**{
+            col: pl.col(col).list.head(num_packets)
+            for col in (
+                'pkts_timestamp',
+                'pkts_dir',
+                'pkts_size',
+                'pkts_iat',
+                'pkts_tcp_win_size',
+                'pkts_tcp_flags',
+            )
+        })
+
+    def _raw_postprocess(self) -> pl.DataFrame:
+        def _get_stats(df):
+            df_stats = curation.get_stats(df)
+            return (df, df_stats)
+
+        def _write_parquet_files(tpl):
+            df, df_stats = tpl
+            df.write_parquet(
+                self.folder_raw / "_postprocess.parquet"
+            )
+            df_stats.write_parquet(
+                self.folder_raw / f"_postprocess_stats.parquet"
+            )
+            return df, df_stats
+
+        # attempt at loading the previously generate raw version
+        df = fileutils.load_if_exists(self.folder_raw / f"{self.name}.parquet", echo=False)
+        if df is None:
+            df = self.raw()
+        # ...and triggering postprocessing steps        
+        df, _ = SequentialPipe(
+            SequentialPipeStage(
+                self._raw_postprocess_rename_columns,
+                name="Rename columns",
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_drop_columns,
+                name="Drop columns",
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_clip_series,
+                name="Clip series",
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_add_other_columns,
+                name="Add columns", 
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_add_app_and_background,
+                name="Add metadata",
+            ),
+            SequentialPipeStage(
+                _get_stats,
+                name="Compute statistics",
+            ),
+            SequentialPipeStage(
+                _write_parquet_files,
+                name="Write parquet files",
+            ),
+            name="Postprocess raw..."
+        ).run(df) 
+
+        return df
+
 
     def curate(self):
         pass

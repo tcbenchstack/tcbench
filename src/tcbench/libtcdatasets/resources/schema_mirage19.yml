@@ -9,15 +9,15 @@ raw:
     window: 32 packets
   packet_data_packet_dir:
     type: list[u8]
-    desc: Time series of pkts direction (0 or 1)
+    desc: Time series of packets direction (0 or 1)
     window: 32 packets
   packet_data_L4_payload_bytes:
     type: list[u16]
-    desc: Time series of payload pkts size
+    desc: Time series of payload packets size
     window: 32 packets
   packet_data_iat:
     type: list[f32]
-    desc: Time series of pkts inter arrival times
+    desc: Time series of packets inter arrival times
     window: 32 packets
   packet_data_TCP_win_size:
     type: list[u16]
@@ -25,11 +25,11 @@ raw:
     window: 32 packets
   packet_data_L4_raw_payload:
     type: list[list[u8]]
-    desc: List of list with each packet payload
+    desc: Actual payload bytes for each packet
     window: 10 packets
   flow_metadata_BF_label:
     type: str
-    desc: original mirage label
+    desc: Flow label (android package name)
     window: flow
   flow_metadata_BF_labeling_type:
     type: str
@@ -37,7 +37,7 @@ raw:
     window: flow
   flow_metadata_BF_num_packets:
     type: u64
-    desc: Bidirectional number of pkts
+    desc: Bidirectional number of packets
     window: flow
   flow_metadata_BF_IP_packet_bytes:
     type: u64
@@ -53,7 +53,7 @@ raw:
     window: flow
   flow_metadata_UF_num_packets:
     type: u64
-    desc: Upload number of pkts
+    desc: Upload number of packets
     window: flow
   flow_metadata_UF_IP_packet_bytes:
     type: u64
@@ -117,39 +117,39 @@ raw:
     window: flow
   flow_features_packet_length_biflow_10_percentile:
     type: f64
-    desc: Bidirection 10%-ile of frame size
+    desc: Bidirection 10 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_20_percentile:
     type: f64
-    desc: Bidirection 20%-ile of frame size
+    desc: Bidirection 20 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_30_percentile:
     type: f64
-    desc: Bidirection 30%-ile of frame size
+    desc: Bidirection 30 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_40_percentile:
     type: f64
-    desc: Bidirection 40%-ile of frame size
+    desc: Bidirection 40 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_50_percentile:
     type: f64
-    desc: Bidirection 50%-ile of frame size
+    desc: Bidirection 50 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_60_percentile:
     type: f64
-    desc: Bidirection 60%-le of frame size
+    desc: Bidirection 60 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_70_percentile:
     type: f64
-    desc: Bidirection 70%-ile of frame size
+    desc: Bidirection 70 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_80_percentile:
     type: f64
-    desc: Bidirection 80%-ile of frame size
+    desc: Bidirection 80 percentile of frame size
     window: flow
   flow_features_packet_length_biflow_90_percentile:
     type: f64
-    desc: Bidirection 90%-ile of frame size
+    desc: Bidirection 90 percentile of frame size
     window: flow
   flow_features_packet_length_upstream_flow_min:
     type: f64
@@ -523,500 +523,6 @@ raw:
     type: u64
     desc: Index of the flow in the raw json
     window: flow 
-
-preprocess:
-  packet_data_src_port:
-    type: list[u32]
-    desc: Time series of the source ports
-    window: 32 packets
-  packet_data_dst_port:
-    type: list[u32]
-    desc: Time series of the destination ports
-    window: 32 packets
-  packet_data_packet_dir:
-    type: list[u8]
-    desc: Time series of pkts direction (0 or 1)
-    window: 32 packets
-  packet_data_L4_payload_bytes:
-    type: list[u16]
-    desc: Time series of payload pkts size
-    window: 32 packets
-  packet_data_iat:
-    type: list[f32]
-    desc: Time series of pkts inter arrival times
-    window: 32 packets
-  packet_data_TCP_win_size:
-    type: list[u16]
-    desc: Time series of TCP window size
-    window: 32 packets
-  packet_data_L4_raw_payload:
-    type: list[list[u8]]
-    desc: List of list with each packet payload
-    window: 10 packets
-  flow_metadata_BF_label:
-    type: str
-    desc: original mirage label
-    window: flow
-  flow_metadata_BF_labeling_type:
-    type: str
-    desc: exact=via netstat; most-common=via experiment
-    window: flow
-  flow_metadata_BF_num_packets:
-    type: u64
-    desc: Bidirectional number of pkts
-    window: flow
-  flow_metadata_BF_IP_packet_bytes:
-    type: u64
-    desc: Bidirectional bytes (including headers)
-    window: flow
-  flow_metadata_BF_L4_payload_bytes:
-    type: u64
-    desc: Bidirectional payload bytes
-    window: flow
-  flow_metadata_BF_duration:
-    type: f32
-    desc: Bidirectional duration
-    window: flow
-  flow_metadata_UF_num_packets:
-    type: u64
-    desc: Upload number of pkts
-    window: flow
-  flow_metadata_UF_IP_packet_bytes:
-    type: u64
-    desc: Upload bytes (including headers)
-    window: flow
-  flow_metadata_UF_L4_payload_bytes:
-    type: u64
-    desc: Upload payload bytes
-    window: flow
-  flow_metadata_UF_duration:
-    type: f64
-    desc: Upload duration
-    window: flow
-  flow_metadata_DF_num_packets:
-    type: i64
-    desc: Download number of packets
-    window: flow
-  flow_metadata_DF_IP_packet_bytes:
-    type: i64
-    desc: Download bytes (including headers)
-    window: flow
-  flow_metadata_DF_L4_payload_bytes:
-    type: i64
-    desc: Download payload bytes
-    window: flow
-  flow_metadata_DF_duration:
-    type: f64
-    desc: Download duration
-    window: flow
-  flow_features_packet_length_biflow_min:
-    type: f64
-    desc: Bidirectional min frame (i.e., pkt with headers) size
-    window: flow
-  flow_features_packet_length_biflow_max:
-    type: f64
-    desc: Bidirectional max frame size
-    window: flow
-  flow_features_packet_length_biflow_mean:
-    type: f64
-    desc: Bidirectional mean frame size
-    window: flow
-  flow_features_packet_length_biflow_std:
-    type: f64
-    desc: Bidirectional std frame size
-    window: flow
-  flow_features_packet_length_biflow_var:
-    type: f64
-    desc: Bidirectional variance frame size
-    window: flow
-  flow_features_packet_length_biflow_mad:
-    type: f64
-    desc: Bidirectional median absolute deviation frame size
-    window: flow
-  flow_features_packet_length_biflow_skew:
-    type: f64
-    desc: Bidirection skew frame size
-    window: flow
-  flow_features_packet_length_biflow_kurtosis:
-    type: f64
-    desc: Bidirectional kurtosi frame size
-    window: flow
-  flow_features_packet_length_biflow_10_percentile:
-    type: f64
-    desc: Bidirection 10%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_20_percentile:
-    type: f64
-    desc: Bidirection 20%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_30_percentile:
-    type: f64
-    desc: Bidirection 30%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_40_percentile:
-    type: f64
-    desc: Bidirection 40%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_50_percentile:
-    type: f64
-    desc: Bidirection 50%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_60_percentile:
-    type: f64
-    desc: Bidirection 60%-le of frame size
-    window: flow
-  flow_features_packet_length_biflow_70_percentile:
-    type: f64
-    desc: Bidirection 70%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_80_percentile:
-    type: f64
-    desc: Bidirection 80%-ile of frame size
-    window: flow
-  flow_features_packet_length_biflow_90_percentile:
-    type: f64
-    desc: Bidirection 90%-ile of frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_min:
-    type: f64
-    desc: Upstream min frame (i.e., pkt with headers) size
-    window: flow
-  flow_features_packet_length_upstream_flow_max:
-    type: f64
-    desc: Upstream max frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_mean:
-    type: f64
-    desc: Upstream mean frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_std:
-    type: f64
-    desc: Upstream std frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_var:
-    type: f64
-    desc: Upstream variance frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_mad:
-    type: f64
-    desc: Upstream median absolute deviation frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_skew:
-    type: f64
-    desc: Upstream skew frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_kurtosis:
-    type: f64
-    desc: Upstream kurtosi frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_10_percentile:
-    type: f64
-    desc: Upstream 10%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_20_percentile:
-    type: f64
-    desc: Upstream 20%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_30_percentile:
-    type: f64
-    desc: Upstream 30%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_40_percentile:
-    type: f64
-    desc: Upstream 40%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_50_percentile:
-    type: f64
-    desc: Upstream 50%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_60_percentile:
-    type: f64
-    desc: Upstream 60%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_70_percentile:
-    type: f64
-    desc: Upstream 70%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_80_percentile:
-    type: f64
-    desc: Upstream 80%-ile frame size
-    window: flow
-  flow_features_packet_length_upstream_flow_90_percentile:
-    type: f64
-    desc: Upstream 90%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_min:
-    type: f64
-    desc: Downstream min frame (i.e., pkt with headers) size
-    window: flow
-  flow_features_packet_length_downstream_flow_max:
-    type: f64
-    desc: Downstream max frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_mean:
-    type: f64
-    desc: Downstream mean frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_std:
-    type: f64
-    desc: Downstream std frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_var:
-    type: f64
-    desc: Downstream variance frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_mad:
-    type: f64
-    desc: Downstream max frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_skew:
-    type: f64
-    desc: Downstream skew frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_kurtosis:
-    type: f64
-    desc: Downstream kurtosi frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_10_percentile:
-    type: f64
-    desc: Downstream 10%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_20_percentile:
-    type: f64
-    desc: Downstream 20%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_30_percentile:
-    type: f64
-    desc: Downstream 30%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_40_percentile:
-    type: f64
-    desc: Downstream 40%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_50_percentile:
-    type: f64
-    desc: Downstream 50%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_60_percentile:
-    type: f64
-    desc: Downstream 60%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_70_percentile:
-    type: f64
-    desc: Downstream 70%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_80_percentile:
-    type: f64
-    desc: Downstream 80%-ile frame size
-    window: flow
-  flow_features_packet_length_downstream_flow_90_percentile:
-    type: f64
-    desc: Downstream 90%-ile frame size
-    window: flow
-  flow_features_iat_biflow_min:
-    type: f64
-    desc: Bidirectional min inter arrival time
-    window: flow
-  flow_features_iat_biflow_max:
-    type: f64
-    desc: Bidirectional max inter arrival time
-    window: flow
-  flow_features_iat_biflow_mean:
-    type: f64
-    desc: Bidirectional mean inter arrival time
-    window: flow
-  flow_features_iat_biflow_std:
-    type: f64
-    desc: Bidirectional std inter arrival time
-    window: flow
-  flow_features_iat_biflow_var:
-    type: f64
-    desc: Bidirectional variance inter arrival time
-    window: flow
-  flow_features_iat_biflow_mad:
-    type: f64
-    desc: Bidirectional median absolute deviation inter arrival time
-    window: flow
-  flow_features_iat_biflow_skew:
-    type: f64
-    desc: Bidirectional skew inter arrival time
-    window: flow
-  flow_features_iat_biflow_kurtosis:
-    type: f64
-    desc: Bidirectional kurtosi inter arrival time
-    window: flow
-  flow_features_iat_biflow_10_percentile:
-    type: f64
-    desc: Bidirectional 10th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_20_percentile:
-    type: f64
-    desc: Bidirectional 20th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_30_percentile:
-    type: f64
-    desc: Bidirectional 30th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_40_percentile:
-    type: f64
-    desc: Bidirectional 40th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_50_percentile:
-    type: f64
-    desc: Bidirectional 50th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_60_percentile:
-    type: f64
-    desc: Bidirectional 60th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_70_percentile:
-    type: f64
-    desc: Bidirectional 70th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_80_percentile:
-    type: f64
-    desc: Bidirectional 80th percentile inter arrival time
-    window: flow
-  flow_features_iat_biflow_90_percentile:
-    type: f64
-    desc: Bidirectional 90th percentile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_min:
-    type: f64
-    desc: Upstream min inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_max:
-    type: f64
-    desc: Upstream max inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_mean:
-    type: f64
-    desc: Upstream avg inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_std:
-    type: f64
-    desc: Upstream std inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_var:
-    type: f64
-    desc: Upstream variance inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_mad:
-    type: f64
-    desc: Upstream median absolute deviation inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_skew:
-    type: f64
-    desc: Upstream skew inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_kurtosis:
-    type: f64
-    desc: Upstream kurtosi inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_10_percentile:
-    type: f64
-    desc: Upstream 10%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_20_percentile:
-    type: f64
-    desc: Upstream 20%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_30_percentile:
-    type: f64
-    desc: Upstream 30%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_40_percentile:
-    type: f64
-    desc: Upstream 40%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_50_percentile:
-    type: f64
-    desc: Upstream 50%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_60_percentile:
-    type: f64
-    desc: Upstream 60%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_70_percentile:
-    type: f64
-    desc: Upstream 70%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_80_percentile:
-    type: f64
-    desc: Upstream 80%-ile inter arrival time
-    window: flow
-  flow_features_iat_upstream_flow_90_percentile:
-    type: f64
-    desc: Upstream 90%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_min:
-    type: f64
-    desc: Downstream min inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_max:
-    type: f64
-    desc: Downstream max inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_mean:
-    type: f64
-    desc: Downstream mean inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_std:
-    type: f64
-    desc: Downstream std inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_var:
-    type: f64
-    desc: Downstream variance inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_mad:
-    type: f64
-    desc: Downstream median absolute deviation inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_skew:
-    type: f64
-    desc: Downstream skew inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_kurtosis:
-    type: f64
-    desc: Downstream kurtosi inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_10_percentile:
-    type: f64
-    desc: Downstream 10%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_20_percentile:
-    type: f64
-    desc: Downstream 20%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_30_percentile:
-    type: f64
-    desc: Downstream 30%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_40_percentile:
-    type: f64
-    desc: Downstream 40%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_50_percentile:
-    type: f64
-    desc: Downstream 50%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_60_percentile:
-    type: f64
-    desc: Downstream 60%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_70_percentile:
-    type: f64
-    desc: Downstream 70%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_80_percentile:
-    type: f64
-    desc: Downstream 80%-ile inter arrival time
-    window: flow
-  flow_features_iat_downstream_flow_90_percentile:
-    type: f64
-    desc: Downstream 90%-ile inter arrival time
-    window: flow
 
 curate:
   row_id:
