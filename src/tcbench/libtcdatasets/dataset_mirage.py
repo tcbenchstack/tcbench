@@ -33,150 +33,6 @@ from tcbench.libtcdatasets.constants import (
     APP_LABEL_ALL,
 )
 
-#_POLAR_SCHEMA_RAW = OrderedDict(
-#    (
-#        ("packet_data_src_port", pl.List(pl.UInt32())),
-#        ("packet_data_dst_port", pl.List(pl.UInt32())),
-#        ("packet_data_packet_dir", pl.List(pl.UInt8())),
-#        ("packet_data_L4_payload_bytes", pl.List(pl.UInt16())),
-#        ("packet_data_iat", pl.List(pl.Float32())),
-#        ("packet_data_TCP_win_size", pl.List(pl.UInt16())),
-#        ("packet_data_L4_raw_payload", pl.List(pl.List(pl.UInt8()))),
-#        ("flow_metadata_BF_label", pl.String()),
-#        ("flow_metadata_BF_labeling_type", pl.String()),
-#        ("flow_metadata_BF_num_packets", pl.UInt64()),
-#        ("flow_metadata_BF_IP_packet_bytes", pl.UInt64()),
-#        ("flow_metadata_BF_L4_payload_bytes", pl.UInt64()),
-#        ("flow_metadata_BF_duration", pl.Float32()),
-#        ("flow_metadata_UF_num_packets", pl.UInt64()),
-#        ("flow_metadata_UF_IP_packet_bytes", pl.UInt64()),
-#        ("flow_metadata_UF_L4_payload_bytes", pl.UInt64()),
-#        ("flow_metadata_UF_duration", pl.Float64()),
-#        ("flow_metadata_DF_num_packets", pl.Int64()),
-#        ("flow_metadata_DF_IP_packet_bytes", pl.Int64()),
-#        ("flow_metadata_DF_L4_payload_bytes", pl.Int64()),
-#        ("flow_metadata_DF_duration", pl.Float64()),
-#        ("flow_features_packet_length_biflow_min", pl.Float64()),
-#        ("flow_features_packet_length_biflow_max", pl.Float64()),
-#        ("flow_features_packet_length_biflow_mean", pl.Float64()),
-#        ("flow_features_packet_length_biflow_std", pl.Float64()),
-#        ("flow_features_packet_length_biflow_var", pl.Float64()),
-#        ("flow_features_packet_length_biflow_mad", pl.Float64()),
-#        ("flow_features_packet_length_biflow_skew", pl.Float64()),
-#        ("flow_features_packet_length_biflow_kurtosis", pl.Float64()),
-#        ("flow_features_packet_length_biflow_10_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_20_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_30_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_40_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_50_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_60_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_70_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_80_percentile", pl.Float64()),
-#        ("flow_features_packet_length_biflow_90_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_min", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_max", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_mean", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_std", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_var", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_mad", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_skew", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_kurtosis", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_10_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_20_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_30_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_40_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_50_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_60_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_70_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_80_percentile", pl.Float64()),
-#        ("flow_features_packet_length_upstream_flow_90_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_min", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_max", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_mean", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_std", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_var", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_mad", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_skew", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_kurtosis", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_10_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_20_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_30_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_40_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_50_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_60_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_70_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_80_percentile", pl.Float64()),
-#        ("flow_features_packet_length_downstream_flow_90_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_min", pl.Float64()),
-#        ("flow_features_iat_biflow_max", pl.Float64()),
-#        ("flow_features_iat_biflow_mean", pl.Float64()),
-#        ("flow_features_iat_biflow_std", pl.Float64()),
-#        ("flow_features_iat_biflow_var", pl.Float64()),
-#        ("flow_features_iat_biflow_mad", pl.Float64()),
-#        ("flow_features_iat_biflow_skew", pl.Float64()),
-#        ("flow_features_iat_biflow_kurtosis", pl.Float64()),
-#        ("flow_features_iat_biflow_10_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_20_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_30_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_40_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_50_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_60_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_70_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_80_percentile", pl.Float64()),
-#        ("flow_features_iat_biflow_90_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_min", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_max", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_mean", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_std", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_var", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_mad", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_skew", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_kurtosis", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_10_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_20_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_30_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_40_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_50_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_60_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_70_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_80_percentile", pl.Float64()),
-#        ("flow_features_iat_upstream_flow_90_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_min", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_max", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_mean", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_std", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_var", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_mad", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_skew", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_kurtosis", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_10_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_20_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_30_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_40_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_50_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_60_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_70_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_80_percentile", pl.Float64()),
-#        ("flow_features_iat_downstream_flow_90_percentile", pl.Float64()),
-#    )
-#)
-#
-#_POLAR_SCHEMA_PREPROCESS = _POLAR_SCHEMA_RAW.copy()
-#_POLAR_SCHEMA_PREPROCESS.update(
-#    OrderedDict(
-#        (
-#            ("src_ip", pl.String()),
-#            ("src_port", pl.Int32()),
-#            ("dst_ip", pl.String()),
-#            ("dst_port", pl.Int32()),
-#            ("proto_id", pl.Int32()),
-#            ("device_id", pl.String()),
-#            ("fname", pl.String()),
-#            ("fname_row_idx", pl.Int64()),
-#        )
-#    )
-#)
-
 
 def _reformat_json_entry(
     json_entry: Dict[str, Any], 
@@ -198,7 +54,7 @@ def _reformat_json_entry(
                 and not isinstance(value, (list, str)) 
                 and math.isnan(value)
             ):
-                value = "NaN"
+                value = "null"
             data[key] = value
             continue
         for inner_key, inner_value in value.items():
@@ -219,7 +75,6 @@ def _json_entry_to_dataframe(
             value = np.nan
         # Note: enforce values to be list for pl.DataFrame conversion
         json_entry[key] = [value]
-    breakpoint()
     return pl.DataFrame(json_entry, schema=dset_schema.to_polars())
 
 
@@ -326,29 +181,28 @@ def _rename_columns(columns: List[str]) -> Dict[str, str]:
     return rename
 
 
-class Mirage19(Dataset):
-    def __init__(self):
-        super().__init__(name=DATASET_NAME.MIRAGE19)
-        self.df_app_metadata = pl.read_csv(
-            DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
-        )
-
-    @property
-    def _list_raw_json_files(self):
-        return list(self.folder_raw.rglob("*.json"))
+class BaseParserRawJSON:
+    def __init__(self, name: DATASET_NAME, dset_schema: DatasetSchema):
+        self.name = name
+        self.dset_schema = dset_schema
 
     def _parse_raw_json(
         self, 
-        sort_by: Iterable[str],
+        *files: Iterable[pathlib.Path],
+        sort_by: Iterable[str] = None,
     ) -> pl.DataFrame:
-        files = self._list_raw_json_files
-        dset_schema = self.get_schema(DATASET_TYPE.RAW)
+        if sort_by is None:
+            sort_by = (
+                "parent_folder", 
+                "fname", 
+                "fname_row_idx"
+            )
 
         with tempfile.TemporaryDirectory() as tmp_folder:
             tmp_folder = pathlib.Path(tmp_folder)
             func = functools.partial(
                 _load_raw_json_worker, 
-                dset_schema=dset_schema, 
+                dset_schema=self.dset_schema, 
                 save_to=tmp_folder,
             )
             with (
@@ -360,32 +214,220 @@ class Mirage19(Dataset):
             ):
                 for _ in pool.imap_unordered(func, files):
                     progress.update()
-
+            
             with richutils.SpinnerProgress(description="Reload..."):
                 df = (
                     pl.read_ndjson(
                         tmp_folder, 
-                        schema=dset_schema.to_polars()
+                        schema=self.dset_schema.to_polars()
                     )
                     .sort(*sort_by)
                 )
         return df
 
+    def run(
+        self, 
+        *files: Iterable[pathlib.Path], 
+        save_to: pathlib.Path = None,
+        sort_by: Iterable[str] = None,
+    ) -> pl.DataFrame:
+        df = self._parse_raw_json(*files, sort_by=sort_by)
+        if save_to is None:
+            save_to = pathlib.Path(".")
+        with richutils.SpinnerProgress(description="Writing parquet files..."):
+            fileutils.save_parquet(
+                df, 
+                save_as=save_to/f"{self.name}.parquet", 
+                echo=False
+            )
+        return df
+
+
+class BaseRawPostprocessing:
+    def __init__(self, name: DATASET_NAME):
+        self.name = name
+
+    def _rename_columns(
+        self, 
+        df: pl.DataFrame,
+        **rename_post_execution,
+    ) -> pl.DataFrame:
+        df = (
+            df
+            .rename(_rename_columns(df.columns))
+            .rename(rename_post_execution)
+        )
+        return df
+
+    def _add_app_and_background(self, df: pl.DataFrame) -> pl.DataFrame:
+        return (
+            df
+            # add app column using static metadata
+            .join(
+                self.df_app_metadata,
+                left_on="label",
+                right_on="android_package_name",
+                how="left",
+            )
+            .with_columns(
+                # flows without a recognized label are re-labeled as background
+                app=(pl.col("app").fill_null(APP_LABEL_BACKGROUND))
+            )
+            .with_columns(
+                # force to background flows with UDP packets of size zero
+                app=(
+                    pl.when(
+                        (pl.col("proto_id") == 17).and_(
+                            pl.col("pkts_size").list.min() == 0
+                        )
+                    )
+                    .then(pl.lit(APP_LABEL_BACKGROUND))
+                    .otherwise(pl.col("app"))
+                )
+            )
+        )
+
+    def _add_other_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        # add column: convert proto_id to string (6->tcp, 17->udp)
+        df = df.with_columns(
+            proto=(
+                pl.when(pl.col("proto_id").eq(6))
+                .then(pl.lit("tcp"))
+                .otherwise(pl.lit("udp"))
+            ),
+        )
+        # add columns: ip addresses private/public
+        df = curation.add_is_private_ip_columns(df)
+        # add columns: check if tcp handshake is valid
+        df = curation.add_is_valid_tcp_handshake_heuristic(
+            df, tcp_handshake_size=0, direction_upload=0, direction_download=1
+        )
+        return (
+            df
+            # add a global row_id
+            .with_row_index(name="row_id")
+        )
+
+    def _get_stats(self, df):
+        df_stats = curation.get_stats(df)
+        return (df, df_stats)
+
+    def _write_parquet_files(self, df, df_stats):
+        df.write_parquet(
+            self.folder_raw / "_postprocess.parquet"
+        )
+        df_stats.write_parquet(
+            self.folder_raw / f"_postprocess_stats.parquet"
+        )
+        return df, df_stats
+
+
+    def run(self, df: pl.DataFrame) -> pl.DataFrame:
+        # attempt at loading the previously generate raw version
+        fname = self.folder_raw / f"{self.name}.parquet"
+        if fname.exists() and not recompute:
+            return fileutils.load_parquet(fname, echo=False)
+
+        df = self.raw()
+        # ...and triggering postprocessing steps        
+        df, _ = SequentialPipe(
+            SequentialPipeStage(
+                self._raw_postprocess_rename_columns,
+                name="Rename columns",
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_add_other_columns,
+                name="Add columns", 
+            ),
+            SequentialPipeStage(
+                self._raw_postprocess_add_app_and_background,
+                name="Add metadata",
+            ),
+            SequentialPipeStage(
+                _get_stats,
+                name="Compute statistics",
+            ),
+            SequentialPipeStage(
+                _write_parquet_files,
+                name="Write parquet files",
+            ),
+            name="Postprocess raw..."
+        ).run(df) 
+
+        return df
+
+
+class Mirage19(Dataset):
+    def __init__(self):
+        super().__init__(name=DATASET_NAME.MIRAGE19)
+        self.df_app_metadata = pl.read_csv(
+            DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
+        )
+
+    @property
+    def _list_raw_json_files(self):
+        return list(self.folder_raw.rglob("*.json"))
+
+#    def _parse_raw_json(
+#        self, 
+#        sort_by: Iterable[str],
+#    ) -> pl.DataFrame:
+#        files = self._list_raw_json_files
+#        dset_schema = self.get_schema(DATASET_TYPE.RAW)
+#
+#        with tempfile.TemporaryDirectory() as tmp_folder:
+#            tmp_folder = pathlib.Path(tmp_folder)
+#            func = functools.partial(
+#                _load_raw_json_worker, 
+#                dset_schema=dset_schema, 
+#                save_to=tmp_folder,
+#            )
+#            with (
+#                richutils.Progress(
+#                    description="Parse JSON files...", 
+#                    total=len(files)
+#                ) as progress,
+#                multiprocessing.Pool(processes=2) as pool,
+#            ):
+#                for _ in pool.imap_unordered(func, files):
+#                    progress.update()
+#
+#            with richutils.SpinnerProgress(description="Reload..."):
+#                df = (
+#                    pl.read_ndjson(
+#                        tmp_folder, 
+#                        schema=dset_schema.to_polars()
+#                    )
+#                    .sort(*sort_by)
+#                )
+#        return df
+#
+#    def raw(self) -> pl.DataFrame:
+#        df = self._parse_raw_json(
+#            sort_by=(
+#                "parent_folder", 
+#                "fname", 
+#                "fname_row_idx"
+#            )
+#        )
+#        with richutils.SpinnerProgress(description="Writing parquet files..."):
+#            fileutils.save_parquet(
+#                df, 
+#                save_as=self.folder_raw/f"{self.name}.parquet", 
+#                echo=False
+#            )
+#        return df
     def raw(self) -> pl.DataFrame:
-        df = self._parse_raw_json(
+        parser = BaseParserRawJSON(self.name, self.get_schema(DATASET_TYPE.RAW))
+        return parser.run(
+            *self._list_raw_json_files,
             sort_by=(
                 "parent_folder", 
                 "fname", 
                 "fname_row_idx"
-            )
+            ),
+            save_to=self.folder_raw,
         )
-        with richutils.SpinnerProgress(description="Writing parquet files..."):
-            fileutils.save_parquet(
-                df, 
-                save_as=self.folder_raw/f"{self.name}.parquet", 
-                echo=False
-            )
-        return df
 
     def _raw_postprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
         df = (
@@ -688,15 +730,17 @@ class Mirage19(Dataset):
 
         return self.df
 
-class Mirage22(Mirage19):
+#class Mirage22(Mirage19):
+class Mirage22(Dataset):
     def __init__(self):
-        super(Mirage19, self).__init__(name=DATASET_NAME.MIRAGE22)
+        #super(Mirage19, self).__init__(name=DATASET_NAME.MIRAGE22)
+        super().__init__(name=DATASET_NAME.MIRAGE22)
         self.df_app_metadata = pl.read_csv(
-            DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
+           DATASETS_RESOURCES_FOLDER / f"{self.name}_app_metadata.csv"
         )
 
     @property
-    def _list_raw_json(self) -> List[pathlib.Path]:
+    def _list_raw_json_files(self) -> List[pathlib.Path]:
         return list(
             (
                 self.folder_raw 
@@ -725,21 +769,32 @@ class Mirage22(Mirage19):
         )
         return super().install(no_download, extra_unpack)
 
+#    def raw(self) -> pl.DataFrame:
+#        df = self._parse_raw_json(
+#            sort_by=(
+#                "flow_metadata_BF_device",
+#                "fname", 
+#                "fname_row_idx"
+#            )
+#        )
+#        with richutils.SpinnerProgress(description="Writing parquet files..."):
+#            fileutils.save_parquet(
+#                df, 
+#                save_as=self.folder_raw/f"{self.name}.parquet", 
+#                echo=False
+#            )
+#        return df
     def raw(self) -> pl.DataFrame:
-        df = self._parse_raw_json(
+        parser = BaseParserRawJSON(self.name, self.get_schema(DATASET_TYPE.RAW))
+        return parser.run(
+            *self._list_raw_json_files,
             sort_by=(
                 "flow_metadata_BF_device",
                 "fname", 
                 "fname_row_idx"
-            )
+            ),
+            save_to=self.folder_raw,
         )
-        with richutils.SpinnerProgress(description="Writing parquet files..."):
-            fileutils.save_parquet(
-                df, 
-                save_as=self.folder_raw/f"{self.name}.parquet", 
-                echo=False
-            )
-        return df
 
     def _raw_postprocess_rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
         df = (

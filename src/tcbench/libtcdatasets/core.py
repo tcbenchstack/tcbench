@@ -38,14 +38,14 @@ def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
 #    return load_yaml(get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
 
 def _from_schema_to_yaml(schema:pl.schema.Schema) -> Dict[str, Any]:
-	data = dict()
-	for field_name, field_dtype in schema.items():
-		data[field_name] = dict(
-			type=field_dtype._string_repr(),
-			desc="",
-			window="flow",
-		)
-	return data
+    data = dict()
+    for field_name, field_dtype in schema.items():
+        data[field_name] = dict(
+            type=field_dtype._string_repr(),
+            desc="",
+            window="flow",
+        )
+    return data
 
 
 @dataclasses.dataclass
@@ -563,7 +563,7 @@ class SequentialPipeStage:
         self.name = name if name else ""
         self.run_kwargs = kwargs
 
-    def run(self, data:Any) -> Any:
+    def run(self, data) -> Any:
         return self.func(data, **self.run_kwargs)
 
 

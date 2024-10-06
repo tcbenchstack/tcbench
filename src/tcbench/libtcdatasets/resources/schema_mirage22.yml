@@ -1,47 +1,47 @@
 raw:
   packet_data_timestamp:
     type: list[f64]
-    desc: Time series of packet unixtime
+    desc: Series of packets unixtime
     window: flow
   packet_data_src_port:
     type: list[u32]
-    desc: Time series of the source ports
+    desc: Series of the source ports
     window: flow
   packet_data_dst_port:
     type: list[u32]
-    desc: Time series of the destination ports
+    desc: Series of the destination ports
     window: flow
   packet_data_packet_dir:
     type: list[u8]
-    desc: Time series of packets direction (0 or 1)
+    desc: Series of packets direction (0 or 1)
     window: flow
   packet_data_IP_packet_bytes:
     type: list[u16]
-    desc: Time series of packets size seen at IP layer
+    desc: Series of packets size seen at IP layer
     window: flow
   packet_data_IP_header_bytes:
     type: list[u16]
-    desc: Time series of packets IP header length
+    desc: Series of packets IP header length
     window: flow
   packet_data_L4_payload_bytes:
     type: list[u16]
-    desc: Time series of packets size seen at transport layer
+    desc: Series of packets size seen at transport layer
     window: flow
   packet_data_L4_header_bytes:
     type: list[u16]
-    desc: Time series of packets transport layer header length
+    desc: Series of packets transport layer header length
     window: flow
   packet_data_iat:
     type: list[f64]
-    desc: Time series of packets inter arrival times
+    desc: Series of packets inter arrival times
     window: flow
   packet_data_TCP_win_size:
     type: list[u64]
-    desc: Time series of packets TCP window size
+    desc: Series of packets TCP window size
     window: flow
   packet_data_TCP_flags:
     type: list[str]
-    desc: Time series of packets TCP flags
+    desc: Series of packets TCP flags
     window: flow
   packet_data_L4_raw_payload:
     type: list[list[i64]]
@@ -156,79 +156,79 @@ raw:
     desc: Activity in the experiment
     window: flow
   flow_features_packet_length_biflow_min:
-    type: u16
+    type: u32
     desc: Bidirectional min packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_max:
-    type: u16
+    type: u32
     desc: Bidirectional max packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_mean:
-    type: u16
+    type: f64
     desc: Bidirectional mean packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_std:
-    type: u16
+    type: f64
     desc: Bidirectional std packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_var:
-    type: u16
+    type: f64
     desc: Bidirectional variance packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_mad:
-    type: u16
+    type: f64
     desc: Bidirectional MAD packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_skew:
-    type: u16
+    type: f64
     desc: Bidirection skew packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_kurtosis:
-    type: u16
+    type: f64
     desc: Bidirectional kurtosi packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_10_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 10 percentile of packet size (including headers)
     window: flow
   flow_features_packet_length_biflow_20_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 20 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_30_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 30 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_40_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 40 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_50_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 50 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_60_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 60 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_70_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 70 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_80_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 80 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_biflow_90_percentile:
-    type: u16
+    type: f64
     desc: Bidirection 90 percentile of packets size (including headers)
     window: flow
   flow_features_packet_length_upstream_flow_min:
-    type: u16
+    type: u32
     desc: Upload min packet size (including headers)
     window: flow
   flow_features_packet_length_upstream_flow_max:
-    type: u16
+    type: u32
     desc: Upload max packets size (including headers)
     window: flow
   flow_features_packet_length_upstream_flow_mean:
@@ -292,11 +292,11 @@ raw:
     desc: Upload 90 percentile packets size (including headers)
     window: flow
   flow_features_packet_length_downstream_flow_min:
-    type: u16
+    type: u32
     desc: Download min packet sie (including headers)
     window: flow
   flow_features_packet_length_downstream_flow_max:
-    type: u16
+    type: u32
     desc: Download max packets size (including headers)
     window: flow
   flow_features_packet_length_downstream_flow_mean:
@@ -590,4 +590,614 @@ raw:
   fname_row_idx:
     type: u64
     desc: Index of the flow in the raw json
+    window: flow
+
+curate:
+  row_id:
+    type: u32
+    desc: Unique row identified
+    window: flow
+  pkts_timestamp:
+    type: list[f64]
+    desc: Series of packets unixtime
+    window: flow
+  pkts_dir:
+    type: list[i32]
+    desc: Series of the packets direction (1:upload, -1:download)
+    window: flow
+  pkts_size:
+    type: list[i64]
+    desc: Series of the packets size
+    window: flow
+  pkts_iat:
+    type: list[f64]
+    desc: Series of the packets inter arrival time
+    window: flow
+  pkts_tcp_win_size:
+    type: list[i64]
+    desc: Series of the packets TCP window size
+    window: flow
+  pkts_tcp_flags:
+    type: list[str]
+    desc: Series of packets TCP flags
+    window: flow
+  device_id:
+    type: str
+    desc: Ethernet address of the device of the experiment
+    window: flow
+  label:
+    type: str
+    desc: Flow label (Android package name)
+    window: flow
+  packets:
+    type: i64
+    desc: Total number of packets
+    window: flow
+  bytes:
+    type: i64
+    desc: Total bytes (including headers)
+    window: flow
+  bytes_payload:
+    type: i64
+    desc: Total bytes (excluding headers)
+    window: flow
+  duration:
+    type: f64
+    desc: Flow duration (in seconds)
+    window: flow
+  packets_upload:
+    type: i64
+    desc: Number of packets uploaded
+    window: flow
+  bytes_upload:
+    type: i64
+    desc: Number of bytes uploaded (including headers)
+    window: flow
+  bytes_payload_upload:
+    type: i64
+    desc: Number of bytes uploaded (excluding headers)
+    window: flow
+  duration_upload:
+    type: f64
+    desc: Duration of upload
+    window: flow
+  mss_upload:
+    type: f64
+    desc: Upload maximum segment size
+    window: flow
+  ws_upload:
+    type: f64
+    desc: Upload maximum segment size
+    window: flow
+  packets_download:
+    type: i64
+    desc: Number of packets downloaded
+    window: flow
+  bytes_download:
+    type: i64
+    desc: Bytes downloaded (including headers)
+    window: flow
+  bytes_payload_download:
+    type: i64
+    desc: Bytes downloaded (excluding headers)
+    window: flow
+  duration_download:
+    type: f64
+    desc: Duration of download (in seconds)
+    window: flow
+  mss_download:
+    type: f64
+    desc: Download maximum segment size
+    window: flow
+  ws_download:
+    type: f64
+    desc: Download window size
+    window: flow
+  activity:
+    type: str
+    desc: Activity in the experiment
+    window: flow
+  packet_size_min:
+    type: f64
+    desc: Minimum packet size
+    window: flow
+  packet_size_max:
+    type: f64
+    desc: Maximum packet size
+    window: flow
+  packet_size_mean:
+    type: f64
+    desc: Mean packet size
+    window: flow
+  packet_size_std:
+    type: f64
+    desc: Stdev packet size
+    window: flow
+  packet_size_var:
+    type: f64
+    desc: Var packet size
+    window: flow
+  packet_size_mad:
+    type: f64
+    desc: MAD packet size
+    window: flow
+  packet_size_skew:
+    type: f64
+    desc: Skew packet size
+    window: flow
+  packet_size_kurtosis:
+    type: f64
+    desc: Kurtosis packet size
+    window: flow
+  packet_size_q10:
+    type: f64
+    desc: Packet size 10th percentile
+    window: flow
+  packet_size_q20:
+    type: f64
+    desc: Packet size 20th percentile
+    window: flow
+  packet_size_q30:
+    type: f64
+    desc: Packet size 30th percentile
+    window: flow
+  packet_size_q40:
+    type: f64
+    desc: Packet size 40th percentile
+    window: flow
+  packet_size_q50:
+    type: f64
+    desc: Packet size 50th percentile
+    window: flow
+  packet_size_q60:
+    type: f64
+    desc: Packet size 60th percentile
+    window: flow
+  packet_size_q70:
+    type: f64
+    desc: Packet size 70th percentile
+    window: flow
+  packet_size_q80:
+    type: f64
+    desc: Packet size 80th percentile
+    window: flow
+  packet_size_q90:
+    type: f64
+    desc: Packet size 90th percentile
+    window: flow
+  packet_size_min_upload:
+    type: f64
+    desc: Minimum uploaded packet size
+    window: flow
+  packet_size_max_upload:
+    type: f64
+    desc: Maximum uploaded packet size
+    window: flow
+  packet_size_mean_upload:
+    type: f64
+    desc: Mean uploaded packet size
+    window: flow
+  packet_size_std_upload:
+    type: f64
+    desc: Stdev uploaded packet size
+    window: flow
+  packet_size_var_upload:
+    type: f64
+    desc: Var uploaded packet sise
+    window: flow
+  packet_size_mad_upload:
+    type: f64
+    desc: MAX uploaded packet size
+    window: flow
+  packet_size_skew_upload:
+    type: f64
+    desc: Skew uploaded packet size
+    window: flow
+  packet_size_kurtosis_upload:
+    type: f64
+    desc: Kurtosis uploaded packet size
+    window: flow
+  packet_size_q10_upload:
+    type: f64
+    desc: 10th percentile of uploaded packet size
+    window: flow
+  packet_size_q20_upload:
+    type: f64
+    desc: 20th percentile of uploaded packet size
+    window: flow
+  packet_size_q30_upload:
+    type: f64
+    desc: 30th percentile of uploaded packet size
+    window: flow
+  packet_size_q40_upload:
+    type: f64
+    desc: 40th percentile of uploaded packet size
+    window: flow
+  packet_size_q50_upload:
+    type: f64
+    desc: 50th percentile of uploaded packet size
+    window: flow
+  packet_size_q60_upload:
+    type: f64
+    desc: 60th percentile of uploaded packet size
+    window: flow
+  packet_size_q70_upload:
+    type: f64
+    desc: 70th percentile of uploaded packet size
+    window: flow
+  packet_size_q80_upload:
+    type: f64
+    desc: 80th percentile of uploaded packet size
+    window: flow
+  packet_size_q90_upload:
+    type: f64
+    desc: 90th percentile of uploaded packet size
+    window: flow
+  packet_size_min_download:
+    type: f64
+    desc: Minimum downloaded packet size
+    window: flow
+  packet_size_max_download:
+    type: f64
+    desc: Maximum downloaded packet size
+    window: flow
+  packet_size_mean_download:
+    type: f64
+    desc: Mean downloaded packet size
+    window: flow
+  packet_size_std_download:
+    type: f64
+    desc: Stdev downloaded packet size
+    window: flow
+  packet_size_var_download:
+    type: f64
+    desc: Var downloaded packet size
+    window: flow
+  packet_size_mad_download:
+    type: f64
+    desc: MAD downloaded packet size
+    window: flow
+  packet_size_skew_download:
+    type: f64
+    desc: Skew downloaded packet size
+    window: flow
+  packet_size_kurtosis_download:
+    type: f64
+    desc: Kurtosis downloaded packet size
+    window: flow
+  packet_size_q10_download:
+    type: f64
+    desc: 10th percentile of downloaded packet size
+    window: flow
+  packet_size_q20_download:
+    type: f64
+    desc: 20th percentile of downloaded packet size
+    window: flow
+  packet_size_q30_download:
+    type: f64
+    desc: 30th percentile of downloaded packet size
+    window: flow
+  packet_size_q40_download:
+    type: f64
+    desc: 40th percentile of downloaded packet size
+    window: flow
+  packet_size_q50_download:
+    type: f64
+    desc: 50th percentile of downloaded packet size
+    window: flow
+  packet_size_q60_download:
+    type: f64
+    desc: 60th percentile of downloaded packet size
+    window: flow
+  packet_size_q70_download:
+    type: f64
+    desc: 70th percentile of downloaded packet size
+    window: flow
+  packet_size_q80_download:
+    type: f64
+    desc: 80th percentile of downloaded packet size
+    window: flow
+  packet_size_q90_download:
+    type: f64
+    desc: 90th percentile of downloaded packet size
+    window: flow
+  iat_min:
+    type: f64
+    desc: Minimum inter arrival time
+    window: flow
+  iat_max:
+    type: f64
+    desc: Maximum inter arrival time
+    window: flow
+  iat_mean:
+    type: f64
+    desc: Mean inter arrival time
+    window: flow
+  iat_std:
+    type: f64
+    desc: Stdev inter arrival time
+    window: flow
+  iat_var:
+    type: f64
+    desc: Var inter arrival time
+    window: flow
+  iat_mad:
+    type: f64
+    desc: MAD inter arrival time
+    window: flow
+  iat_skew:
+    type: f64
+    desc: Skew inter arrival time
+    window: flow
+  iat_kurtosis:
+    type: f64
+    desc: Kurtosis inter arrival time
+    window: flow
+  iat_q10:
+    type: f64
+    desc: 10th percentile of inter arrival time
+    window: flow
+  iat_q20:
+    type: f64
+    desc: 20th percentile of inter arrival time
+    window: flow
+  iat_q30:
+    type: f64
+    desc: 30th percentile of inter arrival time
+    window: flow
+  iat_q40:
+    type: f64
+    desc: 40th percentile of inter arrival time
+    window: flow
+  iat_q50:
+    type: f64
+    desc: 50th percentile of inter arrival time
+    window: flow
+  iat_q60:
+    type: f64
+    desc: 60th percentile of inter arrival time
+    window: flow
+  iat_q70:
+    type: f64
+    desc: 70th percentile of inter arrival time
+    window: flow
+  iat_q80:
+    type: f64
+    desc: 80th percentile of inter arrival time
+    window: flow
+  iat_q90:
+    type: f64
+    desc: 90th percentile of inter arrival time
+    window: flow
+  iat_min_upload:
+    type: f64
+    desc: Minimum upload inter arrival time
+    window: flow
+  iat_max_upload:
+    type: f64
+    desc: Maximum upload inter arrival time
+    window: flow
+  iat_mean_upload:
+    type: f64
+    desc: Mean upload inter arrival time
+    window: flow
+  iat_std_upload:
+    type: f64
+    desc: Stdev upload inter arrival time
+    window: flow
+  iat_var_upload:
+    type: f64
+    desc: Var upload inter arrival time
+    window: flow
+  iat_mad_upload:
+    type: f64
+    desc: MAD upload inter arrival time
+    window: flow
+  iat_skew_upload:
+    type: f64
+    desc: Skew upload inter arrival time
+    window: flow
+  iat_kurtosis_upload:
+    type: f64
+    desc: Kurtosis upload inter arrival time
+    window: flow
+  iat_q10_upload:
+    type: f64
+    desc: 10th percentile of upload inter arrival time
+    window: flow
+  iat_q20_upload:
+    type: f64
+    desc: 20th percentile of upload inter arrival time
+    window: flow
+  iat_q30_upload:
+    type: f64
+    desc: 30th percentile of upload inter arrival time
+    window: flow
+  iat_q40_upload:
+    type: f64
+    desc: 40th percentile of upload inter arrival time
+    window: flow
+  iat_q50_upload:
+    type: f64
+    desc: 50th percentile of upload inter arrival time
+    window: flow
+  iat_q60_upload:
+    type: f64
+    desc: 60th percentile of upload inter arrival time
+    window: flow
+  iat_q70_upload:
+    type: f64
+    desc: 70th percentile of upload inter arrival time
+    window: flow
+  iat_q80_upload:
+    type: f64
+    desc: 80th percentile of upload inter arrival time
+    window: flow
+  iat_q90_upload:
+    type: f64
+    desc: 90th percentile of upload inter arrival time
+    window: flow
+  iat_min_download:
+    type: f64
+    desc: Minum download inter arrival time
+    window: flow
+  iat_max_download:
+    type: f64
+    desc: Maximum download inter arrival time
+    window: flow
+  iat_mean_download:
+    type: f64
+    desc: Mean download inter arrival time
+    window: flow
+  iat_std_download:
+    type: f64
+    desc: Stdev download inter arrival time
+    window: flow
+  iat_var_download:
+    type: f64
+    desc: Var download inter arrival time
+    window: flow
+  iat_mad_download:
+    type: f64
+    desc: MAD download inter arrival time
+    window: flow
+  iat_skew_download:
+    type: f64
+    desc: Skew download inter arrival time
+    window: flow
+  iat_kurtosis_download:
+    type: f64
+    desc: Kurtosis inter arrival time
+    window: flow
+  iat_q10_download:
+    type: f64
+    desc: 10th percentile download inter arrival time
+    window: flow
+  iat_q20_download:
+    type: f64
+    desc: 20th percentile download inter arrival time
+    window: flow
+  iat_q30_download:
+    type: f64
+    desc: 30th percentile download inter arrival time
+    window: flow
+  iat_q40_download:
+    type: f64
+    desc: 40th percentile download inter arrival time
+    window: flow
+  iat_q50_download:
+    type: f64
+    desc: 50th percentile download inter arrival time
+    window: flow
+  iat_q60_download:
+    type: f64
+    desc: 60th percentile download inter arrival time
+    window: flow
+  iat_q70_download:
+    type: f64
+    desc: 70th percentile download inter arrival time
+    window: flow
+  iat_q80_download:
+    type: f64
+    desc: 80th percentile download inter arrival time
+    window: flow
+  iat_q90_download:
+    type: f64
+    desc: 90th percentile download inter arrival time
+    window: flow
+  src_ip:
+    type: str
+    desc: Source IP
+    window: flow
+  src_port:
+    type: u32
+    desc: Source port
+    window: flow
+  dst_ip:
+    type: str
+    desc: Destination IP
+    window: flow
+  dst_port:
+    type: u32
+    desc: Destination port
+    window: flow
+  proto_id:
+    type: u32
+    desc: 6=tcp, 17=udp
+    window: flow
+  fname:
+    type: str
+    desc: Filename of the experiment
+    window: flow
+  fname_row_idx:
+    type: u64
+    desc: Unique flow id within an experiment
+    window: flow
+  proto:
+    type: str
+    desc: '"tcp" or "udp"'
+    window: flow
+  src_ip_is_private:
+    type: bool
+    desc: True if the source IP is private
+    window: flow
+  dst_ip_is_private:
+    type: bool
+    desc: True if the destination IP is private
+    window: flow
+  is_valid_handshake:
+    type: bool
+    desc: True if the first 3 packets do not have payload and are upload/download/upload
+    window: flow
+  app:
+    type: str
+    desc: application used in the experiment
+    window: flow
+  app_category:
+    type: str
+    desc: category of the application
+    window: flow
+  pkts_ack_idx:
+    type: list[i64]
+    desc: Series of the indices of ACK packets
+    window: flow
+  pkts_data_idx:
+    type: list[i64]
+    desc: Series of the indices of data packets
+    window: flow
+  pkts_len:
+    type: u32
+    desc: Series lenght
+    window: flow
+  pkts_is_complete:
+    type: bool
+    desc: True if the series do not have padding
+    window: flow
+  pkts_size_times_dir:
+    type: list[i64]
+    desc: Series of the packet size * packets dir
+    window: flow
+  packets_ack:
+    type: u32
+    desc: Number of ACK packets
+    window: flow
+  packets_ack_upload:
+    type: u32
+    desc: Number of uploaded ACK packets
+    window: flow
+  packets_ack_download:
+    type: u32
+    desc: Number of downloaded ACK packets
+    window: flow
+  packets_data:
+    type: u32
+    desc: Number of data packets
+    window: flow
+  packets_data_upload:
+    type: u32
+    desc: Number of uploaded data packets
+    window: flow
+  packets_data_download:
+    type: u32
+    desc: Number of downloaded data packets
     window: flow

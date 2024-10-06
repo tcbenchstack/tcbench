@@ -511,7 +511,7 @@ raw:
     type: u32
     desc: Protocol identifier (6=TCP, 17=UDP)
     window: flow
-  device_id:
+  parent_folder:
     type: str
     desc: Device name used for the experiment
     window: flow
