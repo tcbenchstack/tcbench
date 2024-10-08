@@ -3,6 +3,7 @@ from __future__ import annotations
 import pandas as pd
 import rich.progress as richprogress
 import rich.columns as richcolumns
+import rich.text as richtext
 
 from rich.table import Table
 from rich.panel import Panel
@@ -158,6 +159,17 @@ class SpinnerProgress(richprogress.Progress):
         super().update(*args, **kwargs)
 
 
+class MofNCompleteColumn(richprogress.MofNCompleteColumn):
+    def render(self, task) -> richtext.Text:
+        completed = int(task.completed)
+        total = int(task.total) if task.total is not None else "?"
+        #total_width = len(str(total))
+        return richtext.Text(
+            #f"({completed{total_width}d}{self.separator}{total})",
+            f"({completed}{self.separator}{total})",
+            style="progress.download",
+        )
+
 class SpinnerAndCounterProgress(richprogress.Progress):
     def __init__(self, total:int, description: str = "", steps_description: List[str] = None, visible: bool = True):
         self.visible = visible
@@ -169,7 +181,8 @@ class SpinnerAndCounterProgress(richprogress.Progress):
 
         if self.visible: 
             self._col_inner_text = richprogress.TextColumn("")
-            self._col_mofn = richprogress.MofNCompleteColumn()
+            #self._col_mofn = richprogress.MofNCompleteColumn()
+            self._col_mofn = MofNCompleteColumn()
             super().__init__(
                 richprogress.SpinnerColumn(),
                 richprogress.TimeElapsedColumn(),
@@ -199,6 +212,10 @@ class SpinnerAndCounterProgress(richprogress.Progress):
                 self.columns = (*self.columns[1:4], *self.columns[5:])
                 super().update(self.task_id, description=description)
             self.stop()
+
+    def update_total(self, total: int) -> None:
+        if self.visible and not PDB_DETECTED:
+            super().update(self.task_id, total=total, refresh=True)
 
     def update(self, *args, **kwargs) -> None:
         if self.visible and not PDB_DETECTED:

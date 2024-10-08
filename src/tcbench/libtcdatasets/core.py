@@ -30,13 +30,6 @@ def get_dataset_folder(dataset_name: str | DATASET_NAME) -> pathlib.Path:
     return DATASETS_DEFAULT_INSTALL_ROOT_FOLDER / str(dataset_name)
 
 
-# def load_datasets_resources_yaml():
-#    return fileutils.load_yaml(DATASETS_RESOURCES_YAML_FNAME)
-
-
-# def load_datasets_files_md5_yaml():
-#    return load_yaml(get_module_folder() / "resources" / DATASETS_FILES_MD5_YAML)
-
 def _from_schema_to_yaml(schema:pl.schema.Schema) -> Dict[str, Any]:
     data = dict()
     for field_name, field_dtype in schema.items():
@@ -51,11 +44,12 @@ def _from_schema_to_yaml(schema:pl.schema.Schema) -> Dict[str, Any]:
 @dataclasses.dataclass
 class DatasetMetadata:
     name: DATASET_NAME
+    desc: str = ""
     num_classes: int = -1
     url_paper: str = ""
     url_website: str = ""
     raw_data_url: str = ""
-    raw_data_md5: str = ""
+    raw_data_md5: dict = dataclasses.field(default_factory=dict)
     raw_data_size: str = ""
     curated_data_url: str = ""
     curated_data_md5: str = ""
@@ -92,16 +86,12 @@ class DatasetMetadata:
         return self.folder_dset / "curate"
 
     @property
-    def is_downloaded(self) -> bool:
-        return self.folder_download.exists()
-
-    @property
-    def is_preprocessed(self) -> bool:
-        return self.folder_preprocess.exists()
+    def is_raw(self) -> bool:
+        return (self.folder_raw / f"{self.name}.parquet").exists()
 
     @property
     def is_curated(self) -> bool:
-        return self.folder_curate.exists()
+        return (self.folder_curate / f"{self.name}.parquet").exists()
 
     def get_schema(self, dataset_type: DATASET_TYPE) -> DatasetSchema:
         return self._schemas.get(str(dataset_type), None)
@@ -111,6 +101,7 @@ class DatasetMetadata:
         table.add_column("property")
         table.add_column("value", overflow="fold")
 
+        table.add_row(":a: Description:", self.desc)
         table.add_row(":triangular_flag: Num. classes:", str(self.num_classes))
         table.add_row(
             ":link: Paper URL:", 
@@ -126,10 +117,19 @@ class DatasetMetadata:
             ":link: Raw data URL:", 
             f"[link={self.raw_data_url}]{self.raw_data_url}[/link]"
         )
-        table.add_row(
-            ":heavy_plus_sign: Raw data MD5:", 
-            self.raw_data_md5,
-        )
+        if len(self.raw_data_md5) == 1:
+            table.add_row(
+                ":heavy_plus_sign: Raw data MD5:", 
+                list(self.raw_data_md5.values())[0]
+            )
+        else:
+            table.add_row(
+                ":heavy_plus_sign: Raw data MD5:", 
+                "\n".join(
+                    f"{name}: {md5}"
+                    for name, md5 in self.raw_data_md5.items()
+                )
+            )
         table.add_row(
             ":triangular_ruler: Raw data size:", 
             self.raw_data_size,
@@ -151,25 +151,14 @@ class DatasetMetadata:
         ###
         table.add_row(":file_folder: Root folder:", str(self.folder_dset))
         table.add_row(
-            ":question: Downloaded:", 
-            ":heavy_check_mark:" if self.is_downloaded else ":cross_mark:"
-        )
-        table.add_row(
-            ":question: Preprocessed:", 
-            ":heavy_check_mark:" if self.is_preprocessed else ":cross_mark:"
+            ":question: Raw:", 
+            ":heavy_check_mark:" if self.is_raw else ":cross_mark:"
         )
         table.add_row(
             ":question: Curated:", 
             ":heavy_check_mark:" if self.is_curated else ":cross_mark:"
         )
 
-#        if has_splits:
-#            path = curr_dataset_folder / "preprocessed" / "imc23"
-#            text = f"[green]{path}[/green]"
-#        else:
-#            text = f"[red]None[/red]"
-#        table.add_row(":file_folder: data splits:", text)
-#        node.add(table)
         return table
 
     def __rich_console__(self,
@@ -205,9 +194,8 @@ class RawDatasetInstaller:
 
     def install(self) -> Tuple[pathlib.Path]:
         #self.download_path = self.download()
-        #self.download_path = pathlib.Path("/Users/alessandrofinamore/src/github.com/tcbenchstack/tcbench.github.io/src/tcbench/libtcdatasets/installed_datasets/mirage22/download/MIRAGE-COVID-CCMA-2022.zip")
-        self.download_path = pathlib.Path("/Users/alessandrofinamore/src/github.com/tcbenchstack/tcbench.github.io/src/tcbench/libtcdatasets/installed_datasets/mirage19/download/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz")
-        return self.unpack(self.download_path, *self.extra_unpack)
+        self.download_path = pathlib.Path(DATASETS_DEFAULT_INSTALL_ROOT_FOLDER / "mirage22" / "download")
+        return self.unpack(self.download_path)
 
     def download(self) -> pathlib.Path:
         return fileutils.download_url(
@@ -245,26 +233,37 @@ class RawDatasetInstaller:
             return func_unpack(src=path, dst=dst, progress=progress, remove_dst=remove_dst)
         return dst
 
-    def unpack(self, path: pathlib.Path, *extra_paths: pathlib.Path) -> Tuple[pathlib.Path]:
-        progress_class = richutils.SpinnerProgress
-        progress_params = dict(
-            description="Unpack...",
-        )
-        if extra_paths:
-            progress_class = richutils.SpinnerAndCounterProgress
-            progress_params["total"] = len(extra_paths) + 1
+    def unpack(self, *paths: pathlib.Path) -> Tuple[pathlib.Path]:
+        queue = []
+        for path in paths:
+            path = pathlib.Path(path)
+            if fileutils.is_compressed_file(path):
+                queue.append(path)
+            elif path.is_dir():
+                queue.extend(fileutils.list_compressed_files(path))
 
         res = []
-        with progress_class(**progress_params) as progress:
-            res = [self._unpack(path, progress=False, remove_dst=True)]
-            progress.update()
-
-            for extra_path in extra_paths:
-                res.append(self._unpack(
-                    extra_path, 
-                    progress=False, 
-                    remove_dst=False
-                ))
+        completed = set()
+        with richutils.SpinnerAndCounterProgress(
+            description="Unpack...",
+            total=len(queue)
+        ) as progress:
+            while len(queue) > 0:
+                # unpack one path
+                path = queue.pop(0)
+                res.append(
+                    self._unpack(path, progress=False, remove_dst=True)
+                )
+                completed.add(path)
+                # check if new archives have been appeared
+                new_archives = (
+                    set(fileutils.list_compressed_files(res[-1].parent)) 
+                    - set(queue) 
+                    - set(completed)
+                )
+                if new_archives:
+                    queue.extend(list(new_archives))
+                    progress.update_total(len(completed) + len(queue))
                 progress.update()
             return tuple(res)
 
@@ -275,6 +274,7 @@ class DatasetSchemaField:
     dtype_repr: str
     desc: str = ""
     window: str = ""
+    lineage: str = ""
 
     def __post_init__(self):
         self._dtype = self._parse_dtype_repr(self.dtype_repr)
@@ -313,6 +313,7 @@ class DatasetSchema:
                 dtype_repr=field_data["type"],
                 desc=field_data.get("desc", ""),
                 window=field_data.get("window", ""),
+                lineage=field_data.get("lineage", ""),
             )
             self.metadata[field_name] = field
             self._schema[field_name] = field.dtype
@@ -338,6 +339,11 @@ class DatasetSchema:
             )
         return DatasetSchema(dset_name, dset_type, metadata)
 
+    @property
+    def fields(self) -> List[str]:
+        return list(self.metadata.keys())
+
+
     def to_yaml(self) -> Dict[str, Any]:
         data = dict()
         for field_name, field_data in self.metadata.items():
@@ -348,37 +354,40 @@ class DatasetSchema:
             )
         return {str(self.dataset_type): data}
 
-    @property
-    def fields(self) -> List[str]:
-        return list(self.metadata.keys())
-
-#    @property
-#    def schema(self) -> pl.Schema:
-#        return self._schema
     def to_polars(self) -> pl.Schema:
         return self._schema
-
 
     def __rich__(self) -> richtable.Table:
         import rich.markup
 
+        has_any_lineage = any(
+            field.lineage != "" 
+            for field in self.metadata.values()
+        )
         table = rich.table.Table(
             box=richbox.HORIZONTALS,
             show_header=True, 
             show_footer=False, 
             pad_edge=False
         )
+        table.add_column("ID")
         table.add_column("Field")
         table.add_column("Type")
         table.add_column("Window")
         table.add_column("Description", overflow="fold")
-        for field in self.metadata.values():
-            table.add_row(
+        if has_any_lineage:
+            table.add_column("Lineage", overflow="fold")
+        for idx, field in enumerate(self.metadata.values(), start=1):
+            fields = [
+                str(idx),
                 field.name, 
                 rich.markup.escape(field.dtype_repr),
                 field.window,
                 field.desc
-            )
+            ]
+            if has_any_lineage:
+                fields.append(field.lineage)
+            table.add_row(*fields)
         return table
 
     def __rich_console__(self,
@@ -393,6 +402,11 @@ class Dataset:
         dset_data = fileutils.load_yaml(DATASETS_RESOURCES_METADATA_FNAME, echo=False).get(str(name), None)
         if dset_data is None:
             raise RuntimeError(f"Dataset {name} not recognized")
+        if "raw_data_md5" in dset_data:
+            raw_data_md5 = dict()
+            for item in dset_data["raw_data_md5"]:
+                raw_data_md5.update(item)
+            dset_data["raw_data_md5"] = raw_data_md5
         dset_data["name"] = name
         self.name = name
         self.metadata = DatasetMetadata(**dset_data)
@@ -430,27 +444,27 @@ class Dataset:
     def install(
         self, 
         no_download:bool = False, 
-        extra_unpack: Iterable[pathlib.Path] = None
+        #extra_unpack: Iterable[pathlib.Path] = None
     ) -> pathlib.Path:
         if not no_download:
-            self._install_raw(extra_unpack)
-        self.preprocess()
+            #self._install_raw(extra_unpack)
+            self._install_raw()
+        self.raw()
         self.curate()
         return self.install_folder
 
     def _install_raw(
         self, 
-        extra_unpack: Iterable[pathlib.Path]=None
+        #extra_unpack: Iterable[pathlib.Path]=None
     ) -> pathlib.Path:
         RawDatasetInstaller(
             url=self.metadata.raw_data_url,
             install_folder=self.install_folder,
             verify_tls=True,
             force_reinstall=True,
-            extra_unpack=extra_unpack,
+            #extra_unpack=extra_unpack,
         )
         return self.install_folder
-
 
     def compute_splits(
         self, 
@@ -557,39 +571,68 @@ class Dataset:
         
 
 
-class SequentialPipeStage:
+class SequentialPipelineStage:
     def __init__(self, func, name:str = None, **kwargs):
         self.func = func
         self.name = name if name else ""
         self.run_kwargs = kwargs
 
-    def run(self, data) -> Any:
-        return self.func(data, **self.run_kwargs)
+    def run(self, *args) -> Any:
+        return self.func(*args, **self.run_kwargs)
+    
+    def __repr__(self):
+        return f"""{self.__class__.__name__}(name={self.name!r}, func={self.func.__name__}, run_kwargs_keys={", ".join(self.run_kwargs.keys())})"""
 
 
-class SequentialPipe(UserList):
+class SequentialPipeline(UserList):
     def __init__(
         self, 
         *stages: SequentialPipelineStage,
-        name: str = None, 
+        name: str = None,
         progress: bool = True
     ):
         super().__init__(stages)
         self.name = name if name is not None else ""
         self.progress = progress
 
-    def run(self, data:Any) -> Any:
+    def remove_stage(self, name: str) -> bool:
+        for idx, stage in enumerate(self):
+            if stage.name == name:
+                self.pop(idx)
+                return True
+        return False
+
+    def replace_stage(self, name: str, new_stage: str) -> bool:
+        for idx, stage in enumerate(self):
+            if stage.name == name:
+                self[idx] = new_stage
+                return True
+        return False
+
+    def find_stage(self, name: str) -> SequentialPipelineStage:
+        for idx in enumerate(self):
+            if self[idx].name == name:
+                return self[idx]
+        return None
+
+    def run(self, *args) -> Any:
         names = [stage.name for stage in self]
+        next_args = args
         with richutils.SpinnerAndCounterProgress(
             description=self.name,
             steps_description=names,
-            total=len(self.data),
+            total=len(self),
             visible=self.progress,
         ) as progress:
             for idx, stage in enumerate(self.data):
-                data = stage.run(data)
+                next_args = stage.run(*next_args)
+                if (
+                    idx < len(self) - 1 
+                    and not isinstance(next_args, (list, tuple))
+                ):
+                    next_args = (next_args,)
                 progress.update()
-        return data 
+        return next_args 
         
 
 # def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):

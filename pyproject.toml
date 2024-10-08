@@ -18,25 +18,23 @@ classifiers = [
 ]
 keywords = ["machine learning", "deep learning", "traffic classification", "time series"]
 dependencies = [
-    "aim == 3.17.4",
     "autorank",
     "click",
-    "dask <= 2023.5.1",
-    "distributed",
+    "gdown",
     "numpy",
-    "pandas==2.0.2",
-    "pyarrow==12.0.0",
+    "pandas",
+    "polars",
+    "pyarrow",
     "pyyaml",
     "requests",
     "rich",
     "rich-click",
     "scikit-learn",
     "statsmodels",
-    "torch==2.0.1",
-    "torchsummary",
-    "torchvision==0.15.2",
-    "xgboost==1.7.5",
-    "polars"
+#    "torch==2.0.1",
+#    "torchsummary",
+#    "torchvision==0.15.2",
+    "xgboost",
 ]
 requires-python = ">=3.9"
 

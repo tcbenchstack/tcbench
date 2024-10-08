@@ -6,7 +6,8 @@ import rich.tree as richtree
 from collections import UserDict
 
 from tcbench.libtcdatasets import (
-    dataset_mirage
+    dataset_mirage,
+    dataset_ucdavis,
 )
 from tcbench.libtcdatasets.core import Dataset
 
@@ -15,6 +16,7 @@ from tcbench.libtcdatasets.constants import (
 )
 
 _DATASET_NAME_TO_CLASS = {
+    DATASET_NAME.UCDAVIS19: dataset_ucdavis.UCDavis19,
     DATASET_NAME.MIRAGE19: dataset_mirage.Mirage19,
     DATASET_NAME.MIRAGE22: dataset_mirage.Mirage22,
 }

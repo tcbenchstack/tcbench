@@ -98,6 +98,41 @@ def load_if_exists(path: pathlib.Path, echo: bool = True, error_policy: str = "r
     return func(path, echo=echo)
 
 
+def _download_via_requests(
+    url: str,
+    save_as: pathlib.Path,
+    verify_tls: bool = True
+) -> pathlib.Path:
+    resp = requests.get(url, stream=True, verify=verify_tls)
+    totalbytes = int(resp.headers.get("content-length", 0))
+    if not save_as.parent.exists():
+        save_as.parent.mkdir(parents=True)
+    with (
+        richutils.FileDownloadProgress(totalbytes=totalbytes) as progressbar,
+        open(str(save_as), "wb") as fout,
+    ):
+        for data in resp.iter_content(chunk_size=64 * 1024):
+            size = fout.write(data)
+            progressbar.update(advance=size)
+    return save_as
+
+
+def _download_via_gdown(
+    url: str,
+    save_to: pathlib.Path,
+    verify_tls: bool = True,
+) -> pathlib.Path:
+    import gdown
+
+    func = gdown.download
+    if "/folders/" in url:
+        func = gdown.download_folder
+
+    with richutils.SpinnerProgress(description="Downloading..."):
+        func(url, output=str(save_to), quiet=True, verify=verify_tls)
+    return save_to
+    
+
 def download_url(
     url: str,
     save_to: pathlib.Path,
@@ -124,21 +159,9 @@ def download_url(
     if save_as.exists() and not force_redownload:
         return save_as
 
-    resp = requests.get(url, stream=True, verify=verify_tls)
-    totalbytes = int(resp.headers.get("content-length", 0))
-
-    if not save_as.parent.exists():
-        save_as.parent.mkdir(parents=True)
-
-    with (
-        richutils.FileDownloadProgress(totalbytes=totalbytes) as progressbar,
-        open(str(save_as), "wb") as fout,
-    ):
-        for data in resp.iter_content(chunk_size=64 * 1024):
-            size = fout.write(data)
-            progressbar.update(advance=size)
-
-    return save_as
+    if str(url).startswith("https://drive.google.com"):
+        return _download_via_gdown(url, save_to)
+    return _download_via_requests(url, save_as, verify_tls)
 
 
 def _verify_expected_files_exists(folder, expected_files):
@@ -146,6 +169,18 @@ def _verify_expected_files_exists(folder, expected_files):
         path = folder / fname
         if not path.exists():
             raise RuntimeError(f"missing {path}")
+
+
+def is_compressed_file(path: pathlib.Path) -> bool:
+    path = pathlib.Path(path)
+    return path.suffix in (".zip", ".gz", ".tar")
+
+
+def list_compressed_files(path: pathlib.Path) -> List[pathlib.Path]:
+    res = []
+    for suffix in (".zip", ".gz", ".tar"):
+        res.extend(list(path.rglob(f"*{suffix}")))
+    return res
 
 
 def unzip(

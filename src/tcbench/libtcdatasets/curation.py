@@ -208,6 +208,18 @@ def helper_list_index_not_equal_value(data: pl.Series, value: Any) -> pl.Series:
     return pl.Series(np.where(data != value)[0])
 
 
+def helper_list_index_value_greather_than(data: pl.Series, value: Any, inclusive: bool = False) -> pl.Series:
+    if inclusive:
+        return pl.Series(np.where(data >= value)[0])
+    return pl.Series(np.where(data > value)[0])
+    
+
+def helper_list_index_value_lower_than(data: pl.Series, value: Any, inclusive: bool = False) -> pl.Series:
+    if inclusive:
+        return pl.Series(np.where(data <= value)[0])
+    return pl.Series(np.where(data < value)[0])
+
+
 def expr_pkts_ack_idx(colname: str = "pkts_size", ack_size: int = 40) -> pl.Expr:
     func = functools.partial(helper_list_index_equal_value, value=ack_size)
     return pl.col(colname).map_elements(
@@ -217,7 +229,31 @@ def expr_pkts_ack_idx(colname: str = "pkts_size", ack_size: int = 40) -> pl.Expr
 
 def expr_pkts_data_idx(colname: str = "pkts_size", ack_size: int = 40) -> pl.Expr:
     func = functools.partial(helper_list_index_not_equal_value, value=ack_size)
-    return pl.col("pkts_size").map_elements(
+    return pl.col(colname).map_elements(
+        function=func, return_dtype=pl.List(pl.Int64)
+    )
+
+def expr_indices_list_value_equal_to(colname: str, value: Any) -> pl.Expr:
+    func = functools.partial(helper_list_index_equal_value, value=value)
+    return pl.col(colname).map_elements(
+        function=func, return_dtype=pl.List(pl.Int64)
+    )
+
+def expr_indices_list_value_not_equal_to(colname: str, value: Any) -> pl.Expr:
+    func = functools.partial(helper_list_index_not_equal_value, value=value)
+    return pl.col(colname).map_elements(
+        function=func, return_dtype=pl.List(pl.Int64)
+    )
+
+def expr_indices_list_value_greater_than(colname: str, value: Any, inclusive: bool = False) -> pl.Expr:
+    func = functools.partial(helper_list_index_value_greather_than, value=value, inclusive=inclusive)
+    return pl.col(colname).map_elements(
+        function=func, return_dtype=pl.List(pl.Int64)
+    )
+
+def expr_indices_list_value_lower_than(colname: str, value: Any, inclusive: bool = False) -> pl.Expr:
+    func = functools.partial(helper_list_index_value_lower_than, value=value, inclusive=inclusive)
+    return pl.col(colname).map_elements(
         function=func, return_dtype=pl.List(pl.Int64)
     )
 

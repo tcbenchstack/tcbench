@@ -17,7 +17,7 @@ APP_LABEL_ALL = "_all_"
 class DATASET_NAME(StringEnum):
     MIRAGE19 = "mirage19"
     MIRAGE22 = "mirage22"
-#    UCDAVIS19 = "ucdavis19"
+    UCDAVIS19 = "ucdavis19"
 #    UTMOBILENET21 = "utmobilenet21"
 
 class DATASET_TYPE(StringEnum):

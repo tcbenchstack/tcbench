@@ -78,17 +78,6 @@ def info(ctx, dataset_name):
 #)
 def install(ctx, dataset_name:DATASET_NAME, no_download:bool):
     """Install a dataset."""
-#    if (
-#        dataset_name
-#        in (
-#            datasets_utils.DATASETS.UCDAVISICDM19,
-#            datasets_utils.DATASETS.UTMOBILENET21,
-#        )
-#        and input_folder is None
-#    ):
-#        raise RuntimeError(
-#            f"Cannot automatically download {dataset_name}. Please download it separately and retry install using the --input-folder option"
-#        )
     catalog = tcbench.datasets_catalog()
     catalog[dataset_name].install(no_download)
 
@@ -114,35 +103,35 @@ def install(ctx, dataset_name:DATASET_NAME, no_download:bool):
 #    """Tree view of the datasets parquet files."""
 #    _ls_files(dataset_name)
 #
-#
-#@datasets.command(name="schema")
-#@click.pass_context
-#@click.option(
-#    "--name",
-#    "-n",
-#    "dataset_name",
-#    required=False,
-#    type=CLICK_TYPE_DATASET_NAME,
-#    callback=CLICK_CALLBACK_DATASET_NAME,
-#    default=None,
-#    help="Dataset to install.",
-#)
-#@click.option(
-#    "--type",
-#    "-t",
-#    "schema_type",
-#    required=False,
-#    type=click.Choice(("unfiltered", "filtered", "splits")),
-#    default="unfiltered",
-#    show_default=True,
-#    help="Schema type (unfiltered: original raw data; filtered: curated data; splits: train/val/test splits).",
-#)
-#def schema(ctx, dataset_name, schema_type):
-#    """Show datasets schemas"""
-#    rich_obj = datasets_utils.get_rich_dataset_schema(dataset_name, schema_type)
-#    cli.console.print(rich_obj)
-#
-#
+
+@datasets.command(name="schema")
+@click.pass_context
+@click.option(
+    "--dset-name",
+    "-d",
+    "dataset_name",
+    required=True,
+    type=clickutils.CHOICE_DATASET_NAME,
+    callback=clickutils.parse_dataset_name,
+    help="Dataset name.",
+    default=None,
+)
+@click.option(
+    "--dset-type",
+    "-t",
+    "dataset_type",
+    required=True,
+    type=clickutils.CHOICE_DATASET_TYPE,
+    callback=clickutils.parse_dataset_type,
+    help="Dataset type.",
+)
+def schema(ctx, dataset_name, dataset_type):
+    """Show dataset schema."""
+    dset = tcbench.datasets_catalog()[dataset_name]
+    dset_schema = dset.get_schema(dataset_type)
+    cli.console.print(dset_schema)
+
+
 #@datasets.command(name="samples-count")
 #@click.pass_context
 #@click.option(

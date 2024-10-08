@@ -1,0 +1,13 @@
+raw:
+  unixtime:
+    type: f32
+    desc: "Packet unixtime"
+  timetofirst:
+    type: f32
+    desc: "Time delta with respect to first packet"
+  packet_size:
+    type: u32
+    desc: "Packet size (excluding headers)"
+  packet_dir:
+    type: u8
+    desc: "Packet direction (0: download, 1: upload)"
