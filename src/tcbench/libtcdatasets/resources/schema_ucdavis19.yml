@@ -11,3 +11,47 @@ raw:
   packet_dir:
     type: u8
     desc: "Packet direction (0: download, 1: upload)"
+
+curate:
+  row_id:
+    type: u64
+    desc: 'Unique row identified'
+  app: 
+    type: str
+    desc: Application name
+    lineage: Parsed from raw txt filename
+  partition:
+    type: str
+    desc: "One of 'pretraining', 'retraining-script-triggered', 'retraining-human-triggered'"
+    lineage: Parser from folder names
+  packets:
+    type: u32
+    desc: Packets in a flow
+    lineage: Length of pkts_size
+  bytes:
+    type: u64
+    desc: Total bytes
+    lineage: Sum of the pkts_size
+  duration:
+    type: f64
+    desc: Flow duration
+    lineage: Different between first and last pkts_timestamp
+  proto:
+    type: str
+    desc: "Constant to 'udp'"
+  is_valid_handshake:
+    type: bool
+    desc: Constant to True
+  pkts_timestamp:
+    type: list[f32]
+    desc: Series of packet timestamp
+    lineage: Rename unixtime
+  pkts_size:
+    type: list[u32]
+    desc: Series of packet size
+  pkts_dir:
+    type: list[u8]
+    desc: Series of packet direction
+  pkts_timetofirst:
+    type: list[f32]
+    desc: Series of packet timestamp relative to first packet

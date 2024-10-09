@@ -14,6 +14,7 @@ import dataclasses
 import rich.console
 
 import tcbench
+from tcbench.libtcdatasets import curation
 from tcbench.libtcdatasets.constants import (
     DATASET_NAME,
     DATASET_TYPE,
@@ -468,13 +469,16 @@ class Dataset:
 
     def compute_splits(
         self, 
+        df: pl.DataFrame = None,
         num_splits: int = 10, 
         seed: int = 1, 
         test_size: float = 0.1,
     ) -> pl.DataFrame:
         from tcbench.modeling import splitting
+        if df is None:
+            df = self.df
         return splitting.split_monte_carlo(
-            self.df,
+            df,
             y_colname = self.y_colname,
             index_colname = self.index_colname, 
             num_splits = num_splits,
@@ -615,6 +619,9 @@ class SequentialPipeline(UserList):
                 return self[idx]
         return None
 
+    def clear(self) -> None:
+        self.data = []
+
     def run(self, *args) -> Any:
         names = [stage.name for stage in self]
         next_args = args
@@ -633,7 +640,84 @@ class SequentialPipeline(UserList):
                     next_args = (next_args,)
                 progress.update()
         return next_args 
+
+class BaseDatasetProcessingPipeline(SequentialPipeline):
+    def __init__(
+        self, 
+        description: str,
+        dataset_name: DATASET_NAME, 
+        save_to: pathlib.Path,
+        progress: bool = True,
+    ):
+        self.dataset_name = dataset_name
+        self.save_to = save_to
+
+        stages = (
+            SequentialPipelineStage(
+                self._compute_stats,
+                name="Compute statistics",
+            ),
+            SequentialPipelineStage(
+                self._write_parquet_files,
+                name="Write parquet files",
+            ),
+        )
+        super().__init__(
+            *stages, 
+            name=description,
+            progress=progress,
+        )
+
+    def _compute_stats(self, df):
+        df_stats = curation.get_stats(df)
+        return (df, df_stats)
+
+    def _write_parquet_files(
+        self, 
+        df: pl.DataFrame, 
+        df_stats: pl.DataFrame = None, 
+        df_splits: pl.DataFrame = None,
+        fname_prefix: str = "_postprocess"
+    ):
+        fileutils.save_parquet(
+            df, 
+            self.save_to / f"{fname_prefix}.parquet", 
+            echo=False
+        )
+        if df_stats is not None:
+            fileutils.save_parquet(
+                df_stats,
+                self.save_to / f"{fname_prefix}_stats.parquet",
+                echo=False,
+            )
+        if df_splits is not None:
+            fileutils.save_parquet(
+                df_splits,
+                self.save_to / f"{fname_prefix}_splits.parquet",
+                echo=False,
+            )
+        return df, df_stats, df_splits
         
+    def _compute_splits(
+        self, 
+        df: pl.DataFrame, 
+        *args: Any, 
+        num_splits: int = 10,
+        test_size: float = 0.1,
+        y_colname: str = "app",
+        index_colname: str = "row_id",
+        seed: int = 1,
+    ) -> Iterable[pl.DataFrame]:
+        from tcbench.modeling import splitting
+        df_splits = splitting.split_monte_carlo(
+            df,
+            y_colname=y_colname,
+            index_colname=index_colname,
+            num_splits=num_splits,
+            seed=seed,
+            test_size=test_size,
+        )
+        return (df, *args, df_splits)
 
 # def install_ucdavis_icdm19(input_folder, num_workers=10, *args, **kwargs):
 #    # moved here to speedup loading

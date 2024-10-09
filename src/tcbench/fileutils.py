@@ -72,7 +72,7 @@ def load_parquet(path: pathlib.Path, echo: bool = True) -> pl.DataFrame:
 
 def save_parquet(df: pl.DataFrame, save_as: pathlib.Path, echo: bool = True) -> None:
     save_as = pathlib.Path(save_as)
-    create_folder(save_as.parent)
+    create_folder(save_as.parent, echo=echo)
     cli.logger.log(f"saving: {save_as}", echo=echo)
     df.write_parquet(save_as)
 
