@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import polars as pl
+import numpy as np
 
 import pathlib
 import multiprocessing
@@ -15,6 +16,7 @@ from tcbench.libtcdatasets.core import (
     SequentialPipelineStage,
 )
 from tcbench.libtcdatasets.constants import DATASET_NAME, DATASET_TYPE
+from tcbench.libtcdatasets import curation
 
 PARTITION_PRETRAINING = "pretraining"
 PARTITION_SCRIPT = "retraining-script-triggered"
@@ -59,6 +61,7 @@ def _parse_raw_txt_worker(
     )
     return df2
 
+
 class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
     def __init__(self, save_to: pathlib.Path):
         super().__init__(
@@ -68,6 +71,10 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
         )
 
         stages = [
+            SequentialPipelineStage(
+                self._adjust_direction,
+                "Adjust series direction"
+            ),
             SequentialPipelineStage(
                 self._add_columns,
                 "Adding columns",
@@ -86,7 +93,26 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
         self.clear()
         self.extend(stages)
 
+    def _adjust_direction(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.with_columns(
+            pkts_dir=(
+                pl.col("pkts_dir").list.eval(
+                    pl.when(pl.element() == 0)
+                    .then(pl.lit(-1))
+                    .otherwise(pl.lit(1))
+                )
+            )
+        )
+
     def _add_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        def compute_duration(data, direction=1):
+            indices = np.where(np.atleast_1d(data["pkts_dir"]) == direction)[0]
+            if len(indices) < 2:
+                return 0
+            first_idx, last_idx = indices[0], indices[-1]
+            arr = data["pkts_timestamp"]
+            return arr[last_idx] - arr[first_idx]
+    
         return (
             df
             .with_columns(
@@ -97,7 +123,59 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
                     - pl.col("pkts_timestamp").list.first()
                 ),
                 proto=pl.lit("udp"),
-                is_valid_handshake=pl.lit(True),
+                pkts_size_times_dir=curation.expr_pkts_size_times_dir(),
+                # this is required to run the statistics
+                # but is removed at the end of the curation
+                is_valid_handshake=pl.lit(True)
+            ).with_columns(
+                packets_upload=(
+                    pl.col("pkts_size_times_dir").list.eval(
+                        pl.element() > 0
+                    ).list.sum()
+                ),
+                packets_download=(
+                    pl.col("pkts_size_times_dir").list.eval(
+                        pl.element() < 0
+                    ).list.sum()
+                ),
+                bytes_upload=(
+                    pl.col("pkts_size_times_dir").list.eval(
+                        pl.when(pl.element() > 0)
+                        .then(pl.element())
+                        .otherwise(0)
+                    ).list.sum()
+                ),
+                bytes_download=(
+                    pl.col("pkts_size_times_dir").list.eval(
+                        pl.when(pl.element() < 0)
+                        .then(-pl.element())
+                        .otherwise(0)
+                    ).list.sum()
+                ),
+                duration_upload=(
+                    pl.struct(
+                        "pkts_timestamp", 
+                        "pkts_dir"
+                    ).map_elements(
+                        function=functools.partial(
+                            compute_duration, 
+                            direction=1
+                        ),
+                        return_dtype=pl.Float64
+                    )
+                ),
+                duration_download=(
+                    pl.struct(
+                        "pkts_timestamp", 
+                        "pkts_dir"
+                    ).map_elements(
+                        function=functools.partial(
+                            compute_duration, 
+                            direction=-1
+                        ),
+                        return_dtype=pl.Float64
+                    )
+                )
             )
             .with_row_index("row_id")
         )
@@ -110,7 +188,26 @@ class CuratePipeline(BaseDatasetProcessingPipeline):
             save_to=save_to,
         )
 
+    def _drop_columns(self, df: pl.DataFrame, *args) -> Any:
+        df = df.drop(
+            "is_valid_handshake"
+        )
+        return (df, *args)
+
     def run(self, df: pl.DataFrame) -> Dict[str, pl.DataFrame]:
+        import tcbench
+        schema = (
+            tcbench.datasets_catalog()
+            [self.dataset_name]
+            .get_schema(DATASET_TYPE.CURATE)
+            .to_polars()
+        )
+
+        columns = list(schema.keys())
+        if "is_valid_handshake" not in columns:
+            columns.append("is_valid_handshake")
+        df = df.select(columns)
+
         df_pretrain = df.filter(pl.col("partition") == PARTITION_PRETRAINING)
         df_human = df.filter(pl.col("partition") == PARTITION_HUMAN)
         df_script = df.filter(pl.col("partition") == PARTITION_SCRIPT)
@@ -122,6 +219,10 @@ class CuratePipeline(BaseDatasetProcessingPipeline):
             SequentialPipelineStage(
                 self._compute_stats,
                 "Compute stats",
+            ),
+            SequentialPipelineStage(
+                self._drop_columns,
+                "Remove columns",
             ),
             SequentialPipelineStage(
                 self._compute_splits,
@@ -149,6 +250,10 @@ class CuratePipeline(BaseDatasetProcessingPipeline):
                 SequentialPipelineStage(
                     self._compute_stats,
                     "Compute stats",
+                ),
+                SequentialPipelineStage(
+                    self._drop_columns,
+                    "Remove columns",
                 ),
                 SequentialPipelineStage(
                     functools.partial(
@@ -224,23 +329,20 @@ class UCDavis19(Dataset):
   
     def _raw_postprocess(self) -> pl.DataFrame:
         self.load(DATASET_TYPE.RAW)
-        df, _ = RawPostorocessingPipeline(
+        df, *_ = RawPostorocessingPipeline(
             save_to=self.folder_raw
         ).run(self.df)
         return df
         
-    def curate(self) -> pl.DataFrame:
+    def curate(self, recompute: bool=False) -> pl.DataFrame:
         fname = self.folder_raw / f"_postprocess.parquet"
-        if not fname.exists():
+        if not fname.exists() or recompute:
             df = self._raw_postprocess()
         else:
             with richutils.SpinnerProgress(
                 description=f"Load {self.name}/raw postprocess..."
             ):
                 df = fileutils.load_parquet(fname, echo=False)
-
-        schema = self.get_schema(DATASET_TYPE.CURATE).to_polars()
-        df = df.select(list(schema.keys()))
 
         res = CuratePipeline(save_to=self.folder_curate).run(df)
         self.df = res["df"]

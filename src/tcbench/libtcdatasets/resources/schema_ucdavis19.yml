@@ -10,7 +10,7 @@ raw:
     desc: "Packet size (excluding headers)"
   packet_dir:
     type: u8
-    desc: "Packet direction (0: download, 1: upload)"
+    desc: "Packet direction (1:upload, 0:download)"
 
 curate:
   row_id:
@@ -39,9 +39,30 @@ curate:
   proto:
     type: str
     desc: "Constant to 'udp'"
-  is_valid_handshake:
-    type: bool
-    desc: Constant to True
+  packets_upload:
+    type: u32
+    desc: Packets uploaded
+    lineage: Computed from pkts_dir
+  bytes_upload:
+    type: u64
+    desc: Bytes uploaded
+    lineage: Computed from pkts_dir and pkts_size
+  duration_upload:
+    type: f32
+    desc: Duration of upload
+    lineage: Computed from pkts_dir and pkts_timestamp
+  packets_download:
+    type: u32
+    desc: Packets downloaded
+    lineage: Computed from pkts_dir
+  bytes_download:
+    type: u64
+    desc: Bytes downloaded
+    lineage: Computed from pkts_dir and pkts_size
+  duration_download:
+    type: f32
+    desc: Duration of download
+    lineage: Computed from pkts_dir and pkts_timestamp
   pkts_timestamp:
     type: list[f32]
     desc: Series of packet timestamp
@@ -51,7 +72,11 @@ curate:
     desc: Series of packet size
   pkts_dir:
     type: list[u8]
-    desc: Series of packet direction
+    desc: Series of packet direction (1:upload, -1:download)
   pkts_timetofirst:
     type: list[f32]
     desc: Series of packet timestamp relative to first packet
+  pkts_size_times_dir:
+    type: list[i32]
+    desc: Series of packets size and direction 
+    lineage: Compute multiplying pkts_size and pkts_dir
