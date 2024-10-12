@@ -82,7 +82,7 @@ def load_raw_txt(
 #    )
 #    return df2
 
-class ParserRawTXT:
+class RawTXTParser:
     def __init__(self, save_to: pathlib.Path):
         self.save_to = save_to
 
@@ -408,7 +408,7 @@ class UCDavis19(Dataset):
         self.df_script_stats = None
 
         self.df = (
-            ParserRawTXT(self.folder_raw)
+            RawTXTParser(self.folder_raw)
             .run(*self._list_raw_txt_files)
         )
         with richutils.SpinnerProgress(description="Writing parquet files..."):

@@ -1,0 +1,181 @@
+raw:
+  index: 
+    type: i64
+    desc: ''
+    window: flow
+  frame.number:
+    type: i64
+    desc: ''
+    window: flow
+  frame.time:
+    type: str
+    desc: ''
+    window: flow
+  frame.len:
+    type: i64
+    desc: ''
+    window: flow
+  frame.cap_len:
+    type: i64
+    desc: ''
+    window: flow
+  sll.pkttype:
+    type: i64
+    desc: ''
+    window: flow
+  sll.hatype:
+    type: i64
+    desc: ''
+    window: flow
+  sll.halen:
+    type: i64
+    desc: ''
+    window: flow
+  sll.src.eth:
+    type: str
+    desc: ''
+    window: flow
+  sll.unused:
+    type: str
+    desc: ''
+    window: flow
+  sll.etype:
+    type: str
+    desc: ''
+    window: flow
+  ip.hdr_len:
+    type: f64
+    desc: ''
+    window: flow
+  ip.dsfield.ecn:
+    type: f64
+    desc: ''
+    window: flow
+  ip.len:
+    type: f64
+    desc: ''
+    window: flow
+  ip.id:
+    type: str
+    desc: ''
+    window: flow
+  ip.frag_offset:
+    type: f64
+    desc: ''
+    window: flow
+  ip.ttl:
+    type: f64
+    desc: ''
+    window: flow
+  ip.proto:
+    type: f64
+    desc: ''
+    window: flow
+  ip.checksum:
+    type: str
+    desc: ''
+    window: flow
+  ip.src:
+    type: str
+    desc: ''
+    window: flow
+  ip.dst:
+    type: str
+    desc: ''
+    window: flow
+  tcp.hdr_len:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.len:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.srcport:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.dstport:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.seq:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.ack:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.flags.ns:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.flags.fin:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.window_size_value:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.checksum:
+    type: str
+    desc: ''
+    window: flow
+  tcp.urgent_pointer:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.option_kind:
+    type: str
+    desc: ''
+    window: flow
+  tcp.option_len:
+    type: str
+    desc: ''
+    window: flow
+  tcp.options.timestamp.tsval:
+    type: f64
+    desc: ''
+    window: flow
+  tcp.options.timestamp.tsecr:
+    type: f64
+    desc: ''
+    window: flow
+  udp.srcport:
+    type: f64
+    desc: ''
+    window: flow
+  udp.dstport:
+    type: f64
+    desc: ''
+    window: flow
+  udp.length:
+    type: f64
+    desc: ''
+    window: flow
+  udp.checksum:
+    type: str
+    desc: ''
+    window: flow
+  gquic.puflags.rsv:
+    type: str
+    desc: ''
+    window: flow
+  gquic.packet_number:
+    type: str
+    desc: ''
+    window: flow
+  location:
+    type: str
+    desc: ''
+    window: flow
+  folder:
+    type: str
+    desc: ''
+    window: experiment
+  fname:
+    type: str
+    desc: ''
+    window: experiment

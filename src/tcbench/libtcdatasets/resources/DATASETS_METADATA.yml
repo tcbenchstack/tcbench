@@ -36,10 +36,13 @@ mirage22:
 ##    data_curated: ""
 ##    data_curated_md5: ""
 
-#utmobilenet21:
-#    num_classes: 17
-#    paper: "https://ieeexplore.ieee.org/abstract/document/9490678/"
-#    website: "https://github.com/YuqiangHeng/UTMobileNetTraffic2021"
-#    data: "https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii"
-#    data_curated: "https://figshare.com/ndownloader/files/42438624"
-#    data_curated_md5: "789b01c4f7dedfbb781b89e6f2dcbb1a"
+utmobilenet21:
+    desc: Traffic from a set of popular Android mobile apps.
+    num_classes: 17
+    url_paper: "https://ieeexplore.ieee.org/abstract/document/9490678/"
+    url_website: "https://github.com/YuqiangHeng/UTMobileNetTraffic2021"
+    raw_data_url: "https://utexas.app.box.com/s/okrimcsz1mn9ec4j667kbb00d9gt16ii"
+    raw_data_url_hidden: 
+        - UTMobileNet2021.zip: "https://utexas.app.box.com/index.php?rm=box_download_shared_file&shared_name=okrimcsz1mn9ec4j667kbb00d9gt16ii&file_id=f_955302580230"
+    #data_curated: "https://figshare.com/ndownloader/files/42438624"
+    #data_curated_md5: "789b01c4f7dedfbb781b89e6f2dcbb1a"
