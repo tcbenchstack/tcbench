@@ -7,6 +7,8 @@ import pathlib
 import multiprocessing
 import functools
 
+from collections import OrderedDict
+
 from tcbench import fileutils
 from tcbench.cli import richutils
 from tcbench.libtcdatasets.core import (
@@ -14,6 +16,7 @@ from tcbench.libtcdatasets.core import (
     DatasetSchema,
     BaseDatasetProcessingPipeline,
     SequentialPipelineStage,
+    _remove_fields_from_schema,
 )
 from tcbench.libtcdatasets.constants import DATASET_NAME, DATASET_TYPE
 from tcbench.libtcdatasets import curation
@@ -22,44 +25,96 @@ PARTITION_PRETRAINING = "pretraining"
 PARTITION_SCRIPT = "retraining-script-triggered"
 PARTITION_HUMAN = "retraining-human-triggered"
 
+def _parse_raw_txt_worker(
+    path: pathlib.Path, 
+    schema: pl.Schema
+) -> pl.DataFrame:
+
+    raw_schema = _remove_fields_from_schema(
+        schema, 
+        "fname", "folder", "fname_row_id"
+    )
+    return (
+        pl.read_csv(
+            path, 
+            separator="\t", 
+            schema=raw_schema
+        )
+        .with_columns(
+            fname=pl.lit(path.name),
+            folder=pl.lit("/".join(path.parts[-3:-1])),
+        )
+        .with_row_index("fname_row_id")
+        .select(
+            *list(schema.keys())
+        )
+    )
 
 def load_raw_txt(
     path: pathlib.Path, 
 ) -> pl.DataFrame:
     import tcbench
-    dset_schema = (
-        tcbench.datasets_catalog()
-        [DATASET_NAME.UCDAVIS19]
-        .get_schema(DATASET_TYPE.RAW)
+    schema = tcbench.get_datasets_polars_schema(
+        DATASET_NAME.UCDAVIS19,
+        DATASET_TYPE.RAW
     )
-    return pl.read_csv(path, separator="\t", schema=dset_schema.to_polars())
+    return _parse_raw_txt_worker(path, schema)
 
 
-def _parse_raw_txt_worker(
-    path: pathlib.Path, 
-    schema: pl.Schema
-) -> pl.DataFrame:
-    df = pl.read_csv(path, separator="\t", schema=schema)
-    df2 = (
-        pl.DataFrame({
-            "pkts_timestamp": [df["unixtime"].to_list()],
-            "pkts_timetofirst": [df["timetofirst"].to_list()],
-            "pkts_size": [df["packet_size"].to_list()],
-            "pkts_dir": [df["packet_dir"].to_list()],
-            "app": path.parent.name.lower().replace(" ", "_"),
-            "fname": path.name,
-            "partition": (
-                path
-                .parent
-                .parent
-                .name
-                .lower()
-                .replace(")", "")
-                .replace("(", "-")
+#    df2 = (
+#        pl.DataFrame({
+#            "pkts_timestamp": [df["unixtime"].to_list()],
+#            "pkts_timetofirst": [df["timetofirst"].to_list()],
+#            "pkts_size": [df["packet_size"].to_list()],
+#            "pkts_dir": [df["packet_dir"].to_list()],
+#            "app": path.parent.name.lower().replace(" ", "_"),
+#            "fname": path.name,
+#            "partition": (
+#                path
+#                .parent
+#                .parent
+#                .name
+#                .lower()
+#                .replace(")", "")
+#                .replace("(", "-")
+#            )
+#        })
+#    )
+#    return df2
+
+class ParserRawTXT:
+    def __init__(self, save_to: pathlib.Path):
+        self.save_to = save_to
+
+    def run(self, *paths: Pathlib.Path) -> pl.DataFrame:
+        import tcbench
+
+        schema = tcbench.get_datasets_polars_schema(
+            DATASET_NAME.UCDAVIS19,
+            DATASET_TYPE.RAW
+        )
+        with (
+            richutils.Progress(
+                description="Parsing raw txt files...", 
+                total=len(paths),
+            ) as progress,
+            multiprocessing.Pool(processes=2) as pool,
+        ):
+            func = functools.partial(_parse_raw_txt_worker, schema=schema)
+            data = []
+            for df in pool.imap_unordered(func, paths):
+                data.append(df)
+                progress.update()
+            df = (
+                pl
+                .concat(data)
+                .sort(
+                    "folder",
+                    "fname",
+                    "fname_row_id",
+                )
             )
-        })
-    )
-    return df2
+        return df
 
 
 class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
@@ -71,6 +126,14 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
         )
 
         stages = [
+            SequentialPipelineStage(
+                self._compose_flows,
+                "Compose flows",
+            ),
+            SequentialPipelineStage(
+                self._rename_columns,
+                "Rename flows",
+            ),
             SequentialPipelineStage(
                 self._adjust_direction,
                 "Adjust series direction"
@@ -93,6 +156,26 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
         self.clear()
         self.extend(stages)
 
+    def _compose_flows(self, df: pl.DataFrame) -> pl.DataFrame:
+        return (
+            df
+            .group_by("folder", "fname", maintain_order=True)
+            .agg(
+                "unixtime",
+                "timetofirst",
+                "packet_size",
+                "packet_dir",
+            )
+        )
+
+    def _rename_columns(self, df: pl.DataFrame) -> pl.DataFrame:
+        return df.rename({
+            "unixtime": "pkts_timestamp",
+            "timetofirst": "pkts_timetofirst",
+            "packet_size": "pkts_size",
+            "packet_dir": "pkts_dir",
+        })
+
     def _adjust_direction(self, df: pl.DataFrame) -> pl.DataFrame:
         return df.with_columns(
             pkts_dir=(
@@ -112,7 +195,8 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
             first_idx, last_idx = indices[0], indices[-1]
             arr = data["pkts_timestamp"]
             return arr[last_idx] - arr[first_idx]
-    
+
+        
         return (
             df
             .with_columns(
@@ -126,7 +210,21 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
                 pkts_size_times_dir=curation.expr_pkts_size_times_dir(),
                 # this is required to run the statistics
                 # but is removed at the end of the curation
-                is_valid_handshake=pl.lit(True)
+                is_valid_handshake=pl.lit(True),
+                partition=(
+                    pl.col("folder")
+                    .str.split("/")
+                    .list.get(0)
+                    .str.replace(")", "", literal=True)
+                    .str.replace("(", "-", literal=True)
+                    .str.to_lowercase()
+                ),
+                app=(
+                    pl.col("fname")
+                    .str.split("-")
+                    .list.get(0)
+                    .str.to_lowercase()
+                ),
             ).with_columns(
                 packets_upload=(
                     pl.col("pkts_size_times_dir").list.eval(
@@ -196,11 +294,9 @@ class CuratePipeline(BaseDatasetProcessingPipeline):
 
     def run(self, df: pl.DataFrame) -> Dict[str, pl.DataFrame]:
         import tcbench
-        schema = (
-            tcbench.datasets_catalog()
-            [self.dataset_name]
-            .get_schema(DATASET_TYPE.CURATE)
-            .to_polars()
+        schema = tcbench.get_dataset_polars_schema(
+            self.dataset_name,
+            DATASET_TYPE.CURATE
         )
 
         columns = list(schema.keys())
@@ -311,21 +407,32 @@ class UCDavis19(Dataset):
         self.df_script = None
         self.df_script_stats = None
 
-        self.df = self._parse_raw()
-        with richutils.SpinnerProgress(description="Writing parquet files"):
+        self.df = (
+            ParserRawTXT(self.folder_raw)
+            .run(*self._list_raw_txt_files)
+        )
+        with richutils.SpinnerProgress(description="Writing parquet files..."):
             fileutils.save_parquet(
                 self.df, 
                 self.folder_raw / f"{self.name}.parquet", 
                 echo=False
             )
         return self.df
-        self.df, self.df_stats = (
-            RawPostorocessingPipeline(
-                save_to=self.folder_raw
-            )
-            .run(df)
-        )
-        return self.df
+#        self.df = self._parse_raw()
+#        with richutils.SpinnerProgress(description="Writing parquet files"):
+#            fileutils.save_parquet(
+#                self.df, 
+#                self.folder_raw / f"{self.name}.parquet", 
+#                echo=False
+#            )
+#        return self.df
+#        self.df, self.df_stats = (
+#            RawPostorocessingPipeline(
+#                save_to=self.folder_raw
+#            )
+#            .run(df)
+#        )
+#        return self.df
   
     def _raw_postprocess(self) -> pl.DataFrame:
         self.load(DATASET_TYPE.RAW)

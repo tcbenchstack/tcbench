@@ -41,6 +41,14 @@ def _from_schema_to_yaml(schema:pl.schema.Schema) -> Dict[str, Any]:
         )
     return data
 
+def _remove_fields_from_schema(schema: pl.schema.Schema, *fields_to_remove: str) -> pl.schema.Schema:
+    data = OrderedDict()
+    for field_name, field_type in schema.items():
+        if field_name in fields_to_remove:
+            continue
+        data[field_name] = field_type
+    return pl.Schema(data)
+
 
 @dataclasses.dataclass
 class DatasetMetadata:
@@ -51,6 +59,7 @@ class DatasetMetadata:
     url_website: str = ""
     raw_data_url: str = ""
     raw_data_md5: dict = dataclasses.field(default_factory=dict)
+    raw_data_url_hidden: dict = dataclasses.field(default_factory=dict)
     raw_data_size: str = ""
     curated_data_url: str = ""
     curated_data_md5: str = ""
@@ -179,14 +188,14 @@ class RawDatasetInstaller:
         install_folder: pathlib.Path = None,
         verify_tls: bool = True,
         force_reinstall: bool = False,
-        extra_unpack: Iterable[pathlib.Path] = None
+        #extra_unpack: Iterable[pathlib.Path] = None
     ):
         self.url = url
         self.install_folder = install_folder
         self.verify_tls = verify_tls
         self.force_reinstall = force_reinstall
         self.download_path = None
-        self.extra_unpack = [] if extra_unpack is None else extra_unpack
+        #self.extra_unpack = [] if extra_unpack is None else extra_unpack
 
         if install_folder is None:
             self.install_folder = DATASETS_DEFAULT_INSTALL_ROOT_FOLDER
@@ -194,8 +203,7 @@ class RawDatasetInstaller:
         self.install()
 
     def install(self) -> Tuple[pathlib.Path]:
-        #self.download_path = self.download()
-        self.download_path = pathlib.Path(DATASETS_DEFAULT_INSTALL_ROOT_FOLDER / "mirage22" / "download")
+        self.download_path = self.download()
         return self.unpack(self.download_path)
 
     def download(self) -> pathlib.Path:

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import polars as pl
+
 import rich.console
 import rich.tree as richtree
 
@@ -8,6 +10,7 @@ from collections import UserDict
 from tcbench.libtcdatasets import (
     dataset_mirage,
     dataset_ucdavis,
+    dataset_utmobilenet,
 )
 from tcbench.libtcdatasets.core import Dataset
 
@@ -19,6 +22,7 @@ _DATASET_NAME_TO_CLASS = {
     DATASET_NAME.UCDAVIS19: dataset_ucdavis.UCDavis19,
     DATASET_NAME.MIRAGE19: dataset_mirage.Mirage19,
     DATASET_NAME.MIRAGE22: dataset_mirage.Mirage22,
+    DATASET_NAME.UTMOBILENET21: dataset_utmobilenet.UTMobilenet21
 }
 
 class DatasetsCatalog(UserDict):
@@ -57,3 +61,9 @@ def datasets_catalog() -> DatasetsCatalog:
 
 def get_dataset(name: DATASET_NAME) -> Dataset:
     return DatasetsCatalog()[name]
+
+def get_dataset_polars_schema(
+    dset_name: DATASET_NAME, 
+    dset_type: DATASET_TYPE
+) -> pl.schema.Schema:
+    return get_dataset(dset_name).get_schema(dset_type).to_polars()

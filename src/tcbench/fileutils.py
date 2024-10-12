@@ -108,12 +108,12 @@ def _download_via_requests(
     if not save_as.parent.exists():
         save_as.parent.mkdir(parents=True)
     with (
-        richutils.FileDownloadProgress(totalbytes=totalbytes) as progressbar,
+        richutils.FileDownloadProgress(totalbytes=totalbytes) as progress,
         open(str(save_as), "wb") as fout,
     ):
         for data in resp.iter_content(chunk_size=64 * 1024):
             size = fout.write(data)
-            progressbar.update(advance=size)
+            progress.update(advance=size)
     return save_as
 
 
