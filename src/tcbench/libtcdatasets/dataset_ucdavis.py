@@ -132,7 +132,7 @@ class RawPostorocessingPipeline(BaseDatasetProcessingPipeline):
             ),
             SequentialPipelineStage(
                 self._rename_columns,
-                "Rename flows",
+                "Rename columns",
             ),
             SequentialPipelineStage(
                 self._adjust_direction,

@@ -24,7 +24,7 @@ def add_is_private_ip_columns(
         pl.concat(
             (
                 df[src_ip_colname].unique().rename("ip_addr"),
-                df[src_ip_colname].unique().rename("ip_addr"),
+                df[dst_ip_colname].unique().rename("ip_addr"),
             )
         )
         .to_frame()
@@ -273,4 +273,78 @@ def expr_list_len_download(list_colname: str, list_idx_colname: str) -> pl.Expr:
         .list.gather(pl.col(list_idx_colname))
         .list.eval(pl.element() < 0)
         .list.len()
+    )
+
+def expr_is_dns_heuristic() -> pl.Expr:
+    return (
+        pl.when(pl.col("proto") == "tcp")
+        .then(pl.lit(False))
+        .otherwise(
+            pl.col("dst_port") == 53
+        )
+    )
+
+def add_flow_stats_by_direction(
+    df: pl.DataFrame, 
+    colname_pkts_size_times_dir: str = "pkts_size_times_dir",
+    colname_pkts_timestamp: str = "pkts_timestamp",
+    colname_pkts_dir: str = "pkts_dir",
+) -> pl.DataFrame:
+    def _compute_duration(data, direction=1):
+        indices = np.where(np.atleast_1d(data["pkts_dir"]) == direction)[0]
+        if len(indices) < 2:
+            return 0
+        first_idx, last_idx = indices[0], indices[-1]
+        arr = data["pkts_timestamp"]
+        return arr[last_idx] - arr[first_idx]
+
+    return df.with_columns(
+        packets_upload=(
+            pl.col(colname_pkts_size_times_dir).list.eval(
+                pl.element() > 0
+            ).list.sum()
+        ),
+        packets_download=(
+            pl.col(colname_pkts_size_times_dir).list.eval(
+                pl.element() < 0
+            ).list.sum()
+        ),
+        bytes_upload=(
+            pl.col(colname_pkts_size_times_dir).list.eval(
+                pl.when(pl.element() > 0)
+                .then(pl.element())
+                .otherwise(0)
+            ).list.sum()
+        ),
+        bytes_download=(
+            pl.col(colname_pkts_size_times_dir).list.eval(
+                pl.when(pl.element() < 0)
+                .then(-pl.element())
+                .otherwise(0)
+            ).list.sum()
+        ),
+        duration_upload=(
+            pl.struct(
+                colname_pkts_timestamp,
+                colname_pkts_dir,
+            ).map_elements(
+                function=functools.partial(
+                    _compute_duration, 
+                    direction=1
+                ),
+                return_dtype=pl.Float64
+            )
+        ),
+        duration_download=(
+            pl.struct(
+                colname_pkts_timestamp,
+                colname_pkts_dir,
+            ).map_elements(
+                function=functools.partial(
+                    _compute_duration, 
+                    direction=-1
+                ),
+                return_dtype=pl.Float64
+            )
+        )
     )
